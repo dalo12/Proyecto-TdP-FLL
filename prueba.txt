@@ -1,1 +1,2 @@
-Estoy probando git desde terminal de comandos
+Estoy probando git desde terminal de comandos.
+Línea añadida. Prueba 2.
