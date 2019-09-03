@@ -7,6 +7,7 @@ package General;
 
 public abstract class GameObject {
 	protected int posicion_x, posicion_y, tamano_x, tamano_y;
+	protected String textura;
 	
 	// MÉTODOS
 	/**
@@ -71,5 +72,21 @@ public abstract class GameObject {
 	 */
 	public void setTamano_y(int tamano_y) {
 		this.tamano_y = tamano_y;
+	}
+
+	/**
+	 * Devuelve la dirección en el disco de la textura del objeto
+	 * @return La dirección en el disco de la textura del objeto
+	 */
+	public String getTextura() {
+		return textura;
+	}
+
+	/**
+	 * Asigna una nueva dirección en el disco donde buscar la textura del objeto
+	 * @param textura La nueva dirección en el disco donde buscar la textura del objeto
+	 */
+	public void setTextura(String textura) {
+		this.textura = textura;
 	}
 }
