@@ -50,21 +50,24 @@ public abstract class Personaje extends GameObject {
 	}
 
 	/**
-	 * @param alcance_ataque the alcance_ataque to set
+	 * Asigna un nuevo alcance al ataque del personaje
+	 * @param alcance_ataque El nuevo alcance al ataque del personaje
 	 */
 	public void setAlcance_ataque(int alcance_ataque) {
 		this.alcance_ataque = alcance_ataque;
 	}
 
 	/**
-	 * @return the velocidad_ataque
+	 * Devuelve la velocidad de ataque del personaje
+	 * @return La velocidad de ataque del personaje
 	 */
 	public int getVelocidad_ataque() {
 		return velocidad_ataque;
 	}
 
 	/**
-	 * @param velocidad_ataque the velocidad_ataque to set
+	 * Asigna una nueva velocidad de ataque al personaje
+	 * @param velocidad_ataque La nueva velocidad de ataque del personaje
 	 */
 	public void setVelocidad_ataque(int velocidad_ataque) {
 		this.velocidad_ataque = velocidad_ataque;
