@@ -10,7 +10,7 @@ public abstract class Objeto extends GameObject {
 	/**
 	 * Se invoca cuando el objeto es atacado.
 	 */
-	public abstract void serAtacado();
+	public abstract void serAtacado(int ataque);
 	
 	/**
 	 * Devuelve verdadero si el objeto sigue vivo, falso en caso contrario

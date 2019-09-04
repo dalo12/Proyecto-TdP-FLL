@@ -8,7 +8,8 @@ package General;
 
 public abstract class Personaje extends GameObject {
 	protected int vida, fuerza_ataque, alcance_ataque, velocidad_ataque;
-
+	protected Thread reloj = new Thread();
+	
 	/**
 	 * Devuelve la cantidad de vida que aún tiene el personaje
 	 * @return La cantidad de vida que aún tiene el personaje
@@ -71,6 +72,24 @@ public abstract class Personaje extends GameObject {
 	 */
 	public void setVelocidad_ataque(int velocidad_ataque) {
 		this.velocidad_ataque = velocidad_ataque;
+	}
+	
+	/**
+	 * Ataca a un personaje
+	 * @param p Personaje a atacar
+	 */
+	public abstract void atacar(Personaje p);
+	
+	/**
+	 * Espera un determinado tiempo
+	 * @param valor Valor en segundos del tiempo a esperar
+	 */
+	protected void esperar(int valor) {
+		try {
+			reloj.sleep(1000 * valor);
+		}catch(InterruptedException ie) {
+			//No sé que hacer en este caso
+		}
 	}
 	
 }

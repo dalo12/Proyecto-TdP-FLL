@@ -6,7 +6,7 @@ package General;
  * @version 1.0
  */
 public abstract class Aliado extends Personaje {
-	protected static final int MAX_VIDA = 100;
+	private static final int MAX_VIDA = 100;
 	
 	protected int precio;
 
@@ -33,5 +33,4 @@ public abstract class Aliado extends Personaje {
 		}
 		return valor;
 	}
-	
 }

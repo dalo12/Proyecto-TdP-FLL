@@ -55,24 +55,19 @@ public abstract class Enemigo extends Personaje {
 	 * Hace que el enemigo avance en el mapa
 	 */
 	public void avanzar() {
-		//TODO Desarrollar
+		this.posicion_x += this.velocidad;
 	}
-	
-	/**
+
+
+	/** TODO Borrar
 	 * Ataca a un aliado (o sea, pesonaje del jugador)
 	 * @param a El aliado a atacar
 	 */
-	public abstract void atacar(Aliado a);
+	//public abstract void atacar(Aliado a);
 	
 	/**
 	 * Ataca a un objeto
 	 * @param o El objeto a atacar
 	 */
-	public abstract void atacar(Objeto o);
-	
-	
-	
-	
-	
-	
+	public abstract void atacar(Objeto o);	
 }
