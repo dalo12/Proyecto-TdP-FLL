@@ -34,29 +34,4 @@ public class Kangaroo extends Enemigo {
 		this.fuerza_ataque = 1;
 		this.puntaje = 25;
 	}
-	
-	/*
-	@Override
-	public void atacar(Aliado a) {
-		a.setVida(a.getVida() - fuerza_ataque);
-	}*/
-
-	@Override
-	public void atacar(Objeto o) {
-		o.serAtacado(fuerza_ataque);
-		esperar(velocidad_ataque);
-	}
-	
-	@Override
-	public void atacar(Personaje p) {
-		try {
-			Aliado a = (Aliado) p;
-			a.setVida(a.getVida() - fuerza_ataque);
-			esperar(velocidad_ataque);
-		}catch(ClassCastException c){
-			//Si el personaje enviado no es un aliado, no hago nada
-			//TODO No sé si es correcto hacer esto
-		}
-	}
-
 }

@@ -32,15 +32,4 @@ public class PistolSoldier extends Aliado {
 		this.velocidad_ataque = 1;
 		this.vida = MAX_VIDA;		
 	}
-	
-	public void atacar(Personaje p) {
-		try {
-			Enemigo e = (Enemigo) p;
-			e.setVida(e.getVida() - fuerza_ataque);
-			esperar(velocidad_ataque);
-		}catch(ClassCastException c){
-			//Si el personaje enviado no es un aliado, no hago nada
-			//TODO No sé si es correcto hacer esto
-		}
-	}
 }

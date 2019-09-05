@@ -26,11 +26,25 @@ public abstract class Aliado extends Personaje {
 		this.precio = precio;
 	}
 	
+	/**
+	 * Se invoca al vender al aliado. En caso de que el aliado tenga toda su vida, al venderlo devuelve 
+	 * todo su precio en monedas. En caso contrario, devuelve solamente la mitad de su precio.
+	 * @return La cantidad de monedas correspondiente
+	 */
 	public int vender() {
 		int valor = precio;
 		if(vida < MAX_VIDA) {
 			valor = valor / 2;
 		}
 		return valor;
+	}
+	
+	/**
+	 * Ataca a un enemigo
+	 * @param a El enemigo a atacar
+	 */
+	public void atacar(Enemigo o) {
+		o.setVida(o.getVida() - fuerza_ataque);
+		esperar(velocidad_ataque);
 	}
 }

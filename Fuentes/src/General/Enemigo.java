@@ -59,15 +59,21 @@ public abstract class Enemigo extends Personaje {
 	}
 
 
-	/** TODO Borrar
+	/**
 	 * Ataca a un aliado (o sea, pesonaje del jugador)
 	 * @param a El aliado a atacar
 	 */
-	//public abstract void atacar(Aliado a);
+	public void atacar(Aliado o) {
+		o.setVida(o.getVida() - fuerza_ataque);
+		esperar(velocidad_ataque);
+	}
 	
 	/**
 	 * Ataca a un objeto
 	 * @param o El objeto a atacar
 	 */
-	public abstract void atacar(Objeto o);	
+	public void atacar(Objeto o) {
+		o.serAtacado(fuerza_ataque);
+		esperar(velocidad_ataque);
+	}	
 }

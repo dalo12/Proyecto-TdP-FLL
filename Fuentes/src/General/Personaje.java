@@ -75,10 +75,10 @@ public abstract class Personaje extends GameObject {
 	}
 	
 	/**
-	 * Ataca a un personaje
-	 * @param p Personaje a atacar
+	 * Ataca a un objeto del mapa
+	 * @param p El objeto a atacar
 	 */
-	public abstract void atacar(Personaje p);
+	public void atacar(GameObject o) {}
 	
 	/**
 	 * Espera un determinado tiempo
