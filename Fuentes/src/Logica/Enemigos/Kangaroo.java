@@ -23,15 +23,15 @@ public class Kangaroo extends Enemigo {
 		this.posicion_y = y;
 		this.tamano_x = 1;
 		this.tamano_y = 1;
-		this.textura = "kangaroo-1.gif";
+		this.textura = "/Img/kangaroo-1.gif";
 		
 		//atributos lógicos
-		this.tope_monedas = 10;
+		this.tope_monedas = 15;
 		this.velocidad = 25;
-		this.velocidad_ataque = 5;
-		this.vida = 50;		
+		this.velocidad_ataque = 3;
+		this.vida = 100;		
 		this.alcance_ataque = 1;
-		this.fuerza_ataque = 1;
+		this.fuerza_ataque = 7;
 		this.puntaje = 25;
 	}
 }
