@@ -1,9 +1,9 @@
-package Mapa;
+package Logica.Mapa;
 
 import java.util.LinkedList;
 import java.util.List;
 
-import General.GameObject;
+import Logica.General.GameObject;
 
 /**
  * 

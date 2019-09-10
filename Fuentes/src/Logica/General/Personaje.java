@@ -1,4 +1,4 @@
-package General;
+package Logica.General;
 
 /**
  * Modela los personajes del juego: aliados y enemigos.

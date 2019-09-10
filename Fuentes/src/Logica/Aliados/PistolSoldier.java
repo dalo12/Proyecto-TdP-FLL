@@ -1,8 +1,8 @@
-package Aliados;
+package Logica.Aliados;
 
-import General.Aliado;
-import General.Personaje;
-import General.Enemigo;
+import Logica.General.Aliado;
+import Logica.General.Enemigo;
+import Logica.General.Personaje;
 
 /**
  * Modela al aliado Pistol soldier.

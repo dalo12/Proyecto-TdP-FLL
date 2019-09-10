@@ -1,4 +1,4 @@
-package General;
+package Logica.General;
 
 /**
  * Modela todos los objetos (con vida, con tiempo y de mapa) del juego.

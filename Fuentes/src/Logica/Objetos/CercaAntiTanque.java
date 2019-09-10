@@ -1,4 +1,4 @@
-package Objetos;
+package Logica.Objetos;
 
 /**
  * Modela a la cerca antitanque.

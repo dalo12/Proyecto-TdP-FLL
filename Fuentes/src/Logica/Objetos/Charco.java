@@ -1,4 +1,4 @@
-package Objetos;
+package Logica.Objetos;
 
 /**
  * Modela al charco (objeto de mapa).

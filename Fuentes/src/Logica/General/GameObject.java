@@ -1,4 +1,4 @@
-package General;
+package Logica.General;
 /**
  * Modela todos los objetos del juego: premios, personajes y objetos.
  * @author Comisión 25 (FERNÁNDEZ, LATOUQUETTE, LÓPEZ)

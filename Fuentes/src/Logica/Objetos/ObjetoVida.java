@@ -1,6 +1,6 @@
-package Objetos;
+package Logica.Objetos;
 
-import General.Objeto;
+import Logica.General.Objeto;
 
 /**
  * Modela a los objetos con vida.

@@ -1,6 +1,6 @@
-package Mapa;
+package Logica.Mapa;
 
-import General.GameObject;
+import Logica.General.GameObject;
 
 public class Celda {
 	//Atributos de instancia

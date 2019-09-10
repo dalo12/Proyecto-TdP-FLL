@@ -1,9 +1,9 @@
-package Enemigos;
+package Logica.Enemigos;
 
-import General.Aliado;
-import General.Enemigo;
-import General.Objeto;
-import General.Personaje;
+import Logica.General.Aliado;
+import Logica.General.Enemigo;
+import Logica.General.Objeto;
+import Logica.General.Personaje;
 
 /**
  * Modela el enemigo Kangaroo
