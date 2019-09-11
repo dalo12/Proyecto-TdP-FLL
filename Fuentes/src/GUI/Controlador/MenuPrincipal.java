@@ -57,9 +57,9 @@ public class MenuPrincipal {
 		JPanel panel = new JPanel();
 		panel.setBorder(new EtchedBorder(EtchedBorder.RAISED, Color.BLACK, Color.DARK_GRAY));
 		frame.getContentPane().add(panel, "cell 0 0,grow");
-		panel.setLayout(new MigLayout("", "[90px:90px:90px,fill][90px:90px:90px,fill][90px:90px:90px,fill][90px:90px:90px,fill][90px:90px:90px,fill][][][][][2px,center][grow,fill][grow,fill]", "[60px:60.00px:60px,fill]"));
+		panel.setLayout(new MigLayout("", "[75px:75px:75px,fill][90px:90px:90px,fill][90px:90px:90px,fill][90px:90px:90px,fill][90px:90px:90px,fill][][][][][2px,center][grow,fill][grow,fill]", "[60px:60.00px:60px,fill]"));
 		
-		BotonTienda btnCharacter1 = new BotonTienda();
+		BotonTienda btnCharacter1 = new BotonTienda("$10", "../Textura/pistol-soldier-1.gif");
 		panel.add(btnCharacter1, "cell 0 0,grow");
 		
 		JButton btnNewButton = new JButton("New button");
