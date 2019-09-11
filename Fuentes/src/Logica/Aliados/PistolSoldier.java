@@ -10,7 +10,7 @@ import Logica.General.Personaje;
  * @version 1.0
  */
 public class PistolSoldier extends Aliado {
-	protected static final int MAX_VIDA = 100;
+	protected static final int MAX_VIDA = 90;
 	
 	/**
 	 * Constructor
@@ -23,13 +23,13 @@ public class PistolSoldier extends Aliado {
 		this.tamano_y = 1;
 		this.posicion_x = x;
 		this.posicion_y = y;
-		this.textura = "pistol-soldier-1.gif";
+		this.textura = "/Img/pistol-soldier-1.png";
 				
 		//atributos lógicos
-		this.alcance_ataque = 2;
-		this.fuerza_ataque = 10;
-		this.precio = 25;
-		this.velocidad_ataque = 1;
+		this.alcance_ataque = 4;
+		this.fuerza_ataque = 30;
+		this.precio = 75;
+		this.velocidad_ataque = 3;
 		this.vida = MAX_VIDA;		
 	}
 }
