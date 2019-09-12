@@ -8,12 +8,17 @@ import javax.swing.JPanel;
 
 @SuppressWarnings("serial")
 public class PanelMapa extends JPanel {
-	public PanelMapa() {
+	private String urlFondo;
+	private Image background;
+	
+	/**
+	 * Constructor de PanelMapa
+	 * @param urlFondo
+	 */
+	public PanelMapa(String urlFondo) {
+		this.urlFondo = urlFondo;
 	}
 
-	// Atributo que guardara la imagen de Background que le pasemos.
-	private Image background;
-	 
 	// Metodo que es llamado automaticamente por la maquina virtual Java cada vez que repinta
 	public void paintComponent(Graphics g) {
 		/* Obtenemos el tama�o del panel para hacer que se ajuste a este
@@ -36,8 +41,7 @@ public class PanelMapa extends JPanel {
 	public void setBackground() {
 		// Construimos la imagen y se la asignamos al atributo background.
 		this.setOpaque(false);
-		String imagePath = "..\\Texturas\\Background\\Nieve.png";
-		this.background = new ImageIcon(imagePath).getImage();
+		this.background = new ImageIcon(urlFondo).getImage();
 		repaint();
 	}
 }
