@@ -6,7 +6,7 @@ package Logica.General;
  * @version 1.0
  */
 public abstract class Disparo extends GameObject {
-	protected int dano, velocidad;
+	protected int dano, velocidad, alcance, posicion_x_original;
 	protected String textura;
 	
 	/**
