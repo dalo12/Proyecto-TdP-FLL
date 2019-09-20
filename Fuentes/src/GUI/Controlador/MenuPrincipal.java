@@ -21,6 +21,7 @@ import GUI.Mapa.PanelMapa;
 import Logica.Aliados.PistolSoldier;
 import Logica.Enemigos.Kangaroo;
 import Logica.General.GameObject;
+import Logica.General.Juego;
 import Logica.Mapa.Mapa;
 
 import java.awt.Insets;
@@ -36,6 +37,8 @@ public class MenuPrincipal {
 	
 	//Atributos de instancia
 	private Mapa mapa;
+	private Juego juego;
+	private static ContadorTiempo contador;
 	private static final String urlImg1 = "..\\Texturas\\Personajes\\pistol-soldier\\pistol-soldier1.png";
 	private static final String urlImg2 = "..\\Texturas\\Personajes\\pistol-soldier\\pistol-soldier2.png";
 	private static final String urlImg3 = "..\\Texturas\\Personajes\\kangaroo\\kangaroo1.png";
@@ -62,6 +65,8 @@ public class MenuPrincipal {
 	public MenuPrincipal() {
 		initialize();
 		crearMapa();
+		juego = new Juego();
+		contador = new ContadorTiempo(juego);
 	}
 
 	/**
