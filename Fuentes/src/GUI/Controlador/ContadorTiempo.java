@@ -1,7 +1,9 @@
 package GUI.Controlador;
 
+import Logica.General.Juego;
+
 public class ContadorTiempo extends Thread {
-/*
+
 	private Juego elJuego;
 
 	ContadorTiempo(Juego j) {
@@ -18,5 +20,5 @@ public class ContadorTiempo extends Thread {
 			elJuego.mover();
 		}
 	}
-*/
+
 }
