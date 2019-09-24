@@ -2,10 +2,10 @@ package Logica.General;
 
 public abstract class Visitor {
 
-	public abstract void visitEnemigo();
+	public abstract void visitEnemigo(Enemigo e);
 	
-	public abstract void visitPersonaje();
+	public abstract void visitAliado(Aliado a);
 	
-	public abstract void visitObjeto();
+	public abstract void visitObjeto(Objeto o);
 	
 }

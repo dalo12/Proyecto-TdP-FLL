@@ -17,4 +17,9 @@ public abstract class Objeto extends Entidad {
 	 * @return Verdadero si el objeto sigue vivo, falso en caso contrario
 	 */
 	public abstract boolean sigoVivo();
+	
+	public void accept(ConcreteVisitor v) {
+		v.visitObjeto(this);
+	}
+	
 }

@@ -90,4 +90,8 @@ public abstract class Enemigo extends Personaje {
 		avanzar();
 		//atacar();
 	}
+	
+	public void accept(ConcreteVisitor v) {
+		v.visitEnemigo(this);
+	}
 }

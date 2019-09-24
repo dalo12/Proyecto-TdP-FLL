@@ -56,4 +56,8 @@ public abstract class Aliado extends Personaje {
 	public void actuar() {
 		//atacar();
 	}
+	
+	public void accept(ConcreteVisitor v) {
+		v.visitAliado(this);
+	}
 }
