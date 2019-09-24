@@ -15661,7 +15661,7 @@
 											"top": 392,
 											"width": 134,
 											"height": 13,
-											"text": "+accionar()",
+											"text": "+accept(v: visitor)",
 											"horizontalAlignment": 0
 										}
 									],
@@ -19601,7 +19601,18 @@
 							"_parent": {
 								"$ref": "AAAAAAFtZOn4/Xo0Xzo="
 							},
-							"name": "accionar"
+							"name": "accept",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAFtZRpyHJWEbzY=",
+									"_parent": {
+										"$ref": "AAAAAAFtZOvv/IWqAa4="
+									},
+									"name": "v",
+									"type": "visitor"
+								}
+							]
 						}
 					],
 					"isAbstract": true
