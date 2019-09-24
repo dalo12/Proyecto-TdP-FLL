@@ -1,6 +1,6 @@
 package Logica.General;
 
-public class VisitorAccion extends Visitor {
+public class ConcreteVisitor extends Visitor {
 
 	@Override
 	public void visitEnemigo() {
