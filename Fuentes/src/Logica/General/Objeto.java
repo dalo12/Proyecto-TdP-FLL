@@ -5,7 +5,7 @@ package Logica.General;
  * @author Comisión 25 (FERNÁNDEZ, LATOUQUETTE, LÓPEZ)
  * @version 1.0
  */
-public abstract class Objeto extends GameObject {
+public abstract class Objeto extends Entidad {
 	
 	/**
 	 * Se invoca cuando el objeto es atacado.

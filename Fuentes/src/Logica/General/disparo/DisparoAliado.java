@@ -1,4 +1,7 @@
-package Logica.General;
+package Logica.General.disparo;
+
+import Logica.General.Enemigo;
+
 /**
  * Modela los disparos a realizarse por los aliados.
  * @author Comisión 25 (FERNÁNDEZ, LATOUQUETTE, LÓPEZ)

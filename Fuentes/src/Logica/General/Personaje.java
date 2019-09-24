@@ -6,7 +6,7 @@ package Logica.General;
  * @version 1.0
  */
 
-public abstract class Personaje extends GameObject {
+public abstract class Personaje extends Entidad {
 	protected int vida, fuerza_ataque, alcance_ataque, velocidad_ataque;
 	protected int esperar_atacar;
 	//protected Thread reloj = new Thread();

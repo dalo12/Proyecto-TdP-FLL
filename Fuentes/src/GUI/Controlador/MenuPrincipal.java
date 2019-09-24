@@ -21,8 +21,6 @@ import GUI.Mapa.PanelMapa;
 import Logica.Aliados.PistolSoldier;
 import Logica.Enemigos.Kangaroo;
 import Logica.General.GameObject;
-import Logica.Mapa.CeldaAliado;
-import Logica.Mapa.CeldaEnemigo;
 import Logica.Mapa.Mapa;
 
 import java.awt.Insets;
@@ -136,10 +134,13 @@ public class MenuPrincipal {
 		GameObject go1, go2;
 		go1 = new PistolSoldier(0,0);
 		go2 = new Kangaroo(640,0);
-		mapa.getMapa()[0][0] = new CeldaAliado(0,0);
-		mapa.getMapa()[0][9] = new CeldaEnemigo(0,9);
-		(mapa.getMapa()[0][0]).ocupar(go1); //Personaje
-		(mapa.getMapa()[0][9]).ocupar(go2); //Enemigo
+		/**
+		 * mapa.getMapa()[0][0] = new CeldaAliado(0,0);
+		 * mapa.getMapa()[0][9] = new CeldaEnemigo(0,9);
+		 * (mapa.getMapa()[0][0]).ocupar(go1); //Personaje
+		 * (mapa.getMapa()[0][9]).ocupar(go2); //Enemigo
+		 */
+		
 		frame.getContentPane().setLayout(new GridLayout(0, 1, 0, 0));
 		
 		JPanel panelMapa = new PanelMapa(mapa.getTextura());

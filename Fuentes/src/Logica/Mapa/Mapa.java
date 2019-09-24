@@ -3,7 +3,8 @@ package Logica.Mapa;
 import java.util.LinkedList;
 import java.util.List;
 
-import Logica.General.GameObject;
+import GUI.Mapa.LabelExtendido;
+import Logica.General.Entidad;
 
 /**
  * Clase Mapa
@@ -12,7 +13,7 @@ import Logica.General.GameObject;
  */
 public class Mapa {
 	//Atributos de instancia
-	protected Celda[][] matriz;
+	protected LabelExtendido[][] matriz;
 	protected int width, height;
 	protected String textura;
 	
@@ -23,7 +24,7 @@ public class Mapa {
 	 * @param height Altura del mapa.
 	 */
 	public Mapa(String textura, int width, int height) {
-		this.matriz = new Celda[width][height];
+		this.matriz = new LabelExtendido[width][height];
 		this.height = height;
 		this.width = width;
 		this.textura = textura;
@@ -37,16 +38,16 @@ public class Mapa {
 
 	//GETTERS
 	/**
-	 * Devuelve una lista de GameObject que aparecen en el mapa.
+	 * Devuelve una lista de entidades que aparecen en el mapa.
 	 * @return Lista de GameObject.
 	 */
-	public List<GameObject> recorrerGrilla(){
-		List<GameObject> toReturn = new LinkedList<GameObject>();
+	public List<Entidad> recorrerGrilla(){
+		List<Entidad> toReturn = new LinkedList<Entidad>();
 		
 		for (int i=0; i<width; i++) {
 			for (int j=0; j<height; j++) {
-				if (matriz[i][j].estaOcupado()) {
-					toReturn.add(matriz[i][j].getObjeto());
+				if (matriz[i][j]==null) {
+					toReturn.add(matriz[i][j].getEntidad());
 				}
 			}
 		}
@@ -55,10 +56,10 @@ public class Mapa {
 	}
 
 	/**
-	 * Devuelve el conjunto de celdas que conforma el mapa
-	 * @return Devuelve un arreglo de celdas.
+	 * Devuelve el conjunto de LabelExtendidos que conforma el mapa
+	 * @return Devuelve un arreglo de LabelExtendidos.
 	 */
-	public Celda[][] getMapa(){
+	public LabelExtendido[][] getMapa(){
 		return matriz;
 	}
 
