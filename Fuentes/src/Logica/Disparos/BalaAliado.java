@@ -1,6 +1,6 @@
 package Logica.Disparos;
 
-import Logica.General.DisparoAliado;
+import Logica.General.disparo.DisparoAliado;
 
 public class BalaAliado extends DisparoAliado {
 	

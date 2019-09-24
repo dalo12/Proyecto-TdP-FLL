@@ -1,7 +1,10 @@
 /**
  * 
  */
-package Logica.General;
+package Logica.General.disparo;
+
+import Logica.General.Aliado;
+import Logica.General.Objeto;
 
 /**
  * Modela los disparos a realizarse por los enemigos.

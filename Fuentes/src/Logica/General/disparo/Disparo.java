@@ -1,4 +1,6 @@
-package Logica.General;
+package Logica.General.disparo;
+
+import Logica.General.GameObject;
 
 /**
  * Modela todos los disparos a realizarse en el juego.
