@@ -30,7 +30,7 @@ public class Mapa {
 		
 		for (int i=0; i<width; i++) {
 			for (int j=0; j<height; j++) {
-				matriz[i][j] = new Celda(i, j);
+				matriz[i][j] = null;
 			}
 		}
 	}
@@ -46,7 +46,7 @@ public class Mapa {
 		for (int i=0; i<width; i++) {
 			for (int j=0; j<height; j++) {
 				if (matriz[i][j].estaOcupado()) {
-					toReturn.add(matriz[i][j].getGameObject());
+					toReturn.add(matriz[i][j].getObjeto());
 				}
 			}
 		}

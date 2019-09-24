@@ -21,6 +21,8 @@ import GUI.Mapa.PanelMapa;
 import Logica.Aliados.PistolSoldier;
 import Logica.Enemigos.Kangaroo;
 import Logica.General.GameObject;
+import Logica.Mapa.CeldaAliado;
+import Logica.Mapa.CeldaEnemigo;
 import Logica.Mapa.Mapa;
 
 import java.awt.Insets;
@@ -36,9 +38,9 @@ public class MenuPrincipal {
 	
 	//Atributos de instancia
 	private Mapa mapa;
-	private static final String urlImg1 = "..\\Texturas\\Personajes\\pistol-soldier\\pistol-soldier1.png";
-	private static final String urlImg2 = "..\\Texturas\\Personajes\\pistol-soldier\\pistol-soldier2.png";
-	private static final String urlImg3 = "..\\Texturas\\Personajes\\kangaroo\\kangaroo1.png";
+	private static final String urlImg1 = "../Texturas/Personajes/pistol-soldier/pistol-soldier1.png";
+	private static final String urlImg2 = "../Texturas/Personajes/pistol-soldier/pistol-soldier2.png";
+	private static final String urlImg3 = "../Texturas/Personajes/kangaroo/kangaroo1.png";
 
 	/**
 	 * Launch the application.
@@ -70,7 +72,7 @@ public class MenuPrincipal {
 	private void initialize() {
 		frame = new JFrame();
 		frame.setResizable(false);
-		frame.setBounds(100, 100, 710, 422);
+		frame.setBounds(100, 100, 800, 422);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JMenuBar menuBar = new JMenuBar();
@@ -130,10 +132,12 @@ public class MenuPrincipal {
 	 * Crea el mapa con dos gameobject (sin acción)
 	 */
 	private void crearMapa() {
-		mapa = new Mapa("..\\Texturas\\Background\\grilla-modif.png", 6, 10);
+		mapa = new Mapa("../Texturas/Background/grilla-modif.png", 6, 10);
 		GameObject go1, go2;
 		go1 = new PistolSoldier(0,0);
 		go2 = new Kangaroo(640,0);
+		mapa.getMapa()[0][0] = new CeldaAliado(0,0);
+		mapa.getMapa()[0][9] = new CeldaEnemigo(0,9);
 		(mapa.getMapa()[0][0]).ocupar(go1); //Personaje
 		(mapa.getMapa()[0][9]).ocupar(go2); //Enemigo
 		frame.getContentPane().setLayout(new GridLayout(0, 1, 0, 0));
