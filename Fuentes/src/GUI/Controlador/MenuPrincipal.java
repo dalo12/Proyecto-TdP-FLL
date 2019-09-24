@@ -47,16 +47,12 @@ public class MenuPrincipal {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
+		
 					MenuPrincipal window = new MenuPrincipal();
 					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+					contador.run();
+				
+		;
 	}
 
 	/**
