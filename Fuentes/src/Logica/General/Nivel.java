@@ -22,8 +22,8 @@ public class Nivel {
 	
 	/**
 	 * Crea una oleada con enemigos generados totalmente al azar, con una dificultad pasada por parámetro
-	 * @param dificultad Dificultad de los enemigos, entre 
-	 * @return
+	 * @param dificultad Dificultad de los enemigos, entre 0..5 
+	 * @return Lista de enemigos (oleada)
 	 */
 	public List<Enemigo> getOleada(int dificultad){
 		List<Enemigo> lista = new LinkedList<Enemigo>();
@@ -41,8 +41,6 @@ public class Nivel {
 		coordenadas_y[4] = 500;
 		coordenadas_y[5] = 600;
 		
-		
-		
 		/*
 		 * Generamos los enemigos totalmente al azar
 		 */
@@ -54,21 +52,27 @@ public class Nivel {
 			switch(dif) {
 				case 0:{
 					lista.add(new Kangaroo(coordenada_x+distancia, coordenadas_y[j]));
+					break;
 				}
 				case 1:{
 					lista.add(new BoxKangaroo(coordenada_x+distancia, coordenadas_y[j]));
+					break;
 				}
 				case 2:{
 					lista.add(new KnifeKangaroo(coordenada_x+distancia, coordenadas_y[j]));
+					break;
 				}
 				case 3:{
 					lista.add(new PistolKangaroo(coordenada_x+distancia, coordenadas_y[j]));
+					break;
 				}
 				case 4:{
 					lista.add(new FlamethrowerKangaroo(coordenada_x+distancia, coordenadas_y[j]));
+					break;
 				}
-				case 5:{
+				default:{
 					lista.add(new TankGaroo(coordenada_x+distancia, coordenadas_y[j]));
+					break;
 				}
 			}
 			
@@ -90,15 +94,17 @@ public class Nivel {
 					case 0:{
 						Premio p = new Mate();
 						p.aplicarEfecto(lista.get(lista.size() - 1));
+						break;
 					}
 					case 1:{
 						Premio p = new SanLugano();
 						p.aplicarEfecto(lista.get(lista.size() - 1));
-						
+						break;						
 					}
 					case 2:{
 						Premio p = new GarraCharrua();
 						p.aplicarEfecto(lista.get(lista.size() - 1));
+						break;
 					}					
 				}
 			}
