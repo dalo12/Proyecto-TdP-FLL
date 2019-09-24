@@ -25,6 +25,8 @@ import Logica.General.Juego;
 import Logica.Mapa.Mapa;
 
 import java.awt.Insets;
+import java.util.LinkedList;
+import java.util.List;
 import java.awt.GridLayout;
 
 public class MenuPrincipal {
@@ -34,10 +36,12 @@ public class MenuPrincipal {
 	private JMenuItem itemCharacter1; //Items de Personajes
 	private static final Border bordeBarra = new MatteBorder(0, 1, 0, 1, (Color) new Color(0,0,0));
 	private static final Border bordeSinLeft = new MatteBorder(0, 0, 0, 1, (Color) new Color(0,0,0));
+	private List<JLabel> lista;
 	
 	//Atributos de instancia
 	private Mapa mapa;
 	private static ContadorTiempo contador;
+	private static Juego elJuego;
 	private static final String urlImg1 = "../Texturas/Personajes/pistol-soldier/pistol-soldier1.png";
 	private static final String urlImg2 = "../Texturas/Personajes/pistol-soldier/pistol-soldier2.png";
 	private static final String urlImg3 = "../Texturas/Personajes/kangaroo/kangaroo1.png";
@@ -46,27 +50,29 @@ public class MenuPrincipal {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
+//		EventQueue.invokeLater(new Runnable() {
+//			public void run() {
+//				try {
 					MenuPrincipal window = new MenuPrincipal();
 					window.frame.setVisible(true);
-				//	contador.run();
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+					contador.run();
+//				} catch (Exception e) {
+//					e.printStackTrace();
+//				}
+//			}
+//		});
 	}
 
 	/**
 	 * Create the application.
 	 */
 	public MenuPrincipal() {
+		lista = new LinkedList<JLabel>();
+		GameObject e = new Kangaroo(640, 0);
+		elJuego = new Juego(e);
 		initialize();
 		crearMapa();
-		Juego j = new Juego();
-		contador = new ContadorTiempo(j);
+		contador = new ContadorTiempo(elJuego, this);
 	}
 
 	/**
@@ -137,7 +143,7 @@ public class MenuPrincipal {
 	private void crearMapa() {
 		mapa = new Mapa("../Texturas/Background/grilla-modif.png", 6, 10);
 		GameObject go1, go2;
-		go1 = new PistolSoldier(0,0);
+		go1 = new PistolSoldier(100,0);
 		go2 = new Kangaroo(640,0);
 		/**
 		 * mapa.getMapa()[0][0] = new CeldaAliado(0,0);
@@ -163,5 +169,12 @@ public class MenuPrincipal {
 		lblEnemigo.setBounds(go2.getPosicion_x(), go2.getPosicion_y(), 70, 58);
 		panelMapa.add(lblEnemigo);
 		lblEnemigo.setIcon(new ImageIcon(urlImg3));
+		lista.add(lblEnemigo);
 	}
+	
+	public void actualizar() {
+		GameObject object = elJuego.getEnemigo();
+		lista.get(0).setBounds(object.getPosicion_x(), object.getPosicion_y(), 70, 58);
+	}
+	
 }

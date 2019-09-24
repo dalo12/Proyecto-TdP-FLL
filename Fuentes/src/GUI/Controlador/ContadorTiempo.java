@@ -5,9 +5,11 @@ import Logica.General.Juego;
 public class ContadorTiempo extends Thread {
 
 	private Juego elJuego;
+	private MenuPrincipal menu;
 
-	ContadorTiempo(Juego j) {
+	ContadorTiempo(Juego j, MenuPrincipal m) {
 		this.elJuego = j;
+		this.menu = m;
 	}
 
 	public void run() {
@@ -17,7 +19,8 @@ public class ContadorTiempo extends Thread {
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-			elJuego.mover();
+			elJuego.moverenemigo();
+			menu.actualizar();
 		}
 	}
 
