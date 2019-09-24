@@ -1,4 +1,4 @@
-package Logica.General.disparo;
+package Logica.General.Disparo;
 
 import Logica.General.GameObject;
 
