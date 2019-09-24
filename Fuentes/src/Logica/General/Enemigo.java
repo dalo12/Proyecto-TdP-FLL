@@ -4,7 +4,7 @@ import java.util.Random;
 
 /**
  * Modela todos los enemigos del juego.
- * @author Comisión 25 (FERNÁNDEZ, LATOUQUETTE, LÓPEZ)
+ * @author Comisión 25 (FERRANTE, LATOUQUETTE, LÓPEZ)
  * @version 1.0
  */
 public abstract class Enemigo extends Personaje {
