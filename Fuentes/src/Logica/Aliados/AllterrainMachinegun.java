@@ -1,8 +1,7 @@
 package Logica.Aliados;
 
 import Logica.General.Aliado;
-import Logica.General.Enemigo;
-import Logica.General.Personaje;
+import Logica.General.Visitor;
 
 /**
  * Modela al aliado Pistol soldier.
@@ -31,5 +30,11 @@ public class AllterrainMachinegun extends Aliado {
 		this.precio = 225;
 		this.velocidad_ataque = 1;
 		this.vida = MAX_VIDA;		
+	}
+
+	@Override
+	public void accept(Visitor v) {
+		// TODO Auto-generated method stub
+		
 	}
 }

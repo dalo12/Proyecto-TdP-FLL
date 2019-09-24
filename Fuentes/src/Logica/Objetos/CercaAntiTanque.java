@@ -1,5 +1,7 @@
 package Logica.Objetos;
 
+import Logica.General.Visitor;
+
 /**
  * Modela a la cerca antitanque.
  * @author Comisión 25 (FERNÁNDEZ, LATOUQUETTE, LÓPEZ)
@@ -31,6 +33,12 @@ public class CercaAntiTanque extends ObjetoVida {
 	@Override
 	public boolean sigoVivo() {
 		return vida > 0;
+	}
+
+	@Override
+	public void accept(Visitor v) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

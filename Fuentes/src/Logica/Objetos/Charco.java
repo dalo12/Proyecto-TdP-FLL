@@ -1,5 +1,7 @@
 package Logica.Objetos;
 
+import Logica.General.Visitor;
+
 /**
  * Modela al charco (objeto de mapa).
  * @author Comisión 25 (FERNÁNDEZ, LATOUQUETTE, LÓPEZ)
@@ -27,6 +29,12 @@ public class Charco extends ObjetoTemporal {
 	@Override
 	public boolean sigoVivo() {
 		return tiempo > 0;
+	}
+
+	@Override
+	public void accept(Visitor v) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

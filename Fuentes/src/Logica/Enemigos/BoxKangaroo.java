@@ -1,9 +1,7 @@
 package Logica.Enemigos;
 
-import Logica.General.Aliado;
 import Logica.General.Enemigo;
-import Logica.General.Objeto;
-import Logica.General.Personaje;
+import Logica.General.Visitor;
 
 /**
  * Modela el enemigo Kangaroo
@@ -33,5 +31,11 @@ public class BoxKangaroo extends Enemigo {
 		this.alcance_ataque = 1;
 		this.fuerza_ataque = 15;
 		this.puntaje = 25;
+	}
+
+	@Override
+	public void accept(Visitor v) {
+		// TODO Auto-generated method stub
+		
 	}
 }
