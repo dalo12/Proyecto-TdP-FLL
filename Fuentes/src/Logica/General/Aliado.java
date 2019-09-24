@@ -44,7 +44,16 @@ public abstract class Aliado extends Personaje {
 	 * @param a El enemigo a atacar
 	 */
 	public void atacar(Enemigo o) {
-		o.setVida(o.getVida() - fuerza_ataque);
-		esperar(velocidad_ataque);
+		if(this.esperar_atacar == 0) {
+			o.setVida(o.getVida() - fuerza_ataque);
+			esperar_atacar = 500 * velocidad_ataque;
+		}else {
+			esperar_atacar--;
+		}
+	}
+	
+	@Override
+	public void actuar() {
+		//atacar();
 	}
 }

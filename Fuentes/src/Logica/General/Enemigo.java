@@ -64,8 +64,12 @@ public abstract class Enemigo extends Personaje {
 	 * @param a El aliado a atacar
 	 */
 	public void atacar(Aliado o) {
-		o.setVida(o.getVida() - fuerza_ataque);
-		esperar(velocidad_ataque);
+		if(this.esperar_atacar == 0) {
+			o.setVida(o.getVida() - fuerza_ataque);
+			esperar_atacar = 500 * velocidad_ataque;
+		}else {
+			esperar_atacar--;
+		}
 	}
 	
 	/**
@@ -73,7 +77,17 @@ public abstract class Enemigo extends Personaje {
 	 * @param o El objeto a atacar
 	 */
 	public void atacar(Objeto o) {
-		o.serAtacado(fuerza_ataque);
-		esperar(velocidad_ataque);
-	}	
+		if(this.esperar_atacar == 0) {
+			o.serAtacado(fuerza_ataque);
+			esperar_atacar = 500 * velocidad_ataque;
+		}else {
+			esperar_atacar--;
+		}
+	}
+	
+	@Override
+	public void actuar() {
+		avanzar();
+		//atacar();
+	}
 }

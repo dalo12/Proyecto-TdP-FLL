@@ -8,7 +8,8 @@ package Logica.General;
 
 public abstract class Personaje extends GameObject {
 	protected int vida, fuerza_ataque, alcance_ataque, velocidad_ataque;
-	protected Thread reloj = new Thread();
+	protected int esperar_atacar;
+	//protected Thread reloj = new Thread();
 	
 	/**
 	 * Devuelve la cantidad de vida que aún tiene el personaje
@@ -81,9 +82,15 @@ public abstract class Personaje extends GameObject {
 	public void atacar(GameObject o) {}
 	
 	/**
+	 * Se invoca para que el personaje actúe (avanza o ataque)
+	 */
+	public abstract void actuar();
+	
+	/*
+	/**
 	 * Espera un determinado tiempo
 	 * @param valor Valor en segundos del tiempo a esperar
-	 */
+	 *//*
 	protected void esperar(int valor) {
 		try {
 			reloj.sleep(1000 * valor);
@@ -91,5 +98,6 @@ public abstract class Personaje extends GameObject {
 			//No sé que hacer en este caso
 		}
 	}
+	*/
 	
 }
