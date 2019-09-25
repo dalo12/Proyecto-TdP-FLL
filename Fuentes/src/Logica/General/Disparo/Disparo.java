@@ -1,14 +1,14 @@
 package Logica.General.Disparo;
 
-import Logica.General.GameObject;
+import Logica.General.Visitor;
 
 /**
  * Modela todos los disparos a realizarse en el juego.
- * @author Comisión 25 (FERNÁNDEZ, LATOUQUETTE, LÓPEZ)
+ * @author Comisión 25 (FERRANTE, LATOUQUETTE, LÓPEZ)
  * @version 1.0
  */
-public abstract class Disparo extends GameObject {
-	protected int dano, velocidad, alcance, posicion_x_original;
+public abstract class Disparo extends Visitor {
+	protected int dano, velocidad, alcance, posicion_x, posicion_y;
 	protected String textura;
 	
 	/**
@@ -32,9 +32,5 @@ public abstract class Disparo extends GameObject {
 	 */
 	public abstract void avanzar();
 	
-	/**
-	 * Impacta contra un objeto del juego y reduce su vida según corresponda
-	 * @param o El objeto del juego contra el cuál impacta
-	 */
-	public void impactar(GameObject o) {}
+	
 }
