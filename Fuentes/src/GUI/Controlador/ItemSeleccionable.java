@@ -1,5 +1,7 @@
 package GUI.Controlador;
 
+import java.awt.event.ActionListener;
+
 import javax.swing.JMenuItem;
 
 import Logica.General.GameObject;
@@ -20,10 +22,8 @@ public class ItemSeleccionable extends JMenuItem {
 	/**
 	 * @return Un clon del objeto almacenado
 	 */
-	public GameObject crearObjecto() {
+	public GameObject crearObjeto() {
 		//return objeto_almacenado;
 		return objeto_almacenado.clone();
-	}
-	
-	
+	}	
 }

@@ -25,6 +25,8 @@ import Logica.General.Juego;
 import Logica.Mapa.Mapa;
 
 import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.LinkedList;
 import java.util.List;
 import java.awt.GridLayout;
@@ -117,12 +119,12 @@ public class MenuPrincipal {
 //		itemCharacter1.setIcon(img2);
 //		mnPersonajes.add(itemCharacter1);
 		
-		JMenu mnObjetos = new JMenu("Objetos");
-		mnObjetos.setForeground(new Color(0, 0, 0));
-		mnObjetos.setFont(new Font("Segoe UI Black", Font.PLAIN, 15));
-		mnObjetos.setBorder(bordeSinLeft);
-		mnObjetos.setIcon(img3);
-		menuBar.add(mnObjetos);
+//		JMenu mnObjetos = new JMenu("Objetos");
+//		mnObjetos.setForeground(new Color(0, 0, 0));
+//		mnObjetos.setFont(new Font("Segoe UI Black", Font.PLAIN, 15));
+//		mnObjetos.setBorder(bordeSinLeft);
+//		mnObjetos.setIcon(img3);
+//		menuBar.add(mnObjetos);
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(255, 255, 255));
@@ -187,6 +189,14 @@ public class MenuPrincipal {
 			itemCharacter[i] = new ItemSeleccionable(o.getNombre(), o);
 			itemCharacter[i].setFont(new Font("Segoe UI", Font.BOLD, 12));
 			itemCharacter[i].setIcon(new ImageIcon(o.getTextura()));
+//			itemCharacter[nro_item].addActionListener(new ActionListener() {
+//
+//				@Override
+//				public void actionPerformed(ActionEvent e) {
+//					itemCharacter[nro_item].crearObjeto();
+//				}
+//				
+//			});
 			mnPersonajes.add(itemCharacter[i]);
 			i++;
 		}
