@@ -25,6 +25,7 @@ public class BazookaSoldier extends Aliado {
 		this.textura = "";
 				
 		//atributos lógicos
+		this.nombre = "Bazooka";
 		this.alcance_ataque = 7;
 		this.fuerza_ataque = 125;
 		this.precio = 175;

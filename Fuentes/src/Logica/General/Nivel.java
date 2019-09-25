@@ -16,8 +16,10 @@ import Logica.PowerUps.*;
  */
 public class Nivel {
 	protected Mapa mapa;
+	protected List<GameObject> aliados;
 	
-	public Nivel() {
+	public Nivel(List<GameObject> aliados) {
+		this.aliados = aliados;
 	}
 	
 	/**
@@ -113,4 +115,10 @@ public class Nivel {
 		return lista;
 	}
 	
+	/**
+	 * @return La lista de los aliados y objectos que el jugador puede seleccionar para colocar en el mapa
+	 */
+	public List<GameObject> getPersonajesSeleccionables() {
+		return this.aliados;
+	}
 }

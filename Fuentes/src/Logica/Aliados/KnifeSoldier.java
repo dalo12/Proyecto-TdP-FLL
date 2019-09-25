@@ -25,6 +25,7 @@ public class KnifeSoldier extends Aliado {
 		this.textura = "";
 				
 		//atributos lógicos
+		this.nombre = "Knife";
 		this.alcance_ataque = 1;
 		this.fuerza_ataque = 20;
 		this.precio = 50;

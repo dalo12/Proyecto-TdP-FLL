@@ -8,6 +8,7 @@ package Logica.General;
 public abstract class GameObject {
 	protected int posicion_x, posicion_y, tamano_x, tamano_y;
 	protected String textura;
+	protected String nombre;
 	
 	// MÉTODOS
 	/**
@@ -89,4 +90,19 @@ public abstract class GameObject {
 	public void setTextura(String textura) {
 		this.textura = textura;
 	}
+	
+	/**
+	 * @return El nombre del objeto en cuestión
+	 */
+	public String getNombre() {
+		return nombre;
+	}	
+	
+	/**
+	 * @return Un clon del objeto actual
+	 */
+	public GameObject clone() {
+		return this.clone();
+	}
+	
 }

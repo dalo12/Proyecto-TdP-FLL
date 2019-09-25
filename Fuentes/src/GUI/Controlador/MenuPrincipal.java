@@ -33,10 +33,11 @@ public class MenuPrincipal {
 	//Atributos gráficos
 	private JFrame frame;
 	private JLabel lblMoneda, lblPuntaje;
-	private JMenuItem itemCharacter1; //Items de Personajes
+	private ItemSeleccionable itemCharacter[]; //Items de Personajes
 	private static final Border bordeBarra = new MatteBorder(0, 1, 0, 1, (Color) new Color(0,0,0));
 	private static final Border bordeSinLeft = new MatteBorder(0, 0, 0, 1, (Color) new Color(0,0,0));
 	private List<JLabel> lista;
+	protected JMenu mnPersonajes; 
 	
 	//Atributos de instancia
 	private Mapa mapa;
@@ -100,7 +101,7 @@ public class MenuPrincipal {
 		lblTitulo.setFont(new Font("Bernard MT Condensed", Font.BOLD, 20));
 		menuBar.add(lblTitulo);
 		
-		JMenu mnPersonajes = new JMenu("Personajes");
+		mnPersonajes = new JMenu("Personajes");
 		mnPersonajes.setForeground(new Color(0, 0, 0));
 		mnPersonajes.setBackground(new Color(255, 204, 102));
 		mnPersonajes.setBorder(bordeBarra);
@@ -109,10 +110,12 @@ public class MenuPrincipal {
 		mnPersonajes.setIcon(img1);
 		menuBar.add(mnPersonajes);
 		
-		itemCharacter1 = new JMenuItem("Soldado - $10");
-		itemCharacter1.setFont(new Font("Segoe UI", Font.BOLD, 12));
-		itemCharacter1.setIcon(img2);
-		mnPersonajes.add(itemCharacter1);
+		iniciarMenuPersonajes();
+
+//		itemCharacter1 = new JMenuItem("Soldado - $10");
+//		itemCharacter1.setFont(new Font("Segoe UI", Font.BOLD, 12));
+//		itemCharacter1.setIcon(img2);
+//		mnPersonajes.add(itemCharacter1);
 		
 		JMenu mnObjetos = new JMenu("Objetos");
 		mnObjetos.setForeground(new Color(0, 0, 0));
@@ -145,7 +148,7 @@ public class MenuPrincipal {
 		GameObject go1, go2;
 		go1 = new PistolSoldier(100,0);
 		go2 = new Kangaroo(640,0);
-		/**
+		/*
 		 * mapa.getMapa()[0][0] = new CeldaAliado(0,0);
 		 * mapa.getMapa()[0][9] = new CeldaEnemigo(0,9);
 		 * (mapa.getMapa()[0][0]).ocupar(go1); //Personaje
@@ -177,4 +180,16 @@ public class MenuPrincipal {
 		lista.get(0).setBounds(object.getPosicion_x(), object.getPosicion_y(), 70, 58);
 	}
 	
+	protected void iniciarMenuPersonajes() {
+		itemCharacter = new ItemSeleccionable[elJuego.getNivelActual().getPersonajesSeleccionables().size()];
+		int i = 0;
+		for(GameObject o: elJuego.getNivelActual().getPersonajesSeleccionables()) {
+			itemCharacter[i] = new ItemSeleccionable(o.getNombre(), o);
+			itemCharacter[i].setFont(new Font("Segoe UI", Font.BOLD, 12));
+			itemCharacter[i].setIcon(new ImageIcon(o.getTextura()));
+			mnPersonajes.add(itemCharacter[i]);
+			i++;
+		}
+	}
 }
+

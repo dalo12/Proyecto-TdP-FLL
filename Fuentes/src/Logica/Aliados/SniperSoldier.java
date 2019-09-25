@@ -25,6 +25,7 @@ public class SniperSoldier extends Aliado {
 		this.textura = "";
 				
 		//atributos lógicos
+		this.nombre = "Sniper";
 		this.alcance_ataque = 10;
 		this.fuerza_ataque = 60;
 		this.precio = 125;

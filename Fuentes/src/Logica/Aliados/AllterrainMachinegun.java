@@ -25,6 +25,7 @@ public class AllterrainMachinegun extends Aliado {
 		this.textura = "";
 				
 		//atributos lógicos
+		this.nombre = "Allterrain Machinegun";
 		this.alcance_ataque = 5;
 		this.fuerza_ataque = 30;
 		this.precio = 225;

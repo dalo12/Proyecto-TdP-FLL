@@ -22,6 +22,7 @@ public class CercaAntiTanque extends ObjetoVida {
 		this.textura = "";
 		
 		//atributos lógicos
+		this.nombre = "Cerca Anti-tanque";
 		this.vida = 100;
 	}
 	

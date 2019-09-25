@@ -25,6 +25,7 @@ public class PistolSoldier extends Aliado {
 		this.textura = "/Img/pistol-soldier-1.png";
 				
 		//atributos lógicos
+		this.nombre = "Pistol";
 		this.alcance_ataque = 4;
 		this.fuerza_ataque = 30;
 		this.precio = 75;
