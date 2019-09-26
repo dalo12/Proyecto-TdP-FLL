@@ -39,7 +39,7 @@ public class MenuPrincipal {
 	private static final Border bordeSinLeft = new MatteBorder(0, 0, 0, 1, (Color) new Color(0,0,0));
 	private List<JLabel> lista;
 	protected JMenu mnPersonajes; 
-	private JPanel panel;
+	private JPanel panel, panelMapa;
 	
 	//Atributos de instancia
 	private Mapa mapa;
@@ -76,23 +76,22 @@ public class MenuPrincipal {
 		initialize();
 		crearMapa();
 		
-		for (JLabel lbl: lista) {
-			lbl.addMouseListener(new MouseAdapter() {
+		for (JLabel labelLista: lista) {
+			labelLista.addMouseListener(new MouseAdapter() {
 				public void mouseClicked(MouseEvent e){
-					if (lista.size()>0) {
-						if (JOptionPane.showConfirmDialog(null, "¿Está seguro?")==JOptionPane.YES_OPTION) {
-							JLabel remover = lista.remove(0);
-							panel.remove(remover);
-							elJuego.removerEnemigo();
-							remover.setIcon(null);
-							remover = null;
-							panel.update(panel.getGraphics());
-							actualizar();
-							
-						}
+					if (JOptionPane.showConfirmDialog(null, "¿Está seguro?")==JOptionPane.YES_OPTION) {
+						JLabel remover = lista.remove(0);
+						panelMapa.remove(remover);
+						elJuego.removerEnemigo();
+						try {
+							Thread.sleep(1000);
+							panelMapa.repaint();
+						} catch (InterruptedException e1) {}
+						
+						actualizar();
 					}
-					
 				}
+					
 			});
 		}
 		contador = new ContadorTiempo(elJuego, this);
@@ -179,15 +178,15 @@ public class MenuPrincipal {
 		
 		frame.getContentPane().setLayout(new GridLayout(0, 1, 0, 0));
 		
-		JPanel panelMapa = new PanelMapa(mapa.getTextura());
+		panelMapa = new PanelMapa(mapa.getTextura());
 		frame.getContentPane().add(panelMapa);
 		panelMapa.setLayout(null);
 		
 		lblPersonaje = new JLabel();
 		lblPersonaje.setHorizontalAlignment(SwingConstants.CENTER);
 		lblPersonaje.setBounds(go1.getPosicion_x(), go1.getPosicion_y(), 70, 58);
-		panelMapa.add(lblPersonaje);
 		lblPersonaje.setIcon(new ImageIcon(urlImg1));
+		panelMapa.add(lblPersonaje);
 		
 		JLabel lblEnemigo = new JLabel();
 		lblEnemigo.setHorizontalAlignment(SwingConstants.CENTER);
@@ -195,6 +194,7 @@ public class MenuPrincipal {
 		panelMapa.add(lblEnemigo);
 		lblEnemigo.setIcon(new ImageIcon(urlImg3));
 		lista.add(lblEnemigo);
+		panelMapa.add(lista.get(0));
 	}
 	
 	public void actualizar() {
