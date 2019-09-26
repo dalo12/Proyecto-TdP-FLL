@@ -2,6 +2,8 @@ package Logica.General;
 
 import java.util.Random;
 
+import Logica.General.Visitors.ConcreteVisitor;
+
 /**
  * Modela todos los enemigos del juego.
  * @author Comisión 25 (FERRANTE, LATOUQUETTE, LÓPEZ)

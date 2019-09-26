@@ -1,5 +1,7 @@
 package Logica.General;
 
+import Logica.General.Visitors.ConcreteVisitor;
+
 /**
  * Modela todos los aliados (es decir, los personajes elegibles por el jugador) del juego.
  * @author Comisión 25 (FERNÁNDEZ, LATOUQUETTE, LÓPEZ)

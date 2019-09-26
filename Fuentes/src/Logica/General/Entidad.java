@@ -1,5 +1,7 @@
 package Logica.General;
 
+import Logica.General.Visitors.Visitor;
+
 /**
  * 
  * @author 
@@ -7,6 +9,6 @@ package Logica.General;
  */
 public abstract class Entidad extends GameObject{
 
-	public abstract void accept(Visitor v);
+	protected Visitor visitor;
 	
 }

@@ -1,5 +1,7 @@
 package Logica.General;
 
+import Logica.General.Visitors.ConcreteVisitor;
+
 /**
  * Modela todos los objetos (con vida, con tiempo y de mapa) del juego.
  * @author Comisión 25 (FERNÁNDEZ, LATOUQUETTE, LÓPEZ)

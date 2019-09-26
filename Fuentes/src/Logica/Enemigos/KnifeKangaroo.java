@@ -1,7 +1,7 @@
 package Logica.Enemigos;
 
 import Logica.General.Enemigo;
-import Logica.General.Visitor;
+import Logica.General.Visitors.Visitor;
 
 /**
  * Modela el enemigo Kangaroo

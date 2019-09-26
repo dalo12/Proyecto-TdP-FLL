@@ -3,6 +3,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import Logica.Aliados.*;
+import Logica.General.Visitors.Visitor;
 import Logica.Objetos.*;
 
 /**

@@ -1,13 +1,12 @@
-package Logica.General.Disparo;
+package Logica.General;
 
-import Logica.General.Visitor;
 
 /**
  * Modela todos los disparos a realizarse en el juego.
  * @author Comisión 25 (FERRANTE, LATOUQUETTE, LÓPEZ)
  * @version 1.0
  */
-public abstract class Disparo extends Visitor {
+public abstract class Disparo extends Entidad {
 	protected int dano, velocidad, alcance, posicion_x, posicion_y;
 	protected String textura;
 	

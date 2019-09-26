@@ -1,6 +1,6 @@
 package Logica.Objetos;
 
-import Logica.General.Visitor;
+import Logica.General.Visitors.Visitor;
 
 /**
  * Modela a la cerca antitanque.

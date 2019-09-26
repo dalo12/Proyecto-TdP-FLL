@@ -1,7 +1,7 @@
 package Logica.Aliados;
 
 import Logica.General.Aliado;
-import Logica.General.Visitor;
+import Logica.General.Visitors.Visitor;
 
 /**
  * Modela al aliado Pistol soldier.

@@ -1,4 +1,8 @@
-package Logica.General;
+package Logica.General.Visitors;
+
+import Logica.General.Aliado;
+import Logica.General.Enemigo;
+import Logica.General.Objeto;
 
 public class ConcreteVisitor extends Visitor {
 
