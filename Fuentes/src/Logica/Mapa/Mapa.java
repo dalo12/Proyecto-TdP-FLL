@@ -3,7 +3,7 @@ package Logica.Mapa;
 import java.util.LinkedList;
 import java.util.List;
 
-import GUI.Mapa.LabelExtendido;
+import GUI.Mapa.LabelPersonaje;
 import Logica.General.Entidad;
 
 /**
@@ -13,7 +13,7 @@ import Logica.General.Entidad;
  */
 public class Mapa {
 	//Atributos de instancia
-	protected LabelExtendido[][] matriz;
+	protected LabelPersonaje[][] matriz;
 	protected int width, height;
 	protected String textura;
 	
@@ -24,7 +24,7 @@ public class Mapa {
 	 * @param height Altura del mapa.
 	 */
 	public Mapa(String textura, int width, int height) {
-		this.matriz = new LabelExtendido[width][height];
+		this.matriz = new LabelPersonaje[width][height];
 		this.height = height;
 		this.width = width;
 		this.textura = textura;
@@ -59,7 +59,7 @@ public class Mapa {
 	 * Devuelve el conjunto de LabelExtendidos que conforma el mapa
 	 * @return Devuelve un arreglo de LabelExtendidos.
 	 */
-	public LabelExtendido[][] getMapa(){
+	public LabelPersonaje[][] getMapa(){
 		return matriz;
 	}
 

@@ -16,6 +16,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JMenu;
 import javax.swing.border.MatteBorder;
 
+import GUI.Mapa.LabelPersonaje;
 import GUI.Mapa.PanelMapa;
 import Logica.Aliados.PistolSoldier;
 import Logica.Enemigos.Kangaroo;
@@ -28,6 +29,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Random;
 import java.awt.GridLayout;
 
 public class MenuPrincipal {
@@ -40,6 +42,7 @@ public class MenuPrincipal {
 	private List<JLabel> lista;
 	protected JMenu mnPersonajes; 
 	private JPanel panel, panelMapa;
+	protected LabelPersonaje personajes[][];
 	
 	//Atributos de instancia
 	private Mapa mapa;
@@ -67,6 +70,7 @@ public class MenuPrincipal {
 		elJuego = new Juego(e);
 		initialize();
 		crearMapa();
+		crearLabelsPersonajes(43, 50, mapa.getHeight(), mapa.getWidth(), 258, 58);
 		
 		for (JLabel labelLista: lista) {
 			labelLista.addMouseListener(new MouseAdapter() {
@@ -157,10 +161,10 @@ public class MenuPrincipal {
 	 * Crea el mapa con dos gameobject (sin acción)
 	 */
 	private void crearMapa() {
-		mapa = new Mapa("../Texturas/Background/grilla-modif.png", 6, 10);
+		mapa = new Mapa("../Texturas/Background/background-lvl-final.png", 6, 10);
 		GameObject go1, go2;
-		go1 = new PistolSoldier(100,0);
-		go2 = new Kangaroo(640,0);
+		go1 = new PistolSoldier(258,57);
+		go2 = new Kangaroo(640,57);
 		/*
 		 * mapa.getMapa()[0][0] = new CeldaAliado(0,0);
 		 * mapa.getMapa()[0][9] = new CeldaEnemigo(0,9);
@@ -176,13 +180,13 @@ public class MenuPrincipal {
 		
 		lblPersonaje = new JLabel();
 		lblPersonaje.setHorizontalAlignment(SwingConstants.CENTER);
-		lblPersonaje.setBounds(go1.getPosicion_x(), go1.getPosicion_y(), 70, 58);
+		lblPersonaje.setBounds(258, 57, 50, 50);
 		lblPersonaje.setIcon(new ImageIcon(urlImg1));
 		panelMapa.add(lblPersonaje);
 		
 		JLabel lblEnemigo = new JLabel();
 		lblEnemigo.setHorizontalAlignment(SwingConstants.CENTER);
-		lblEnemigo.setBounds(go2.getPosicion_x(), go2.getPosicion_y(), 70, 58);
+		lblEnemigo.setBounds(740, 57, 50, 50);
 		panelMapa.add(lblEnemigo);
 		lblEnemigo.setIcon(new ImageIcon(urlImg3));
 		lista.add(lblEnemigo);
@@ -194,6 +198,7 @@ public class MenuPrincipal {
 			GameObject object = elJuego.getEnemigo();
 			//El siguiente if previene que el labelEnemigo toque al labelPersonaje al estar cerca de su posición
 			if (lblPersonaje.getX()+60 < object.getPosicion_x()) {
+				//lista.get(0).setBounds(object.getPosicion_x(), object.getPosicion_y(), 70, 58);
 				lista.get(0).setBounds(object.getPosicion_x(), object.getPosicion_y(), 70, 58);
 			}
 		}
@@ -201,6 +206,9 @@ public class MenuPrincipal {
 		lblPuntaje.setText("Puntaje: " + String.valueOf(elJuego.getPuntaje()) + " PTS.");
 	}
 	
+	/**
+	 * Inicializa el menú de personajes seleccionables
+	 */
 	protected void iniciarMenuPersonajes() {
 		itemCharacter = new ItemSeleccionable[elJuego.getNivelActual().getPersonajesSeleccionables().size()];
 		int i = 0;
@@ -218,6 +226,37 @@ public class MenuPrincipal {
 //			});
 			mnPersonajes.add(itemCharacter[i]);
 			i++;
+		}
+	}
+	
+	/**
+	 * Crea la matriz de labels que contendrá a los personajes seleccionables
+	 * @param alto Altura del label 
+	 * @param ancho Anchura del label
+	 * @param filas Cantidad de filas de la matriz
+	 * @param columnas Cantidad de columnas de la matriz
+	 * @param x Posición x de donde comienza la matriz en la GUI
+	 * @param y Posición y de donde comienza la matriz en la GUI
+	 */
+	protected void crearLabelsPersonajes(int alto, int ancho, int filas, int columnas, int x, int y) {
+		personajes = new LabelPersonaje[filas][columnas];
+		int pos_x = x;
+		int pos_y = y;
+		
+		for(int i=0; i<filas; i++) {
+			for(int j=0; j<columnas; j++) {
+				personajes[i][j] = new LabelPersonaje(null, pos_x, pos_y, alto, ancho);
+				pos_y += alto;
+				
+				personajes[i][j].setVisible(true);
+				personajes[i][j].setOpaque(true);
+				
+				Random r = new Random();
+				personajes[i][j].setBackground(new Color(r.nextInt(255), r.nextInt(255), r.nextInt(255), 50));
+				panelMapa.add(personajes[i][j]);
+			}
+			pos_y = y;
+			pos_x += ancho;
 		}
 	}
 }
