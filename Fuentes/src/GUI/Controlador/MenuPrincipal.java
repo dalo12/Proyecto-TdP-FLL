@@ -1,6 +1,5 @@
 package GUI.Controlador;
 
-import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -13,7 +12,7 @@ import java.awt.Font;
 import javax.swing.ImageIcon;
 
 import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JMenu;
 import javax.swing.border.MatteBorder;
 
@@ -25,8 +24,8 @@ import Logica.General.Juego;
 import Logica.Mapa.Mapa;
 
 import java.awt.Insets;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.LinkedList;
 import java.util.List;
 import java.awt.GridLayout;
@@ -34,12 +33,13 @@ import java.awt.GridLayout;
 public class MenuPrincipal {
 	//Atributos gráficos
 	private JFrame frame;
-	private JLabel lblMoneda, lblPuntaje;
+	private JLabel lblMoneda, lblPuntaje, lblPersonaje;
 	private ItemSeleccionable itemCharacter[]; //Items de Personajes
 	private static final Border bordeBarra = new MatteBorder(0, 1, 0, 1, (Color) new Color(0,0,0));
 	private static final Border bordeSinLeft = new MatteBorder(0, 0, 0, 1, (Color) new Color(0,0,0));
 	private List<JLabel> lista;
 	protected JMenu mnPersonajes; 
+	private JPanel panel;
 	
 	//Atributos de instancia
 	private Mapa mapa;
@@ -75,6 +75,26 @@ public class MenuPrincipal {
 		elJuego = new Juego(e);
 		initialize();
 		crearMapa();
+		
+		for (JLabel lbl: lista) {
+			lbl.addMouseListener(new MouseAdapter() {
+				public void mouseClicked(MouseEvent e){
+					if (lista.size()>0) {
+						if (JOptionPane.showConfirmDialog(null, "¿Está seguro?")==JOptionPane.YES_OPTION) {
+							JLabel remover = lista.remove(0);
+							panel.remove(remover);
+							elJuego.removerEnemigo();
+							remover.setIcon(null);
+							remover = null;
+							panel.update(panel.getGraphics());
+							actualizar();
+							
+						}
+					}
+					
+				}
+			});
+		}
 		contador = new ContadorTiempo(elJuego, this);
 	}
 
@@ -126,7 +146,7 @@ public class MenuPrincipal {
 //		mnObjetos.setIcon(img3);
 //		menuBar.add(mnObjetos);
 		
-		JPanel panel = new JPanel();
+		panel = new JPanel();
 		panel.setBackground(new Color(255, 255, 255));
 		menuBar.add(panel);
 		panel.setLayout(new GridLayout(0, 2, 0, 0));
@@ -163,7 +183,7 @@ public class MenuPrincipal {
 		frame.getContentPane().add(panelMapa);
 		panelMapa.setLayout(null);
 		
-		JLabel lblPersonaje = new JLabel();
+		lblPersonaje = new JLabel();
 		lblPersonaje.setHorizontalAlignment(SwingConstants.CENTER);
 		lblPersonaje.setBounds(go1.getPosicion_x(), go1.getPosicion_y(), 70, 58);
 		panelMapa.add(lblPersonaje);
@@ -178,8 +198,15 @@ public class MenuPrincipal {
 	}
 	
 	public void actualizar() {
-		GameObject object = elJuego.getEnemigo();
-		lista.get(0).setBounds(object.getPosicion_x(), object.getPosicion_y(), 70, 58);
+		if (lista.size()>0 && elJuego.getEnemigo()!=null){ //Previene un IndexOutOfBoundsException en caso de que no se tenga labels en la lista
+			GameObject object = elJuego.getEnemigo();
+			//El siguiente if previene que el labelEnemigo toque al labelPersonaje al estar cerca de su posición
+			if (lblPersonaje.getX()+60 < object.getPosicion_x()) {
+				lista.get(0).setBounds(object.getPosicion_x(), object.getPosicion_y(), 70, 58);
+			}
+		}
+		lblMoneda.setText("Monedas: $" + String.valueOf(elJuego.getMonedas()));
+		lblPuntaje.setText("Puntaje: " + String.valueOf(elJuego.getPuntaje()) + " PTS.");
 	}
 	
 	protected void iniciarMenuPersonajes() {

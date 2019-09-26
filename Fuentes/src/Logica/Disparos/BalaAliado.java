@@ -4,6 +4,10 @@ import Logica.General.Disparo.DisparoAliado;
 
 public class BalaAliado extends DisparoAliado {
 	
+	private int posicion_x_original;
+	private int tamano_x;
+	private int tamano_y;
+
 	/**
 	 * Contructor
 	 * @param x Posición x del que efectúa el disparo

@@ -10,20 +10,26 @@ import Logica.Objetos.*;
  * @author Comisión 25 (FERRANTE, LATOUQUETTE, LÓPEZ)
  * @version 1.0
  */
-public class Juego {
-
+public class Juego {	
 	protected Nivel nivel[];
 	protected Visitor visitor;
 	protected List<GameObject> lista;
 	//temporal
 	protected GameObject enemigo; 
 	protected int nivel_actual;
+	//Atributos para tienda
+	protected int monedas;
+	protected int puntaje;
 	
 	public Juego(GameObject e) {
 		enemigo = e;
 		
 		nivel = new Nivel[2];
 		nivel_actual = 0;
+		
+		monedas = 0;
+		puntaje = 0;
+		
 		/*
 		 * Agrego lista de aliados seleccionables al nivel 1
 		 */
@@ -76,5 +82,22 @@ public class Juego {
 	public void insertarEnemigo() {
 		
 	}
+
+	public int getMonedas() {
+		return monedas;
+	}
 	
+	public int getPuntaje() {
+		return puntaje;
+	}
+	
+	public Enemigo removerEnemigo() {
+		Enemigo toReturn = (Enemigo) enemigo;
+		
+		monedas = monedas + toReturn.getMonedas();
+		puntaje = puntaje + toReturn.getPuntaje();
+		
+		enemigo = null;
+		return toReturn;
+	}
 }

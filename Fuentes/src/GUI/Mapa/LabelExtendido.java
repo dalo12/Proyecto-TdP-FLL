@@ -7,7 +7,7 @@ import Logica.General.Entidad;
 
 /**
  * Clase LabelExtendido: Clase que identifica a un JLabel que contiene a una Entidad.
- * @author Comisión 25 (FERNÁNDEZ, LATOUQUETTE, LÓPEZ)
+ * @author Comisión 25 (FERRANTE, LATOUQUETTE, LÓPEZ)
  */
 @SuppressWarnings("serial")
 public class LabelExtendido extends JLabel {
