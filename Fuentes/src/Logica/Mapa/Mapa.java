@@ -16,6 +16,7 @@ public class Mapa {
 	protected LabelPersonaje[][] matriz;
 	protected int width, height;
 	protected String textura;
+	protected int[][] limites;
 	
 	/**
 	 * Constructor de Mapa
@@ -85,5 +86,23 @@ public class Mapa {
 	 */
 	public String getTextura() {
 		return textura;
+	}
+	
+	/**
+	 * Asigna los límites derechos desde donde surgen los enemigos
+	 * @param l Matriz de ix2 con la primera componente con las coordenadas x de los límites
+	 * y la segunda componente con las coordenadas y de los límites
+	 */
+	public void setLimites(int[][] l) {
+		this.limites = l;
+	}
+	
+	/**
+	 * Retorna los límites derechos desde donde surgen los enemigos
+	 * @return Un arreglo de ix2 con la primera componente con la coordenada x y la segunda componente
+	 * con la coordenada y de los límites
+	 */
+	public int[][] getLimites(){
+		return limites;
 	}
 }

@@ -66,11 +66,11 @@ public class MenuPrincipal {
 	 */
 	public MenuPrincipal() {
 		lista = new LinkedList<JLabel>();
-		GameObject e = new Kangaroo(640, 0);
+		GameObject e = new Kangaroo(640, 55);
 		elJuego = new Juego(e);
 		initialize();
 		crearMapa();
-		crearLabelsPersonajes(45, 45, mapa.getHeight(), mapa.getWidth(), 258, 58);
+		crearLabelsPersonajes(50, 50, mapa.getHeight(), mapa.getWidth(), (int) Math.round(frame.getWidth()/2.5), frame.getHeight()/5);
 		
 		for (JLabel labelLista: lista) {
 			labelLista.addMouseListener(new MouseAdapter() {
@@ -91,6 +91,7 @@ public class MenuPrincipal {
 			});
 		}
 		contador = new ContadorTiempo(elJuego, this);
+		mapa.setLimites(this.getLimiteEnemigos());
 	}
 
 	/**
@@ -99,7 +100,7 @@ public class MenuPrincipal {
 	private void initialize() {
 		frame = new JFrame();
 		frame.setResizable(false);
-		frame.setBounds(100, 100, 800, 422);
+		frame.setBounds(100, 100, 1000, 527);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		JMenuBar menuBar = new JMenuBar();
@@ -242,8 +243,11 @@ public class MenuPrincipal {
 		personajes = new LabelPersonaje[filas][columnas];
 		int pos_x = x;
 		int pos_y = y;
+		boolean negro = false;
+		boolean negro_col = false;
 		
 		for(int i=0; i<filas; i++) {
+			negro_col = negro;
 			for(int j=0; j<columnas; j++) {
 				personajes[i][j] = new LabelPersonaje(null, pos_x, pos_y, alto, ancho);
 				pos_y += alto;
@@ -251,13 +255,41 @@ public class MenuPrincipal {
 				personajes[i][j].setVisible(true);
 				personajes[i][j].setOpaque(true);
 				
+				//Colores random para por ahora
 				Random r = new Random();
 				personajes[i][j].setBackground(new Color(r.nextInt(255), r.nextInt(255), r.nextInt(255), 50));
 				panelMapa.add(personajes[i][j]);
+				
+				//TODO: En versión final después descomentar esto
+//				if(negro_col) {
+//					personajes[i][j].setBackground(new Color(110,110,110, 100));
+//					negro_col = false;
+//				}else {
+//					personajes[i][j].setBackground(new Color(150,150,150, 100));
+//					negro_col = true;
+//				}	
 			}
 			pos_y = y;
 			pos_x += ancho;
+			negro = !negro;
 		}
+	}
+	
+	/**
+	 * Retorna el límite derecho de la grilla de la GUI. Es de donde se generan las 
+	 * oleadas de enemigos
+	 * @return Un arreglo de ix2 con la primera componente con la coordenada x y la segunda componente
+	 * con la coordenada y de los límites
+	 */
+	public int[][] getLimiteEnemigos(){
+		int[][] arr = new int[personajes.length][2];
+		
+		for(int i=0; i<personajes.length; i++) {
+			arr[i][0] = personajes[i][personajes[i].length-1].getX();
+			arr[i][1] = personajes[i][personajes[i].length-1].getY();
+		}
+		
+		return arr;
 	}
 }
 

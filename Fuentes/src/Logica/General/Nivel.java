@@ -33,21 +33,21 @@ public class Nivel {
 		int cantidad = r.nextInt(10) + 20; //genera entre 20 y 30 enemigos
 		int poder = r.nextInt(100); //genera un número al azar para saber si aplicar o no un poder en el enemigo
 		int distancia = 0;
-		int coordenadas_y[] = new int[6];
-		int coordenada_x = 1000; //TODO: en un futuro debe capturarla del mapa
- 		//lleno el arreglo de coordenadas "y" TODO: en un futuro tiene que capturarlas del mapa
-		coordenadas_y[0] = 100;
-		coordenadas_y[1] = 200;
-		coordenadas_y[2] = 300;
-		coordenadas_y[3] = 400;
-		coordenadas_y[4] = 500;
-		coordenadas_y[5] = 600;
+		
+		int[][] limites = mapa.getLimites();
+		
+		int coordenadas_y[] = new int[limites[0].length];
+		int coordenada_x = limites[0][0];
+		
+		for(int i=0; i<limites[0].length; i++) {
+			coordenadas_y[i] = limites[i][1];
+		}
 		
 		/*
 		 * Generamos los enemigos totalmente al azar
 		 */
 		for(int i=0; i<=cantidad; i++) {
-			int j = r.nextInt(5); //para saber en qué coordenada "y" poner el enemigo
+			int j = r.nextInt(coordenadas_y.length-1); //para saber en qué coordenada "y" poner el enemigo
 			int dif = r.nextInt(dificultad); //dif es la nueva dificultad de los enemigos
 											// se generan enemigos tan difíciles entre 0..dificultad
 			
