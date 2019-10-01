@@ -33,7 +33,7 @@ public class PistolSoldier extends Aliado {
 		this.vida = MAX_VIDA;		
 	}
 
-	@Override
+	//@Override
 	public void accept(Visitor v) {
 		// TODO Auto-generated method stub
 		

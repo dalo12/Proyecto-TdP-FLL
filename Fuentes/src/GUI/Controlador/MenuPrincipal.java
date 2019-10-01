@@ -70,7 +70,7 @@ public class MenuPrincipal {
 		elJuego = new Juego(e);
 		initialize();
 		crearMapa();
-		crearLabelsPersonajes(43, 50, mapa.getHeight(), mapa.getWidth(), 258, 58);
+		crearLabelsPersonajes(45, 45, mapa.getHeight(), mapa.getWidth(), 258, 58);
 		
 		for (JLabel labelLista: lista) {
 			labelLista.addMouseListener(new MouseAdapter() {
