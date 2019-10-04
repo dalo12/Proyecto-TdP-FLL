@@ -1,11 +1,11 @@
 package Logica.Enemigos;
 
 import Logica.General.Enemigo;
-import Logica.General.Visitors.Visitor;
+import Logica.General.Visitors.ConcreteVisitorEnemigo;
 
 /**
- * Modela el enemigo Kangaroo
- * @author Comisión 25 (FERNÁNDEZ, LATOUQUETTE, LÓPEZ)
+ * Modela el enemigo PistolKangaroo
+ * @author Comisión 25 (FERRANTE, LATOUQUETTE, LÓPEZ)
  * @version 1.0
  */
 public class PistolKangaroo extends Enemigo {
@@ -24,18 +24,16 @@ public class PistolKangaroo extends Enemigo {
 		this.textura = "";
 		
 		//atributos lógicos
-		this.tope_monedas = 50;
+		this.maxMonedas = 50;
 		this.velocidad = 25;
-		this.velocidad_ataque = 5;
+		this.velocidadAtaque = 5;
 		this.vida = 120;		
-		this.alcance_ataque = 3;
-		this.fuerza_ataque = 45;
+		this.alcanceAtaque = 3;
+		this.fuerzaAtaque = 45;
 		this.puntaje = 25;
-	}
-
-	@Override
-	public void accept(Visitor v) {
-		// TODO Auto-generated method stub
+		
+		visitor = new ConcreteVisitorEnemigo(fuerzaAtaque);
 		
 	}
+
 }
