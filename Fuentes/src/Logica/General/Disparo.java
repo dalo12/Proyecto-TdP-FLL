@@ -1,14 +1,14 @@
 package Logica.General;
 
+import Logica.General.Visitors.Visitor;
 
 /**
  * Modela todos los disparos a realizarse en el juego.
  * @author Comisión 25 (FERRANTE, LATOUQUETTE, LÓPEZ)
  * @version 1.0
  */
-public abstract class Disparo extends Entidad {
-	protected int dano, velocidad, alcance, posicion_x, posicion_y;
-	protected String textura;
+public class Disparo extends GameObject {
+	protected int dano, velocidad;
 	
 	/**
 	 * Devuelve el daño que provoca el disparo
@@ -29,7 +29,24 @@ public abstract class Disparo extends Entidad {
 	/**
 	 * Hace que el disparo avance
 	 */
-	public abstract void avanzar();
+	public void avanzar() {
+		//TODO implementar
+	}
+
+	@Override
+	public void accionar() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	/**
+	 * Acepta un visitor.
+	 * @param v Un visitor.
+	 */
+	@Override
+	public void accept(Visitor v) {
+		v.visitDisparo(this);
+	}
 	
 	
 }
