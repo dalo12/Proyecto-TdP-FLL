@@ -2,6 +2,8 @@ package Logica.General;
 
 import javax.swing.JLabel;
 
+import Logica.General.Visitors.Visitor;
+
 /**
  * Modela todos los objetos del juego: premios, personajes y objetos.
  * @author Comisión 25 (FERRANTE, LATOUQUETTE, LÓPEZ)
@@ -13,6 +15,8 @@ public abstract class GameObject {
 	protected JLabel label;
 	protected String textura;
 	protected String nombre;
+	protected Visitor visitor;
+	protected Juego elJuego;
 	
 	/**
 	 * Devuelve la posición en el eje x del objeto
@@ -116,4 +120,29 @@ public abstract class GameObject {
 		return this.clone();
 	}
 	
+	/**
+	 * Realiza la accion basica de este objeto, de acuerdo a su rol en el juego.
+	 */
+	public abstract void accionar();
+	
+	/**
+	 * Interactua con otro objeto del juego por medio de un visitor.
+	 * @param o Objeto con el cual interactuar.
+	 */
+	public void interactuar(GameObject o) {
+		o.accept(visitor);
+	}
+	
+	/**
+	 * Acepta un visitor.
+	 * @param v Un visitor.
+	 */
+	public abstract void accept(Visitor v);
+	
+	/**
+	 * Elimina este objeto de la lista de entidades del juego.
+	 */
+	public void finalizar() {
+		// TODO implementar
+	}
 }
