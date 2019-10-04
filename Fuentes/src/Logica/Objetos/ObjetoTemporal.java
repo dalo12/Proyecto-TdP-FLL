@@ -4,19 +4,33 @@ import Logica.General.Objeto;
 
 /**
  * Modela a los objetos temporales.
- * @author Comisión 25 (FERNÁNDEZ, LATOUQUETTE, LÓPEZ)
+ * @author Comisión 25 (FERRANTE, LATOUQUETTE, LÓPEZ)
  * @version 1.0
  */
 public abstract class ObjetoTemporal extends Objeto {
-	protected int tiempo;
-	//protected Thread reloj = new Thread();
 	
-	protected void descontar() {
-		/*try {
-			reloj.sleep(1000);
-		}catch(InterruptedException ie) {
-			//No sé que hacer en este caso
-		}*/
-		tiempo--;
+	protected int duracion;
+	
+	/**
+	 * Asigna una nueva duracion al objeto.
+	 * @param d La nueva duracion a asignar.
+	 */
+	public void setDuracion(int d) {
+		duracion = d;
 	}
+	
+	/**
+	 * Retorna la duracion restante del objeto.
+	 * @return La duracion restante del objeto.
+	 */
+	public int getDuracion() {
+		return duracion;
+	}
+	
+	@Override
+	public void accionar() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
