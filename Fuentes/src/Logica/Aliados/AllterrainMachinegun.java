@@ -1,11 +1,12 @@
 package Logica.Aliados;
 
 import Logica.General.Aliado;
+import Logica.General.Visitors.ConcreteVisitorAliado;
 import Logica.General.Visitors.Visitor;
 
 /**
- * Modela al aliado Pistol soldier.
- * @author Comisión 25 (FERNÁNDEZ, LATOUQUETTE, LÓPEZ)
+ * Modela al aliado AllterrainMachinegun.
+ * @author Comisión 25 (FERRANTE, LATOUQUETTE, LÓPEZ)
  * @version 1.0
  */
 public class AllterrainMachinegun extends Aliado {
@@ -26,16 +27,14 @@ public class AllterrainMachinegun extends Aliado {
 				
 		//atributos lógicos
 		this.nombre = "Allterrain Machinegun";
-		this.alcance_ataque = 5;
-		this.fuerza_ataque = 30;
+		this.alcanceAtaque = 5;
+		this.fuerzaAtaque = 30;
 		this.precio = 225;
-		this.velocidad_ataque = 1;
-		this.vida = MAX_VIDA;		
-	}
-
-	//@Override
-	public void accept(Visitor v) {
-		// TODO Auto-generated method stub
+		this.velocidadAtaque = 1;
+		this.vida = MAX_VIDA;	
+		
+		this.visitor = new ConcreteVisitorAliado(fuerzaAtaque);
 		
 	}
+
 }

@@ -1,11 +1,12 @@
 package Logica.Aliados;
 
 import Logica.General.Aliado;
+import Logica.General.Visitors.ConcreteVisitorAliado;
 import Logica.General.Visitors.Visitor;
 
 /**
- * Modela al aliado Pistol soldier.
- * @author Comisión 25 (FERNÁNDEZ, LATOUQUETTE, LÓPEZ)
+ * Modela al aliado PistolSoldier.
+ * @author Comisión 25 (FERRANTE, LATOUQUETTE, LÓPEZ)
  * @version 1.0
  */
 public class PistolSoldier extends Aliado {
@@ -26,11 +27,14 @@ public class PistolSoldier extends Aliado {
 				
 		//atributos lógicos
 		this.nombre = "Pistol";
-		this.alcance_ataque = 4;
-		this.fuerza_ataque = 30;
+		this.alcanceAtaque = 4;
+		this.fuerzaAtaque = 30;
 		this.precio = 75;
-		this.velocidad_ataque = 3;
+		this.velocidadAtaque = 3;
 		this.vida = MAX_VIDA;		
+		
+		this.visitor = new ConcreteVisitorAliado(fuerzaAtaque);
+		
 	}
 
 	//@Override
