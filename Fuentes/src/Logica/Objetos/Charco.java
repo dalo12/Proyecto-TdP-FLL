@@ -1,10 +1,10 @@
 package Logica.Objetos;
 
-import Logica.General.Visitors.Visitor;
+import Logica.General.Visitors.ConcreteVisitorObjeto;
 
 /**
  * Modela al charco (objeto de mapa).
- * @author Comisión 25 (FERNÁNDEZ, LATOUQUETTE, LÓPEZ)
+ * @author Comisión 25 (FERRANTE, LATOUQUETTE, LÓPEZ)
  * @version 1.0
  */
 public class Charco extends ObjetoTemporal {
@@ -18,22 +18,9 @@ public class Charco extends ObjetoTemporal {
 		this.textura = "";
 		
 		//atributos lógicos
-		this.tiempo = 30;
-	}
-	
-	@Override
-	public void serAtacado(int ataque) {
-		// Si soy atacado, no hago nada
-	}
-
-	@Override
-	public boolean sigoVivo() {
-		return tiempo > 0;
-	}
-
-	@Override
-	public void accept(Visitor v) {
-		// TODO Auto-generated method stub
+		this.duracion = 30;
+		
+		visitor = new ConcreteVisitorObjeto(y, nombre, nombre, y); // TODO verificar si el visitor es correcto
 		
 	}
 

@@ -1,13 +1,14 @@
 package Logica.Objetos;
 
-import Logica.General.Visitors.Visitor;
+import Logica.General.Objeto;
+import Logica.General.Visitors.ConcreteVisitorObjeto;
 
 /**
  * Modela a la cerca antitanque.
- * @author Comisión 25 (FERNÁNDEZ, LATOUQUETTE, LÓPEZ)
+ * @author Comisión 25 (FERRANTE, LATOUQUETTE, LÓPEZ)
  * @version 1.0
  */
-public class CercaAntiTanque extends ObjetoVida {
+public class CercaAntiTanque extends Objeto {
 	/**
 	 * Constructor
 	 * @param x Posición x en el mapa
@@ -24,21 +25,8 @@ public class CercaAntiTanque extends ObjetoVida {
 		//atributos lógicos
 		this.nombre = "Cerca Anti-tanque";
 		this.vida = 100;
-	}
-	
-	@Override
-	public void serAtacado(int ataque) {
-		vida -= ataque;
-	}
-
-	@Override
-	public boolean sigoVivo() {
-		return vida > 0;
-	}
-
-	@Override
-	public void accept(Visitor v) {
-		// TODO Auto-generated method stub
+		
+		visitor = new ConcreteVisitorObjeto(y, nombre, nombre, y); // TODO verificar si el visitor es correcto
 		
 	}
 
