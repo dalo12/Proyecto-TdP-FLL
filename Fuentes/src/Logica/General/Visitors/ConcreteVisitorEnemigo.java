@@ -8,6 +8,12 @@ import Logica.General.Premio;
 
 public class ConcreteVisitorEnemigo extends Visitor {
 
+	protected int damage;
+	
+	public ConcreteVisitorEnemigo(int damage) {
+		this.damage = damage;
+	}
+	
 	@Override
 	public void visitEnemigo(Enemigo enemigo) {
 		// Enemigo no interactua con enemigo.

@@ -8,6 +8,18 @@ import Logica.General.Premio;
 
 public class ConcreteVisitorObjeto extends Visitor {
 
+	protected int damage;
+	protected String efecto;
+	protected String target;
+	protected int valorEfecto;
+	
+	public ConcreteVisitorObjeto(int damage, String efecto, String target, int valorEfecto) {
+		this.damage = damage;
+		this.efecto = efecto;
+		this.target = target;
+		this.valorEfecto = valorEfecto;
+	}
+	
 	@Override
 	public void visitEnemigo(Enemigo enemigo) {
 		// TODO Auto-generated method stub
