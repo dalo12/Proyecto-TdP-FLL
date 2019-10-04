@@ -27,15 +27,13 @@ public class ConcreteVisitorPremio extends Visitor {
 	}
 
 	@Override
-	public void visitObjeto(Disparo disparo) {
-		// TODO Auto-generated method stub
-
+	public void visitDisparo(Disparo disparo) {
+		// Premio no intereactua con disparo.
 	}
 
 	@Override
-	public void visitObjeto(Premio premio) {
-		// TODO Auto-generated method stub
-
+	public void visitPremio(Premio premio) {
+		// Premio no interactua con premio.
 	}
 
 }

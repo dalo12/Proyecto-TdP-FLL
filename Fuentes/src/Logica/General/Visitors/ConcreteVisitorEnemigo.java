@@ -10,8 +10,7 @@ public class ConcreteVisitorEnemigo extends Visitor {
 
 	@Override
 	public void visitEnemigo(Enemigo enemigo) {
-		// TODO Auto-generated method stub
-
+		// Enemigo no interactua con enemigo.
 	}
 
 	@Override
@@ -27,15 +26,13 @@ public class ConcreteVisitorEnemigo extends Visitor {
 	}
 
 	@Override
-	public void visitObjeto(Disparo disparo) {
-		// TODO Auto-generated method stub
-
+	public void visitDisparo(Disparo disparo) {
+		// Enemigo no interactua con disparo.
 	}
 
 	@Override
-	public void visitObjeto(Premio premio) {
-		// TODO Auto-generated method stub
-
+	public void visitPremio(Premio premio) {
+		// Enemigo no interactua con premio.
 	}
 
 }

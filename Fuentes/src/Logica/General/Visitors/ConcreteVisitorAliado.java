@@ -16,26 +16,22 @@ public class ConcreteVisitorAliado extends Visitor {
 
 	@Override
 	public void visitAliado(Aliado aliado) {
-		// TODO Auto-generated method stub
-
+		// Aliado no interactua con aliado.
 	}
 
 	@Override
 	public void visitObjeto(Objeto objeto) {
-		// TODO Auto-generated method stub
-
+		// Aliado no interactua con objeto.
 	}
 
 	@Override
-	public void visitObjeto(Disparo disparo) {
-		// TODO Auto-generated method stub
-
+	public void visitDisparo(Disparo disparo) {
+		// Aliado no interactua con disparo.
 	}
 
 	@Override
-	public void visitObjeto(Premio premio) {
-		// TODO Auto-generated method stub
-
+	public void visitPremio(Premio premio) {
+		// Aliado no interactua con premio.
 	}
 
 }

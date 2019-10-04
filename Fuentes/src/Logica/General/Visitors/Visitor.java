@@ -14,8 +14,8 @@ public abstract class Visitor {
 	
 	public abstract void visitObjeto(Objeto objeto);
 	
-	public abstract void visitObjeto(Disparo disparo);
+	public abstract void visitDisparo(Disparo disparo);
 	
-	public abstract void visitObjeto(Premio premio);
+	public abstract void visitPremio(Premio premio);
 	
 }
