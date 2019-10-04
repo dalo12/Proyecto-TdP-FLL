@@ -15,10 +15,10 @@ public class CercaAntiTanque extends ObjetoVida {
 	 */
 	public CercaAntiTanque(int x, int y) {
 		//atributos físicos
-		this.posicion_x = x;
-		this.posicion_y = y;
-		this.tamano_x = 1;
-		this.tamano_y = 2;
+		this.posicionX = x;
+		this.posicionY = y;
+		this.tamanoX = 1;
+		this.tamanoY = 2;
 		this.textura = "";
 		
 		//atributos lógicos

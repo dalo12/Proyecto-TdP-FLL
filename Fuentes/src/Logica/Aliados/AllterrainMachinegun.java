@@ -18,10 +18,10 @@ public class AllterrainMachinegun extends Aliado {
 	 */
 	public AllterrainMachinegun(int x, int y) {
 		// atributos físicos
-		this.tamano_x = 1;
-		this.tamano_y = 2;
-		this.posicion_x = x;
-		this.posicion_y = y;
+		this.tamanoX = 1;
+		this.tamanoY = 2;
+		this.posicionX = x;
+		this.posicionY = y;
 		this.textura = "";
 				
 		//atributos lógicos

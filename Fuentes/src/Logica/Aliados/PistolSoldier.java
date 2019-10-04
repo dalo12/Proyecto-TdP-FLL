@@ -18,10 +18,10 @@ public class PistolSoldier extends Aliado {
 	 */
 	public PistolSoldier(int x, int y) {
 		// atributos físicos
-		this.tamano_x = 1;
-		this.tamano_y = 1;
-		this.posicion_x = x;
-		this.posicion_y = y;
+		this.tamanoX = 1;
+		this.tamanoY = 1;
+		this.posicionX = x;
+		this.posicionY = y;
 		this.textura = "/Img/pistol-soldier-1.png";
 				
 		//atributos lógicos

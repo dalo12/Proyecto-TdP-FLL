@@ -17,10 +17,10 @@ public class Kangaroo extends Enemigo {
 	 */
 	public Kangaroo(int x, int y) {
 		//atributos físicos
-		this.posicion_x = x;
-		this.posicion_y = y;
-		this.tamano_x = 1;
-		this.tamano_y = 1;
+		this.posicionX = x;
+		this.posicionY = y;
+		this.tamanoX = 1;
+		this.tamanoY = 1;
 		this.textura = "/Img/kangaroo-1.gif";
 		
 		//atributos lógicos

@@ -198,9 +198,9 @@ public class MenuPrincipal {
 		if (lista.size()>0 && elJuego.getEnemigo()!=null){ //Previene un IndexOutOfBoundsException en caso de que no se tenga labels en la lista
 			GameObject object = elJuego.getEnemigo();
 			//El siguiente if previene que el labelEnemigo toque al labelPersonaje al estar cerca de su posición
-			if (lblPersonaje.getX()+60 < object.getPosicion_x()) {
+			if (lblPersonaje.getX()+60 < object.getPosicionX()) {
 				//lista.get(0).setBounds(object.getPosicion_x(), object.getPosicion_y(), 70, 58);
-				lista.get(0).setBounds(object.getPosicion_x(), object.getPosicion_y(), 70, 58);
+				lista.get(0).setBounds(object.getPosicionX(), object.getPosicionY(), 70, 58);
 			}
 		}
 		lblMoneda.setText("Monedas: $" + String.valueOf(elJuego.getMonedas()));

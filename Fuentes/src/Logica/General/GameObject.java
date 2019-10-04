@@ -1,80 +1,91 @@
 package Logica.General;
+
+import javax.swing.JLabel;
+
 /**
  * Modela todos los objetos del juego: premios, personajes y objetos.
- * @author Comisión 25 (FERNÁNDEZ, LATOUQUETTE, LÓPEZ)
+ * @author Comisión 25 (FERRANTE, LATOUQUETTE, LÓPEZ)
  * @version 1.0
  */
 
 public abstract class GameObject {
-	protected int posicion_x, posicion_y, tamano_x, tamano_y;
+	protected int posicionX, posicionY, tamanoX, tamanoY;
+	protected JLabel label;
 	protected String textura;
 	protected String nombre;
 	
-	// MÉTODOS
 	/**
 	 * Devuelve la posición en el eje x del objeto
 	 * @return la posición en el eje x del objeto
 	 */
-	public int getPosicion_x() {
-		return posicion_x;
+	public int getPosicionX() {
+		return posicionX;
 	}
 	
 	/**
 	 * Asigna una nueva posición en el eje x del objeto
-	 * @param posicion_x La nueva coordenada x del objeto
+	 * @param x La nueva coordenada x del objeto
 	 */
-	public void setPosicion_x(int posicion_x) {
-		this.posicion_x = posicion_x;
+	public void setPosicionX(int x) {
+		this.posicionX = x;
 	}
 
 	/**
 	 * Devuelve la posición en el eje y del objeto
 	 * @return la posición en el eje y del objeto
 	 */
-	public int getPosicion_y() {
-		return posicion_y;
+	public int getPosicionY() {
+		return posicionY;
 	}
 
 	/**
 	 * Asigna una nueva posicion en el eje y del objeto
-	 * @param posicion_y La nueva coordenada y del objeto
+	 * @param y La nueva coordenada y del objeto
 	 */
-	public void setPosicion_y(int posicion_y) {
-		this.posicion_y = posicion_y;
+	public void setPosicionY(int y) {
+		this.posicionY = y;
 	}
 
 	/**
 	 * Devuelve la cantidad de filas que ocupa el objeto
 	 * @return La cantidad de filas que ocupa el objeto
 	 */
-	public int getTamano_x() {
-		return tamano_x;
+	public int getTamanoX() {
+		return tamanoX;
 	}
 
 	/**
 	 * Asigna un nuevo tamaño de cantidad de filas que ocupa el objeto
-	 * @param tamano_x El nuevo tamaño de cantidad de filas que ocupa el objeto
+	 * @param tamanoX El nuevo tamaño de cantidad de filas que ocupa el objeto
 	 */
-	public void setTamano_x(int tamano_x) {
-		this.tamano_x = tamano_x;
+	public void setTamanoX(int tamanoX) {
+		this.tamanoX = tamanoX;
 	}
 	
 	/**
 	 * Devuelve la cantidad de columnas que ocupa el objeto
 	 * @return La cantidad de columnas que ocupa el objeto
 	 */
-	public int getTamano_y() {
-		return tamano_y;
+	public int getTamanoY() {
+		return tamanoY;
 	}
 
 	/**
 	 * Asigna un nuevo tamaño de cantidad de columnas que ocupa el objeto
-	 * @param tamano_y El nuevo tamaño de cantidad de columnas que ocupa el objeto
+	 * @param tamanoY El nuevo tamaño de cantidad de columnas que ocupa el objeto
 	 */
-	public void setTamano_y(int tamano_y) {
-		this.tamano_y = tamano_y;
+	public void setTamanoY(int tamanoY) {
+		this.tamanoY = tamanoY;
 	}
 
+	/**
+	 * Devuelve el label de este objeto.
+	 * @return El label de este objeto.
+	 */
+	public JLabel getLabel() {
+		return label;
+	}
+	
 	/**
 	 * Devuelve la dirección en el disco de la textura del objeto
 	 * @return La dirección en el disco de la textura del objeto

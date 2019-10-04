@@ -57,7 +57,7 @@ public abstract class Enemigo extends Personaje {
 	 * Hace que el enemigo avance en el mapa
 	 */
 	public void avanzar() {
-		this.posicion_x += this.velocidad;
+		this.posicionX += this.velocidad;
 	}
 
 
