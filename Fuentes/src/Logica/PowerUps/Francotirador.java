@@ -1,8 +1,5 @@
 package Logica.PowerUps;
 
-import java.util.List;
-
-import Logica.General.Entidad;
 import Logica.General.Premio;
 
 /**
@@ -12,23 +9,10 @@ import Logica.General.Premio;
  */
 public class Francotirador extends Premio {
 	
-	/**
-	 * Constructor
-	 */
 	public Francotirador() {
-		duracion = 0;
+		duracionEnMapa = 10;
+		duracionActivo = 0;
+		activo = false;
 	}
 	
-	@Override
-	public void aplicarEfecto(List<Entidad> lista) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void aplicarEfecto(Entidad e) {
-		// TODO Auto-generated method stub
-
-	}
-
 }
