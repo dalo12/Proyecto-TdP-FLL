@@ -23,10 +23,9 @@ public class CercaAntiTanque extends Objeto {
 		this.textura = "";
 		
 		//atributos lógicos
-		this.nombre = "Cerca Anti-tanque";
 		this.vida = 100;
 		
-		visitor = new ConcreteVisitorObjeto(y, nombre, nombre, y); // TODO verificar si el visitor es correcto
+		visitor = new ConcreteVisitorObjeto(y, "", "", y); // TODO verificar si el visitor es correcto
 		
 	}
 

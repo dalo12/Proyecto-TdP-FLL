@@ -24,12 +24,10 @@ public class Barricada extends Objeto {
 		this.textura = "";
 		
 		//atributos lógicos
-		this.nombre = "Barricada";
 		this.vida = 50;
 		
-		visitor = new ConcreteVisitorObjeto(y, nombre, nombre, y); // TODO verificar si el visitor es correcto
+		visitor = new ConcreteVisitorObjeto(y, "", "", y); // TODO verificar si el visitor es correcto
 		
 	}
 
-	
 }

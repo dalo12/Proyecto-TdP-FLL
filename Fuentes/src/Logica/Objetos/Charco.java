@@ -3,7 +3,7 @@ package Logica.Objetos;
 import Logica.General.Visitors.ConcreteVisitorObjeto;
 
 /**
- * Modela al charco (objeto de mapa).
+ * Modela el charco (objeto de mapa).
  * @author Comisión 25 (FERRANTE, LATOUQUETTE, LÓPEZ)
  * @version 1.0
  */
@@ -20,7 +20,7 @@ public class Charco extends ObjetoTemporal {
 		//atributos lógicos
 		this.duracion = 30;
 		
-		visitor = new ConcreteVisitorObjeto(y, nombre, nombre, y); // TODO verificar si el visitor es correcto
+		visitor = new ConcreteVisitorObjeto(y, "", "", y); // TODO verificar si el visitor es correcto
 		
 	}
 
