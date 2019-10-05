@@ -2,7 +2,6 @@ package Logica.Aliados;
 
 import Logica.General.Aliado;
 import Logica.General.Visitors.ConcreteVisitorAliado;
-import Logica.General.Visitors.Visitor;
 
 /**
  * Modela al aliado KnifeSoldier.
@@ -10,7 +9,6 @@ import Logica.General.Visitors.Visitor;
  * @version 1.0
  */
 public class KnifeSoldier extends Aliado {
-	protected static final int MAX_VIDA = 100;
 	
 	/**
 	 * Constructor
@@ -26,20 +24,15 @@ public class KnifeSoldier extends Aliado {
 		this.textura = "";
 				
 		//atributos lógicos
-		this.nombre = "Knife";
 		this.alcanceAtaque = 1;
 		this.fuerzaAtaque = 20;
 		this.precio = 50;
 		this.velocidadAtaque = 2;
-		this.vida = MAX_VIDA;	
+		this.vidaMaxima = 100;
+		this.vida = vidaMaxima;		
 		
 		this.visitor = new ConcreteVisitorAliado(fuerzaAtaque);
 		
 	}
-
-	//@Override
-	public void accept(Visitor v) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 }

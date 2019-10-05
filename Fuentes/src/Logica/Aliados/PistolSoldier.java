@@ -2,7 +2,6 @@ package Logica.Aliados;
 
 import Logica.General.Aliado;
 import Logica.General.Visitors.ConcreteVisitorAliado;
-import Logica.General.Visitors.Visitor;
 
 /**
  * Modela al aliado PistolSoldier.
@@ -10,7 +9,6 @@ import Logica.General.Visitors.Visitor;
  * @version 1.0
  */
 public class PistolSoldier extends Aliado {
-	protected static final int MAX_VIDA = 90;
 	
 	/**
 	 * Constructor
@@ -26,20 +24,15 @@ public class PistolSoldier extends Aliado {
 		this.textura = "/Img/pistol-soldier-1.png";
 				
 		//atributos lógicos
-		this.nombre = "Pistol";
 		this.alcanceAtaque = 4;
 		this.fuerzaAtaque = 30;
 		this.precio = 75;
 		this.velocidadAtaque = 3;
-		this.vida = MAX_VIDA;		
+		this.vidaMaxima = 90;
+		this.vida = vidaMaxima;	
 		
 		this.visitor = new ConcreteVisitorAliado(fuerzaAtaque);
 		
 	}
-
-	//@Override
-	public void accept(Visitor v) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 }

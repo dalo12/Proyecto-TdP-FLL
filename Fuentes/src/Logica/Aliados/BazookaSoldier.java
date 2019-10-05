@@ -2,7 +2,6 @@ package Logica.Aliados;
 
 import Logica.General.Aliado;
 import Logica.General.Visitors.ConcreteVisitorAliado;
-import Logica.General.Visitors.Visitor;
 
 /**
  * Modela al aliado BazookaSoldier.
@@ -10,7 +9,6 @@ import Logica.General.Visitors.Visitor;
  * @version 1.0
  */
 public class BazookaSoldier extends Aliado {
-	protected static final int MAX_VIDA = 100;
 	
 	/**
 	 * Constructor
@@ -26,20 +24,15 @@ public class BazookaSoldier extends Aliado {
 		this.textura = "";
 				
 		//atributos lógicos
-		this.nombre = "Bazooka";
 		this.alcanceAtaque = 7;
 		this.fuerzaAtaque = 125;
 		this.precio = 175;
 		this.velocidadAtaque = 10;
-		this.vida = MAX_VIDA;	
+		this.vidaMaxima = 100;
+		this.vida = vidaMaxima;		
 		
 		this.visitor = new ConcreteVisitorAliado(fuerzaAtaque);
 		
 	}
 
-	//@Override
-	public void accept(Visitor v) {
-		// TODO Auto-generated method stub
-		
-	}
 }
