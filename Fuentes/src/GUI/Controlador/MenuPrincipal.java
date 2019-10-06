@@ -214,7 +214,7 @@ public class MenuPrincipal {
 		itemCharacter = new ItemSeleccionable[elJuego.getNivelActual().getPersonajesSeleccionables().size()];
 		int i = 0;
 		for(GameObject o: elJuego.getNivelActual().getPersonajesSeleccionables()) {
-			itemCharacter[i] = new ItemSeleccionable(o.getNombre(), o);
+			itemCharacter[i] = new ItemSeleccionable("getNombre", o);
 			itemCharacter[i].setFont(new Font("Segoe UI", Font.BOLD, 12));
 			itemCharacter[i].setIcon(new ImageIcon(o.getTextura()));
 //			itemCharacter[nro_item].addActionListener(new ActionListener() {

@@ -64,7 +64,7 @@ public class Juego {
 	
 	//temporal
 	public void moverenemigo() {
-		enemigo.setPosicionX(enemigo.getPosicionX() - 10);
+		enemigo.setPosicionX(enemigo.getPosicionX() - 4);
 	}
 	
 	public GameObject getEnemigo() {
