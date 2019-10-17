@@ -2,6 +2,7 @@ package Logica.General;
 
 import javax.swing.JLabel;
 
+import GUI.GraficosDeObjetos.GOGrafico;
 import Logica.General.Visitors.Visitor;
 
 /**
@@ -12,11 +13,13 @@ import Logica.General.Visitors.Visitor;
 
 public abstract class GameObject {
 	protected int posicionX, posicionY, tamanoX, tamanoY;
-	protected JLabel label;
-	protected String textura;
 	protected Visitor visitor;
 	protected Juego elJuego;
+	protected GOGrafico grafica;
 	
+	protected GameObject() {
+		
+	}
 	/**
 	 * Devuelve la posición en el eje x del objeto
 	 * @return la posición en el eje x del objeto
@@ -80,30 +83,6 @@ public abstract class GameObject {
 	public void setTamanoY(int tamanoY) {
 		this.tamanoY = tamanoY;
 	}
-
-	/**
-	 * Devuelve el label de este objeto.
-	 * @return El label de este objeto.
-	 */
-	public JLabel getLabel() {
-		return label;
-	}
-	
-	/**
-	 * Devuelve la dirección en el disco de la textura del objeto
-	 * @return La dirección en el disco de la textura del objeto
-	 */
-	public String getTextura() {
-		return textura;
-	}
-
-	/**
-	 * Asigna una nueva dirección en el disco donde buscar la textura del objeto
-	 * @param textura La nueva dirección en el disco donde buscar la textura del objeto
-	 */
-	public void setTextura(String textura) {
-		this.textura = textura;
-	}
 	
 	/**
 	 * Realiza la accion basica de este objeto, de acuerdo a su rol en el juego.
@@ -129,5 +108,19 @@ public abstract class GameObject {
 	 */
 	public void finalizar() {
 		// TODO implementar
+	}
+
+	/**
+	 * @return the grafica
+	 */
+	public GOGrafico getGrafica() {
+		return grafica;
+	}
+
+	/**
+	 * @param grafica the grafica to set
+	 */
+	public void setGrafica(GOGrafico grafica) {
+		this.grafica = grafica;
 	}
 }

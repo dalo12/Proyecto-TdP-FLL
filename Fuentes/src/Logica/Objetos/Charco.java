@@ -17,11 +17,7 @@ public class Charco extends ObjetoTemporal {
 		this.posicionX = x;
 		this.posicionY = y;
 		this.tamanoX = 1;
-		this.tamanoY = 1;
-		this.textura = "";
-		
-		//Establece el icono del label
-		this.label = new JLabel(new ImageIcon(textura));
+		this.tamanoY = 1;		
 		
 		//atributos lógicos
 		this.duracion = 30;

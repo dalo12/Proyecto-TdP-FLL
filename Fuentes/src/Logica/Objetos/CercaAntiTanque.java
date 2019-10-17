@@ -22,11 +22,7 @@ public class CercaAntiTanque extends Objeto {
 		this.posicionX = x;
 		this.posicionY = y;
 		this.tamanoX = 1;
-		this.tamanoY = 2;
-		this.textura = "";
-		
-		//Establece el icono del label
-		this.label = new JLabel(new ImageIcon(textura));
+		this.tamanoY = 2;		
 		
 		//atributos lógicos
 		this.vida = 100;
