@@ -3,6 +3,7 @@ package GUI.Mapa;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
+import Logica.General.Entidad;
 import Logica.General.GameObject;
 
 /**
@@ -37,5 +38,10 @@ public class LabelPersonaje extends JLabel {
 	 */
 	public GameObject getGameObject() {
 		return gameObject;
+	}
+
+	public Entidad getEntidad() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

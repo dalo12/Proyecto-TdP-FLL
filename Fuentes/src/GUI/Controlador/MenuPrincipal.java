@@ -10,7 +10,6 @@ import javax.swing.SwingConstants;
 
 import java.awt.Font;
 import javax.swing.ImageIcon;
-
 import javax.swing.JMenuBar;
 import javax.swing.JOptionPane;
 import javax.swing.JMenu;
@@ -23,6 +22,7 @@ import Logica.Enemigos.Kangaroo;
 import Logica.General.GameObject;
 import Logica.General.Juego;
 import Logica.Mapa.Mapa;
+import Logica.Tienda.Aliados.ButtonPersonaje;
 
 import java.awt.Insets;
 import java.awt.event.MouseAdapter;
@@ -36,7 +36,7 @@ public class MenuPrincipal {
 	//Atributos gráficos
 	private JFrame frame;
 	private JLabel lblMoneda, lblPuntaje, lblPersonaje;
-	private ItemSeleccionable itemCharacter[]; //Items de Personajes
+	private ButtonPersonaje itemCharacter[]; //Items de Personajes
 	private static final Border bordeBarra = new MatteBorder(0, 1, 0, 1, (Color) new Color(0,0,0));
 	private static final Border bordeSinLeft = new MatteBorder(0, 0, 0, 1, (Color) new Color(0,0,0));
 	private List<JLabel> lista;
@@ -211,20 +211,10 @@ public class MenuPrincipal {
 	 * Inicializa el menú de personajes seleccionables
 	 */
 	protected void iniciarMenuPersonajes() {
-		itemCharacter = new ItemSeleccionable[elJuego.getNivelActual().getPersonajesSeleccionables().size()];
+		itemCharacter = new ButtonPersonaje[elJuego.getNivelActual().getPersonajesSeleccionables().size()];
 		int i = 0;
-		for(GameObject o: elJuego.getNivelActual().getPersonajesSeleccionables()) {
-			itemCharacter[i] = new ItemSeleccionable("getNombre", o);
-			itemCharacter[i].setFont(new Font("Segoe UI", Font.BOLD, 12));
-			itemCharacter[i].setIcon(new ImageIcon(o.getTextura()));
-//			itemCharacter[nro_item].addActionListener(new ActionListener() {
-//
-//				@Override
-//				public void actionPerformed(ActionEvent e) {
-//					itemCharacter[nro_item].crearObjeto();
-//				}
-//				
-//			});
+		for(ButtonPersonaje btn_per: elJuego.getNivelActual().getPersonajesSeleccionables()) {
+			itemCharacter[i] = btn_per;
 			mnPersonajes.add(itemCharacter[i]);
 			i++;
 		}

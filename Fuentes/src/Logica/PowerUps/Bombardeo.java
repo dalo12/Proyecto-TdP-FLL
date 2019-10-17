@@ -1,5 +1,6 @@
 package Logica.PowerUps;
 
+import Logica.General.Enemigo;
 import Logica.General.Premio;
 
 /**
@@ -13,6 +14,12 @@ public class Bombardeo extends Premio {
 		duracionEnMapa = 10;
 		duracionActivo = 0;
 		activo = false;
+	}
+
+	@Override
+	protected void aplicarEfecto(Enemigo enemigo) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
