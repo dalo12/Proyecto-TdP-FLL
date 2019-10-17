@@ -1,5 +1,8 @@
 package Logica.Objetos;
 
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+
 import Logica.General.Visitors.ConcreteVisitorObjeto;
 
 /**
@@ -16,6 +19,9 @@ public class Charco extends ObjetoTemporal {
 		this.tamanoX = 1;
 		this.tamanoY = 1;
 		this.textura = "";
+		
+		//Establece el icono del label
+		this.label = new JLabel(new ImageIcon(textura));
 		
 		//atributos lógicos
 		this.duracion = 30;

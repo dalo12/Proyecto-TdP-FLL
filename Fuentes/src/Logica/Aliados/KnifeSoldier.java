@@ -1,5 +1,8 @@
 package Logica.Aliados;
 
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+
 import Logica.General.Aliado;
 import Logica.General.Visitors.ConcreteVisitorAliado;
 
@@ -9,7 +12,6 @@ import Logica.General.Visitors.ConcreteVisitorAliado;
  * @version 1.0
  */
 public class KnifeSoldier extends Aliado {
-	
 	/**
 	 * Constructor
 	 * @param x Posición en el eje x del aliado
@@ -21,8 +23,11 @@ public class KnifeSoldier extends Aliado {
 		this.tamanoY = 1;
 		this.posicionX = x;
 		this.posicionY = y;
-		this.textura = "";
-				
+		this.textura = "../Texturas/Personajes/pistol-soldier/pistol-soldier1.png";
+		
+		//Establece el icono del label
+		this.label = new JLabel(new ImageIcon(textura));
+		
 		//atributos lógicos
 		this.alcanceAtaque = 1;
 		this.fuerzaAtaque = 20;

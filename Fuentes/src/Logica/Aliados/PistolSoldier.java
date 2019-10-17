@@ -1,5 +1,8 @@
 package Logica.Aliados;
 
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+
 import Logica.General.Aliado;
 import Logica.General.Visitors.ConcreteVisitorAliado;
 
@@ -22,6 +25,9 @@ public class PistolSoldier extends Aliado {
 		this.posicionX = x;
 		this.posicionY = y;
 		this.textura = "/Img/pistol-soldier-1.png";
+		
+		//Establece el icono del label
+		this.label = new JLabel(new ImageIcon(textura));
 				
 		//atributos lógicos
 		this.alcanceAtaque = 4;

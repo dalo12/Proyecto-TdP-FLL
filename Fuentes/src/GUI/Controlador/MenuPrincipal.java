@@ -52,6 +52,9 @@ public class MenuPrincipal {
 	private static final String urlImg2 = "../Texturas/Personajes/pistol-soldier/pistol-soldier2.png";
 	private static final String urlImg3 = "../Texturas/Personajes/kangaroo/kangaroo1.png";
 
+	private GameObject aux = null;
+	
+	
 	/**
 	 * Launch the application.
 	 */
@@ -90,8 +93,34 @@ public class MenuPrincipal {
 					
 			});
 		}
+		
+		for (ButtonPersonaje bp: itemCharacter) {
+			bp.addMouseListener(new MouseAdapter() {
+				public void mouseClicked(MouseEvent e){
+					aux = bp.crearObjeto();
+				}
+			});
+		}
+		
 		contador = new ContadorTiempo(elJuego, this);
 		mapa.setLimites(this.getLimiteEnemigos());
+		
+		panelMapa.addMouseListener(new MouseAdapter() {
+				public void mouseClicked(MouseEvent e){
+					if (aux!=null) {
+						//Se inserta un label
+						aux.setPosicionX(e.getX());
+						aux.setPosicionY(e.getY());
+						aux.getLabel().setIcon(new ImageIcon(urlImg1));
+						aux.getLabel().setBounds(aux.getPosicionX(), aux.getPosicionY(), 50, 50);
+						lista.add(aux.getLabel());
+						panelMapa.add(aux.getLabel());
+						aux = null;
+						//Repaint del panel
+						panelMapa.repaint();
+					}
+				}
+			});
 	}
 
 	/**
@@ -280,6 +309,12 @@ public class MenuPrincipal {
 		}
 		
 		return arr;
+	}
+	
+	
+	public void newGameObject(GameObject go) {
+		aux = go;
+		System.out.println("Gola");
 	}
 }
 

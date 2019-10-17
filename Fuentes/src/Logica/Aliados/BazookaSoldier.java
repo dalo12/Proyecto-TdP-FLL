@@ -1,5 +1,8 @@
 package Logica.Aliados;
 
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+
 import Logica.General.Aliado;
 import Logica.General.Visitors.ConcreteVisitorAliado;
 
@@ -22,7 +25,10 @@ public class BazookaSoldier extends Aliado {
 		this.posicionX = x;
 		this.posicionY = y;
 		this.textura = "";
-				
+		
+		//Establece el icono del label
+		this.label = new JLabel(new ImageIcon(textura));
+		
 		//atributos lógicos
 		this.alcanceAtaque = 7;
 		this.fuerzaAtaque = 125;

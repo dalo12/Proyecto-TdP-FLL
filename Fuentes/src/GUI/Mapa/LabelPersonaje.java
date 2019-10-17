@@ -1,6 +1,5 @@
 package GUI.Mapa;
 
-import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 import Logica.General.Entidad;

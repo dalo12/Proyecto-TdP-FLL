@@ -1,5 +1,8 @@
 package Logica.Objetos;
 
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+
 import Logica.General.Objeto;
 import Logica.General.Visitors.ConcreteVisitorObjeto;
 
@@ -22,6 +25,9 @@ public class Piedra extends Objeto {
 		this.tamanoX = 1;
 		this.tamanoY = 1;
 		this.textura = "";
+		
+		//Establece el icono del label
+		this.label = new JLabel(new ImageIcon(textura));
 		
 		//atributos lógicos
 		this.vida = 30;
