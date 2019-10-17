@@ -1,9 +1,9 @@
 package GUI.Mapa;
 
-import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 import Logica.General.Entidad;
+import Logica.General.GameObject;
 
 /**
  * Clase LabelPersonaje: Clase que identifica a un JLabel que contiene a una Entidad.
@@ -12,7 +12,7 @@ import Logica.General.Entidad;
 @SuppressWarnings("serial")
 public class LabelPersonaje extends JLabel {
 	//Atributos de instancia
-	private Entidad entidad;
+	private GameObject gameObject;
 	
 	/**
 	 * Constructor de LabelExtendido
@@ -22,20 +22,25 @@ public class LabelPersonaje extends JLabel {
 	 * @param alto Altura del label
 	 * @param ancho Anchura del label
 	 */
-	public LabelPersonaje(Entidad e, int x, int y, int alto, int ancho) {
+	public LabelPersonaje(GameObject o, int x, int y, int alto, int ancho) {
 		super();
 		//Establece la imagen del label
 		//super(new ImageIcon(e.getTextura()));
 		this.setBounds(x, y, alto, ancho);
 		//Setea entidad
-		entidad = e;
+		gameObject = o;
 	}
 	
 	/**
 	 * Devuelve la entidad
 	 * @return Entidad
 	 */
+	public GameObject getGameObject() {
+		return gameObject;
+	}
+
 	public Entidad getEntidad() {
-		return entidad;
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

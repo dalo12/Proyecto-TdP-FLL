@@ -1,13 +1,17 @@
 package Logica.Objetos;
 
-import Logica.General.Visitors.Visitor;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+
+import Logica.General.Objeto;
+import Logica.General.Visitors.ConcreteVisitorObjeto;
 
 /**
  * Modela a la cerca antitanque.
- * @author Comisión 25 (FERNÁNDEZ, LATOUQUETTE, LÓPEZ)
+ * @author Comisión 25 (FERRANTE, LATOUQUETTE, LÓPEZ)
  * @version 1.0
  */
-public class CercaAntiTanque extends ObjetoVida {
+public class CercaAntiTanque extends Objeto {
 	/**
 	 * Constructor
 	 * @param x Posición x en el mapa
@@ -15,30 +19,19 @@ public class CercaAntiTanque extends ObjetoVida {
 	 */
 	public CercaAntiTanque(int x, int y) {
 		//atributos físicos
-		this.posicion_x = x;
-		this.posicion_y = y;
-		this.tamano_x = 1;
-		this.tamano_y = 2;
+		this.posicionX = x;
+		this.posicionY = y;
+		this.tamanoX = 1;
+		this.tamanoY = 2;
 		this.textura = "";
 		
+		//Establece el icono del label
+		this.label = new JLabel(new ImageIcon(textura));
+		
 		//atributos lógicos
-		this.nombre = "Cerca Anti-tanque";
 		this.vida = 100;
-	}
-	
-	@Override
-	public void serAtacado(int ataque) {
-		vida -= ataque;
-	}
-
-	@Override
-	public boolean sigoVivo() {
-		return vida > 0;
-	}
-
-	@Override
-	public void accept(Visitor v) {
-		// TODO Auto-generated method stub
+		
+		visitor = new ConcreteVisitorObjeto(y, "", "", y); // TODO verificar si el visitor es correcto
 		
 	}
 

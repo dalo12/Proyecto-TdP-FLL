@@ -2,7 +2,7 @@ package Logica.General;
 
 import java.util.Random;
 
-import Logica.General.Visitors.ConcreteVisitor;
+import Logica.General.Visitors.Visitor;
 
 /**
  * Modela todos los enemigos del juego.
@@ -10,7 +10,7 @@ import Logica.General.Visitors.ConcreteVisitor;
  * @version 1.0
  */
 public abstract class Enemigo extends Personaje {
-	protected int velocidad, tope_monedas, puntaje;
+	protected int velocidad, maxMonedas, puntaje;
 
 	/**
 	 * Devuelve la velocidad del enemigo
@@ -34,7 +34,7 @@ public abstract class Enemigo extends Personaje {
 	 */
 	public int getMonedas() {
 		Random r = new Random();
-		return r.nextInt(tope_monedas) + 10;
+		return r.nextInt(maxMonedas) + 10;
 	}
 
 	/**
@@ -57,21 +57,15 @@ public abstract class Enemigo extends Personaje {
 	 * Hace que el enemigo avance en el mapa
 	 */
 	public void avanzar() {
-		this.posicion_x += this.velocidad;
+		this.posicionX += this.velocidad;
 	}
-
 
 	/**
 	 * Ataca a un aliado (o sea, pesonaje del jugador)
 	 * @param a El aliado a atacar
 	 */
 	public void atacar(Aliado o) {
-		if(this.esperar_atacar == 0) {
-			o.setVida(o.getVida() - fuerza_ataque);
-			esperar_atacar = 500 * velocidad_ataque;
-		}else {
-			esperar_atacar--;
-		}
+		o.setVida(o.getVida() - fuerzaAtaque);
 	}
 	
 	/**
@@ -79,21 +73,16 @@ public abstract class Enemigo extends Personaje {
 	 * @param o El objeto a atacar
 	 */
 	public void atacar(Objeto o) {
-		if(this.esperar_atacar == 0) {
-			o.serAtacado(fuerza_ataque);
-			esperar_atacar = 500 * velocidad_ataque;
-		}else {
-			esperar_atacar--;
-		}
+		o.setVida(o.getVida() - fuerzaAtaque);
 	}
 	
-	@Override
-	public void actuar() {
-		avanzar();
-		//atacar();
-	}
-	
-	public void accept(ConcreteVisitor v) {
+	public void accept(Visitor v) {
 		v.visitEnemigo(this);
+	}
+
+	@Override
+	public void accionar() {
+		// TODO Auto-generated method stub
+		
 	}
 }

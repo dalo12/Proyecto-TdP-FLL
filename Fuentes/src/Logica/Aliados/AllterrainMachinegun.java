@@ -1,15 +1,17 @@
 package Logica.Aliados;
 
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+
 import Logica.General.Aliado;
-import Logica.General.Visitors.Visitor;
+import Logica.General.Visitors.ConcreteVisitorAliado;
 
 /**
- * Modela al aliado Pistol soldier.
- * @author Comisión 25 (FERNÁNDEZ, LATOUQUETTE, LÓPEZ)
+ * Modela al aliado AllterrainMachinegun.
+ * @author Comisión 25 (FERRANTE, LATOUQUETTE, LÓPEZ)
  * @version 1.0
  */
 public class AllterrainMachinegun extends Aliado {
-	protected static final int MAX_VIDA = 250;
 	
 	/**
 	 * Constructor
@@ -18,24 +20,25 @@ public class AllterrainMachinegun extends Aliado {
 	 */
 	public AllterrainMachinegun(int x, int y) {
 		// atributos físicos
-		this.tamano_x = 1;
-		this.tamano_y = 2;
-		this.posicion_x = x;
-		this.posicion_y = y;
+		this.tamanoX = 1;
+		this.tamanoY = 2;
+		this.posicionX = x;
+		this.posicionY = y;
 		this.textura = "";
+		
+		//Establece el icono del label
+		this.label = new JLabel(new ImageIcon(textura));
 				
 		//atributos lógicos
-		this.nombre = "Allterrain Machinegun";
-		this.alcance_ataque = 5;
-		this.fuerza_ataque = 30;
+		this.alcanceAtaque = 5;
+		this.fuerzaAtaque = 30;
 		this.precio = 225;
-		this.velocidad_ataque = 1;
-		this.vida = MAX_VIDA;		
-	}
-
-	//@Override
-	public void accept(Visitor v) {
-		// TODO Auto-generated method stub
+		this.velocidadAtaque = 1;
+		this.vidaMaxima = 250;
+		this.vida = vidaMaxima;	
+		
+		this.visitor = new ConcreteVisitorAliado(fuerzaAtaque);
 		
 	}
+
 }

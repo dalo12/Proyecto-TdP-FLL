@@ -6,13 +6,13 @@ import javax.swing.JLabel;
 import Logica.General.Visitors.ConcreteVisitorObjeto;
 
 /**
- * Modela el charco (objeto de mapa).
+ * Modela la bomba (objeto de mapa).
  * @author Comisión 25 (FERRANTE, LATOUQUETTE, LÓPEZ)
  * @version 1.0
  */
-public class Charco extends ObjetoTemporal {
-	
-	public Charco(int x, int y) {
+public class Bomba extends ObjetoTemporal {
+
+	public Bomba(int x, int y) {
 		//atributos físicos
 		this.posicionX = x;
 		this.posicionY = y;
@@ -29,5 +29,5 @@ public class Charco extends ObjetoTemporal {
 		visitor = new ConcreteVisitorObjeto(y, "", "", y); // TODO verificar si el visitor es correcto
 		
 	}
-
+	
 }

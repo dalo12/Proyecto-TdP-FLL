@@ -1,6 +1,5 @@
 package Logica.General;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
@@ -8,6 +7,7 @@ import java.util.Random;
 import Logica.Enemigos.*;
 import Logica.Mapa.Mapa;
 import Logica.PowerUps.*;
+import Logica.Tienda.Aliados.ButtonPersonaje;
 
 /**
  * Modela los niveles
@@ -17,9 +17,11 @@ import Logica.PowerUps.*;
 public class Nivel {
 	protected Mapa mapa;
 	protected List<GameObject> aliados;
+	protected List<ButtonPersonaje> botones_aliados;
 	
-	public Nivel(List<GameObject> aliados) {
+	public Nivel(List<GameObject> aliados, List<ButtonPersonaje> botones_aliados) {
 		this.aliados = aliados;
+		this.botones_aliados = botones_aliados;
 	}
 	
 	/**
@@ -118,7 +120,7 @@ public class Nivel {
 	/**
 	 * @return La lista de los aliados y objectos que el jugador puede seleccionar para colocar en el mapa
 	 */
-	public List<GameObject> getPersonajesSeleccionables() {
-		return this.aliados;
+	public List<ButtonPersonaje> getPersonajesSeleccionables() {
+		return botones_aliados;
 	}
 }

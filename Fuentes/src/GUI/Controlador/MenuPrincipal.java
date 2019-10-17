@@ -10,7 +10,6 @@ import javax.swing.SwingConstants;
 
 import java.awt.Font;
 import javax.swing.ImageIcon;
-
 import javax.swing.JMenuBar;
 import javax.swing.JOptionPane;
 import javax.swing.JMenu;
@@ -20,9 +19,11 @@ import GUI.Mapa.LabelPersonaje;
 import GUI.Mapa.PanelMapa;
 import Logica.Aliados.PistolSoldier;
 import Logica.Enemigos.Kangaroo;
+import Logica.General.Aliado;
 import Logica.General.GameObject;
 import Logica.General.Juego;
 import Logica.Mapa.Mapa;
+import Logica.Tienda.Aliados.ButtonPersonaje;
 
 import java.awt.Insets;
 import java.awt.event.MouseAdapter;
@@ -36,9 +37,9 @@ public class MenuPrincipal {
 	//Atributos gráficos
 	private JFrame frame;
 	private JLabel lblMoneda, lblPuntaje, lblPersonaje;
-	private ItemSeleccionable itemCharacter[]; //Items de Personajes
+	private ButtonPersonaje itemCharacter[]; //Items de Personajes
 	private static final Border bordeBarra = new MatteBorder(0, 1, 0, 1, (Color) new Color(0,0,0));
-	private static final Border bordeSinLeft = new MatteBorder(0, 0, 0, 1, (Color) new Color(0,0,0));
+	//private static final Border bordeSinLeft = new MatteBorder(0, 0, 0, 1, (Color) new Color(0,0,0));
 	private List<JLabel> lista;
 	protected JMenu mnPersonajes; 
 	private JPanel panel, panelMapa;
@@ -52,6 +53,9 @@ public class MenuPrincipal {
 	private static final String urlImg2 = "../Texturas/Personajes/pistol-soldier/pistol-soldier2.png";
 	private static final String urlImg3 = "../Texturas/Personajes/kangaroo/kangaroo1.png";
 
+	private GameObject aux = null;
+	
+	
 	/**
 	 * Launch the application.
 	 */
@@ -90,8 +94,40 @@ public class MenuPrincipal {
 					
 			});
 		}
+		
+		for (ButtonPersonaje bp: itemCharacter) {
+			bp.addMouseListener(new MouseAdapter() {
+				public void mouseClicked(MouseEvent e){
+					aux = bp.crearObjeto();
+				}
+			});
+		}
+		
 		contador = new ContadorTiempo(elJuego, this);
 		mapa.setLimites(this.getLimiteEnemigos());
+		
+		panelMapa.addMouseListener(new MouseAdapter() {
+				public void mouseClicked(MouseEvent e){
+					if (aux!=null) {
+						//Verifica si alcanza el dinero para comprar el aliado
+						if (elJuego.getMonedas()>=((Aliado) aux).getPrecio()) {
+							//Se inserta un label
+							aux.setPosicionX(e.getX());
+							aux.setPosicionY(e.getY());
+							aux.getLabel().setIcon(new ImageIcon(urlImg1));
+							aux.getLabel().setBounds(aux.getPosicionX(), aux.getPosicionY(), 50, 50);
+							lista.add(aux.getLabel());
+							panelMapa.add(aux.getLabel());
+							aux = null;
+							//Repaint del panel
+							panelMapa.repaint();
+						}
+						else {
+							JOptionPane.showMessageDialog(null, "Error: Dinero insuficiente");
+						}
+					}
+				}
+			});
 	}
 
 	/**
@@ -198,9 +234,9 @@ public class MenuPrincipal {
 		if (lista.size()>0 && elJuego.getEnemigo()!=null){ //Previene un IndexOutOfBoundsException en caso de que no se tenga labels en la lista
 			GameObject object = elJuego.getEnemigo();
 			//El siguiente if previene que el labelEnemigo toque al labelPersonaje al estar cerca de su posición
-			if (lblPersonaje.getX()+60 < object.getPosicion_x()) {
+			if (lblPersonaje.getX()+60 < object.getPosicionX()) {
 				//lista.get(0).setBounds(object.getPosicion_x(), object.getPosicion_y(), 70, 58);
-				lista.get(0).setBounds(object.getPosicion_x(), object.getPosicion_y(), 70, 58);
+				lista.get(0).setBounds(object.getPosicionX(), object.getPosicionY(), 70, 58);
 			}
 		}
 		lblMoneda.setText("Monedas: $" + String.valueOf(elJuego.getMonedas()));
@@ -211,20 +247,10 @@ public class MenuPrincipal {
 	 * Inicializa el menú de personajes seleccionables
 	 */
 	protected void iniciarMenuPersonajes() {
-		itemCharacter = new ItemSeleccionable[elJuego.getNivelActual().getPersonajesSeleccionables().size()];
+		itemCharacter = new ButtonPersonaje[elJuego.getNivelActual().getPersonajesSeleccionables().size()];
 		int i = 0;
-		for(GameObject o: elJuego.getNivelActual().getPersonajesSeleccionables()) {
-			itemCharacter[i] = new ItemSeleccionable(o.getNombre(), o);
-			itemCharacter[i].setFont(new Font("Segoe UI", Font.BOLD, 12));
-			itemCharacter[i].setIcon(new ImageIcon(o.getTextura()));
-//			itemCharacter[nro_item].addActionListener(new ActionListener() {
-//
-//				@Override
-//				public void actionPerformed(ActionEvent e) {
-//					itemCharacter[nro_item].crearObjeto();
-//				}
-//				
-//			});
+		for(ButtonPersonaje btn_per: elJuego.getNivelActual().getPersonajesSeleccionables()) {
+			itemCharacter[i] = btn_per;
 			mnPersonajes.add(itemCharacter[i]);
 			i++;
 		}

@@ -1,27 +1,43 @@
 package Logica.General;
 
-import Logica.General.Visitors.ConcreteVisitor;
+import Logica.General.Visitors.Visitor;
 
 /**
  * Modela todos los objetos (con vida, con tiempo y de mapa) del juego.
- * @author Comisión 25 (FERNÁNDEZ, LATOUQUETTE, LÓPEZ)
+ * @author Comisión 25 (FERRANTE, LATOUQUETTE, LÓPEZ)
  * @version 1.0
  */
-public abstract class Objeto extends Entidad {
+public abstract class Objeto extends GameObject {
+	
+	protected int vida;
 	
 	/**
-	 * Se invoca cuando el objeto es atacado.
+	 * Asigna la vida de este objeto.
+	 * @param v Un entero que representa el valor de vida a asignar.
 	 */
-	public abstract void serAtacado(int ataque);
+	public void setVida(int v) {
+		vida = v;
+	}
 	
 	/**
-	 * Devuelve verdadero si el objeto sigue vivo, falso en caso contrario
-	 * @return Verdadero si el objeto sigue vivo, falso en caso contrario
+	 * Devuelve la vida actual del objeto.
+	 * @return La vida actual del objeto.
 	 */
-	public abstract boolean sigoVivo();
+	public int getVida() {
+		return vida;
+	}
 	
-	public void accept(ConcreteVisitor v) {
+	/**
+	 * Acepta un visitor.
+	 */
+	public void accept(Visitor v) {
 		v.visitObjeto(this);
+	}
+
+	@Override
+	public void accionar() {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }

@@ -1,8 +1,6 @@
 package Logica.PowerUps;
 
-import java.util.List;
-
-import Logica.General.Entidad;
+import Logica.General.Enemigo;
 import Logica.General.Premio;
 
 /**
@@ -12,23 +10,16 @@ import Logica.General.Premio;
  */
 public class SanLugano extends Premio {
 	
-	/**
-	 * Constructor
-	 */
 	public SanLugano() {
-		duracion = 240;
-	}
-	
-	@Override
-	public void aplicarEfecto(List<Entidad> lista) {
-		// TODO Auto-generated method stub
-
+		duracionEnMapa = 10;
+		duracionActivo = 240;
+		activo = false;
 	}
 
 	@Override
-	public void aplicarEfecto(Entidad e) {
+	protected void aplicarEfecto(Enemigo enemigo) {
 		// TODO Auto-generated method stub
-
+		
 	}
 
 }

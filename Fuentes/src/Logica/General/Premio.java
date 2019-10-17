@@ -1,6 +1,6 @@
 package Logica.General;
 
-import java.util.List;
+import Logica.General.Visitors.Visitor;
 
 /**
  * Modela los powerups
@@ -8,17 +8,33 @@ import java.util.List;
  * @version 1.0
  */
 public abstract class Premio extends GameObject {
-	protected int duracion;
 	
-	/**
-	 * Aplica el efecto del powerup en un cada uno de las entidades de la lista
-	 * @param lista Lista de entidades a la que aplicar el efecto
-	 */
-	public abstract void aplicarEfecto(List<Entidad> lista);
+	protected int duracionEnMapa;
+	protected int duracionActivo;
+	protected boolean activo;
 	
+	public void activar() {
+		//TODO debe recorrer todos los objetos del juego enviando su visitor.
+	}
+
+	@Override
+	public void accionar() {
+		// TODO Auto-generated method stub
+		
+	}
+
 	/**
-	 * Aplica el efecto del powerup en una entidad en especial
-	 * @param e Entidad a la que aplicar el efecto
+	 * Acepta un visitor.
 	 */
-	public abstract void aplicarEfecto(Entidad e);
+	@Override
+	public void accept(Visitor v) {
+		v.visitPremio(this);
+	}
+
+	/**
+	 * Aplica el efecto a contener sobre un enemigo
+	 * @param enemigo Enemigo
+	 */
+	protected abstract void aplicarEfecto(Enemigo enemigo);
+	
 }

@@ -1,16 +1,16 @@
 package Logica.General;
 
-import Logica.General.Visitors.ConcreteVisitor;
+import Logica.General.Visitors.Visitor;
 
 /**
  * Modela todos los aliados (es decir, los personajes elegibles por el jugador) del juego.
- * @author Comisión 25 (FERNÁNDEZ, LATOUQUETTE, LÓPEZ)
+ * @author Comisión 25 (FERRANTE, LATOUQUETTE, LÓPEZ)
  * @version 1.0
  */
 public abstract class Aliado extends Personaje {
-	private static final int MAX_VIDA = 100;
 	
 	protected int precio;
+	protected int vidaMaxima;
 
 	/**
 	 * Devuelve el precio del aliado
@@ -35,7 +35,7 @@ public abstract class Aliado extends Personaje {
 	 */
 	public int vender() {
 		int valor = precio;
-		if(vida < MAX_VIDA) {
+		if(vida < vidaMaxima) {
 			valor = valor / 2;
 		}
 		return valor;
@@ -46,20 +46,19 @@ public abstract class Aliado extends Personaje {
 	 * @param a El enemigo a atacar
 	 */
 	public void atacar(Enemigo o) {
-		if(this.esperar_atacar == 0) {
-			o.setVida(o.getVida() - fuerza_ataque);
-			esperar_atacar = 500 * velocidad_ataque;
-		}else {
-			esperar_atacar--;
-		}
+		o.setVida(o.getVida() - fuerzaAtaque);
 	}
 	
-	@Override
-	public void actuar() {
-		//atacar();
-	}
-	
-	public void accept(ConcreteVisitor v) {
+	/**
+	 * Acepta un visitor.
+	 */
+	public void accept(Visitor v) {
 		v.visitAliado(this);
+	}
+
+	@Override
+	public void accionar() {
+		// TODO Auto-generated method stub
+		
 	}
 }

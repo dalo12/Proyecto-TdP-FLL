@@ -1,15 +1,17 @@
 package Logica.Aliados;
 
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+
 import Logica.General.Aliado;
-import Logica.General.Visitors.Visitor;
+import Logica.General.Visitors.ConcreteVisitorAliado;
 
 /**
- * Modela al aliado Pistol soldier.
- * @author Comisión 25 (FERNÁNDEZ, LATOUQUETTE, LÓPEZ)
+ * Modela al aliado SniperSoldier.
+ * @author Comisión 25 (FERRANTE, LATOUQUETTE, LÓPEZ)
  * @version 1.0
  */
 public class SniperSoldier extends Aliado {
-	protected static final int MAX_VIDA = 50;
 	
 	/**
 	 * Constructor
@@ -18,24 +20,25 @@ public class SniperSoldier extends Aliado {
 	 */
 	public SniperSoldier(int x, int y) {
 		// atributos físicos
-		this.tamano_x = 1;
-		this.tamano_y = 1;
-		this.posicion_x = x;
-		this.posicion_y = y;
+		this.tamanoX = 1;
+		this.tamanoY = 1;
+		this.posicionX = x;
+		this.posicionY = y;
 		this.textura = "";
+		
+		//Establece el icono del label
+		this.label = new JLabel(new ImageIcon(textura));
 				
 		//atributos lógicos
-		this.nombre = "Sniper";
-		this.alcance_ataque = 10;
-		this.fuerza_ataque = 60;
+		this.alcanceAtaque = 10;
+		this.fuerzaAtaque = 60;
 		this.precio = 125;
-		this.velocidad_ataque = 7;
-		this.vida = MAX_VIDA;		
-	}
-
-	//@Override
-	public void accept(Visitor v) {
-		// TODO Auto-generated method stub
+		this.velocidadAtaque = 7;
+		this.vidaMaxima = 50;
+		this.vida = vidaMaxima;	
+		
+		this.visitor = new ConcreteVisitorAliado(fuerzaAtaque);
 		
 	}
+	
 }

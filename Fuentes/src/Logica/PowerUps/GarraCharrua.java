@@ -1,8 +1,6 @@
 package Logica.PowerUps;
 
-import java.util.List;
-
-import Logica.General.Entidad;
+import Logica.General.Enemigo;
 import Logica.General.Premio;
 
 /**
@@ -12,22 +10,16 @@ import Logica.General.Premio;
  */
 public class GarraCharrua extends Premio {
 	
-	/**
-	 * Constructor
-	 */
 	public GarraCharrua() {
-		duracion = 60;
-	}
-	@Override
-	public void aplicarEfecto(List<Entidad> lista) {
-		// TODO Auto-generated method stub
-
+		duracionEnMapa = 10;
+		duracionActivo = 60;
+		activo = false;
 	}
 
 	@Override
-	public void aplicarEfecto(Entidad e) {
+	protected void aplicarEfecto(Enemigo enemigo) {
 		// TODO Auto-generated method stub
-
+		
 	}
-
+	
 }

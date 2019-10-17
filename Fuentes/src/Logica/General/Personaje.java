@@ -2,14 +2,12 @@ package Logica.General;
 
 /**
  * Modela los personajes del juego: aliados y enemigos.
- * @author Comisión 25 (FERNÁNDEZ, LATOUQUETTE, LÓPEZ)
+ * @author Comisión 25 (FERRANTE, LATOUQUETTE, LÓPEZ)
  * @version 1.0
  */
 
-public abstract class Personaje extends Entidad {
-	protected int vida, fuerza_ataque, alcance_ataque, velocidad_ataque;
-	protected int esperar_atacar;
-	//protected Thread reloj = new Thread();
+public abstract class Personaje extends GameObject {
+	protected int vida, fuerzaAtaque, alcanceAtaque, velocidadAtaque;
 	
 	/**
 	 * Devuelve la cantidad de vida que aún tiene el personaje
@@ -31,73 +29,48 @@ public abstract class Personaje extends Entidad {
 	 * Devuelve la fuerza de ataque del personaje
 	 * @return La fuerza de ataque del personaje
 	 */
-	public int getFuerza_ataque() {
-		return fuerza_ataque;
+	public int getFuerza() {
+		return fuerzaAtaque;
 	}
 
 	/**
 	 * Asigna una nueva fuerza de ataque al personaje
-	 * @param fuerza_ataque La nueva fuerza de ataque del personaje
+	 * @param fuerzaAtaque La nueva fuerza de ataque del personaje
 	 */
-	public void setFuerza_ataque(int fuerza_ataque) {
-		this.fuerza_ataque = fuerza_ataque;
+	public void setFuerza(int fuerzaAtaque) {
+		this.fuerzaAtaque = fuerzaAtaque;
 	}
 
 	/**
 	 * Devuelve el alcance del ataque del personaje
 	 * @return El alcance del ataque del personaje
 	 */
-	public int getAlcance_ataque() {
-		return alcance_ataque;
+	public int getAlcance() {
+		return alcanceAtaque;
 	}
 
 	/**
 	 * Asigna un nuevo alcance al ataque del personaje
-	 * @param alcance_ataque El nuevo alcance al ataque del personaje
+	 * @param alcanceAtaque El nuevo alcance al ataque del personaje
 	 */
-	public void setAlcance_ataque(int alcance_ataque) {
-		this.alcance_ataque = alcance_ataque;
+	public void setAlcance(int alcanceAtaque) {
+		this.alcanceAtaque = alcanceAtaque;
 	}
 
 	/**
 	 * Devuelve la velocidad de ataque del personaje
 	 * @return La velocidad de ataque del personaje
 	 */
-	public int getVelocidad_ataque() {
-		return velocidad_ataque;
+	public int getVelocidadAtaque() {
+		return velocidadAtaque;
 	}
 
 	/**
 	 * Asigna una nueva velocidad de ataque al personaje
 	 * @param velocidad_ataque La nueva velocidad de ataque del personaje
 	 */
-	public void setVelocidad_ataque(int velocidad_ataque) {
-		this.velocidad_ataque = velocidad_ataque;
+	public void setVelocidadAtaque(int velocidadAtaque) {
+		this.velocidadAtaque = velocidadAtaque;
 	}
-	
-	/**
-	 * Ataca a un objeto del mapa
-	 * @param p El objeto a atacar
-	 */
-	public void atacar(GameObject o) {}
-	
-	/**
-	 * Se invoca para que el personaje actúe (avanza o ataque)
-	 */
-	public abstract void actuar();
-	
-	/*
-	/**
-	 * Espera un determinado tiempo
-	 * @param valor Valor en segundos del tiempo a esperar
-	 *//*
-	protected void esperar(int valor) {
-		try {
-			reloj.sleep(1000 * valor);
-		}catch(InterruptedException ie) {
-			//No sé que hacer en este caso
-		}
-	}
-	*/
-	
+		
 }
