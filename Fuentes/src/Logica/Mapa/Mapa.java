@@ -25,13 +25,13 @@ public class Mapa {
 	 * @param height Altura del mapa.
 	 */
 	public Mapa(String textura, int width, int height) {
-		this.matriz = new LabelPersonaje[width][height];
+		this.matriz = new LabelPersonaje[height][width];
 		this.height = height;
 		this.width = width;
 		this.textura = textura;
 		
-		for (int i=0; i<width; i++) {
-			for (int j=0; j<height; j++) {
+		for (int i=0; i<height; i++) {
+			for (int j=0; j<width; j++) {
 				matriz[i][j] = null;
 			}
 		}

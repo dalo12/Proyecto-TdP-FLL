@@ -15,7 +15,9 @@ import javax.swing.JOptionPane;
 import javax.swing.JMenu;
 import javax.swing.border.MatteBorder;
 
+import GUI.Mapa.Coordenada;
 import GUI.Mapa.LabelPersonaje;
+import GUI.Mapa.LabelTablero;
 import GUI.Mapa.PanelMapa;
 import Logica.Aliados.PistolSoldier;
 import Logica.Enemigos.Kangaroo;
@@ -44,6 +46,7 @@ public class MenuPrincipal {
 	protected JMenu mnPersonajes; 
 	private JPanel panel, panelMapa;
 	protected LabelPersonaje personajes[][];
+	protected LabelTablero labelTablero;
 	
 	//Atributos de instancia
 	private Mapa mapa;
@@ -106,28 +109,41 @@ public class MenuPrincipal {
 		contador = new ContadorTiempo(elJuego, this);
 		mapa.setLimites(this.getLimiteEnemigos());
 		
-		panelMapa.addMouseListener(new MouseAdapter() {
+		
+		labelTablero = new LabelTablero(mapa.getMapa().length, mapa.getMapa()[0].length);
+		labelTablero.setLocation(360, 85);
+		labelTablero.setSize(600, 330);
+		
+		labelTablero.addMouseListener(new MouseAdapter() {
 				public void mouseClicked(MouseEvent e){
 					if (aux!=null) {
 						//Verifica si alcanza el dinero para comprar el aliado
-						if (elJuego.getMonedas()>=((Aliado) aux).getPrecio()) {
+						//if (elJuego.getMonedas()>=((Aliado) aux).getPrecio()) {
+							int pos_x = e.getX();
+							int pos_y = e.getY();
+							//Recupero la coordenada mas cercana en donde insertar el aux
+							labelTablero.actualizarTablero();
+							Coordenada c = labelTablero.getCoordenadaCercana(pos_x, pos_y);
 							//Se inserta un label
-							aux.setPosicionX(e.getX());
-							aux.setPosicionY(e.getY());
+							aux.setPosicionX(c.getX());
+							aux.setPosicionY(c.getY());
 							aux.getLabel().setIcon(new ImageIcon(urlImg1));
 							aux.getLabel().setBounds(aux.getPosicionX(), aux.getPosicionY(), 50, 50);
 							lista.add(aux.getLabel());
-							panelMapa.add(aux.getLabel());
+							labelTablero.add(aux.getLabel());
 							aux = null;
 							//Repaint del panel
-							panelMapa.repaint();
-						}
-						else {
-							JOptionPane.showMessageDialog(null, "Error: Dinero insuficiente");
-						}
+							labelTablero.repaint();
+						//}
+						//else {
+							//JOptionPane.showMessageDialog(null, "Error: Dinero insuficiente");
+						//}
 					}
 				}
 			});
+	
+		
+		panelMapa.add(labelTablero);
 	}
 
 	/**
