@@ -19,6 +19,7 @@ import GUI.Mapa.LabelPersonaje;
 import GUI.Mapa.PanelMapa;
 import Logica.Aliados.PistolSoldier;
 import Logica.Enemigos.Kangaroo;
+import Logica.General.Aliado;
 import Logica.General.GameObject;
 import Logica.General.Juego;
 import Logica.Mapa.Mapa;
@@ -38,7 +39,7 @@ public class MenuPrincipal {
 	private JLabel lblMoneda, lblPuntaje, lblPersonaje;
 	private ButtonPersonaje itemCharacter[]; //Items de Personajes
 	private static final Border bordeBarra = new MatteBorder(0, 1, 0, 1, (Color) new Color(0,0,0));
-	private static final Border bordeSinLeft = new MatteBorder(0, 0, 0, 1, (Color) new Color(0,0,0));
+	//private static final Border bordeSinLeft = new MatteBorder(0, 0, 0, 1, (Color) new Color(0,0,0));
 	private List<JLabel> lista;
 	protected JMenu mnPersonajes; 
 	private JPanel panel, panelMapa;
@@ -108,16 +109,22 @@ public class MenuPrincipal {
 		panelMapa.addMouseListener(new MouseAdapter() {
 				public void mouseClicked(MouseEvent e){
 					if (aux!=null) {
-						//Se inserta un label
-						aux.setPosicionX(e.getX());
-						aux.setPosicionY(e.getY());
-						aux.getLabel().setIcon(new ImageIcon(urlImg1));
-						aux.getLabel().setBounds(aux.getPosicionX(), aux.getPosicionY(), 50, 50);
-						lista.add(aux.getLabel());
-						panelMapa.add(aux.getLabel());
-						aux = null;
-						//Repaint del panel
-						panelMapa.repaint();
+						//Verifica si alcanza el dinero para comprar el aliado
+						if (elJuego.getMonedas()>=((Aliado) aux).getPrecio()) {
+							//Se inserta un label
+							aux.setPosicionX(e.getX());
+							aux.setPosicionY(e.getY());
+							aux.getLabel().setIcon(new ImageIcon(urlImg1));
+							aux.getLabel().setBounds(aux.getPosicionX(), aux.getPosicionY(), 50, 50);
+							lista.add(aux.getLabel());
+							panelMapa.add(aux.getLabel());
+							aux = null;
+							//Repaint del panel
+							panelMapa.repaint();
+						}
+						else {
+							JOptionPane.showMessageDialog(null, "Error: Dinero insuficiente");
+						}
 					}
 				}
 			});
@@ -309,12 +316,6 @@ public class MenuPrincipal {
 		}
 		
 		return arr;
-	}
-	
-	
-	public void newGameObject(GameObject go) {
-		aux = go;
-		System.out.println("Gola");
 	}
 }
 
