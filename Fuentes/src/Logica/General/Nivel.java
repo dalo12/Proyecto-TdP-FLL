@@ -14,7 +14,6 @@ import Logica.Tienda.Aliados.ButtonPersonaje;
  * @version 2.0
  */
 public class Nivel {
-	protected List<GameObject> aliados;
 	protected List<ButtonPersonaje> botones_aliados;
 	protected List<GameObject> entidades;
 	
@@ -24,7 +23,6 @@ public class Nivel {
 	 * @param botones_aliados Botones de los aliados que se pueden insertar
 	 */
 	public Nivel(List<GameObject> aliados, List<ButtonPersonaje> botones_aliados) {
-		this.aliados = aliados;
 		this.botones_aliados = botones_aliados;
 		
 		entidades = new LinkedList<GameObject>();

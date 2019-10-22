@@ -263,9 +263,9 @@ public class MenuPrincipal {
 	 * Inicializa el menú de personajes seleccionables
 	 */
 	protected void iniciarMenuPersonajes() {
-		itemCharacter = new ButtonPersonaje[elJuego.getNivelActual().getPersonajesSeleccionables().size()];
+		itemCharacter = new ButtonPersonaje[elJuego.getNivel().getPersonajesSeleccionables().size()];
 		int i = 0;
-		for(ButtonPersonaje btn_per: elJuego.getNivelActual().getPersonajesSeleccionables()) {
+		for(ButtonPersonaje btn_per: elJuego.getNivel().getPersonajesSeleccionables()) {
 			itemCharacter[i] = btn_per;
 			mnPersonajes.add(itemCharacter[i]);
 			i++;
