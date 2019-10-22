@@ -43,7 +43,7 @@ public class MenuPrincipal {
 	private List<JLabel> lista;
 	protected JMenu mnPersonajes; 
 	private JPanel panel, panelMapa;
-	protected LabelPersonaje personajes[][];
+	protected JLabel campo[][];
 	protected LabelTablero labelTablero;
 	
 	//Atributos de instancia
@@ -77,7 +77,6 @@ public class MenuPrincipal {
 		elJuego = new Juego(e);
 		initialize();
 		crearMapa();
-		crearLabelsPersonajes(50, 50, CANT_EN_X, CANT_EN_Y, (int) Math.round(frame.getWidth()/2.5), frame.getHeight()/5);
 		
 		for (JLabel labelLista: lista) {
 			labelLista.addMouseListener(new MouseAdapter() {
@@ -127,11 +126,12 @@ public class MenuPrincipal {
 							//Se inserta un label
 							aux.setPosicionX(c.getX());
 							aux.setPosicionY(c.getY());
-							aux.getGrafica().getLabel().setIcon(new ImageIcon(urlImg1));
+							//aux.getGrafica().getLabel().setIcon(new ImageIcon(urlImg1));
+							//System.out.println((aux == null) || (aux.getGrafica() == null)); //|| (aux.getGrafica().getLabel() == null));
 							aux.getGrafica().getLabel().setBounds(aux.getPosicionX(), aux.getPosicionY(), 50, 50);
 							lista.add(aux.getGrafica().getLabel());
 							labelTablero.add(aux.getGrafica().getLabel());
-							
+							elJuego.insertarAliado(aux);
 							
 							aux = null;
 							//Repaint del panel
@@ -145,6 +145,11 @@ public class MenuPrincipal {
 			});
 	
 		panelMapa.add(labelTablero);
+		
+		int coord_x_tablero = labelTablero.getX();
+		int coord_y_tablero = labelTablero.getY();
+		crearLabelCampo(labelTablero.getAlturaDeDivision(), labelTablero.getAnchoDeDivision(), CANT_EN_X, CANT_EN_Y, coord_x_tablero, coord_y_tablero);
+		//crearLabelCampo(50, 50, CANT_EN_X, CANT_EN_Y, (int) Math.round(frame.getWidth()/2.5), frame.getHeight()/5);
 	}
 
 	/**
@@ -281,8 +286,8 @@ public class MenuPrincipal {
 	 * @param x Posición x de donde comienza la matriz en la GUI
 	 * @param y Posición y de donde comienza la matriz en la GUI
 	 */
-	protected void crearLabelsPersonajes(int alto, int ancho, int filas, int columnas, int x, int y) {
-		personajes = new LabelPersonaje[filas][columnas];
+	protected void crearLabelCampo(int alto, int ancho, int filas, int columnas, int x, int y) {
+		campo = new JLabel[filas][columnas];
 		int pos_x = x;
 		int pos_y = y;
 		boolean negro = false;
@@ -291,25 +296,26 @@ public class MenuPrincipal {
 		for(int i=0; i<filas; i++) {
 			negro_col = negro;
 			for(int j=0; j<columnas; j++) {
-				personajes[i][j] = new LabelPersonaje(null, pos_x, pos_y, alto, ancho);
+				campo[i][j] = new JLabel();
+				campo[i][j].setBounds(pos_x, pos_y, ancho, alto);
 				pos_y += alto;
 				
-				personajes[i][j].setVisible(true);
-				personajes[i][j].setOpaque(true);
-				
+				campo[i][j].setVisible(true);
+				campo[i][j].setOpaque(true);
+				/*
 				//Colores random para por ahora
 				Random r = new Random();
-				personajes[i][j].setBackground(new Color(r.nextInt(255), r.nextInt(255), r.nextInt(255), 50));
-				panelMapa.add(personajes[i][j]);
-				
+				campo[i][j].setBackground(new Color(r.nextInt(255), r.nextInt(255), r.nextInt(255), 50));
+				*/
 				//TODO: En versión final después descomentar esto
-//				if(negro_col) {
-//					personajes[i][j].setBackground(new Color(110,110,110, 100));
-//					negro_col = false;
-//				}else {
-//					personajes[i][j].setBackground(new Color(150,150,150, 100));
-//					negro_col = true;
-//				}	
+				if(negro_col) {
+					campo[i][j].setBackground(new Color(110,110,110, 100));
+					negro_col = false;
+				}else {
+					campo[i][j].setBackground(new Color(150,150,150, 100));
+					negro_col = true;
+				}
+				panelMapa.add(campo[i][j]);
 			}
 			pos_y = y;
 			pos_x += ancho;
@@ -324,11 +330,11 @@ public class MenuPrincipal {
 	 * con la coordenada y de los límites
 	 */
 	public int[][] getLimiteEnemigos(){
-		int[][] arr = new int[personajes.length][2];
+		int[][] arr = new int[campo.length][2];
 		
-		for(int i=0; i<personajes.length; i++) {
-			arr[i][0] = personajes[i][personajes[i].length-1].getX();
-			arr[i][1] = personajes[i][personajes[i].length-1].getY();
+		for(int i=0; i<campo.length; i++) {
+			arr[i][0] = campo[i][campo[i].length-1].getX();
+			arr[i][1] = campo[i][campo[i].length-1].getY();
 		}
 		
 		return arr;

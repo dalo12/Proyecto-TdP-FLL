@@ -66,7 +66,7 @@ public class LabelTablero extends JLabel {
 	 * Devuelve la altura de cada división del label
 	 * @return Entero que indica la altura de cada división
 	 */
-	private int getAlturaDeDivision() {
+	public int getAlturaDeDivision() {
 		return Math.floorDiv(this.getHeight(), coordenadas[0].length);
 	}
 
@@ -74,7 +74,7 @@ public class LabelTablero extends JLabel {
 	 * Devuelve el ancho de cada división del label
 	 * @return Entero que indica el ancho de cada división
 	 */
-	private int getAnchoDeDivision() {
+	public int getAnchoDeDivision() {
 		return Math.floorDiv(this.getWidth(), coordenadas.length);
 	}
 }
