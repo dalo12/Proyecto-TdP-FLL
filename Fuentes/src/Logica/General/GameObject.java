@@ -2,7 +2,7 @@ package Logica.General;
 
 import javax.swing.JLabel;
 
-import GUI.GraficosDeObjetos.GOGrafico;
+import GUI.Controlador.GOGrafico;
 import Logica.General.Visitors.Visitor;
 
 /**

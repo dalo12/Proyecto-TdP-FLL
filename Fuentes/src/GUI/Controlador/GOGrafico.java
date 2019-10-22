@@ -1,7 +1,4 @@
-/**
- * 
- */
-package GUI.GraficosDeObjetos;
+package GUI.Controlador;
 
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
@@ -10,7 +7,7 @@ import javax.swing.ImageIcon;
  * a ser como los labels que estos usan, pero mejorados.
  * @author Comisión 25 (FERRANTE, LATOUQUETTE, LÓPEZ)
  */
-public abstract class GOGrafico {	
+public class GOGrafico {	
 	protected static final int ANCHO = 50;
 	protected static final int ALTO = 50;
 	
@@ -23,7 +20,6 @@ public abstract class GOGrafico {
 	 * 		texturas[2] : objeto siendo atacado
 	 * 		texturas[3] : objeto avanzando por el mapa
 	 * 		texturas[4] : objeto muriendo
-	 * 	
 	 */
 	protected int cord_x;
 	protected int cord_y;
@@ -34,33 +30,58 @@ public abstract class GOGrafico {
 	 * Constructor
 	 * @param x Coordenada x del objeto lógico
 	 * @param y Coordenada y del objeto lógico
+	 * @param text Arreglo de con las direcciones de las texturas
 	 */
-	protected GOGrafico(int x, int y) {
+	public GOGrafico(int x, int y, String[] text) {
+		texturas = new ImageIcon[5];
+		
+		for(int i=0; i<=4; i++) {
+			texturas[i] = new ImageIcon(text[i]);
+		}
+		
 		label = new JLabel();
+		label.setIcon(texturas[0]);		
 		label.setBounds(x, y, ANCHO, ALTO);
+		
 		cord_x = x;
 		cord_y = y;
 	}
 	
 	/**
-	 * Representa el comportamiento gráfico del objeto cuando es atacado
+	 * Representa el comportamiento gráfico del objeto cuando está quieto
 	 */
-	public abstract void serAtacado();
+	public void quieto() {
+		label.setIcon(texturas[0]);
+	}
 	
 	/**
 	 * Representa el comportamiento gráfico del objeto cuando ataca
 	 */	
-	public abstract void atacar();
+	public void atacar() {
+		label.setIcon(texturas[1]);
+	}
+
+	/**
+	 * Representa el comportamiento gráfico del objeto cuando es atacado
+	 */
+	public void serAtacado() {
+		label.setIcon(texturas[2]);
+	}
 	
 	/**
 	 * Representa el comportamiento gráfico del objeto cuando se mueve en el mapa
 	 */
-	public abstract void avanzar(int x, int y);
+	public void avanzar(int x, int y) {
+		label.setIcon(texturas[3]);
+		label.setLocation(x, y);
+	}
 	
 	/**
 	 * Representa el comportamiento gráfico del objeto cuando muere
 	 */
-	public abstract void morir();
+	public void morir() {
+		label.setIcon(texturas[4]);
+	}
 	
 	/**
 	 * @return El label que contiene

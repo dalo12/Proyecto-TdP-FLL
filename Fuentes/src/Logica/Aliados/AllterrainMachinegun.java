@@ -3,6 +3,7 @@ package Logica.Aliados;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
+import GUI.Controlador.GOGrafico;
 import Logica.General.Aliado;
 import Logica.General.Visitors.ConcreteVisitorAliado;
 
@@ -24,11 +25,13 @@ public class AllterrainMachinegun extends Aliado {
 		this.tamanoY = 2;
 		this.posicionX = x;
 		this.posicionY = y;
-		this.textura = "";
 		
-		//Establece el icono del label
-		this.label = new JLabel(new ImageIcon(textura));
-				
+		String [] texturas = new String[5];
+		texturas[0] = "../../../../Texturas/Personajes/allterrain-machinegun/allterrain-machinegun-0.png";
+		texturas[1] = "../../../../Texturas/Personajes/allterrain-machinegun/allterrain-machinegun-1.gif";
+		texturas[2] = texturas[3] = texturas[4] = texturas[1];
+		this.grafica = new GOGrafico(x, y, texturas);
+		
 		//atributos lógicos
 		this.alcanceAtaque = 5;
 		this.fuerzaAtaque = 30;
