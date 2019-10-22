@@ -20,7 +20,8 @@ public class ContadorTiempo extends Thread {
 				e.printStackTrace();
 			}
 			if (elJuego.getEnemigo()!=null){ 
-				elJuego.moverenemigo();
+				elJuego.moverenemigo(); //temporal
+				elJuego.accionar();
 				menu.actualizar();
 			}
 		}
