@@ -19,21 +19,16 @@ import Logica.Tienda.Objetos.ButtonCercaAntiTanque;
  * @version 1.0
  */
 public class Juego {	
-	protected Nivel nivel[];
+	protected Nivel nivel;
 	protected Visitor visitor;
-	protected List<GameObject> lista;
 	//temporal
 	protected GameObject enemigo; 
-	protected int nivel_actual;
 	//Atributos para tienda
 	protected int monedas;
 	protected int puntaje;
 	
 	public Juego(GameObject e) {
 		enemigo = e;
-		
-		nivel = new Nivel[2];
-		nivel_actual = 0;
 		
 		monedas = 0;
 		puntaje = 0;
@@ -54,37 +49,37 @@ public class Juego {
 		lista_botones_1.add(new ButtonSniperSoldier());
 		lista_botones_1.add(new ButtonCercaAntiTanque());
 		
-		nivel[0] = new Nivel(lista_aliados_1, lista_botones_1);
+		nivel = new Nivel(lista_aliados_1, lista_botones_1);
 		
 		/*
-		 * Agrego lista de aliados seleccionables al nivel 2
-		 */
-		List<GameObject> lista_aliados_2 = new LinkedList<GameObject>();
-		List<ButtonPersonaje> lista_botones_2 = new LinkedList<ButtonPersonaje>();
-		
-		lista_aliados_2.add(new KnifeSoldier(0,0));
-		lista_aliados_2.add(new PistolSoldier(0,0));
-		lista_aliados_2.add(new SniperSoldier(0,0));
-		lista_aliados_2.add(new BazookaSoldier(0,0));
-		lista_aliados_2.add(new AllterrainMachinegun(0,0));
-		lista_aliados_2.add(new CercaAntiTanque(0,0));
-		
-		lista_botones_2.add(new ButtonKnifeSoldier());
-		lista_botones_2.add(new ButtonPistolSoldier());
-		lista_botones_2.add(new ButtonSniperSoldier());
-		lista_botones_2.add(new ButtonBazookaSoldier());
-		lista_botones_2.add(new ButtonAllterrainMachinegun());
-		lista_botones_2.add(new ButtonCercaAntiTanque());
-		
-		nivel[1] = new Nivel(lista_aliados_2, lista_botones_2);
+//		 * Agrego lista de aliados seleccionables al nivel 2
+//		 */
+//		List<GameObject> lista_aliados_2 = new LinkedList<GameObject>();
+//		List<ButtonPersonaje> lista_botones_2 = new LinkedList<ButtonPersonaje>();
+//		
+//		lista_aliados_2.add(new KnifeSoldier(0,0));
+//		lista_aliados_2.add(new PistolSoldier(0,0));
+//		lista_aliados_2.add(new SniperSoldier(0,0));
+//		lista_aliados_2.add(new BazookaSoldier(0,0));
+//		lista_aliados_2.add(new AllterrainMachinegun(0,0));
+//		lista_aliados_2.add(new CercaAntiTanque(0,0));
+//		
+//		lista_botones_2.add(new ButtonKnifeSoldier());
+//		lista_botones_2.add(new ButtonPistolSoldier());
+//		lista_botones_2.add(new ButtonSniperSoldier());
+//		lista_botones_2.add(new ButtonBazookaSoldier());
+//		lista_botones_2.add(new ButtonAllterrainMachinegun());
+//		lista_botones_2.add(new ButtonCercaAntiTanque());
+//		
+//		nivel[1] = new Nivel(lista_aliados_2, lista_botones_2);
 	}
 	
 	/**
 	 * Devuelve el nivel actual del juego en ejecución
 	 * @return El nivel actual del juego en ejecución
 	 */
-	public Nivel getNivelActual() {
-		return nivel[nivel_actual];
+	public Nivel getNivel() {
+		return nivel;
 	}
 	
 	//temporal
@@ -96,9 +91,9 @@ public class Juego {
 		return enemigo;
 	}
 	
-	public void mover() {
-//		for(GameObject g : lista)
-			
+	public void accionar() {
+		for(GameObject g : nivel.getListaEntidades())
+			g.accionar();			
 	}
 	
 	/**
@@ -106,7 +101,7 @@ public class Juego {
 	 * @param a Aliado a insertar
 	 */
 	public void insertarAliado(GameObject a) {
-		nivel[nivel_actual].insertarObjeto(a);
+		nivel.insertarObjeto(a);
 	}
 	
 	public void insertarEnemigo() {
