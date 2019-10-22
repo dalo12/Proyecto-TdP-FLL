@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Random;
 
 import Logica.Enemigos.*;
-import Logica.Mapa.Mapa;
 import Logica.PowerUps.*;
 import Logica.Tienda.Aliados.ButtonPersonaje;
 
@@ -15,7 +14,6 @@ import Logica.Tienda.Aliados.ButtonPersonaje;
  * @version 2.0
  */
 public class Nivel {
-	protected Mapa mapa;
 	protected List<GameObject> aliados;
 	protected List<ButtonPersonaje> botones_aliados;
 	
@@ -36,7 +34,7 @@ public class Nivel {
 		int poder = r.nextInt(100); //genera un número al azar para saber si aplicar o no un poder en el enemigo
 		int distancia = 0;
 		
-		int[][] limites = mapa.getLimites();
+		int[][] limites = new int[10][6];
 		
 		int coordenadas_y[] = new int[limites[0].length];
 		int coordenada_x = limites[0][0];

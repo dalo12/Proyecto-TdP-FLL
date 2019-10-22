@@ -21,10 +21,8 @@ import GUI.Mapa.LabelTablero;
 import GUI.Mapa.PanelMapa;
 import Logica.Aliados.PistolSoldier;
 import Logica.Enemigos.Kangaroo;
-import Logica.General.Aliado;
 import Logica.General.GameObject;
 import Logica.General.Juego;
-import Logica.Mapa.Mapa;
 import Logica.Tienda.Aliados.ButtonPersonaje;
 
 import java.awt.Insets;
@@ -49,13 +47,15 @@ public class MenuPrincipal {
 	protected LabelTablero labelTablero;
 	
 	//Atributos de instancia
-	private Mapa mapa;
 	private static ContadorTiempo contador;
 	private static Juego elJuego;
 	private static final String urlImg1 = "../Texturas/Personajes/pistol-soldier/pistol-soldier1.png";
 	private static final String urlImg2 = "../Texturas/Personajes/pistol-soldier/pistol-soldier2.png";
 	private static final String urlImg3 = "../Texturas/Personajes/kangaroo/kangaroo1.png";
 
+	private static final int CANT_EN_X = 10; //Cantidad de columnas que contendrá LabelTablero
+	private static final int CANT_EN_Y = 6; //Cantidad de filas que contendrá LabelTablero
+	
 	private GameObject aux = null;
 	
 	
@@ -77,7 +77,7 @@ public class MenuPrincipal {
 		elJuego = new Juego(e);
 		initialize();
 		crearMapa();
-		crearLabelsPersonajes(50, 50, mapa.getHeight(), mapa.getWidth(), (int) Math.round(frame.getWidth()/2.5), frame.getHeight()/5);
+		crearLabelsPersonajes(50, 50, CANT_EN_X, CANT_EN_Y, (int) Math.round(frame.getWidth()/2.5), frame.getHeight()/5);
 		
 		for (JLabel labelLista: lista) {
 			labelLista.addMouseListener(new MouseAdapter() {
@@ -107,10 +107,10 @@ public class MenuPrincipal {
 		}
 		
 		contador = new ContadorTiempo(elJuego, this);
-		mapa.setLimites(this.getLimiteEnemigos());
+		//mapa.setLimites(this.getLimiteEnemigos());
 		
 		
-		labelTablero = new LabelTablero(mapa.getMapa().length, mapa.getMapa()[0].length);
+		labelTablero = new LabelTablero(CANT_EN_X, CANT_EN_Y);
 		labelTablero.setLocation(360, 85);
 		labelTablero.setSize(600, 330);
 		
@@ -127,10 +127,12 @@ public class MenuPrincipal {
 							//Se inserta un label
 							aux.setPosicionX(c.getX());
 							aux.setPosicionY(c.getY());
-							aux.getLabel().setIcon(new ImageIcon(urlImg1));
-							aux.getLabel().setBounds(aux.getPosicionX(), aux.getPosicionY(), 50, 50);
-							lista.add(aux.getLabel());
-							labelTablero.add(aux.getLabel());
+							aux.getGrafica().getLabel().setIcon(new ImageIcon(urlImg1));
+							aux.getGrafica().getLabel().setBounds(aux.getPosicionX(), aux.getPosicionY(), 50, 50);
+							lista.add(aux.getGrafica().getLabel());
+							labelTablero.add(aux.getGrafica().getLabel());
+							
+							
 							aux = null;
 							//Repaint del panel
 							labelTablero.repaint();
@@ -142,7 +144,6 @@ public class MenuPrincipal {
 				}
 			});
 	
-		
 		panelMapa.add(labelTablero);
 	}
 
@@ -214,7 +215,6 @@ public class MenuPrincipal {
 	 * Crea el mapa con dos gameobject (sin acción)
 	 */
 	private void crearMapa() {
-		mapa = new Mapa("../Texturas/Background/background-lvl-final.png", 6, 10);
 		GameObject go1, go2;
 		go1 = new PistolSoldier(258,57);
 		go2 = new Kangaroo(640,57);
@@ -227,7 +227,7 @@ public class MenuPrincipal {
 		
 		frame.getContentPane().setLayout(new GridLayout(0, 1, 0, 0));
 		
-		panelMapa = new PanelMapa(mapa.getTextura());
+		panelMapa = new PanelMapa("../Texturas/Background/background-lvl-final.png");
 		frame.getContentPane().add(panelMapa);
 		panelMapa.setLayout(null);
 		
