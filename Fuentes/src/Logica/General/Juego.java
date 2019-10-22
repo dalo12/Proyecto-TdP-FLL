@@ -101,8 +101,12 @@ public class Juego {
 			
 	}
 	
-	public void insertarAliado() {
-		
+	/**
+	 * Inserta un aliado u objeto en el nivel (de manera lógica)
+	 * @param a Aliado a insertar
+	 */
+	public void insertarAliado(GameObject a) {
+		nivel[nivel_actual].insertarObjeto(a);
 	}
 	
 	public void insertarEnemigo() {

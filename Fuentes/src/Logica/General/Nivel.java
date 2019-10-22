@@ -18,10 +18,51 @@ public class Nivel {
 	protected Mapa mapa;
 	protected List<GameObject> aliados;
 	protected List<ButtonPersonaje> botones_aliados;
+	protected List<GameObject> entidades;
 	
+	/**
+	 * Constructor
+	 * @param aliados Posibles aliados que se pueden insertar?
+	 * @param botones_aliados Botones de los aliados que se pueden insertar
+	 */
 	public Nivel(List<GameObject> aliados, List<ButtonPersonaje> botones_aliados) {
 		this.aliados = aliados;
 		this.botones_aliados = botones_aliados;
+		
+		entidades = new LinkedList<GameObject>();
+	}
+	
+	
+	/**
+	 * @return La lista de los aliados y objectos que el jugador puede seleccionar para colocar en el mapa
+	 */
+	public List<ButtonPersonaje> getPersonajesSeleccionables() {
+		return botones_aliados;
+	}	
+	
+	/**
+	 * Inserta una oleada de enemigos en la lista de entidades
+	 * @param dificultad La dificultad de la oleada a insertar
+	 */
+	public void insertarOleada(int dificultad) {
+		for(Enemigo e : this.getOleada(dificultad)) {
+			entidades.add(e);
+		}
+	}
+	
+	/**
+	 * Insertar un objeto en la lista de entidades
+	 * @param o Objeto a insertar
+	 */
+	public void insertarObjeto(GameObject o) {
+		entidades.add(o);
+	}
+	
+	/**
+	 * @return La lista de entidades
+	 */
+	public List<GameObject> getListaEntidades(){
+		return this.entidades;
 	}
 	
 	/**
@@ -29,7 +70,7 @@ public class Nivel {
 	 * @param dificultad Dificultad de los enemigos, entre 0..5 
 	 * @return Lista de enemigos (oleada)
 	 */
-	public List<Enemigo> getOleada(int dificultad){
+	protected List<Enemigo> getOleada(int dificultad){
 		List<Enemigo> lista = new LinkedList<Enemigo>();
 		Random r = new Random();
 		int cantidad = r.nextInt(10) + 20; //genera entre 20 y 30 enemigos
@@ -115,12 +156,5 @@ public class Nivel {
 		}
 		
 		return lista;
-	}
-	
-	/**
-	 * @return La lista de los aliados y objectos que el jugador puede seleccionar para colocar en el mapa
-	 */
-	public List<ButtonPersonaje> getPersonajesSeleccionables() {
-		return botones_aliados;
 	}
 }
