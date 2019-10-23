@@ -78,24 +78,24 @@ public class MenuPrincipal {
 		initialize();
 		crearMapa();
 		
-		for (JLabel labelLista: lista) {
-			labelLista.addMouseListener(new MouseAdapter() {
-				public void mouseClicked(MouseEvent e){
-					if (JOptionPane.showConfirmDialog(null, "¿Está seguro?")==JOptionPane.YES_OPTION) {
-						JLabel remover = lista.remove(0);
-						panelMapa.remove(remover);
-						elJuego.removerEnemigo();
-						try {
-							Thread.sleep(1000);
-							panelMapa.repaint();
-						} catch (InterruptedException e1) {}
-						
-						actualizar();
-					}
-				}
-					
-			});
-		}
+//		for (JLabel labelLista: lista) {
+//			labelLista.addMouseListener(new MouseAdapter() {
+//				public void mouseClicked(MouseEvent e){
+//					if (JOptionPane.showConfirmDialog(null, "¿Está seguro?")==JOptionPane.YES_OPTION) {
+//						JLabel remover = lista.remove(0);
+//						panelMapa.remove(remover);
+//						elJuego.removerEnemigo();
+//						try {
+//							Thread.sleep(1000);
+//							panelMapa.repaint();
+//						} catch (InterruptedException e1) {}
+//						
+//						actualizar();
+//					}
+//				}
+//					
+//			});
+//		}
 		
 		for (ButtonPersonaje bp: itemCharacter) {
 			bp.addMouseListener(new MouseAdapter() {
@@ -220,9 +220,9 @@ public class MenuPrincipal {
 	 * Crea el mapa con dos gameobject (sin acción)
 	 */
 	private void crearMapa() {
-		GameObject go1, go2;
-		go1 = new PistolSoldier(258,57);
-		go2 = new Kangaroo(640,57);
+//		GameObject go1, go2;
+//		go1 = new PistolSoldier(258,57);
+//		go2 = new Kangaroo(640,57);
 		/*
 		 * mapa.getMapa()[0][0] = new CeldaAliado(0,0);
 		 * mapa.getMapa()[0][9] = new CeldaEnemigo(0,9);
@@ -236,33 +236,33 @@ public class MenuPrincipal {
 		frame.getContentPane().add(panelMapa);
 		panelMapa.setLayout(null);
 		
-		lblPersonaje = new JLabel();
-		lblPersonaje.setHorizontalAlignment(SwingConstants.CENTER);
-		lblPersonaje.setBounds(258, 57, 50, 50);
-		lblPersonaje.setIcon(new ImageIcon(urlImg1));
-		panelMapa.add(lblPersonaje);
-		
-		JLabel lblEnemigo = new JLabel();
-		lblEnemigo.setHorizontalAlignment(SwingConstants.CENTER);
-		lblEnemigo.setBounds(740, 57, 50, 50);
-		panelMapa.add(lblEnemigo);
-		lblEnemigo.setIcon(new ImageIcon(urlImg3));
-		lista.add(lblEnemigo);
-		panelMapa.add(lista.get(0));
+//		lblPersonaje = new JLabel();
+//		lblPersonaje.setHorizontalAlignment(SwingConstants.CENTER);
+//		lblPersonaje.setBounds(258, 57, 50, 50);
+//		lblPersonaje.setIcon(new ImageIcon(urlImg1));
+//		panelMapa.add(lblPersonaje);
+//		
+//		JLabel lblEnemigo = new JLabel();
+//		lblEnemigo.setHorizontalAlignment(SwingConstants.CENTER);
+//		lblEnemigo.setBounds(740, 57, 50, 50);
+//		panelMapa.add(lblEnemigo);
+//		lblEnemigo.setIcon(new ImageIcon(urlImg3));
+//		lista.add(lblEnemigo);
+//		panelMapa.add(lista.get(0));
 	}
 	
-	public void actualizar() {
-		if (lista.size()>0 && elJuego.getEnemigo()!=null){ //Previene un IndexOutOfBoundsException en caso de que no se tenga labels en la lista
-			GameObject object = elJuego.getEnemigo();
-			//El siguiente if previene que el labelEnemigo toque al labelPersonaje al estar cerca de su posición
-			if (lblPersonaje.getX()+60 < object.getPosicionX()) {
-				//lista.get(0).setBounds(object.getPosicion_x(), object.getPosicion_y(), 70, 58);
-				lista.get(0).setBounds(object.getPosicionX(), object.getPosicionY(), 70, 58);
-			}
-		}
-		lblMoneda.setText("Monedas: $" + String.valueOf(elJuego.getMonedas()));
-		lblPuntaje.setText("Puntaje: " + String.valueOf(elJuego.getPuntaje()) + " PTS.");
-	}
+//	public void actualizar() {
+//		if (lista.size()>0 && elJuego.getEnemigo()!=null){ //Previene un IndexOutOfBoundsException en caso de que no se tenga labels en la lista
+//			GameObject object = elJuego.getEnemigo();
+//			//El siguiente if previene que el labelEnemigo toque al labelPersonaje al estar cerca de su posición
+//			if (lblPersonaje.getX()+60 < object.getPosicionX()) {
+//				//lista.get(0).setBounds(object.getPosicion_x(), object.getPosicion_y(), 70, 58);
+//				lista.get(0).setBounds(object.getPosicionX(), object.getPosicionY(), 70, 58);
+//			}
+//		}
+//		lblMoneda.setText("Monedas: $" + String.valueOf(elJuego.getMonedas()));
+//		lblPuntaje.setText("Puntaje: " + String.valueOf(elJuego.getPuntaje()) + " PTS.");
+//	}
 	
 	/**
 	 * Inicializa el menú de personajes seleccionables

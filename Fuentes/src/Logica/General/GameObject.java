@@ -1,5 +1,7 @@
 package Logica.General;
 
+import java.awt.Rectangle;
+
 import javax.swing.JLabel;
 
 import GUI.Controlador.GOGrafico;
@@ -122,5 +124,16 @@ public abstract class GameObject {
 	 */
 	public void setGrafica(GOGrafico grafica) {
 		this.grafica = grafica;
+	}
+	
+	/**
+	 * Devuelve verdadero si el objeto actual está chocando con el objeto pasado por parámetro, falso en caso contratio 
+	 * @param o Objeto con el que posiblemente esté colisionando
+	 * @return Verdadero si el objeto actual está chocando con el objeto pasado por parámetro, falso en caso contratio 
+	 */
+	public boolean chocan(GameObject o) {
+		Rectangle rthis = new Rectangle(this.posicionX, this.posicionY, 50, 50);
+		Rectangle ro = new Rectangle(o.posicionX, o.posicionY, 50, 50);
+		return rthis.intersects(ro);
 	}
 }

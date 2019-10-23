@@ -16,6 +16,8 @@ import Logica.Tienda.Aliados.ButtonPersonaje;
 public class Nivel {
 	protected List<ButtonPersonaje> botones_aliados;
 	protected List<GameObject> entidades;
+//	protected int max_enemigos;
+//	protected int enemigos_restantes;
 	
 	/**
 	 * Constructor
@@ -72,6 +74,7 @@ public class Nivel {
 		int cantidad = r.nextInt(10) + 20; //genera entre 20 y 30 enemigos
 		int poder = r.nextInt(100); //genera un número al azar para saber si aplicar o no un poder en el enemigo
 		int distancia = 0;
+//		max_enemigos = cantidad;
 		
 		int[][] limites = new int[10][6];
 		
@@ -120,6 +123,7 @@ public class Nivel {
 			/*
 			 * Cada tanto los enemigos se alejan 
 			 */
+			distancia += 10;
 			if(i % 7 == 0) {
 				distancia += 200; //los números 7 y 200 es totalmente arbitrario.
 				/*

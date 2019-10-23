@@ -92,8 +92,14 @@ public class Juego {
 	}
 	
 	public void accionar() {
-		for(GameObject g : nivel.getListaEntidades())
-			g.accionar();			
+		for(GameObject g : nivel.getListaEntidades()) {
+			g.accionar();
+//			for(GameObject o : nivel.getListaEntidades()) {
+//				if(g != o && !g.chocan(o)) {
+//					g.accionar();
+//				}
+//			}
+		}
 	}
 	
 	/**
