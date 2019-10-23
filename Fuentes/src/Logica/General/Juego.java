@@ -2,6 +2,7 @@ package Logica.General;
 import java.util.LinkedList;
 import java.util.List;
 
+import GUI.Mapa.LabelTablero;
 import Logica.Aliados.*;
 import Logica.General.Visitors.Visitor;
 import Logica.Objetos.*;
@@ -20,36 +21,34 @@ import Logica.Tienda.Objetos.ButtonCercaAntiTanque;
  */
 public class Juego {	
 	protected Nivel nivel;
-	//temporal
-	protected GameObject enemigo; 
+	protected int dificultad; //dificultad de la oleada
 	//Atributos para tienda
 	protected int monedas;
 	protected int puntaje;
 	
-	public Juego(GameObject e) {
-		enemigo = e;
-		
+	public Juego() {
+		dificultad = 1;
 		monedas = 0;
 		puntaje = 0;
 		
 		/*
 		 * Agrego lista de aliados seleccionables al nivel 1
 		 */
-		List<GameObject> lista_aliados_1 = new LinkedList<GameObject>();
-		List<ButtonPersonaje> lista_botones_1 = new LinkedList<ButtonPersonaje>();
+//		List<GameObject> lista_aliados_1 = new LinkedList<GameObject>();
+//		List<ButtonPersonaje> lista_botones_1 = new LinkedList<ButtonPersonaje>();
+//		
+//		lista_aliados_1.add(new KnifeSoldier(0,0));
+//		lista_aliados_1.add(new PistolSoldier(0,0));
+//		lista_aliados_1.add(new SniperSoldier(0,0));
+//		lista_aliados_1.add(new CercaAntiTanque(0,0));
+//		
+//		lista_botones_1.add(new ButtonKnifeSoldier());
+//		lista_botones_1.add(new ButtonPistolSoldier());
+//		lista_botones_1.add(new ButtonSniperSoldier());
+//		lista_botones_1.add(new ButtonCercaAntiTanque());
+//		
 		
-		lista_aliados_1.add(new KnifeSoldier(0,0));
-		lista_aliados_1.add(new PistolSoldier(0,0));
-		lista_aliados_1.add(new SniperSoldier(0,0));
-		lista_aliados_1.add(new CercaAntiTanque(0,0));
-		
-		lista_botones_1.add(new ButtonKnifeSoldier());
-		lista_botones_1.add(new ButtonPistolSoldier());
-		lista_botones_1.add(new ButtonSniperSoldier());
-		lista_botones_1.add(new ButtonCercaAntiTanque());
-		
-		nivel = new Nivel(lista_aliados_1, lista_botones_1);
-		
+		nivel = new Nivel(null);
 		/*
 //		 * Agrego lista de aliados seleccionables al nivel 2
 //		 */
@@ -81,15 +80,23 @@ public class Juego {
 		return nivel;
 	}
 	
-	//temporal
-	public void moverenemigo() {
-		enemigo.setPosicionX(enemigo.getPosicionX() - 4);
+	/**
+	 * @return Las monedas que dispone el usuario
+	 */
+	public int getMonedas() {
+		return monedas;
 	}
 	
-	public GameObject getEnemigo() {
-		return enemigo;
+	/**
+	 * @return El puntaje que dispone el usuario
+	 */
+	public int getPuntaje() {
+		return puntaje;
 	}
 	
+	/**
+	 * Acciona todos los elementos del mapa
+	 */
 	public void accionar() {
 		for(GameObject g : nivel.getListaEntidades()) {
 			g.accionar();
@@ -99,6 +106,25 @@ public class Juego {
 //				}
 //			}
 		}
+		if(nivel.getEnemigosRestantes() == 0) {
+			nivel.insertarOleada(dificultad);
+		}
+	}
+	
+	/**
+	 * Asigna un nuevo valor a las monedas que dispone el usuario
+	 * @param m Nueva cantidad de monedas
+	 */
+	public void setMonedas(int m) {
+		this.monedas = m;
+	}
+	
+	/**
+	 * Asigna un nuevo valor al puntake del usuario
+	 * @param p Nuevo puntaje
+	 */
+	public void setPuntaje(int p) {
+		this.puntaje = p;
 	}
 	
 	/**
@@ -109,25 +135,23 @@ public class Juego {
 		nivel.insertarObjeto(a);
 	}
 	
-	public void insertarEnemigo() {
-		
-	}
-
-	public int getMonedas() {
-		return monedas;
-	}
-	
-	public int getPuntaje() {
-		return puntaje;
+	/**
+	 * Crea un nivel
+	 * @param mapa Mapa del nivel
+	 * @return Nuevo nivel creado
+	 */
+	public Nivel crearNivel(LabelTablero mapa) {
+		nivel = new Nivel(mapa);
+		return nivel;
 	}
 	
-	public Enemigo removerEnemigo() {
-		Enemigo toReturn = (Enemigo) enemigo;
-		
-		monedas = monedas + toReturn.getMonedas();
-		puntaje = puntaje + toReturn.getPuntaje();
-		
-		enemigo = null;
-		return toReturn;
-	}
+//	public Enemigo removerEnemigo() {
+//		Enemigo toReturn = (Enemigo) enemigo;
+//		
+//		monedas = monedas + toReturn.getMonedas();
+//		puntaje = puntaje + toReturn.getPuntaje();
+//		
+//		enemigo = null;
+//		return toReturn;
+//	}
 }
