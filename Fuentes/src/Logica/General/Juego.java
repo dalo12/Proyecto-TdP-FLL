@@ -20,7 +20,6 @@ import Logica.Tienda.Objetos.ButtonCercaAntiTanque;
  */
 public class Juego {	
 	protected Nivel nivel;
-	protected Visitor visitor;
 	//temporal
 	protected GameObject enemigo; 
 	//Atributos para tienda
