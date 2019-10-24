@@ -5,6 +5,7 @@ import javax.swing.JLabel;
 
 import GUI.Controlador.GOGrafico;
 import Logica.General.Aliado;
+import Logica.General.Nivel;
 import Logica.General.Visitors.ConcreteVisitorAliado;
 
 /**
@@ -19,7 +20,8 @@ public class SniperSoldier extends Aliado {
 	 * @param x Posición en el eje x del aliado
 	 * @param y Posición en el eje y del aliado
 	 */
-	public SniperSoldier(int x, int y) {
+	public SniperSoldier(int x, int y, Nivel n) {
+		super(n);
 		// atributos físicos
 		this.tamanoX = 1;
 		this.tamanoY = 1;
@@ -40,7 +42,7 @@ public class SniperSoldier extends Aliado {
 		this.vidaMaxima = 50;
 		this.vida = vidaMaxima;	
 		
-		this.visitor = new ConcreteVisitorAliado(fuerzaAtaque);
+		this.visitor = new ConcreteVisitorAliado(this, fuerzaAtaque);
 		
 	}
 	
