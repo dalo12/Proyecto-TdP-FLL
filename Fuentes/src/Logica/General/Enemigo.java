@@ -58,6 +58,7 @@ public abstract class Enemigo extends Personaje {
 	 */
 	public void avanzar() {
 		this.posicionX += this.velocidad;
+		grafica.avanzar(posicionX, posicionY);
 	}
 
 	/**
@@ -82,12 +83,15 @@ public abstract class Enemigo extends Personaje {
 
 	@Override
 	public void accionar() {
-		boolean puedeAvanzar = false;
+		boolean puedeAvanzar = true;
 		for(GameObject g : nivel.getListaEntidades()) {
 			if(g.getPosicionX() >= posicionX - alcanceAtaque && g.getPosicionX() < posicionX) {
 				interactuar(g);
+				puedeAvanzar = false;
 			}
-		} // TODO hacer que el enemigo avance o no.
+		}
+		if(puedeAvanzar)
+			avanzar();
 	}
 	
 }
