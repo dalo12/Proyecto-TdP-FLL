@@ -6,6 +6,7 @@ import javax.swing.JLabel;
 import javax.swing.border.Border;
 import javax.swing.border.MatteBorder;
 
+
 @SuppressWarnings("serial")
 public class LabelTablero extends JLabel {
 	//Atributos de instancia
@@ -47,6 +48,14 @@ public class LabelTablero extends JLabel {
 				coordenadas[i][j] = new Coordenada(pos_x, pos_y);
 			}
 		}
+	}
+	
+	/**
+	 * Inserta un label
+	 * @param label Label
+	 */
+	public void insertar(JLabel label) {
+		add(label);
 	}
 	
 	/**
