@@ -3,6 +3,7 @@ package Logica.Objetos;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
+import Logica.General.Nivel;
 import Logica.General.Objeto;
 import Logica.General.Visitors.ConcreteVisitorObjeto;
 
@@ -16,8 +17,10 @@ public class CercaAntiTanque extends Objeto {
 	 * Constructor
 	 * @param x Posición x en el mapa
 	 * @param y Posición y en el mapa
+	 * @param n Nivel al que pertenece el objeto
 	 */
-	public CercaAntiTanque(int x, int y) {
+	public CercaAntiTanque(int x, int y, Nivel n) {
+		super(n);
 		//atributos físicos
 		this.posicionX = x;
 		this.posicionY = y;
@@ -27,7 +30,7 @@ public class CercaAntiTanque extends Objeto {
 		//atributos lógicos
 		this.vida = 100;
 		
-		visitor = new ConcreteVisitorObjeto(y, "", "", y); // TODO verificar si el visitor es correcto
+		visitor = new ConcreteVisitorObjeto(this, y, "", "", y); // TODO verificar si el visitor es correcto
 		
 	}
 

@@ -11,6 +11,14 @@ public class Disparo extends GameObject {
 	protected int dano, velocidad;
 	
 	/**
+	 * Constructor
+	 * @param n Nivel donde se produce el disparo
+	 */
+	public Disparo(Nivel n) {
+		super(n);
+	}
+	
+	/**
 	 * Devuelve el daño que provoca el disparo
 	 * @return El daño que provoca el disparo
 	 */

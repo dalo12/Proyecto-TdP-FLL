@@ -20,6 +20,14 @@ public abstract class GameObject {
 	protected GOGrafico grafica;
 	
 	/**
+	 * Constructor protegido
+	 * @param nivel Nivel actual al cual pertenece el objeto
+	 */
+	protected GameObject(Nivel nivel) {
+		this.nivel = nivel;
+	}
+	
+	/**
 	 * Devuelve la posición en el eje x del objeto
 	 * @return la posición en el eje x del objeto
 	 */

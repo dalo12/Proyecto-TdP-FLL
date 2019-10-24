@@ -9,6 +9,10 @@ import Logica.General.Visitors.Visitor;
  */
 public abstract class Objeto extends GameObject {
 	
+	protected Objeto(Nivel n) {
+		super(n);
+	}
+	
 	protected int vida;
 	
 	/**

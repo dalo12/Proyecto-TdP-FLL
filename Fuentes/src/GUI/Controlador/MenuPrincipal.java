@@ -100,7 +100,7 @@ public class MenuPrincipal {
 		int coord_y_tablero = labelTablero.getY();
 		crearLabelCampo(labelTablero.getAlturaDeDivision(), labelTablero.getAnchoDeDivision(), CANT_EN_X, CANT_EN_Y, coord_x_tablero, coord_y_tablero);
 		
-		elJuego.crearNivel(labelTablero);
+		elJuego.crearNivel(panelMapa);
 		//crearLabelCampo(50, 50, CANT_EN_X, CANT_EN_Y, (int) Math.round(frame.getWidth()/2.5), frame.getHeight()/5);
 	}
 	
@@ -154,9 +154,9 @@ public class MenuPrincipal {
 	 * Acciona los elementos del mapa
 	 */
 	public synchronized void accionar() {
-		for(GameObject o : elJuego.getNivel().getListaEntidades()) {
+		/*for(GameObject o : elJuego.getNivel().getListaEntidades()) {
 			panelMapa.add(o.getGrafica().getLabel());
-		}
+		}*/
 		panelMapa.updateUI();
 		panelMapa.repaint();
 	}

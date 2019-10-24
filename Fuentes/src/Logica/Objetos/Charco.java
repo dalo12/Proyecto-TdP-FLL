@@ -3,6 +3,7 @@ package Logica.Objetos;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
+import Logica.General.Nivel;
 import Logica.General.Visitors.ConcreteVisitorObjeto;
 
 /**
@@ -12,7 +13,14 @@ import Logica.General.Visitors.ConcreteVisitorObjeto;
  */
 public class Charco extends ObjetoTemporal {
 	
-	public Charco(int x, int y) {
+	/**
+	 * Constructor
+	 * @param x Coordenada x donde se encuentra el objeto
+	 * @param y Coordenada y donde se encuentra el objeto
+	 * @param n Nivel donde se encuentra el objeto
+	 */
+	public Charco(int x, int y, Nivel n) {
+		super(n);
 		//atributos físicos
 		this.posicionX = x;
 		this.posicionY = y;
@@ -22,7 +30,7 @@ public class Charco extends ObjetoTemporal {
 		//atributos lógicos
 		this.duracion = 30;
 		
-		visitor = new ConcreteVisitorObjeto(y, "", "", y); // TODO verificar si el visitor es correcto
+		visitor = new ConcreteVisitorObjeto(this, y, "", "", y); // TODO verificar si el visitor es correcto
 		
 	}
 

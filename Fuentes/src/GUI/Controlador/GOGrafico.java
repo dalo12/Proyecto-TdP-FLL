@@ -1,6 +1,10 @@
 package GUI.Controlador;
 
 import javax.swing.JLabel;
+
+import GUI.Mapa.LabelTablero;
+import GUI.Mapa.PanelMapa;
+
 import javax.swing.ImageIcon;
 /**
  * Clase padre de todos los gráficos que representan objetos de tipo GameObject. Vendrían
@@ -31,8 +35,9 @@ public class GOGrafico {
 	 * @param x Coordenada x del objeto lógico
 	 * @param y Coordenada y del objeto lógico
 	 * @param text Arreglo de con las direcciones de las texturas
+	 * @param mapa Mapa donde se mostrará el label
 	 */
-	public GOGrafico(int x, int y, String[] text) {
+	public GOGrafico(int x, int y, String[] text, PanelMapa mapa) {
 		texturas = new ImageIcon[5];
 		
 		for(int i=0; i<=4; i++) {
@@ -45,6 +50,8 @@ public class GOGrafico {
 		
 		cord_x = x;
 		cord_y = y;
+		
+		mapa.add(label);
 	}
 	
 	/**

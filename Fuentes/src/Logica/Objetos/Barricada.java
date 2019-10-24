@@ -4,6 +4,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 import GUI.Controlador.GOGrafico;
+import Logica.General.Nivel;
 import Logica.General.Objeto;
 import Logica.General.Visitors.ConcreteVisitorObjeto;
 
@@ -18,8 +19,10 @@ public class Barricada extends Objeto {
 	 * Constructor
 	 * @param x Posición x en el mapa
 	 * @param y Posición y en el mapa
+	 * @param n Nivel al que pertenece la barricada
 	 */
-	public Barricada(int x, int y) {
+	public Barricada(int x, int y, Nivel n) {
+		super(n);
 		//atributos físicos
 		this.posicionX = x;
 		this.posicionY = y;
@@ -30,12 +33,12 @@ public class Barricada extends Objeto {
 		texturas[0] = "../Texturas/Personajes/kangaroo/kangaroo-0.png";
 		texturas[2] = "../Texturas/Personajes/pistol-soldier/pistol-soldier-1.gif";
 		texturas[1] = texturas[3] = texturas[4] = texturas[2];
-		this.grafica = new GOGrafico(x, y, texturas);
+		this.grafica = new GOGrafico(x, y, texturas, n.getMapa());
 		
 		//atributos lógicos
 		this.vida = 50;
 		
-		visitor = new ConcreteVisitorObjeto(y, "", "", y); // TODO verificar si el visitor es correcto
+		visitor = new ConcreteVisitorObjeto(this, y, "", "", y); // TODO verificar si el visitor es correcto
 		
 	}
 

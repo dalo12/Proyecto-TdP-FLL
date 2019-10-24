@@ -13,6 +13,14 @@ public abstract class Enemigo extends Personaje {
 	protected int velocidad, maxMonedas, puntaje;
 
 	/**
+	 * Constructor protegido
+	 * @param n Nivel al que pertenece el enemigo
+	 */
+	protected Enemigo(Nivel n) {
+		super(n);
+	}
+	
+	/**
 	 * Devuelve la velocidad del enemigo
 	 * @return La velocidad del enemigo
 	 */

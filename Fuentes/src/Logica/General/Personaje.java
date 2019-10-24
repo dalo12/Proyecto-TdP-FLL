@@ -10,6 +10,14 @@ public abstract class Personaje extends GameObject {
 	protected int vida, fuerzaAtaque, alcanceAtaque, velocidadAtaque;
 	
 	/**
+	 * Constructor protegido
+	 * @param n Nivel en el que está el personaje
+	 */
+	protected Personaje(Nivel n) {
+		super(n);
+	}
+	
+	/**
 	 * Devuelve la cantidad de vida que aún tiene el personaje
 	 * @return La cantidad de vida que aún tiene el personaje
 	 */

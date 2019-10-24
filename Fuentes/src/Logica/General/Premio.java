@@ -13,6 +13,14 @@ public abstract class Premio extends GameObject {
 	protected int duracionActivo;
 	protected boolean activo;
 	
+	/**
+	 * Constructor protegido
+	 * @param n Nivel al que pertenece el premio
+	 */
+	protected Premio(Nivel n) {
+		super(n);
+	}
+	
 	public void activar() {
 		//TODO debe recorrer todos los objetos del juego enviando su visitor.
 	}

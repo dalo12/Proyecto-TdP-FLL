@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Random;
 
 import GUI.Mapa.LabelTablero;
+import GUI.Mapa.PanelMapa;
 import Logica.Enemigos.*;
 import Logica.PowerUps.*;
 
@@ -19,13 +20,13 @@ public class Nivel {
 	protected List<GameObject> entidades;
 	protected int max_enemigos;
 	protected int enemigos_restantes;
-	protected LabelTablero mapa;
+	protected PanelMapa mapa;
 	
 	/**
 	 * Constructor
 	 * @param mapa Mapa del nivel
 	 */
-	public Nivel(LabelTablero mapa) {
+	public Nivel(PanelMapa mapa) {
 		entidades = new LinkedList<GameObject>();
 		enemigos_restantes = 0;
 		this.mapa = mapa;
@@ -41,7 +42,7 @@ public class Nivel {
 	/**
 	 * @return El mapa del nivel
 	 */
-	public LabelTablero getMapa() {
+	public PanelMapa getMapa() {
 		return this.mapa;
 	}
 	
@@ -116,17 +117,17 @@ public class Nivel {
 											// se generan enemigos tan difíciles entre 0..dificultad
 			
 			if(dif >= 45) {
-				lista.add(new TankGaroo(coordenada_x+distancia, coordenadas_y[j]));
+				lista.add(new TankGaroo(coordenada_x+distancia, coordenadas_y[j], this));
 			}else if(dif >= 40) {
-				lista.add(new FlamethrowerKangaroo(coordenada_x+distancia, coordenadas_y[j]));
+				lista.add(new FlamethrowerKangaroo(coordenada_x+distancia, coordenadas_y[j], this));
 			}else if(dif >= 30) {
-				lista.add(new KnifeKangaroo(coordenada_x+distancia, coordenadas_y[j]));
-			}else if(dif >= 20) {
-				lista.add(new PistolKangaroo(coordenada_x+distancia, coordenadas_y[j]));
-			}else if(dif >= 10) {
-				lista.add(new BoxKangaroo(coordenada_x+distancia, coordenadas_y[j]));
-			}else if(dif < 10) {
-				lista.add(new Kangaroo(coordenada_x+distancia, coordenadas_y[j]));
+				lista.add(new KnifeKangaroo(coordenada_x+distancia, coordenadas_y[j], this));
+			}else if(dif >= 16) {
+				lista.add(new PistolKangaroo(coordenada_x+distancia, coordenadas_y[j], this));
+			}else if(dif >= 7) {
+				lista.add(new BoxKangaroo(coordenada_x+distancia, coordenadas_y[j], this));
+			}else if(dif < 7) {
+				lista.add(new Kangaroo(coordenada_x+distancia, coordenadas_y[j], this));
 			}
 			/*
 			switch(dif) {
@@ -173,17 +174,17 @@ public class Nivel {
 			if(poder == 5) { //el número 5 es totalmente arbitrario
 				switch(i % 3) { //porque 3 son los powerups
 					case 0:{
-						Premio p = new Mate();
+						Premio p = new Mate(0,0,this);
 						p.aplicarEfecto(lista.get(lista.size() - 1));
 						break;
 					}
 					case 1:{
-						Premio p = new SanLugano();
+						Premio p = new SanLugano(0,0,this);
 						p.aplicarEfecto(lista.get(lista.size() - 1));
 						break;						
 					}
 					case 2:{
-						Premio p = new GarraCharrua();
+						Premio p = new GarraCharrua(0,0,this);
 						p.aplicarEfecto(lista.get(lista.size() - 1));
 						break;
 					}					
