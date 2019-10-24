@@ -19,11 +19,13 @@ import GUI.Mapa.Coordenada;
 import GUI.Mapa.LabelPersonaje;
 import GUI.Mapa.LabelTablero;
 import GUI.Mapa.PanelMapa;
-import Logica.Aliados.PistolSoldier;
-import Logica.Enemigos.Kangaroo;
+import Logica.Aliados.*;
+import Logica.Enemigos.*;
+import Logica.Objetos.*;
 import Logica.General.GameObject;
 import Logica.General.Juego;
-import Logica.Tienda.Aliados.ButtonPersonaje;
+import Logica.Tienda.Aliados.*;
+import Logica.Tienda.Objetos.*;
 
 import java.awt.Insets;
 import java.awt.event.MouseAdapter;
@@ -58,6 +60,9 @@ public class MenuPrincipal {
 	
 	private GameObject aux = null;
 	
+	//TODO Borrar
+	protected int contador_imprimir;
+	
 	
 	/**
 	 * Launch the application.
@@ -72,30 +77,32 @@ public class MenuPrincipal {
 	 * Create the application.
 	 */
 	public MenuPrincipal() {
+		//TODO Borrar
+			contador_imprimir = 0;
 		lista = new LinkedList<JLabel>();
-		GameObject e = new Kangaroo(640, 55);
-		elJuego = new Juego(e);
+		//GameObject e = new Kangaroo(640, 55);
+		elJuego = new Juego();
 		initialize();
 		crearMapa();
 		
-		for (JLabel labelLista: lista) {
-			labelLista.addMouseListener(new MouseAdapter() {
-				public void mouseClicked(MouseEvent e){
-					if (JOptionPane.showConfirmDialog(null, "¿Está seguro?")==JOptionPane.YES_OPTION) {
-						JLabel remover = lista.remove(0);
-						panelMapa.remove(remover);
-						elJuego.removerEnemigo();
-						try {
-							Thread.sleep(1000);
-							panelMapa.repaint();
-						} catch (InterruptedException e1) {}
-						
-						actualizar();
-					}
-				}
-					
-			});
-		}
+//		for (JLabel labelLista: lista) {
+//			labelLista.addMouseListener(new MouseAdapter() {
+//				public void mouseClicked(MouseEvent e){
+//					if (JOptionPane.showConfirmDialog(null, "¿Está seguro?")==JOptionPane.YES_OPTION) {
+//						JLabel remover = lista.remove(0);
+//						panelMapa.remove(remover);
+//						elJuego.removerEnemigo();
+//						try {
+//							Thread.sleep(1000);
+//							panelMapa.repaint();
+//						} catch (InterruptedException e1) {}
+//						
+//						actualizar();
+//					}
+//				}
+//					
+//			});
+//		}
 		
 		for (ButtonPersonaje bp: itemCharacter) {
 			bp.addMouseListener(new MouseAdapter() {
@@ -149,6 +156,8 @@ public class MenuPrincipal {
 		int coord_x_tablero = labelTablero.getX();
 		int coord_y_tablero = labelTablero.getY();
 		crearLabelCampo(labelTablero.getAlturaDeDivision(), labelTablero.getAnchoDeDivision(), CANT_EN_X, CANT_EN_Y, coord_x_tablero, coord_y_tablero);
+		
+		elJuego.crearNivel(labelTablero);
 		//crearLabelCampo(50, 50, CANT_EN_X, CANT_EN_Y, (int) Math.round(frame.getWidth()/2.5), frame.getHeight()/5);
 	}
 
@@ -220,9 +229,9 @@ public class MenuPrincipal {
 	 * Crea el mapa con dos gameobject (sin acción)
 	 */
 	private void crearMapa() {
-		GameObject go1, go2;
-		go1 = new PistolSoldier(258,57);
-		go2 = new Kangaroo(640,57);
+//		GameObject go1, go2;
+//		go1 = new PistolSoldier(258,57);
+//		go2 = new Kangaroo(640,57);
 		/*
 		 * mapa.getMapa()[0][0] = new CeldaAliado(0,0);
 		 * mapa.getMapa()[0][9] = new CeldaEnemigo(0,9);
@@ -236,45 +245,66 @@ public class MenuPrincipal {
 		frame.getContentPane().add(panelMapa);
 		panelMapa.setLayout(null);
 		
-		lblPersonaje = new JLabel();
-		lblPersonaje.setHorizontalAlignment(SwingConstants.CENTER);
-		lblPersonaje.setBounds(258, 57, 50, 50);
-		lblPersonaje.setIcon(new ImageIcon(urlImg1));
-		panelMapa.add(lblPersonaje);
-		
-		JLabel lblEnemigo = new JLabel();
-		lblEnemigo.setHorizontalAlignment(SwingConstants.CENTER);
-		lblEnemigo.setBounds(740, 57, 50, 50);
-		panelMapa.add(lblEnemigo);
-		lblEnemigo.setIcon(new ImageIcon(urlImg3));
-		lista.add(lblEnemigo);
-		panelMapa.add(lista.get(0));
+//		lblPersonaje = new JLabel();
+//		lblPersonaje.setHorizontalAlignment(SwingConstants.CENTER);
+//		lblPersonaje.setBounds(258, 57, 50, 50);
+//		lblPersonaje.setIcon(new ImageIcon(urlImg1));
+//		panelMapa.add(lblPersonaje);
+//		
+//		JLabel lblEnemigo = new JLabel();
+//		lblEnemigo.setHorizontalAlignment(SwingConstants.CENTER);
+//		lblEnemigo.setBounds(740, 57, 50, 50);
+//		panelMapa.add(lblEnemigo);
+//		lblEnemigo.setIcon(new ImageIcon(urlImg3));
+//		lista.add(lblEnemigo);
+//		panelMapa.add(lista.get(0));
 	}
 	
-	public void actualizar() {
-		if (lista.size()>0 && elJuego.getEnemigo()!=null){ //Previene un IndexOutOfBoundsException en caso de que no se tenga labels en la lista
-			GameObject object = elJuego.getEnemigo();
-			//El siguiente if previene que el labelEnemigo toque al labelPersonaje al estar cerca de su posición
-			if (lblPersonaje.getX()+60 < object.getPosicionX()) {
-				//lista.get(0).setBounds(object.getPosicion_x(), object.getPosicion_y(), 70, 58);
-				lista.get(0).setBounds(object.getPosicionX(), object.getPosicionY(), 70, 58);
-			}
-		}
-		lblMoneda.setText("Monedas: $" + String.valueOf(elJuego.getMonedas()));
-		lblPuntaje.setText("Puntaje: " + String.valueOf(elJuego.getPuntaje()) + " PTS.");
-	}
+//	public void actualizar() {
+//		if (lista.size()>0 && elJuego.getEnemigo()!=null){ //Previene un IndexOutOfBoundsException en caso de que no se tenga labels en la lista
+//			GameObject object = elJuego.getEnemigo();
+//			//El siguiente if previene que el labelEnemigo toque al labelPersonaje al estar cerca de su posición
+//			if (lblPersonaje.getX()+60 < object.getPosicionX()) {
+//				//lista.get(0).setBounds(object.getPosicion_x(), object.getPosicion_y(), 70, 58);
+//				lista.get(0).setBounds(object.getPosicionX(), object.getPosicionY(), 70, 58);
+//			}
+//		}
+//		lblMoneda.setText("Monedas: $" + String.valueOf(elJuego.getMonedas()));
+//		lblPuntaje.setText("Puntaje: " + String.valueOf(elJuego.getPuntaje()) + " PTS.");
+//	}
 	
 	/**
 	 * Inicializa el menú de personajes seleccionables
 	 */
 	protected void iniciarMenuPersonajes() {
-		itemCharacter = new ButtonPersonaje[elJuego.getNivel().getPersonajesSeleccionables().size()];
-		int i = 0;
-		for(ButtonPersonaje btn_per: elJuego.getNivel().getPersonajesSeleccionables()) {
-			itemCharacter[i] = btn_per;
+		itemCharacter = new ButtonPersonaje[9]; //9 es el máximo de personajes (aliados y objetos) seleccionables por el usuario
+		itemCharacter[0] = new ButtonAllterrainMachinegun();
+		itemCharacter[1] = new ButtonBazookaSoldier();
+		itemCharacter[2] = new ButtonKnifeSoldier();
+		itemCharacter[3] = new ButtonPistolSoldier();
+		itemCharacter[4] = new ButtonSniperSoldier();
+		itemCharacter[5] = new ButtonBarricada();
+		itemCharacter[6] = new ButtonBomba();
+		itemCharacter[7] = new ButtonCercaAntiTanque();
+		itemCharacter[8] = new ButtonMina();
+		
+		for(int i=0; i<9; i++) {
 			mnPersonajes.add(itemCharacter[i]);
-			i++;
 		}
+//		itemCharacter = new ButtonPersonaje[elJuego.getNivel().getPersonajesSeleccionables().size()];
+//		int i = 0;		
+//		for(ButtonPersonaje btn_per: elJuego.getNivel().getPersonajesSeleccionables()) {
+//			itemCharacter[i] = btn_per;
+//			mnPersonajes.add(itemCharacter[i]);
+//			i++;
+//		}
+	}
+	
+	public void accionar() {
+		for(GameObject o : elJuego.getNivel().getListaEntidades()) {
+			panelMapa.add(o.getGrafica().getLabel());
+		}
+		panelMapa.repaint();
 	}
 	
 	/**
@@ -338,6 +368,75 @@ public class MenuPrincipal {
 		}
 		
 		return arr;
+	}
+	
+	/**
+	 * Imprime el estado actual de la lista de entidades
+	 * TODO: Borrar cuando ya no sirva más
+	 */
+	public void imprimirObjetos() {
+		String cadena = "";
+		for(GameObject o : elJuego.getNivel().getListaEntidades()) {
+			cadena += contador_imprimir + ": ";
+			//Enemigos
+			if(o instanceof BoxKangaroo) {
+				cadena += "BoxKangaroo";
+			}
+			if(o instanceof FlamethrowerKangaroo) {
+				cadena += "FlamethrowerKangaroo";
+			}
+			if(o instanceof Kangaroo) {
+				cadena += "Kangaroo";
+			}
+			if(o instanceof KnifeKangaroo) {
+				cadena += "KnifeKangaroo";
+			}
+			if(o instanceof PistolKangaroo) {
+				cadena += "PistolKangaroo";
+			}
+			if(o instanceof TankGaroo) {
+				cadena += "TankGaroo";
+			}
+			//Aliados
+			if(o instanceof AllterrainMachinegun) {
+				cadena += "AllterrainMachinegun";
+			}
+			if(o instanceof BazookaSoldier) {
+				cadena += "BazookaSoldier";
+			}
+			if(o instanceof KnifeSoldier) {
+				cadena += "KnifeSoldier";
+			}
+			if(o instanceof PistolSoldier) {
+				cadena += "PistolSoldier";
+			}
+			if(o instanceof SniperSoldier) {
+				cadena += "SniperSoldier";
+			}
+			//Objetos
+			if(o instanceof Barricada) {
+				cadena += "Barricada";
+			}
+			if(o instanceof Bomba) {
+				cadena += "Bomba";
+			}
+			if(o instanceof CercaAntiTanque) {
+				cadena += "CercaAntiTanque";
+			}
+			if(o instanceof Charco) {
+				cadena += "Charco";
+			}
+			if(o instanceof Mina) {
+				cadena += "Mina";
+			}
+			if(o instanceof Piedra) {
+				cadena += "BoxKangaroo";
+			}	
+			cadena += " ";
+			contador_imprimir++;
+		}
+		System.out.println(cadena);
+		contador_imprimir = 0;
 	}
 }
 

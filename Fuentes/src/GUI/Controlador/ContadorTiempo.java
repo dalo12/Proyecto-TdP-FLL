@@ -19,11 +19,14 @@ public class ContadorTiempo extends Thread {
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-			if (elJuego.getEnemigo()!=null){ 
-				elJuego.moverenemigo(); //temporal
-				elJuego.accionar();
-				menu.actualizar();
-			}
+			elJuego.accionar();
+			menu.accionar();
+			menu.imprimirObjetos();
+//			if (elJuego.getEnemigo()!=null){ 
+//				elJuego.moverenemigo(); //temporal
+//				elJuego.accionar();
+//				//menu.actualizar();
+//			}
 		}
 	}
 

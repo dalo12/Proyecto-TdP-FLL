@@ -82,7 +82,15 @@ public abstract class Enemigo extends Personaje {
 
 	@Override
 	public void accionar() {
+		this.posicionX = this.posicionX + this.velocidad;
+		this.grafica.avanzar(this.posicionX, this.posicionY);
 		// TODO Auto-generated method stub
 		
+	}
+	
+	public void finalizar() {
+		//Al morir, el enemigo resta en 1 a la cantidad de enemigos restantes que le quedan a la oleada
+		int enemigos_restantes = this.elJuego.getNivel().getEnemigosRestantes();
+		this.elJuego.getNivel().setEnemigosRestantes(enemigos_restantes - 1);
 	}
 }
