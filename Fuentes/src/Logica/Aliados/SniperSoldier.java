@@ -32,7 +32,7 @@ public class SniperSoldier extends Aliado {
 		texturas[0] = "../Texturas/Personajes/pistol-soldier/pistol-soldier-0.png";
 		texturas[1] = "../Texturas/Personajes/pistol-soldier/pistol-soldier-1.gif";
 		texturas[2] = texturas[3] = texturas[4] = texturas[1];
-		this.grafica = new GOGrafico(x, y, texturas);
+		this.grafica = new GOGrafico(x, y, texturas, n.getMapa());
 				
 		//atributos lógicos
 		this.alcanceAtaque = 10;
