@@ -7,7 +7,6 @@ import java.util.Random;
 import GUI.Mapa.LabelTablero;
 import Logica.Enemigos.*;
 import Logica.PowerUps.*;
-import Logica.Tienda.Aliados.ButtonPersonaje;
 
 /**
  * Modela los niveles

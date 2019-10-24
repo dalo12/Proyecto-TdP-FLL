@@ -19,9 +19,11 @@ public class ContadorTiempo extends Thread {
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
+			menu.actualizarInformacionTienda();
 			elJuego.accionar();
 			menu.accionar();
 			menu.imprimirObjetos();
+			menu.setearAliado();
 //			if (elJuego.getEnemigo()!=null){ 
 //				elJuego.moverenemigo(); //temporal
 //				elJuego.accionar();
