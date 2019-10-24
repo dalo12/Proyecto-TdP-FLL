@@ -73,7 +73,6 @@ public class GOGrafico {
 	 */
 	public void avanzar(int x, int y) {
 		label.setIcon(texturas[3]);
-		//label.setLocation(x, y);
 		label.setBounds(x, y, ANCHO, ALTO);
 	}
 	

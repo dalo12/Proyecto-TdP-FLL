@@ -49,6 +49,7 @@ public class Juego {
 	 */
 	public synchronized void accionar() {
 		for(GameObject g : nivel.getListaEntidades()) {
+			g.setNivel(nivel);
 			g.accionar();
 		}
 		if(nivel.getEnemigosRestantes() == 0) {

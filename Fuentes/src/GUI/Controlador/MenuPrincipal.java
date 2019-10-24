@@ -157,6 +157,7 @@ public class MenuPrincipal {
 		for(GameObject o : elJuego.getNivel().getListaEntidades()) {
 			panelMapa.add(o.getGrafica().getLabel());
 		}
+		panelMapa.updateUI();
 		panelMapa.repaint();
 	}
 	

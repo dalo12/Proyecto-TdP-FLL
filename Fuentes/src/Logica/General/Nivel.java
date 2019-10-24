@@ -92,6 +92,7 @@ public class Nivel {
 		int poder = r.nextInt(100); //genera un número al azar para saber si aplicar o no un poder en el enemigo
 		int distancia = 0;
 		max_enemigos = cantidad;
+		enemigos_restantes = max_enemigos;
 		
 		//cálculo de las coordenadas dónde colocar los enemigos
 		int mapa_ancho = mapa.getSize().width;

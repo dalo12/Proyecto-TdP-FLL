@@ -31,7 +31,7 @@ public class Kangaroo extends Enemigo {
 		
 		//atributos lógicos
 		this.maxMonedas = 15;
-		this.velocidad = 25;
+		this.velocidad = 10;
 		this.velocidadAtaque = 3;
 		this.vida = 100;		
 		this.alcanceAtaque = 1;
