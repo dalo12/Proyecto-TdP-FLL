@@ -134,5 +134,13 @@ public abstract class GameObject {
 		Rectangle ro = new Rectangle(o.posicionX, o.posicionY, 50, 50);
 		return rthis.intersects(ro);
 	} //Este metodo no es necesario, se resuelve con visitor.
+
 	
+	/**
+	 * Setea el nivel 
+	 * @param nivel Nivel
+	 */
+	public void setNivel(Nivel nivel) {
+		this.nivel = nivel;
+	}
 }
