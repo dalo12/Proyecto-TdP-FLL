@@ -1,0 +1,5 @@
+texturas[0] : objeto quieto (en espera de acción)
+texturas[1] : objeto atacando
+texturas[2] : objeto siendo atacado
+texturas[3] : objeto avanzando por el mapa
+texturas[4] : objeto muriendo
