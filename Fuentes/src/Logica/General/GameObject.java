@@ -16,12 +16,9 @@ import Logica.General.Visitors.Visitor;
 public abstract class GameObject {
 	protected int posicionX, posicionY, tamanoX, tamanoY;
 	protected Visitor visitor;
-	protected Juego elJuego;
+	protected Nivel nivel;
 	protected GOGrafico grafica;
 	
-	protected GameObject() {
-		
-	}
 	/**
 	 * Devuelve la posición en el eje x del objeto
 	 * @return la posición en el eje x del objeto
@@ -109,7 +106,8 @@ public abstract class GameObject {
 	 * Elimina este objeto de la lista de entidades del juego.
 	 */
 	public void finalizar() {
-		// TODO implementar
+		nivel.getListaEntidades().remove(this);
+		// TODO debe eliminar su label
 	}
 
 	/**
@@ -135,5 +133,14 @@ public abstract class GameObject {
 		Rectangle rthis = new Rectangle(this.posicionX, this.posicionY, 50, 50);
 		Rectangle ro = new Rectangle(o.posicionX, o.posicionY, 50, 50);
 		return rthis.intersects(ro);
+	} //Este metodo no es necesario, se resuelve con visitor.
+
+	
+	/**
+	 * Setea el nivel 
+	 * @param nivel Nivel
+	 */
+	public void setNivel(Nivel nivel) {
+		this.nivel = nivel;
 	}
 }

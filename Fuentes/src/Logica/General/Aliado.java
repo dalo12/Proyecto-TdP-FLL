@@ -58,7 +58,10 @@ public abstract class Aliado extends Personaje {
 
 	@Override
 	public void accionar() {
-		// TODO Auto-generated method stub
-		
+		for(GameObject g : nivel.getListaEntidades()) {
+			if(g.getPosicionX() <= posicionX + alcanceAtaque && g.getPosicionX() > posicionX) {
+				interactuar(g);
+			}
+		}
 	}
 }
