@@ -13,7 +13,8 @@ public class ConcreteVisitorObjeto extends Visitor {
 	protected String target;
 	protected int valorEfecto;
 	
-	public ConcreteVisitorObjeto(int damage, String efecto, String target, int valorEfecto) {
+	public ConcreteVisitorObjeto(Objeto o, int damage, String efecto, String target, int valorEfecto) {
+		gameObject = o;
 		this.damage = damage;
 		this.efecto = efecto;
 		this.target = target;

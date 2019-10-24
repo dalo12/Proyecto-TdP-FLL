@@ -10,7 +10,8 @@ public class ConcreteVisitorDisparo extends Visitor {
 
 	protected int damage;
 	
-	public ConcreteVisitorDisparo(int damage) {
+	public ConcreteVisitorDisparo(Disparo o, int damage) {
+		gameObject = o;
 		this.damage = damage;
 	}
 	

@@ -5,6 +5,7 @@ import javax.swing.JLabel;
 
 import GUI.Controlador.GOGrafico;
 import Logica.General.Aliado;
+import Logica.General.Nivel;
 import Logica.General.Visitors.ConcreteVisitorAliado;
 
 /**
@@ -18,7 +19,8 @@ public class KnifeSoldier extends Aliado {
 	 * @param x Posición en el eje x del aliado
 	 * @param y Posición en el eje y del aliado
 	 */
-	public KnifeSoldier(int x, int y) {
+	public KnifeSoldier(int x, int y, Nivel n) {
+		super(n);
 		// atributos físicos
 		this.tamanoX = 1;
 		this.tamanoY = 1;
@@ -29,7 +31,7 @@ public class KnifeSoldier extends Aliado {
 		texturas[0] = "../Texturas/Personajes/pistol-soldier/pistol-soldier-0.png";
 		texturas[1] = "../Texturas/Personajes/pistol-soldier/pistol-soldier-1.gif";
 		texturas[2] = texturas[3] = texturas[4] = texturas[1];
-		this.grafica = new GOGrafico(x, y, texturas);
+		this.grafica = new GOGrafico(x, y, texturas, n.getMapa());
 		
 		//atributos lógicos
 		this.alcanceAtaque = 1;
@@ -39,7 +41,7 @@ public class KnifeSoldier extends Aliado {
 		this.vidaMaxima = 100;
 		this.vida = vidaMaxima;		
 		
-		this.visitor = new ConcreteVisitorAliado(fuerzaAtaque);
+		this.visitor = new ConcreteVisitorAliado(this, fuerzaAtaque);
 		
 	}
 	
