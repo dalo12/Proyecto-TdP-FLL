@@ -10,7 +10,8 @@ public class ConcreteVisitorAliado extends Visitor {
 
 	protected int damage;
 	
-	public ConcreteVisitorAliado(int damage) {
+	public ConcreteVisitorAliado(Aliado o, int damage) {
+		gameObject = o;
 		this.damage = damage;
 	}
 	

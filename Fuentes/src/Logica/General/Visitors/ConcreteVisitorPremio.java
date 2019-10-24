@@ -12,7 +12,8 @@ public class ConcreteVisitorPremio extends Visitor {
 	protected String target;
 	protected int valorEfecto;
 	
-	public ConcreteVisitorPremio(String efecto, String target, int valorEfecto) {
+	public ConcreteVisitorPremio(Premio o, String efecto, String target, int valorEfecto) {
+		gameObject = o;
 		this.efecto = efecto;
 		this.target = target;
 		this.valorEfecto = valorEfecto;
