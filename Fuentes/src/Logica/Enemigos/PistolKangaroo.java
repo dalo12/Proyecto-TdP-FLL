@@ -2,6 +2,7 @@ package Logica.Enemigos;
 
 import GUI.Controlador.GOGrafico;
 import Logica.General.Enemigo;
+import Logica.General.Nivel;
 import Logica.General.Visitors.ConcreteVisitorEnemigo;
 
 /**
@@ -16,7 +17,8 @@ public class PistolKangaroo extends Enemigo {
 	 * @param x Posición en el eje x del objeto
 	 * @param y Posición en el eje y del objeto
 	 */
-	public PistolKangaroo(int x, int y) {
+	public PistolKangaroo(int x, int y, Nivel n) {
+		super(n);
 		//atributos físicos
 		this.posicionX = x;
 		this.posicionY = y;
@@ -27,7 +29,7 @@ public class PistolKangaroo extends Enemigo {
 		texturas[0] = "../Texturas/Personajes/kangaroo/kangaroo-0.png";
 		texturas[1] = "../Texturas/Personajes/kangaroo/kangaroo-1.gif";
 		texturas[2] = texturas[3] = texturas[4] = texturas[1];
-		this.grafica = new GOGrafico(x, y, texturas);
+		this.grafica = new GOGrafico(x, y, texturas, n.getMapa());
 		
 		//atributos lógicos
 		this.maxMonedas = 50;
@@ -38,7 +40,7 @@ public class PistolKangaroo extends Enemigo {
 		this.fuerzaAtaque = 45;
 		this.puntaje = 25;
 		
-		visitor = new ConcreteVisitorEnemigo(fuerzaAtaque);
+		visitor = new ConcreteVisitorEnemigo(this, fuerzaAtaque);
 		
 	}
 
