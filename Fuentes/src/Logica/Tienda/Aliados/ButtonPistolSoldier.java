@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 
 import Logica.Aliados.PistolSoldier;
 import Logica.General.GameObject;
+import Logica.General.Nivel;
 
 @SuppressWarnings("serial")
 public class ButtonPistolSoldier extends ButtonPersonaje {
@@ -14,14 +15,14 @@ public class ButtonPistolSoldier extends ButtonPersonaje {
 	/**
 	 * Constructor de ButtonAllterrainMachinegun
 	 */
-	public ButtonPistolSoldier() {
-		super(descripcion, urlImg1);
+	public ButtonPistolSoldier(Nivel n) {
+		super(descripcion, urlImg1, n);
 		this.addActionListener(new ActionListener(){
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				//Al hacer click en este botón, se crea un nuevo objeto.
-				objeto = new PistolSoldier(0,0);
+				objeto = new PistolSoldier(0, 0, n);
 			}
 			
 		});

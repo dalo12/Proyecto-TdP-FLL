@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import Logica.General.GameObject;
+import Logica.General.Nivel;
 import Logica.Objetos.Barricada;
 import Logica.Tienda.Aliados.ButtonPersonaje;
 
@@ -15,14 +16,14 @@ public class ButtonBarricada extends ButtonPersonaje {
 	/**
 	 * Constructor de ButtonBarricada
 	 */
-	public ButtonBarricada() {
-		super(descripcion, urlImg1);
+	public ButtonBarricada(Nivel n) {
+		super(descripcion, urlImg1, n);
 		this.addActionListener(new ActionListener(){
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				//Al hacer click en este botón, se crea un nuevo objeto.
-				objeto = new Barricada(0,0);
+				objeto = new Barricada(0, 0, n);
 			}
 			
 		});

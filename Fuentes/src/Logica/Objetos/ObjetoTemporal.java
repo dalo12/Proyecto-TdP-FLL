@@ -1,5 +1,6 @@
 package Logica.Objetos;
 
+import Logica.General.Nivel;
 import Logica.General.Objeto;
 
 /**
@@ -10,6 +11,10 @@ import Logica.General.Objeto;
 public abstract class ObjetoTemporal extends Objeto {
 	
 	protected int duracion;
+
+	protected ObjetoTemporal(Nivel n) {
+		super(n);
+	}
 	
 	/**
 	 * Asigna una nueva duracion al objeto.

@@ -8,10 +8,14 @@ import Logica.General.Visitors.Visitor;
  * @version 1.0
  */
 public abstract class Premio extends GameObject {
-	
+
 	protected int duracionEnMapa;
 	protected int duracionActivo;
 	protected boolean activo;
+	
+	protected Premio(Nivel n) {
+		super(n);
+	}
 	
 	public void activar() {
 		//TODO debe recorrer todos los objetos del juego enviando su visitor.

@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import Logica.General.GameObject;
+import Logica.General.Nivel;
 import Logica.Objetos.Bomba;
 import Logica.Tienda.Aliados.ButtonPersonaje;
 
@@ -15,14 +16,14 @@ public class ButtonBomba extends ButtonPersonaje {
 	/**
 	 * Constructor de ButtonBomba
 	 */
-	public ButtonBomba() {
-		super(descripcion, urlImg1);
+	public ButtonBomba(Nivel n) {
+		super(descripcion, urlImg1, n);
 		this.addActionListener(new ActionListener(){
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				//Al hacer click en este botón, se crea un nuevo objeto.
-				objeto = new Bomba(0,0);
+				objeto = new Bomba(0, 0, n);
 			}
 			
 		});

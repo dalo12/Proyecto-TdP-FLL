@@ -4,14 +4,17 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 import Logica.General.GameObject;
+import Logica.General.Nivel;
 
 @SuppressWarnings("serial")
 public abstract class ButtonPersonaje extends JButton {
 	//Atributo de instancia
 	protected GameObject objeto;
+	protected Nivel nivel;
 	
-	protected ButtonPersonaje(String texto, String url) {
+	protected ButtonPersonaje(String texto, String url, Nivel n) {
 		super(texto, new ImageIcon(url));
+		nivel = n;
 	}
 	
 	/**

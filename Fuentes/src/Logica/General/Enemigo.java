@@ -10,6 +10,11 @@ import Logica.General.Visitors.Visitor;
  * @version 1.0
  */
 public abstract class Enemigo extends Personaje {
+	
+	protected Enemigo(Nivel n) {
+		super(n);
+	}
+
 	protected int velocidad, maxMonedas, puntaje;
 
 	/**

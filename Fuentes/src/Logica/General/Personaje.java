@@ -9,6 +9,10 @@ package Logica.General;
 public abstract class Personaje extends GameObject {
 	protected int vida, fuerzaAtaque, alcanceAtaque, velocidadAtaque;
 	
+	protected Personaje(Nivel n) {
+		super(n);
+	}
+	
 	/**
 	 * Devuelve la cantidad de vida que aún tiene el personaje
 	 * @return La cantidad de vida que aún tiene el personaje
