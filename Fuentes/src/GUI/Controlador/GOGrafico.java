@@ -43,7 +43,7 @@ public class GOGrafico {
 		}
 		
 		label = new JLabel();
-		//mapa.add(label);
+		mapa.add(label);
 		label.setIcon(texturas[0]);		
 		label.setBounds(x, y, ANCHO, ALTO);
 		

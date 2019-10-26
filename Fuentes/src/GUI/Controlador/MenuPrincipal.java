@@ -32,7 +32,7 @@ public class MenuPrincipal {
 	protected ButtonPersonaje itemCharacter[]; //Items de Personajes
 	protected List<JLabel> lista;
 	protected JMenu mnPersonajes; 
-	private JPanel panelMapa;
+	private PanelMapa panelMapa;
 	protected JLabel campo[][];
 	protected LabelTablero labelTablero;
 	protected MenuBarTienda menuBar;
