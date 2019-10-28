@@ -43,7 +43,7 @@ public class GOGrafico {
 //<<<<<<< HEAD
 	public GOGrafico(int x, int y, String[] text, PanelMapa mapa) {
 //=======
-	public GOGrafico(int x, int y, String[] text, LabelTablero mapa) {
+	//public GOGrafico(int x, int y, String[] text, LabelTablero mapa) {
 //>>>>>>> d31a5ad05fd86de7e93babbeb83f6421542faed1
 		texturas = new ImageIcon[5];
 		
@@ -52,7 +52,7 @@ public class GOGrafico {
 		}
 		
 		label = new JLabel();
-		mapa.add(label);
+		//mapa.add(label);
 		label.setIcon(texturas[0]);		
 		label.setBounds(x, y, ANCHO, ALTO);
 		

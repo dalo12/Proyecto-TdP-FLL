@@ -9,7 +9,7 @@ import Logica.General.Nivel;
 
 @SuppressWarnings("serial")
 public class ButtonPistolSoldier extends ButtonPersonaje {
-	private static final String urlImg1 = "../Texturas/Personajes/pistol-soldier/pistol-soldier1.png";
+	private static final String urlImg1 = "../Texturas/Personajes/pistol-soldier/pistol-soldier-0.png";
 	private static final String descripcion = "<html><p> Pistol Soldier <br/> $5500 </p></html>";
 	
 	/**

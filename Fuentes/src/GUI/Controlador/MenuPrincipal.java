@@ -63,18 +63,8 @@ public class MenuPrincipal {
 		contador_imprimir = 0;
 		lista = new LinkedList<JLabel>();
 		elJuego = new Juego();
+		
 		initialize();
-		crearMapa();
-		
-		for (ButtonPersonaje bp: itemCharacter) {
-			bp.addMouseListener(new MouseAdapter() {
-				public void mouseClicked(MouseEvent e){
-					aux = bp.crearObjeto();
-				}
-			});
-		}
-		
-		contador = new ContadorTiempo(elJuego, this);
 		
 		labelTablero = new LabelTablero(CANT_EN_X, CANT_EN_Y);
 		labelTablero.setLocation(360, 85);
@@ -94,6 +84,23 @@ public class MenuPrincipal {
 					}
 				}
 			});
+		
+		crearMapa();
+		
+		elJuego.crearNivel(panelMapa);
+		
+		iniciarMenuPersonajes();
+		
+		for (ButtonPersonaje bp: itemCharacter) {
+			bp.addMouseListener(new MouseAdapter() {
+				public void mouseClicked(MouseEvent e){
+					aux = bp.crearObjeto();
+				}
+			});
+		}
+		
+		contador = new ContadorTiempo(elJuego, this);
+		
 	
 		panelMapa.add(labelTablero);
 		
@@ -101,7 +108,7 @@ public class MenuPrincipal {
 		int coord_y_tablero = labelTablero.getY();
 		crearLabelCampo(labelTablero.getAlturaDeDivision(), labelTablero.getAnchoDeDivision(), CANT_EN_X, CANT_EN_Y, coord_x_tablero, coord_y_tablero);
 		
-		elJuego.crearNivel(panelMapa);
+		
 		//crearLabelCampo(50, 50, CANT_EN_X, CANT_EN_Y, (int) Math.round(frame.getWidth()/2.5), frame.getHeight()/5);
 	}
 	
@@ -116,8 +123,6 @@ public class MenuPrincipal {
 		
 		menuBar = new MenuBarTienda(elJuego);
 		frame.setJMenuBar(menuBar);
-
-		iniciarMenuPersonajes();
 	}
 
 	/**
@@ -126,7 +131,7 @@ public class MenuPrincipal {
 	private void crearMapa() {
 		frame.getContentPane().setLayout(new GridLayout(0, 1, 0, 0));
 		
-		panelMapa = new PanelMapa("../Texturas/Background/background-lvl-final.png");
+		panelMapa = new PanelMapa("../Texturas/Background/background-lvl-final.png", labelTablero);
 		frame.getContentPane().add(panelMapa);
 		panelMapa.setLayout(null);
 	}
@@ -155,13 +160,13 @@ public class MenuPrincipal {
 	 * Acciona los elementos del mapa
 	 */
 	public synchronized void accionar() {
-<<<<<<< HEAD
+
 		/*for(GameObject o : elJuego.getNivel().getListaEntidades()) {
 			panelMapa.add(o.getGrafica().getLabel());
 		}*/
 		panelMapa.updateUI();
 		panelMapa.repaint();
-=======
+
 		//Si el juego no tiene mas enemigos y no tiene mas oleadas, el juego terminó
 		if ((elJuego.getNivel().getEnemigosRestantes()==0) && (elJuego.getNivel().getOleadasFaltantes()==0)) {
 			//Jugador a ganado
@@ -183,7 +188,7 @@ public class MenuPrincipal {
 			panelMapa.updateUI();
 			panelMapa.repaint();
 		}
->>>>>>> 0a6941947fadde51b3795445798729f8b84807d1
+
 	}
 	
 	/**

@@ -8,14 +8,9 @@ import Logica.General.Objeto;
  * @author Comisión 25 (FERRANTE, LATOUQUETTE, LÓPEZ)
  * @version 1.0
  */
-public abstract class ObjetoTemporal extends Objeto {
-	
+public abstract class ObjetoTemporal extends Objeto {	
 	protected int duracion;
 
-	protected ObjetoTemporal(Nivel n) {
-		super(n);
-	}
-	
 	/**
 	 * Constructor protegido
 	 * @param n Nivel al que pertenece el objeto

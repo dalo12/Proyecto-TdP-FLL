@@ -8,16 +8,15 @@ import Logica.General.Visitors.Visitor;
  * @version 1.0
  */
 public abstract class Objeto extends GameObject {
+	protected int vida;
 	
+	/**
+	 * Constructor protegido
+	 * @param n Nivel en el que se encuentra el objeto
+	 */
 	protected Objeto(Nivel n) {
 		super(n);
 	}
-<<<<<<< HEAD
-	
-=======
-
->>>>>>> d31a5ad05fd86de7e93babbeb83f6421542faed1
-	protected int vida;
 	
 	/**
 	 * Asigna la vida de este objeto.

@@ -3,10 +3,7 @@ package Logica.Objetos;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
-<<<<<<< HEAD
-=======
 import GUI.Controlador.GOGrafico;
->>>>>>> d31a5ad05fd86de7e93babbeb83f6421542faed1
 import Logica.General.Nivel;
 import Logica.General.Objeto;
 import Logica.General.Visitors.ConcreteVisitorObjeto;

@@ -8,10 +8,6 @@ import Logica.General.Visitors.Visitor;
  * @version 1.0
  */
 public class Disparo extends GameObject {
-	
-	protected Disparo(Nivel n) {
-		super(n);
-	}
 
 	protected int dano, velocidad;
 	

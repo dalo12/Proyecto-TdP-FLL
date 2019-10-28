@@ -8,15 +8,18 @@ import javax.swing.JPanel;
 
 @SuppressWarnings("serial")
 public class PanelMapa extends JPanel {
+	protected LabelTablero tablero;
 	private String urlFondo;
 	private Image background;
 	
 	/**
 	 * Constructor de PanelMapa
-	 * @param urlFondo
+	 * @param urlFondo Dirección lógica de la imagen de fondo del mapa
+	 * @param tablero Tablero que está sobre el mapa
 	 */
-	public PanelMapa(String urlFondo) {
+	public PanelMapa(String urlFondo, LabelTablero tablero) {
 		this.urlFondo = urlFondo;
+		this.tablero = tablero;
 	}
 
 	// Metodo que es llamado automaticamente por la maquina virtual Java cada vez que repinta
@@ -43,5 +46,12 @@ public class PanelMapa extends JPanel {
 		this.setOpaque(false);
 		this.background = new ImageIcon(urlFondo).getImage();
 		repaint();
+	}
+	
+	/**
+	 * @return Tablero que está sobre el mapa
+	 */
+	public LabelTablero getTablero() {
+		return this.tablero;
 	}
 }

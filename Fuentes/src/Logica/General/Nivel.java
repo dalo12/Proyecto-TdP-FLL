@@ -28,12 +28,9 @@ public class Nivel {
 	 * Constructor
 	 * @param mapa Mapa del nivel
 	 */
-<<<<<<< HEAD
 	public Nivel(PanelMapa mapa) {
-=======
-	public Nivel(LabelTablero mapa) {
+	//public Nivel(LabelTablero mapa) {
 		oleadas_faltantes=3;
->>>>>>> 0a6941947fadde51b3795445798729f8b84807d1
 		entidades = new LinkedList<GameObject>();
 		enemigos_restantes = 0;
 		this.mapa = mapa;
@@ -104,14 +101,14 @@ public class Nivel {
 		enemigos_restantes = max_enemigos;
 		
 		//cálculo de las coordenadas dónde colocar los enemigos
-		int mapa_ancho = mapa.getSize().width;
-		int mapa_alto = mapa.getSize().height;
+		int mapa_ancho = mapa.getTablero().getSize().width;
+		//int mapa_alto = mapa.getTablero().getSize().height;
 		
 		int coordenadas_y[] = new int[FILAS];
-		int coordenada_x = mapa.getX() + mapa_ancho;
-		int altura_fila = (int) Math.floor(mapa_alto / FILAS);
+		int coordenada_x = mapa.getTablero().getX() + mapa_ancho;
+		int altura_fila = mapa.getTablero().getAlturaDeDivision();
 		
-		coordenadas_y[0] = mapa.getY();
+		coordenadas_y[0] = mapa.getTablero().getY();
 		for(int i=1; i<FILAS; i++) {
 			coordenadas_y[i] = coordenadas_y[i-1] + altura_fila;
 		}
@@ -179,7 +176,7 @@ public class Nivel {
 			/*
 			 * Cada tanto aparece un enemigo con un powerup implementado sobre si 
 			 */
-<<<<<<< HEAD
+
 			if(poder == 5) { //el número 5 es totalmente arbitrario
 				switch(i % 3) { //porque 3 son los powerups
 					case 0:{
@@ -199,7 +196,7 @@ public class Nivel {
 					}					
 				}
 			}
-=======
+
 //			if(poder == 5) { //el número 5 es totalmente arbitrario
 //				switch(i % 3) { //porque 3 son los powerups
 //					case 0:{
@@ -219,7 +216,7 @@ public class Nivel {
 //					}					
 //				}
 //			}
->>>>>>> d31a5ad05fd86de7e93babbeb83f6421542faed1
+
 		}
 		
 		return lista;

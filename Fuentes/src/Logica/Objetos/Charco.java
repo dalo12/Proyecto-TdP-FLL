@@ -3,10 +3,7 @@ package Logica.Objetos;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
-<<<<<<< HEAD
-=======
 import GUI.Controlador.GOGrafico;
->>>>>>> d31a5ad05fd86de7e93babbeb83f6421542faed1
 import Logica.General.Nivel;
 import Logica.General.Visitors.ConcreteVisitorObjeto;
 
@@ -17,15 +14,12 @@ import Logica.General.Visitors.ConcreteVisitorObjeto;
  */
 public class Charco extends ObjetoTemporal {
 	
-<<<<<<< HEAD
 	/**
 	 * Constructor
 	 * @param x Coordenada x donde se encuentra el objeto
 	 * @param y Coordenada y donde se encuentra el objeto
 	 * @param n Nivel donde se encuentra el objeto
 	 */
-=======
->>>>>>> d31a5ad05fd86de7e93babbeb83f6421542faed1
 	public Charco(int x, int y, Nivel n) {
 		super(n);
 		//atributos físicos

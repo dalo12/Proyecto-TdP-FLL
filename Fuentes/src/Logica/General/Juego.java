@@ -87,7 +87,7 @@ public class Juego {
 	 * @param mapa Mapa del nivel
 	 * @return Nuevo nivel creado
 	 */
-	public Nivel crearNivel(LabelTablero mapa) {
+	public Nivel crearNivel(PanelMapa mapa) {
 		nivel = new Nivel(mapa);
 		return nivel;
 	}
