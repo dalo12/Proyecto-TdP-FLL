@@ -14,12 +14,15 @@ import Logica.General.Visitors.ConcreteVisitorObjeto;
  */
 public class Mina extends ObjetoTemporal {
 
+<<<<<<< HEAD
 	/**
 	 * Constructor
 	 * @param x Coordenada x donde está el objeto
 	 * @param y Coordenada y donde está el objeto
 	 * @param n Nivel en donde está el objeto
 	 */
+=======
+>>>>>>> d31a5ad05fd86de7e93babbeb83f6421542faed1
 	public Mina(int x, int y, Nivel n) {
 		super(n);
 		//atributos físicos

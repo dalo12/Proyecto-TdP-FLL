@@ -9,6 +9,10 @@ package Logica.General;
 public abstract class Personaje extends GameObject {
 	protected int vida, fuerzaAtaque, alcanceAtaque, velocidadAtaque;
 	
+	protected Personaje(Nivel n) {
+		super(n);
+	}
+	
 	/**
 	 * Constructor protegido
 	 * @param n Nivel en el que está el personaje

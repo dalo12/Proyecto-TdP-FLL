@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import Logica.General.GameObject;
+import Logica.General.Nivel;
 import Logica.Objetos.Mina;
 import Logica.Tienda.Aliados.ButtonPersonaje;
 
@@ -15,14 +16,14 @@ public class ButtonMina extends ButtonPersonaje {
 	/**
 	 * Constructor de ButtonMina
 	 */
-	public ButtonMina() {
-		super(descripcion, urlImg1);
+	public ButtonMina(Nivel n) {
+		super(descripcion, urlImg1, n);
 		this.addActionListener(new ActionListener(){
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				//Al hacer click en este botón, se crea un nuevo objeto.
-				objeto = new Mina(0,0);
+				objeto = new Mina(0, 0, n);
 			}
 			
 		});

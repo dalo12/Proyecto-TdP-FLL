@@ -8,15 +8,18 @@ import Logica.General.Visitors.Visitor;
  * @version 1.0
  */
 public abstract class Premio extends GameObject {
-	
+
 	protected int duracionEnMapa;
 	protected int duracionActivo;
 	protected boolean activo;
 	
+<<<<<<< HEAD
 	/**
 	 * Constructor protegido
 	 * @param n Nivel al que pertenece el premio
 	 */
+=======
+>>>>>>> d31a5ad05fd86de7e93babbeb83f6421542faed1
 	protected Premio(Nivel n) {
 		super(n);
 	}

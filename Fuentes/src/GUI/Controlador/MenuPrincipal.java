@@ -32,7 +32,7 @@ public class MenuPrincipal {
 	protected ButtonPersonaje itemCharacter[]; //Items de Personajes
 	protected List<JLabel> lista;
 	protected JMenu mnPersonajes; 
-	private JPanel panelMapa;
+	private PanelMapa panelMapa;
 	protected JLabel campo[][];
 	protected LabelTablero labelTablero;
 	protected MenuBarTienda menuBar;
@@ -136,15 +136,15 @@ public class MenuPrincipal {
 	 */
 	protected void iniciarMenuPersonajes() {
 		itemCharacter = new ButtonPersonaje[9]; //9 es el máximo de personajes (aliados y objetos) seleccionables por el usuario
-		itemCharacter[0] = new ButtonAllterrainMachinegun();
-		itemCharacter[1] = new ButtonBazookaSoldier();
-		itemCharacter[2] = new ButtonKnifeSoldier();
-		itemCharacter[3] = new ButtonPistolSoldier();
-		itemCharacter[4] = new ButtonSniperSoldier();
-		itemCharacter[5] = new ButtonBarricada();
-		itemCharacter[6] = new ButtonBomba();
-		itemCharacter[7] = new ButtonCercaAntiTanque();
-		itemCharacter[8] = new ButtonMina();
+		itemCharacter[0] = new ButtonAllterrainMachinegun(elJuego.getNivel());
+		itemCharacter[1] = new ButtonBazookaSoldier(elJuego.getNivel());
+		itemCharacter[2] = new ButtonKnifeSoldier(elJuego.getNivel());
+		itemCharacter[3] = new ButtonPistolSoldier(elJuego.getNivel());
+		itemCharacter[4] = new ButtonSniperSoldier(elJuego.getNivel());
+		itemCharacter[5] = new ButtonBarricada(elJuego.getNivel());
+		itemCharacter[6] = new ButtonBomba(elJuego.getNivel());
+		itemCharacter[7] = new ButtonCercaAntiTanque(elJuego.getNivel());
+		itemCharacter[8] = new ButtonMina(elJuego.getNivel());
 		
 		for(int i=0; i<9; i++) {
 			menuBar.getMenuPersonajes().add(itemCharacter[i]);

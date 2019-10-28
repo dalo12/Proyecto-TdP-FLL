@@ -140,27 +140,27 @@ public class Nivel {
 			/*
 			switch(dif) {
 				case 0:{
-					lista.add(new Kangaroo(coordenada_x+distancia, coordenadas_y[j]));
+					lista.add(new Kangaroo(coordenada_x+distancia, coordenadas_y[j], this));
 					break;
 				}
 				case 1:{
-					lista.add(new BoxKangaroo(coordenada_x+distancia, coordenadas_y[j]));
+					lista.add(new BoxKangaroo(coordenada_x+distancia, coordenadas_y[j], this));
 					break;
 				}
 				case 2:{
-					lista.add(new KnifeKangaroo(coordenada_x+distancia, coordenadas_y[j]));
+					lista.add(new KnifeKangaroo(coordenada_x+distancia, coordenadas_y[j], this));
 					break;
 				}
 				case 3:{
-					lista.add(new PistolKangaroo(coordenada_x+distancia, coordenadas_y[j]));
+					lista.add(new PistolKangaroo(coordenada_x+distancia, coordenadas_y[j], this));
 					break;
 				}
 				case 4:{
-					lista.add(new FlamethrowerKangaroo(coordenada_x+distancia, coordenadas_y[j]));
+					lista.add(new FlamethrowerKangaroo(coordenada_x+distancia, coordenadas_y[j], this));
 					break;
 				}
 				default:{
-					lista.add(new TankGaroo(coordenada_x+distancia, coordenadas_y[j]));
+					lista.add(new TankGaroo(coordenada_x+distancia, coordenadas_y[j], this));
 					break;
 				}
 			}*/
@@ -179,6 +179,7 @@ public class Nivel {
 			/*
 			 * Cada tanto aparece un enemigo con un powerup implementado sobre si 
 			 */
+<<<<<<< HEAD
 			if(poder == 5) { //el número 5 es totalmente arbitrario
 				switch(i % 3) { //porque 3 son los powerups
 					case 0:{
@@ -198,6 +199,27 @@ public class Nivel {
 					}					
 				}
 			}
+=======
+//			if(poder == 5) { //el número 5 es totalmente arbitrario
+//				switch(i % 3) { //porque 3 son los powerups
+//					case 0:{
+//						Premio p = new Mate();
+//						p.aplicarEfecto(lista.get(lista.size() - 1));
+//						break;
+//					}
+//					case 1:{
+//						Premio p = new SanLugano();
+//						p.aplicarEfecto(lista.get(lista.size() - 1));
+//						break;						
+//					}
+//					case 2:{
+//						Premio p = new GarraCharrua();
+//						p.aplicarEfecto(lista.get(lista.size() - 1));
+//						break;
+//					}					
+//				}
+//			}
+>>>>>>> d31a5ad05fd86de7e93babbeb83f6421542faed1
 		}
 		
 		return lista;

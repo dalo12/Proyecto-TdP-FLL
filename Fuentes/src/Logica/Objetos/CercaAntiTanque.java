@@ -3,6 +3,10 @@ package Logica.Objetos;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
+<<<<<<< HEAD
+=======
+import GUI.Controlador.GOGrafico;
+>>>>>>> d31a5ad05fd86de7e93babbeb83f6421542faed1
 import Logica.General.Nivel;
 import Logica.General.Objeto;
 import Logica.General.Visitors.ConcreteVisitorObjeto;
@@ -26,6 +30,12 @@ public class CercaAntiTanque extends Objeto {
 		this.posicionY = y;
 		this.tamanoX = 1;
 		this.tamanoY = 2;		
+		
+		String [] texturas = new String[5];
+		texturas[0] = "../Texturas/Personajes/kangaroo/kangaroo-0.png";
+		texturas[2] = "../Texturas/Personajes/pistol-soldier/pistol-soldier-1.gif";
+		texturas[1] = texturas[3] = texturas[4] = texturas[2];
+		this.grafica = new GOGrafico(x, y, texturas, n.getMapa());
 		
 		//atributos lógicos
 		this.vida = 100;

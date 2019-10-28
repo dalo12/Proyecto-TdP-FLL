@@ -12,7 +12,11 @@ public abstract class Objeto extends GameObject {
 	protected Objeto(Nivel n) {
 		super(n);
 	}
+<<<<<<< HEAD
 	
+=======
+
+>>>>>>> d31a5ad05fd86de7e93babbeb83f6421542faed1
 	protected int vida;
 	
 	/**

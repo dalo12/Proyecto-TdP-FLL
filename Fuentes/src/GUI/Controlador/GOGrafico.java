@@ -3,7 +3,10 @@ package GUI.Controlador;
 import javax.swing.JLabel;
 
 import GUI.Mapa.LabelTablero;
+//<<<<<<< HEAD
 import GUI.Mapa.PanelMapa;
+//=======
+//>>>>>>> d31a5ad05fd86de7e93babbeb83f6421542faed1
 
 import javax.swing.ImageIcon;
 /**
@@ -37,7 +40,11 @@ public class GOGrafico {
 	 * @param text Arreglo de con las direcciones de las texturas
 	 * @param mapa Mapa donde se mostrará el label
 	 */
+//<<<<<<< HEAD
 	public GOGrafico(int x, int y, String[] text, PanelMapa mapa) {
+//=======
+	public GOGrafico(int x, int y, String[] text, LabelTablero mapa) {
+//>>>>>>> d31a5ad05fd86de7e93babbeb83f6421542faed1
 		texturas = new ImageIcon[5];
 		
 		for(int i=0; i<=4; i++) {
@@ -45,6 +52,7 @@ public class GOGrafico {
 		}
 		
 		label = new JLabel();
+		mapa.add(label);
 		label.setIcon(texturas[0]);		
 		label.setBounds(x, y, ANCHO, ALTO);
 		

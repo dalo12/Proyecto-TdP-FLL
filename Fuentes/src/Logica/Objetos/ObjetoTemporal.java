@@ -11,6 +11,10 @@ import Logica.General.Objeto;
 public abstract class ObjetoTemporal extends Objeto {
 	
 	protected int duracion;
+
+	protected ObjetoTemporal(Nivel n) {
+		super(n);
+	}
 	
 	/**
 	 * Constructor protegido

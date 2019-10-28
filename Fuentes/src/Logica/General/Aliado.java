@@ -12,6 +12,10 @@ public abstract class Aliado extends Personaje {
 	protected int precio;
 	protected int vidaMaxima;
 
+	protected Aliado(Nivel n) {
+		super(n);
+	}
+	
 	/**
 	 * Constructor protegido
 	 * @param n Nivel al que pertenece el aliado

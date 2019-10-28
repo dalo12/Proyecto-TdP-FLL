@@ -19,6 +19,10 @@ public abstract class GameObject {
 	protected Nivel nivel;
 	protected GOGrafico grafica;
 	
+	protected GameObject(Nivel n) {
+		nivel = n;
+	}
+	
 	/**
 	 * Constructor protegido
 	 * @param nivel Nivel actual al cual pertenece el objeto

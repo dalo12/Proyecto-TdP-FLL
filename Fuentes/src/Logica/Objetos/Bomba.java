@@ -13,6 +13,7 @@ import Logica.General.Visitors.ConcreteVisitorObjeto;
  * @version 1.0
  */
 public class Bomba extends ObjetoTemporal {
+<<<<<<< HEAD
 	
 	/**
 	 * Constructor
@@ -20,6 +21,9 @@ public class Bomba extends ObjetoTemporal {
 	 * @param y Coordenada y del objeto en el mapa
 	 * @param n Nivel en el que está el objeto
 	 */
+=======
+
+>>>>>>> d31a5ad05fd86de7e93babbeb83f6421542faed1
 	public Bomba(int x, int y, Nivel n) {
 		super(n);
 		//atributos físicos
