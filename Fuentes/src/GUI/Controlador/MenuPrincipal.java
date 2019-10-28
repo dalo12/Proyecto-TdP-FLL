@@ -6,6 +6,7 @@ import javax.swing.JPanel;
 import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
+import javax.swing.JOptionPane;
 
 import GUI.Component_Custom.menubar_custom.MenuBarTienda;
 import GUI.Mapa.Coordenada;
@@ -154,11 +155,35 @@ public class MenuPrincipal {
 	 * Acciona los elementos del mapa
 	 */
 	public synchronized void accionar() {
+<<<<<<< HEAD
 		/*for(GameObject o : elJuego.getNivel().getListaEntidades()) {
 			panelMapa.add(o.getGrafica().getLabel());
 		}*/
 		panelMapa.updateUI();
 		panelMapa.repaint();
+=======
+		//Si el juego no tiene mas enemigos y no tiene mas oleadas, el juego terminó
+		if ((elJuego.getNivel().getEnemigosRestantes()==0) && (elJuego.getNivel().getOleadasFaltantes()==0)) {
+			//Jugador a ganado
+			JOptionPane.showMessageDialog(null, "HA GANADO EL JUEGO");
+			//Detiene el hilo del contador
+			contador.detener();
+		}
+		else {
+			for(GameObject o : elJuego.getNivel().getListaEntidades()) {
+				panelMapa.add(o.getGrafica().getLabel());
+				//Si algún enemigo a llegado al castillo.
+				if (o.getGrafica().getLabel().getX()<labelTablero.getX()-100) {
+					//Jugador ha perdido
+					JOptionPane.showMessageDialog(null, "JUEGO PERDIDO");
+					//Detiene el hilo del contador
+					contador.detener();
+				}
+			}
+			panelMapa.updateUI();
+			panelMapa.repaint();
+		}
+>>>>>>> 0a6941947fadde51b3795445798729f8b84807d1
 	}
 	
 	/**

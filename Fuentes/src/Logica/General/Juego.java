@@ -53,7 +53,7 @@ public class Juego {
 			g.setNivel(nivel);
 			g.accionar();
 		}
-		if(nivel.getEnemigosRestantes() == 0) {
+		if ((nivel.getEnemigosRestantes() == 0) && (nivel.getOleadasFaltantes()>0)) {
 			nivel.insertarOleada(dificultad);
 		}
 	}

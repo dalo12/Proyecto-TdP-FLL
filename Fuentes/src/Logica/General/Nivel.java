@@ -22,11 +22,18 @@ public class Nivel {
 	protected int enemigos_restantes;
 	protected PanelMapa mapa;
 	
+	protected int oleadas_faltantes;
+	
 	/**
 	 * Constructor
 	 * @param mapa Mapa del nivel
 	 */
+<<<<<<< HEAD
 	public Nivel(PanelMapa mapa) {
+=======
+	public Nivel(LabelTablero mapa) {
+		oleadas_faltantes=3;
+>>>>>>> 0a6941947fadde51b3795445798729f8b84807d1
 		entidades = new LinkedList<GameObject>();
 		enemigos_restantes = 0;
 		this.mapa = mapa;
@@ -65,6 +72,7 @@ public class Nivel {
 	 * @param dificultad La dificultad de la oleada a insertar
 	 */
 	public void insertarOleada(int dificultad) {
+		oleadas_faltantes--;
 		for(Enemigo e : this.getOleada(dificultad)) {
 			entidades.add(e);
 		}
@@ -193,5 +201,13 @@ public class Nivel {
 		}
 		
 		return lista;
+	}
+	
+	/**
+	 * Devuelve la cantidad de oleadas faltantes
+	 * @return Cantidad de oleadas
+	 */
+	public int getOleadasFaltantes() {
+		return oleadas_faltantes;
 	}
 }
