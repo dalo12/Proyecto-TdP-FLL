@@ -33,7 +33,7 @@ public class BazookaSoldier extends Aliado {
 		texturas[1] = "../Texturas/Personajes/bazooka-soldier/bazooka-soldier-1.gif";
 		texturas[2] = texturas[3] = texturas[1];
 		texturas[4] = "../Texturas/Personajes/bazooka-soldier/bazooka-soldier-4.gif";
-		this.grafica = new GOGrafico(x, y, texturas, n.getMapa());
+		this.grafica = new GOGrafico(x, y, tamanoX, tamanoY, texturas, n.getMapa());
 		
 		//atributos lógicos
 		this.alcanceAtaque = 7;

@@ -23,7 +23,7 @@ public class AllterrainMachinegun extends Aliado {
 	public AllterrainMachinegun(int x, int y, Nivel n) {
 		super(n);
 		// atributos físicos
-		this.tamanoX = 1;
+		this.tamanoX = 2;
 		this.tamanoY = 2;
 		this.posicionX = x;
 		this.posicionY = y;
@@ -32,7 +32,7 @@ public class AllterrainMachinegun extends Aliado {
 		texturas[0] = "../Texturas/Personajes/allterrain-machinegun/allterrain-machinegun-0.png";
 		texturas[2] = texturas[3] = texturas[1] = texturas[0];
 		texturas[4] = "../Texturas/Personajes/allterrain-machinegun/allterrain-machinegun-4.gif";
-		this.grafica = new GOGrafico(x, y, texturas, n.getMapa());
+		this.grafica = new GOGrafico(x, y, tamanoX, tamanoY, texturas, n.getMapa());
 		
 		//atributos lógicos
 		this.alcanceAtaque = 5;

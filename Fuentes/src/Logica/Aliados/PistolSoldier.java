@@ -33,7 +33,7 @@ public class PistolSoldier extends Aliado {
 		texturas[1] = "../Texturas/Personajes/pistol-soldier/pistol-soldier-1.gif";
 		texturas[2] = texturas[3] = texturas[1]; 
 		texturas[4] = "../Texturas/Personajes/pistol-soldier/pistol-soldier-4.gif";
-		this.grafica = new GOGrafico(x, y, texturas, n.getMapa());
+		this.grafica = new GOGrafico(x, y, tamanoX, tamanoY, texturas, n.getMapa());
 				
 		//atributos lógicos
 		this.alcanceAtaque = 4;

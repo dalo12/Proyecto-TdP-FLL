@@ -23,7 +23,7 @@ public class ButtonCharco extends ButtonPersonaje {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				//Al hacer click en este botón, se crea un nuevo objeto.
-				objeto = new Charco(0, 0, n);
+				objeto = new Charco(POS_CREACION_X, 0, n);
 			}
 			
 		});

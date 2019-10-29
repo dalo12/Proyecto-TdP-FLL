@@ -32,7 +32,7 @@ public class Bomba extends ObjetoTemporal {
 		texturas[0] = "../Texturas/Personajes/kangaroo/kangaroo-0.png";
 		texturas[2] = "../Texturas/Personajes/pistol-soldier/pistol-soldier-1.gif";
 		texturas[1] = texturas[3] = texturas[4] = texturas[2];
-		this.grafica = new GOGrafico(x, y, texturas, n.getMapa());
+		this.grafica = new GOGrafico(x, y, tamanoX, tamanoY, texturas, n.getMapa());
 		
 		//atributos lógicos
 		this.duracion = 30;

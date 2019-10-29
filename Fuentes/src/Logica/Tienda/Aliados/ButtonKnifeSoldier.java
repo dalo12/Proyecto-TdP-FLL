@@ -22,7 +22,7 @@ public class ButtonKnifeSoldier extends ButtonPersonaje {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				//Al hacer click en este botón, se crea un nuevo objeto.
-				objeto = new KnifeSoldier(0, 0, n);
+				objeto = new KnifeSoldier(POS_CREACION_X, 0, n);
 			}
 			
 		});

@@ -112,8 +112,6 @@ public class MenuPrincipal {
 		int coord_y_tablero = labelTablero.getY();
 		crearLabelCampo(labelTablero.getAlturaDeDivision(), labelTablero.getAnchoDeDivision(), CANT_EN_X, CANT_EN_Y, coord_x_tablero, coord_y_tablero);
 		
-		
-		//crearLabelCampo(50, 50, CANT_EN_X, CANT_EN_Y, (int) Math.round(frame.getWidth()/2.5), frame.getHeight()/5);
 	}
 	
 	/**
@@ -274,7 +272,9 @@ public class MenuPrincipal {
 	public synchronized void setearAliado() {
 		if (aux!=null && pulsado) {
 			//Seteo el aliado
-			aux.getGrafica().getLabel().setBounds(aux.getPosicionX() + labelTablero.getX(), aux.getPosicionY()  + labelTablero.getY(), 50, 50);
+			int tamaño_x = aux.getGrafica().getLabel().getWidth();
+			int tamaño_y = aux.getGrafica().getLabel().getHeight();
+			aux.getGrafica().getLabel().setBounds(aux.getPosicionX() + labelTablero.getX(), aux.getPosicionY()  + labelTablero.getY(), tamaño_x, tamaño_y);
 			lista.add(aux.getGrafica().getLabel());
 			labelTablero.insertar(aux.getGrafica().getLabel());
 			elJuego.insertarAliado(aux);
