@@ -11,6 +11,7 @@ public abstract class ButtonPersonaje extends JButton {
 	//Atributo de instancia
 	protected GameObject objeto;
 	protected Nivel nivel;
+	protected static final int POS_CREACION_X = -200;
 	
 	protected ButtonPersonaje(String texto, String url, Nivel n) {
 		super(texto, new ImageIcon(url));
