@@ -46,6 +46,9 @@ public class MenuPrincipal {
 	protected static final int CANT_EN_X = 10; //Cantidad de columnas que contendrá LabelTablero
 	protected static final int CANT_EN_Y = 6; //Cantidad de filas que contendrá LabelTablero
 	
+	//TODO Borrar cuando se deje de imprimir la lista de entidades
+	protected int tamano_lista_entidades;
+	
 	/**
 	 * Launch the application.
 	 */
@@ -103,6 +106,7 @@ public class MenuPrincipal {
 		
 	
 		panelMapa.add(labelTablero);
+		panelMapa.setComponentZOrder(labelTablero, 0);
 		
 		int coord_x_tablero = labelTablero.getX();
 		int coord_y_tablero = labelTablero.getY();
@@ -197,67 +201,71 @@ public class MenuPrincipal {
 	 */
 	public synchronized void imprimirObjetos() {
 		String cadena = "";
-		for(GameObject o : elJuego.getNivel().getListaEntidades()) {
-			cadena += contador_imprimir + ": ";
-			//Enemigos
-			if(o instanceof BoxKangaroo) {
-				cadena += "BoxKangaroo";
+		if(tamano_lista_entidades != elJuego.getNivel().getListaEntidades().size()) {
+			tamano_lista_entidades = elJuego.getNivel().getListaEntidades().size();
+		
+			for(GameObject o : elJuego.getNivel().getListaEntidades()) {
+				cadena += contador_imprimir + ": ";
+				//Enemigos
+				if(o instanceof BoxKangaroo) {
+					cadena += "BoxKangaroo";
+				}
+				if(o instanceof FlamethrowerKangaroo) {
+					cadena += "FlamethrowerKangaroo";
+				}
+				if(o instanceof Kangaroo) {
+					cadena += "Kangaroo";
+				}
+				if(o instanceof KnifeKangaroo) {
+					cadena += "KnifeKangaroo";
+				}
+				if(o instanceof PistolKangaroo) {
+					cadena += "PistolKangaroo";
+				}
+				if(o instanceof TankGaroo) {
+					cadena += "TankGaroo";
+				}
+				//Aliados
+				if(o instanceof AllterrainMachinegun) {
+					cadena += "AllterrainMachinegun";
+				}
+				if(o instanceof BazookaSoldier) {
+					cadena += "BazookaSoldier";
+				}
+				if(o instanceof KnifeSoldier) {
+					cadena += "KnifeSoldier";
+				}
+				if(o instanceof PistolSoldier) {
+					cadena += "PistolSoldier";
+				}
+				if(o instanceof SniperSoldier) {
+					cadena += "SniperSoldier";
+				}
+				//Objetos
+				if(o instanceof Barricada) {
+					cadena += "Barricada";
+				}
+				if(o instanceof Bomba) {
+					cadena += "Bomba";
+				}
+				if(o instanceof CercaAntiTanque) {
+					cadena += "CercaAntiTanque";
+				}
+				if(o instanceof Charco) {
+					cadena += "Charco";
+				}
+				if(o instanceof Mina) {
+					cadena += "Mina";
+				}
+				if(o instanceof Piedra) {
+					cadena += "BoxKangaroo";
+				}	
+				cadena += " ";
+				contador_imprimir++;
 			}
-			if(o instanceof FlamethrowerKangaroo) {
-				cadena += "FlamethrowerKangaroo";
-			}
-			if(o instanceof Kangaroo) {
-				cadena += "Kangaroo";
-			}
-			if(o instanceof KnifeKangaroo) {
-				cadena += "KnifeKangaroo";
-			}
-			if(o instanceof PistolKangaroo) {
-				cadena += "PistolKangaroo";
-			}
-			if(o instanceof TankGaroo) {
-				cadena += "TankGaroo";
-			}
-			//Aliados
-			if(o instanceof AllterrainMachinegun) {
-				cadena += "AllterrainMachinegun";
-			}
-			if(o instanceof BazookaSoldier) {
-				cadena += "BazookaSoldier";
-			}
-			if(o instanceof KnifeSoldier) {
-				cadena += "KnifeSoldier";
-			}
-			if(o instanceof PistolSoldier) {
-				cadena += "PistolSoldier";
-			}
-			if(o instanceof SniperSoldier) {
-				cadena += "SniperSoldier";
-			}
-			//Objetos
-			if(o instanceof Barricada) {
-				cadena += "Barricada";
-			}
-			if(o instanceof Bomba) {
-				cadena += "Bomba";
-			}
-			if(o instanceof CercaAntiTanque) {
-				cadena += "CercaAntiTanque";
-			}
-			if(o instanceof Charco) {
-				cadena += "Charco";
-			}
-			if(o instanceof Mina) {
-				cadena += "Mina";
-			}
-			if(o instanceof Piedra) {
-				cadena += "BoxKangaroo";
-			}	
-			cadena += " ";
-			contador_imprimir++;
+			System.out.println(cadena);
+			contador_imprimir = 0;
 		}
-		System.out.println(cadena);
-		contador_imprimir = 0;
 	}
 
 	/**
@@ -320,6 +328,7 @@ public class MenuPrincipal {
 					negro_col = true;
 				}
 				panelMapa.add(campo[i][j]);
+				panelMapa.setComponentZOrder(campo[i][j], panelMapa.getComponentCount()-1);
 			}
 			pos_y = y;
 			pos_x += ancho;

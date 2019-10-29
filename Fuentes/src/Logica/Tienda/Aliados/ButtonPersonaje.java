@@ -2,6 +2,7 @@ package Logica.Tienda.Aliados;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.SwingConstants;
 
 import Logica.General.GameObject;
 import Logica.General.Nivel;
@@ -14,6 +15,7 @@ public abstract class ButtonPersonaje extends JButton {
 	
 	protected ButtonPersonaje(String texto, String url, Nivel n) {
 		super(texto, new ImageIcon(url));
+		this.setHorizontalAlignment(SwingConstants.LEFT);
 		nivel = n;
 	}
 	

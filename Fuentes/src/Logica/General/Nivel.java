@@ -134,33 +134,6 @@ public class Nivel {
 			}else if(dif < 7) {
 				lista.add(new Kangaroo(coordenada_x+distancia, coordenadas_y[j], this));
 			}
-			/*
-			switch(dif) {
-				case 0:{
-					lista.add(new Kangaroo(coordenada_x+distancia, coordenadas_y[j], this));
-					break;
-				}
-				case 1:{
-					lista.add(new BoxKangaroo(coordenada_x+distancia, coordenadas_y[j], this));
-					break;
-				}
-				case 2:{
-					lista.add(new KnifeKangaroo(coordenada_x+distancia, coordenadas_y[j], this));
-					break;
-				}
-				case 3:{
-					lista.add(new PistolKangaroo(coordenada_x+distancia, coordenadas_y[j], this));
-					break;
-				}
-				case 4:{
-					lista.add(new FlamethrowerKangaroo(coordenada_x+distancia, coordenadas_y[j], this));
-					break;
-				}
-				default:{
-					lista.add(new TankGaroo(coordenada_x+distancia, coordenadas_y[j], this));
-					break;
-				}
-			}*/
 			
 			/*
 			 * Cada tanto los enemigos se alejan 

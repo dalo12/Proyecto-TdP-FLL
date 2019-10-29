@@ -9,7 +9,7 @@ import Logica.General.Nivel;
 
 @SuppressWarnings("serial")
 public class ButtonBazookaSoldier extends ButtonPersonaje {
-	private static final String urlImg1 = "../Texturas/Personajes/bazooka-soldier/bazooka-soldier-0.png";
+	private static final String urlImg1 = "../Texturas/Personajes/bazooka-soldier/bazooka-soldier-preview.png";
 	private static final String descripcion = "<html><p> Bazooka Soldier <br/> $5500 </p></html>";
 	
 	/**

@@ -9,7 +9,7 @@ import Logica.General.Nivel;
 
 @SuppressWarnings("serial")
 public class ButtonAllterrainMachinegun extends ButtonPersonaje {
-	private static final String urlImg1 = "../Texturas/Personajes/allterrain-machinegun/allterrain-machinegun-0.png";
+	private static final String urlImg1 = "../Texturas/Personajes/allterrain-machinegun/allterrain-machinegun-preview.png";
 	private static final String descripcion = "<html><p> Allterrain Machinegun <br/> $5500 </p></html>";
 	
 	/**

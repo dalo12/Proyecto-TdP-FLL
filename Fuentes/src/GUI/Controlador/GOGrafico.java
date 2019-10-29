@@ -60,6 +60,7 @@ public class GOGrafico {
 		cord_y = y;
 		
 		mapa.add(label);
+		mapa.setComponentZOrder(label, 0);
 	}
 	
 	/**
