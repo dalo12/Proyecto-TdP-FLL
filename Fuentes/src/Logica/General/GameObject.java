@@ -138,9 +138,16 @@ public abstract class GameObject {
 	 * @return Verdadero si el objeto actual está chocando con el objeto pasado por parámetro, falso en caso contratio 
 	 */
 	public boolean chocan(GameObject o) {
-		Rectangle rthis = new Rectangle(this.posicionX, this.posicionY, 50, 50);
-		Rectangle ro = new Rectangle(o.posicionX, o.posicionY, 50, 50);
-		return rthis.intersects(ro);
+		boolean a_retornar = false;
+		
+		Rectangle rthis = new Rectangle(this.posicionX, this.posicionY, this.grafica.getLabel().getWidth(), this.grafica.getLabel().getHeight());
+		Rectangle ro = new Rectangle(o.posicionX, o.posicionY, o.getGrafica().getLabel().getWidth(), o.getGrafica().getLabel().getHeight());
+		if(rthis.intersects(ro) && (o.getGrafica().getLabel().getX() < this.grafica.getLabel().getX())) {// && (this.grafica.getLabel().getX() + this.grafica.getLabel().getSize().width) == o.getGrafica().getLabel().getSize().height ) {
+			a_retornar = true;
+		}
+			
+			
+		return a_retornar;
 	} //Este metodo no es necesario, se resuelve con visitor.
 
 	

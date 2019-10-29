@@ -17,19 +17,23 @@ public class ButtonSniperSoldier extends ButtonPersonaje {
 	 */
 	public ButtonSniperSoldier(Nivel n) {
 		super(descripcion, urlImg1, n);
+		personaje = new SniperSoldier(POS_CREACION_X, 0, n);
+		
 		this.addActionListener(new ActionListener(){
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				//Al hacer click en este botón, se crea un nuevo objeto.
-				objeto = new SniperSoldier(POS_CREACION_X, 0, n);
+				personaje = new SniperSoldier(POS_CREACION_X, 0, n);
 			}
 			
 		});
+		
+		this.setText("<html><p> Sniper Soldier <br/> $" + personaje.getPrecio() + " </p></html>");
 	}
 	
 	@Override
 	public GameObject crearObjeto() {
-		return objeto;
+		return personaje;
 	}
 }

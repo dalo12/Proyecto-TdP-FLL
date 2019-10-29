@@ -36,6 +36,7 @@ public class Bomba extends ObjetoTemporal {
 		
 		//atributos lógicos
 		this.duracion = 30;
+		this.precio = 50;
 		
 		visitor = new ConcreteVisitorObjeto(this, y, "", "", y); // TODO verificar si el visitor es correcto
 		

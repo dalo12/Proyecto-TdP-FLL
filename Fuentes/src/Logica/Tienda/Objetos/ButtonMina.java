@@ -18,6 +18,7 @@ public class ButtonMina extends ButtonPersonaje {
 	 */
 	public ButtonMina(Nivel n) {
 		super(descripcion, urlImg1, n);
+		objeto = new Mina(POS_CREACION_X, 0, n);
 		this.addActionListener(new ActionListener(){
 
 			@Override
@@ -27,6 +28,8 @@ public class ButtonMina extends ButtonPersonaje {
 			}
 			
 		});
+		
+		this.setText("<html><p> Mina <br/> $" + objeto.getPrecio() + " </p></html>");
 	}
 	
 	@Override

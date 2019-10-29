@@ -9,6 +9,7 @@ import Logica.General.Visitors.Visitor;
  */
 public abstract class Objeto extends GameObject {
 	protected int vida;
+	protected int precio;
 	
 	/**
 	 * Constructor protegido
@@ -32,6 +33,13 @@ public abstract class Objeto extends GameObject {
 	 */
 	public int getVida() {
 		return vida;
+	}
+	
+	/**
+	 * @return El precio del objeto
+	 */
+	public int getPrecio() {
+		return this.precio;
 	}
 	
 	/**

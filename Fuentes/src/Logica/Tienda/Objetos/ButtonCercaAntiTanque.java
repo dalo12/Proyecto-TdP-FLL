@@ -18,6 +18,7 @@ public class ButtonCercaAntiTanque extends ButtonPersonaje {
 	 */
 	public ButtonCercaAntiTanque(Nivel n) {
 		super(descripcion, urlImg1, n);
+		objeto = new CercaAntiTanque(POS_CREACION_X, 0, n);
 		this.addActionListener(new ActionListener(){
 
 			@Override
@@ -27,6 +28,7 @@ public class ButtonCercaAntiTanque extends ButtonPersonaje {
 			}
 			
 		});
+		this.setText("<html><p> Cerca Antitanque <br/> $" + objeto.getPrecio() + " </p></html>");
 	}
 	
 	@Override

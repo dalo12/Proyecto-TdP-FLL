@@ -33,7 +33,7 @@ public class BoxKangaroo extends Enemigo {
 		
 		//atributos lógicos
 		this.maxMonedas = 25;
-		this.velocidad = 25;
+		this.velocidad = 12;
 		this.velocidadAtaque = 1;
 		this.vida = 100;		
 		this.alcanceAtaque = 1;

@@ -37,6 +37,7 @@ public class Piedra extends Objeto {
 		
 		//atributos lógicos
 		this.vida = 30;
+		this.precio = 0;
 		
 		visitor = new ConcreteVisitorObjeto(this, y, "", "", y); // TODO verificar si el visitor es correcto
 		

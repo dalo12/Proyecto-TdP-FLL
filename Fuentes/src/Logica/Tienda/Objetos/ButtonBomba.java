@@ -18,6 +18,7 @@ public class ButtonBomba extends ButtonPersonaje {
 	 */
 	public ButtonBomba(Nivel n) {
 		super(descripcion, urlImg1, n);
+		objeto = new Bomba(POS_CREACION_X, 0, n);
 		this.addActionListener(new ActionListener(){
 
 			@Override
@@ -27,6 +28,8 @@ public class ButtonBomba extends ButtonPersonaje {
 			}
 			
 		});
+		
+		this.setText("<html><p> Bomba <br/> $" + objeto.getPrecio() + " </p></html>");
 	}
 	
 	@Override

@@ -4,13 +4,16 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
 
+import Logica.General.Aliado;
 import Logica.General.GameObject;
 import Logica.General.Nivel;
+import Logica.General.Objeto;
 
 @SuppressWarnings("serial")
 public abstract class ButtonPersonaje extends JButton {
 	//Atributo de instancia
-	protected GameObject objeto;
+	protected Aliado personaje;
+	protected Objeto objeto;
 	protected Nivel nivel;
 	protected static final int POS_CREACION_X = -200;
 	

@@ -36,6 +36,7 @@ public class CercaAntiTanque extends Objeto {
 		
 		//atributos lógicos
 		this.vida = 100;
+		this.precio = 120;
 		
 		visitor = new ConcreteVisitorObjeto(this, y, "", "", y); // TODO verificar si el visitor es correcto
 		
