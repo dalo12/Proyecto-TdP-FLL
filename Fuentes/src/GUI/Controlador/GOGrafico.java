@@ -37,11 +37,13 @@ public class GOGrafico {
 	 * Constructor
 	 * @param x Coordenada x del objeto lógico
 	 * @param y Coordenada y del objeto lógico
+	 * @param tamaño_x Ancho del objeto label.
+	 * @param tamaño_y Alto del objeto label.
 	 * @param text Arreglo de con las direcciones de las texturas
 	 * @param mapa Mapa donde se mostrará el label
 	 */
 //<<<<<<< HEAD
-	public GOGrafico(int x, int y, String[] text, PanelMapa mapa) {
+	public GOGrafico(int x, int y, int tamaño_x, int tamaño_y, String[] text, PanelMapa mapa) {
 //=======
 	//public GOGrafico(int x, int y, String[] text, LabelTablero mapa) {
 //>>>>>>> d31a5ad05fd86de7e93babbeb83f6421542faed1
@@ -54,7 +56,7 @@ public class GOGrafico {
 		label = new JLabel();
 		//mapa.add(label);
 		label.setIcon(texturas[0]);		
-		label.setBounds(x, y, ANCHO, ALTO);
+		label.setBounds(x, y, ANCHO*tamaño_x, ALTO*tamaño_y);
 		
 		cord_x = x;
 		cord_y = y;
