@@ -2,8 +2,6 @@ package Logica.General;
 
 import java.awt.Rectangle;
 
-import javax.swing.JLabel;
-
 import GUI.Controlador.GOGrafico;
 import Logica.General.Visitors.Visitor;
 

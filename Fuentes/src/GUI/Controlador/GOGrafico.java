@@ -2,7 +2,6 @@ package GUI.Controlador;
 
 import javax.swing.JLabel;
 
-import GUI.Mapa.LabelTablero;
 //<<<<<<< HEAD
 import GUI.Mapa.PanelMapa;
 //=======
@@ -54,15 +53,13 @@ public class GOGrafico {
 		}
 		
 		label = new JLabel();
-		//mapa.add(label);
 		label.setIcon(texturas[0]);		
-		label.setBounds(x, y, ANCHO*tamaño_x, ALTO*tamaño_y);
 		
 		cord_x = x;
 		cord_y = y;
 		
-		mapa.add(label);
-		mapa.setComponentZOrder(label, 0);
+		mapa.getTablero().add(label);
+		label.setBounds(x, y, ANCHO*tamaño_x, ALTO*tamaño_y);
 	}
 	
 	/**

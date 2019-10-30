@@ -1,12 +1,12 @@
 package GUI.Controlador;
 
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 
 import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JOptionPane;
+import javax.swing.border.MatteBorder;
 
 import GUI.Component_Custom.menubar_custom.MenuBarTienda;
 import GUI.Mapa.Coordenada;
@@ -34,6 +34,7 @@ public class MenuPrincipal {
 	protected JMenu mnPersonajes; 
 	private PanelMapa panelMapa;
 	protected JLabel campo[][];
+	protected JLabel labelLlegada;
 	protected LabelTablero labelTablero;
 	protected MenuBarTienda menuBar;
 	//Atributos de instancia
@@ -103,15 +104,18 @@ public class MenuPrincipal {
 		}
 		
 		contador = new ContadorTiempo(elJuego, this);
-		
 	
 		panelMapa.add(labelTablero);
 		panelMapa.setComponentZOrder(labelTablero, 0);
 		
+		labelLlegada = new JLabel("");
+		labelLlegada.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0,0,0)));
+		labelLlegada.setBounds(257, 85, 100, 330);
+		panelMapa.add(labelLlegada);
+		
 		int coord_x_tablero = labelTablero.getX();
 		int coord_y_tablero = labelTablero.getY();
 		crearLabelCampo(labelTablero.getAlturaDeDivision(), labelTablero.getAnchoDeDivision(), CANT_EN_X, CANT_EN_Y, coord_x_tablero, coord_y_tablero);
-		
 	}
 	
 	/**
@@ -162,10 +166,6 @@ public class MenuPrincipal {
 	 * Acciona los elementos del mapa
 	 */
 	public synchronized void accionar() {
-
-		/*for(GameObject o : elJuego.getNivel().getListaEntidades()) {
-			panelMapa.add(o.getGrafica().getLabel());
-		}*/
 		panelMapa.updateUI();
 		panelMapa.repaint();
 
@@ -178,17 +178,31 @@ public class MenuPrincipal {
 		}
 		else {
 			for(GameObject o : elJuego.getNivel().getListaEntidades()) {
-				panelMapa.add(o.getGrafica().getLabel());
-				//Si algún enemigo a llegado al castillo.
-				if (o.getGrafica().getLabel().getX()<labelTablero.getX()-100) {
+				//Si algún enemigo llega a la zona del castillo.
+				if (o.getGrafica().getLabel().getX()<0) {
+					JLabel aux = o.getGrafica().getLabel();
+					labelTablero.remove(aux);
+					labelLlegada.add(aux);
+					int x = 25;
+					int y = aux.getY();
+					int width = aux.getWidth();
+					int height = aux.getHeight();
+					aux.setBounds(x, y, width, height);
+					
+					try {
+						Thread.sleep(1000);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+					
 					//Jugador ha perdido
 					JOptionPane.showMessageDialog(null, "JUEGO PERDIDO");
 					//Detiene el hilo del contador
 					contador.detener();
 				}
 			}
-			panelMapa.updateUI();
-			panelMapa.repaint();
+			labelTablero.updateUI();
+			labelTablero.repaint();
 		}
 
 	}
@@ -274,7 +288,7 @@ public class MenuPrincipal {
 			//Seteo el aliado
 			int tamaño_x = aux.getGrafica().getLabel().getWidth();
 			int tamaño_y = aux.getGrafica().getLabel().getHeight();
-			aux.getGrafica().getLabel().setBounds(aux.getPosicionX() + labelTablero.getX(), aux.getPosicionY()  + labelTablero.getY(), tamaño_x, tamaño_y);
+			aux.getGrafica().getLabel().setBounds(aux.getPosicionX(), aux.getPosicionY(), tamaño_x, tamaño_y);
 			lista.add(aux.getGrafica().getLabel());
 			labelTablero.insertar(aux.getGrafica().getLabel());
 			elJuego.insertarAliado(aux);
@@ -352,5 +366,4 @@ public class MenuPrincipal {
 		
 		return arr;
 	}
-	
 }

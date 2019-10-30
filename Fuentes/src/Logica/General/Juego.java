@@ -1,6 +1,5 @@
 package Logica.General;
 
-import GUI.Mapa.LabelTablero;
 import GUI.Mapa.PanelMapa;
 
 /**

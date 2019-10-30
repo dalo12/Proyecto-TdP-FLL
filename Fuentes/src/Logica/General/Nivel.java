@@ -4,7 +4,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
-import GUI.Mapa.LabelTablero;
 import GUI.Mapa.PanelMapa;
 import Logica.Enemigos.*;
 import Logica.PowerUps.*;
@@ -104,20 +103,14 @@ public class Nivel {
 		int mapa_ancho = mapa.getTablero().getSize().width;
 		//int mapa_alto = mapa.getTablero().getSize().height;
 		
-		int coordenadas_y[] = new int[FILAS];
+		int coordenadas_y[] = mapa.getTablero().getPosicionesY();
 		int coordenada_x = mapa.getTablero().getX() + mapa_ancho;
-		int altura_fila = mapa.getTablero().getAlturaDeDivision();
-		
-		coordenadas_y[0] = mapa.getTablero().getY();
-		for(int i=1; i<FILAS; i++) {
-			coordenadas_y[i] = coordenadas_y[i-1] + altura_fila;
-		}
 		
 		/*
 		 * Generamos los enemigos totalmente al azar
 		 */
 		for(int i=0; i<=cantidad; i++) {
-			int j = r.nextInt(coordenadas_y.length-1); //para saber en qué coordenada "y" poner el enemigo
+			int j = r.nextInt(coordenadas_y.length); //para saber en qué coordenada "y" poner el enemigo
 			int dif = r.nextInt(dificultad * 10); //dif es la nueva dificultad de los enemigos
 											// se generan enemigos tan difíciles entre 0..dificultad
 			
@@ -169,27 +162,6 @@ public class Nivel {
 					}					
 				}
 			}
-
-//			if(poder == 5) { //el número 5 es totalmente arbitrario
-//				switch(i % 3) { //porque 3 son los powerups
-//					case 0:{
-//						Premio p = new Mate();
-//						p.aplicarEfecto(lista.get(lista.size() - 1));
-//						break;
-//					}
-//					case 1:{
-//						Premio p = new SanLugano();
-//						p.aplicarEfecto(lista.get(lista.size() - 1));
-//						break;						
-//					}
-//					case 2:{
-//						Premio p = new GarraCharrua();
-//						p.aplicarEfecto(lista.get(lista.size() - 1));
-//						break;
-//					}					
-//				}
-//			}
-
 		}
 		
 		return lista;

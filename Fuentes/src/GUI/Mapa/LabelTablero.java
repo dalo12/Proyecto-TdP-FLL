@@ -12,6 +12,7 @@ public class LabelTablero extends JLabel {
 	//Atributos de instancia
 	private static final Border bordeBarra = new MatteBorder(1, 1, 1, 1, (Color) new Color(0,0,0));
 	private Coordenada[][] coordenadas;
+	private int filas, columnas;
 	
 	/**
 	 * Constructor de LabelTablero
@@ -20,6 +21,8 @@ public class LabelTablero extends JLabel {
 	 */
 	public LabelTablero(int m, int n) {
 		this.setBorder(bordeBarra);
+		filas = m;
+		columnas = n;
 		coordenadas = new Coordenada[m][n];
 		for (int i=0; i<m; i++) {
 			for (int j=0; j<n; j++) {
@@ -85,5 +88,38 @@ public class LabelTablero extends JLabel {
 	 */
 	public int getAnchoDeDivision() {
 		return Math.floorDiv(this.getWidth(), coordenadas.length);
+	}
+	
+	/**
+	 * Devuelve un arreglo de todas las coordenadas y.
+	 * @return Arreglo de enteros
+	 */
+	public int[] getPosicionesY() {
+		actualizarTablero();
+		int [] toReturn = new int[columnas];
+		
+		int i=0;
+		for (Coordenada c: coordenadas[0]) {
+			toReturn[i] = c.getY();
+			i++;
+		}
+		
+		return toReturn;
+	}
+	
+	/**
+	 * Devuelve un arreglo de todas las coordenadas x
+	 * @return Arreglo de enteros
+	 */
+	public int[] getPosicionesX() {
+		actualizarTablero();
+		int [] toReturn = new int[filas];
+		
+		for (int i=0; i<filas; i++) {
+			toReturn[i] = coordenadas[i][0].getX();
+			System.out.println(toReturn[i]);
+		}
+		
+		return toReturn;
 	}
 }
