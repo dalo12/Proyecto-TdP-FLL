@@ -1,8 +1,5 @@
 package Logica.Objetos;
 
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-
 import GUI.Controlador.GOGrafico;
 import Logica.General.Nivel;
 import Logica.General.Objeto;

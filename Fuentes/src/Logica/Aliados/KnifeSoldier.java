@@ -1,8 +1,5 @@
 package Logica.Aliados;
 
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-
 import GUI.Controlador.GOGrafico;
 import Logica.General.Aliado;
 import Logica.General.Nivel;
@@ -33,6 +30,7 @@ public class KnifeSoldier extends Aliado {
 		texturas[2] = texturas[3] =  texturas[1];
 		texturas[4] = "../Texturas/Personajes/knife-soldier/knife-soldier-4.gif";
 		this.grafica = new GOGrafico(x, y, tamanoX, tamanoY, texturas, n.getMapa());
+		this.grafica.getLabel().addMouseListener(new AliadoVenta(this));
 		
 		//atributos lógicos
 		this.alcanceAtaque = 1;

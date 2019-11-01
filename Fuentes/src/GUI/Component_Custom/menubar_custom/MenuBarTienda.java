@@ -77,7 +77,7 @@ public class MenuBarTienda extends JMenuBar {
 	 * Actualiza la informacion de puntaje y monedas de acuerdo a los datos del juego
 	 */
 	public void actualizarInformacionTienda() {
-		lblMoneda.setText("Monedas: $" + String.valueOf(elJuego.getMonedas()));
-		lblPuntaje.setText("Puntaje: $" + String.valueOf(elJuego.getPuntaje()));
+		lblMoneda.setText("Monedas: $" + String.valueOf(elJuego.getNivel().getMonedas()));
+		lblPuntaje.setText("Puntaje: $" + String.valueOf(elJuego.getNivel().getPuntaje()));
 	}
 }

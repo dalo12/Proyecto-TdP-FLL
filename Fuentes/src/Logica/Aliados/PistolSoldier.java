@@ -1,8 +1,5 @@
 package Logica.Aliados;
 
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-
 import GUI.Controlador.GOGrafico;
 import Logica.General.Aliado;
 import Logica.General.Nivel;
@@ -34,7 +31,8 @@ public class PistolSoldier extends Aliado {
 		texturas[2] = texturas[3] = texturas[1]; 
 		texturas[4] = "../Texturas/Personajes/pistol-soldier/pistol-soldier-4.gif";
 		this.grafica = new GOGrafico(x, y, tamanoX, tamanoY, texturas, n.getMapa());
-				
+		this.grafica.getLabel().addMouseListener(new AliadoVenta(this));
+		
 		//atributos lógicos
 		this.alcanceAtaque = 4;
 		this.fuerzaAtaque = 30;

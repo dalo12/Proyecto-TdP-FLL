@@ -1,5 +1,10 @@
 package Logica.General;
 
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
+import javax.swing.JOptionPane;
+
 import Logica.General.Visitors.Visitor;
 
 /**
@@ -8,7 +13,7 @@ import Logica.General.Visitors.Visitor;
  * @version 1.0
  */
 public abstract class Aliado extends Personaje {
-	
+	//Atributos de instancia
 	protected int precio;
 	protected int vidaMaxima;
 
@@ -45,6 +50,7 @@ public abstract class Aliado extends Personaje {
 		if(vida < vidaMaxima) {
 			valor = valor / 2;
 		}
+		
 		return valor;
 	}
 	
@@ -68,6 +74,31 @@ public abstract class Aliado extends Personaje {
 		for(GameObject g : nivel.getListaEntidades()) {
 			if(g.getPosicionX() <= posicionX + alcanceAtaque && g.getPosicionX() > posicionX) {
 				interactuar(g);
+			}
+		}
+	}
+	
+	/**
+	 * Clase AliadoVenta: Clase que redefine el evento clicked para eliminar un aliado
+	 */
+	protected class AliadoVenta extends MouseAdapter {
+		private Aliado aliado;
+		
+		public AliadoVenta(Aliado aliado) {
+			this.aliado = aliado;
+		}
+		
+		public void mouseClicked(MouseEvent e){
+			if (aliado.getGrafica()!=null) {
+				int resp = JOptionPane.showConfirmDialog(null, "¿Esta seguro?", "Alerta!", JOptionPane.YES_NO_OPTION);
+				if (resp==JOptionPane.YES_OPTION) {
+					int monedas_recuperadas = aliado.vender();
+					nivel.agregarMonedas(monedas_recuperadas);
+					nivel.getMapa().getTablero().remove(aliado.getGrafica().getLabel());
+					nivel.getListaEntidades().remove(aliado);
+					nivel.getMapa().getTablero().updateUI();
+					nivel.getMapa().getTablero().repaint();
+				}
 			}
 		}
 	}

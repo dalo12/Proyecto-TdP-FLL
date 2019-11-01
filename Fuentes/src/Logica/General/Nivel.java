@@ -21,6 +21,8 @@ public class Nivel {
 	protected int enemigos_restantes;
 	protected PanelMapa mapa;
 	
+	protected int monedas, puntaje;
+	
 	protected int oleadas_faltantes;
 	
 	/**
@@ -28,7 +30,9 @@ public class Nivel {
 	 * @param mapa Mapa del nivel
 	 */
 	public Nivel(PanelMapa mapa) {
-	//public Nivel(LabelTablero mapa) {
+		monedas = 0;
+		puntaje = 0;
+		
 		oleadas_faltantes=3;
 		entidades = new LinkedList<GameObject>();
 		enemigos_restantes = 0;
@@ -173,5 +177,36 @@ public class Nivel {
 	 */
 	public int getOleadasFaltantes() {
 		return oleadas_faltantes;
+	}
+	
+	
+	/**
+	 * @return Las monedas que dispone el usuario
+	 */
+	public int getMonedas() {
+		return monedas;
+	}
+	
+	/**
+	 * @return El puntaje que dispone el usuario
+	 */
+	public int getPuntaje() {
+		return puntaje;
+	}
+	
+	/**
+	 * Agrega monedas al total de monedas del nivel
+	 * @param m Cantidad de monedas
+	 */
+	public void agregarMonedas(int m) {
+		this.monedas = monedas + m;
+	}
+	
+	/**
+	 * Agrega puntos al puntaje total del usuario
+	 * @param p Cantidad de puntos
+	 */
+	public void agregarPuntaje(int p) {
+		this.puntaje = puntaje + p;
 	}
 }

@@ -10,15 +10,9 @@ import GUI.Mapa.PanelMapa;
 public class Juego {	
 	protected Nivel nivel;
 	protected int dificultad; //dificultad de la oleada
-	//Atributos para tienda
-	protected int monedas;
-	protected int puntaje;
 	
 	public Juego() {
-		dificultad = 1;
-		monedas = 0;
-		puntaje = 0;
-		
+		dificultad = 1;		
 		nivel = new Nivel(null);
 	}
 	
@@ -28,20 +22,6 @@ public class Juego {
 	 */
 	public Nivel getNivel() {
 		return nivel;
-	}
-	
-	/**
-	 * @return Las monedas que dispone el usuario
-	 */
-	public int getMonedas() {
-		return monedas;
-	}
-	
-	/**
-	 * @return El puntaje que dispone el usuario
-	 */
-	public int getPuntaje() {
-		return puntaje;
 	}
 	
 	/**
@@ -57,21 +37,7 @@ public class Juego {
 		}
 	}
 	
-	/**
-	 * Asigna un nuevo valor a las monedas que dispone el usuario
-	 * @param m Nueva cantidad de monedas
-	 */
-	public void setMonedas(int m) {
-		this.monedas = m;
-	}
 	
-	/**
-	 * Asigna un nuevo valor al puntake del usuario
-	 * @param p Nuevo puntaje
-	 */
-	public void setPuntaje(int p) {
-		this.puntaje = p;
-	}
 	
 	/**
 	 * Inserta un aliado u objeto en el nivel (de manera lógica)
