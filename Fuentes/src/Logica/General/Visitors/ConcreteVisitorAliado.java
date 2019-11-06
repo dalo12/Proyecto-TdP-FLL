@@ -8,6 +8,7 @@ import Logica.General.Premio;
 
 public class ConcreteVisitorAliado extends Visitor {
 
+	protected Aliado gameObject;
 	protected int damage;
 	
 	public ConcreteVisitorAliado(Aliado o, int damage) {

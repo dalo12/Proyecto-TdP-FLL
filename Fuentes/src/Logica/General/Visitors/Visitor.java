@@ -8,8 +8,6 @@ import Logica.General.Objeto;
 import Logica.General.Premio;
 
 public abstract class Visitor {
-	
-	protected GameObject gameObject;
 
 	public abstract void visitEnemigo(Enemigo enemigo);
 	
