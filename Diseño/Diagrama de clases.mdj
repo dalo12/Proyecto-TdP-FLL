@@ -13455,51 +13455,6 @@
 							}
 						},
 						{
-							"_type": "UMLNoteView",
-							"_id": "AAAAAAFtlQkeMenX4u4=",
-							"_parent": {
-								"$ref": "AAAAAAFtIj7JSoZn1sM="
-							},
-							"font": "Times New Roman;15;0",
-							"left": 2128,
-							"top": 352,
-							"width": 167.453125,
-							"height": 117,
-							"text": "No se si los atributos de ConcreteVisitorPremio y ConcreteVisitorObjeto son considerados InstanceOf."
-						},
-						{
-							"_type": "UMLNoteLinkView",
-							"_id": "AAAAAAFtlQnBW+rGqKY=",
-							"_parent": {
-								"$ref": "AAAAAAFtIj7JSoZn1sM="
-							},
-							"font": "Arial;13;0",
-							"head": {
-								"$ref": "AAAAAAFtbzqfgSJeZUU="
-							},
-							"tail": {
-								"$ref": "AAAAAAFtlQkeMenX4u4="
-							},
-							"lineStyle": 1,
-							"points": "2127:396;2009:377"
-						},
-						{
-							"_type": "UMLNoteLinkView",
-							"_id": "AAAAAAFtlQt1UfL86pc=",
-							"_parent": {
-								"$ref": "AAAAAAFtIj7JSoZn1sM="
-							},
-							"font": "Arial;13;0",
-							"head": {
-								"$ref": "AAAAAAFtb08gNn9QP50="
-							},
-							"tail": {
-								"$ref": "AAAAAAFtlQkeMenX4u4="
-							},
-							"lineStyle": 3,
-							"points": "2127:428;1848:488;1744:405"
-						},
-						{
 							"_type": "UMLClassView",
 							"_id": "AAAAAAFt0RGYUAdqg1I=",
 							"_parent": {
