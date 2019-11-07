@@ -80,5 +80,10 @@ public abstract class Personaje extends GameObject {
 	public void setVelocidadAtaque(int velocidadAtaque) {
 		this.velocidadAtaque = velocidadAtaque;
 	}
+	
+	public void disparar(int velocidad) {
+		Disparo d = new Disparo(posicionX,posicionY,nivel);
+		
+	}
 		
 }
