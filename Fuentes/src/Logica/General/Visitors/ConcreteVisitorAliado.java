@@ -18,8 +18,7 @@ public class ConcreteVisitorAliado extends Visitor {
 	
 	@Override
 	public void visitEnemigo(Enemigo enemigo) {
-		// TODO Auto-generated method stub
-
+		gameObject.atacar(enemigo);
 	}
 
 	@Override
