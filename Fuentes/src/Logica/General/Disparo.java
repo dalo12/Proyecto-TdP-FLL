@@ -15,8 +15,10 @@ public class Disparo extends GameObject {
 	 * Constructor
 	 * @param n Nivel donde se produce el disparo
 	 */
-	public Disparo(Nivel n) {
+	public Disparo(int x, int y, Nivel n) {
 		super(n);
+		posicionX = x;
+		posicionY = y;
 	}
 	
 	/**
