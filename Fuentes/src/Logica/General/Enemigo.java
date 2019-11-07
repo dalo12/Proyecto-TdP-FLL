@@ -1,5 +1,6 @@
 package Logica.General;
 
+import java.awt.Rectangle;
 import java.util.Random;
 
 import Logica.General.Visitors.Visitor;
@@ -90,6 +91,20 @@ public abstract class Enemigo extends Personaje {
 		v.visitEnemigo(this);
 	}
 
+	public boolean puedeDisparar(GameObject go) {
+		boolean a_retornar = false;
+		
+		Rectangle r_this, r_go;
+		r_this = new Rectangle(this.posicionX - this.getGrafica().getLabel().getWidth()*this.tamanoX, this.posicionY, this.getGrafica().getLabel().getWidth()*this.tamanoX, this.getGrafica().getLabel().getY());
+		r_go = new Rectangle(go.getPosicionX(), go.getPosicionY(), go.getGrafica().getLabel().getX(), go.getGrafica().getLabel().getY());
+		
+		if(r_this.intersects(r_go) && (go.getGrafica().getLabel().getX() < this.grafica.getLabel().getX())) {
+			a_retornar = true;
+		}
+		
+		return a_retornar;
+	}
+	
 	@Override
 	public void accionar() {
 		boolean puedeAvanzar = true;

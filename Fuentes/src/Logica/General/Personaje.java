@@ -84,5 +84,12 @@ public abstract class Personaje extends GameObject {
 	public void disparar(int velocidad) {
 		new Disparo(posicionX, posicionY, nivel);
 	}
-		
+	
+	
+	/**
+	 * Comprueba si hay alcance de disparo hacia el rival pasado.
+	 * @param go GameObject
+	 * @return True si hay alcance de disparo y False en caso contrario.
+	 */
+	public abstract boolean puedeDisparar(GameObject go);
 }

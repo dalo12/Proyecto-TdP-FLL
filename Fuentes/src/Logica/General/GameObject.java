@@ -64,7 +64,7 @@ public abstract class GameObject {
 	public int getTamanoX() {
 		return tamanoX;
 	}
-
+	
 	/**
 	 * Asigna un nuevo tamaño de cantidad de filas que ocupa el objeto
 	 * @param tamanoX El nuevo tamaño de cantidad de filas que ocupa el objeto
