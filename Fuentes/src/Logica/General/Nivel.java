@@ -78,15 +78,6 @@ public class Nivel {
 		}
 	}
 	
-	/**
-	 * Insertar un objeto en la lista de entidades
-	 * @param o Objeto a insertar
-	 */
-	public void insertarObjeto(GameObject o) {
-		entidades.add(o);
-	}
-
-	
 	// ----- MÉTODOS AUXILIARES -----
 	
 	/**
