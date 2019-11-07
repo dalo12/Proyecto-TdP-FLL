@@ -8,6 +8,7 @@ import Logica.General.Premio;
 
 public class ConcreteVisitorPremio extends Visitor {
 
+	protected Premio gameObject;
 	protected String efecto;
 	protected String target;
 	protected int valorEfecto;

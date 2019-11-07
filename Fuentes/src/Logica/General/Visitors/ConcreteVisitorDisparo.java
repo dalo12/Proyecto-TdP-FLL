@@ -8,6 +8,7 @@ import Logica.General.Premio;
 
 public class ConcreteVisitorDisparo extends Visitor {
 
+	protected Disparo gameObject;
 	protected int damage;
 	
 	public ConcreteVisitorDisparo(Disparo o, int damage) {
