@@ -37,16 +37,6 @@ public class Juego {
 		}
 	}
 	
-	
-	
-	/**
-	 * Inserta un aliado u objeto en el nivel (de manera lógica)
-	 * @param a Aliado a insertar
-	 */
-	public void insertarAliado(GameObject a) {
-		nivel.insertarObjeto(a);
-	}
-	
 	/**
 	 * Crea un nivel
 	 * @param mapa Mapa del nivel
