@@ -42,6 +42,8 @@ public class FlamethrowerKangaroo extends Enemigo {
 		
 		visitor = new ConcreteVisitorEnemigo(this, fuerzaAtaque);
 		
+		n.getListaEntidades().add(this);
+		
 	}
 
 }

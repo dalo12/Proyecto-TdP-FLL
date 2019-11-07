@@ -96,9 +96,9 @@ public abstract class Enemigo extends Personaje {
 		for(GameObject g : nivel.getListaEntidades()) {
 //			if(this.chocan(g)) {
 			//if(g.getGrafica().getLabel().getX() + g.getGrafica().getLabel().getWidth() == this.grafica.getLabel().getX()) {	
-			if((g.getPosicionX() < (posicionX - alcanceAtaque)) ) {//&& g.getPosicionX() < posicionX) {
+			if(g != this && (g.getPosicionX() < (posicionX - alcanceAtaque)) && g.getPosicionX() < posicionX) {
 				interactuar(g);
-				//puedeAvanzar = false;
+				puedeAvanzar = false;
 			}
 		}
 		if(puedeAvanzar)
