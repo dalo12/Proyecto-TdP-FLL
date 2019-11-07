@@ -291,7 +291,6 @@ public class MenuPrincipal {
 			aux.getGrafica().getLabel().setBounds(aux.getPosicionX(), aux.getPosicionY(), tamaño_x, tamaño_y);
 			lista.add(aux.getGrafica().getLabel());
 			labelTablero.insertar(aux.getGrafica().getLabel());
-			elJuego.insertarAliado(aux);
 			//Se setea las variables auxiliares
 			aux = null;
 			pulsado = false;
