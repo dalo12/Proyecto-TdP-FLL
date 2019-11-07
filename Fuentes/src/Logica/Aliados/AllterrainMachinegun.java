@@ -41,6 +41,8 @@ public class AllterrainMachinegun extends Aliado {
 		this.vida = vidaMaxima;	
 		
 		this.visitor = new ConcreteVisitorAliado(this, fuerzaAtaque);
+		
+		n.getListaEntidades().add(this);
 	}
 
 }
