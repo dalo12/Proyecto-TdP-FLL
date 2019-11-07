@@ -826,13 +826,30 @@
 											"height": 13,
 											"text": "+getVelocidadAtaque(): int",
 											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAFuR1pBAdwEu7U=",
+											"_parent": {
+												"$ref": "AAAAAAFtIkuoqodJSms="
+											},
+											"model": {
+												"$ref": "AAAAAAFuR1pAwNwBcUE="
+											},
+											"font": "Arial;13;0",
+											"left": 749,
+											"top": 746,
+											"width": 159.35791015625,
+											"height": 13,
+											"text": "+disparar(velocidad: int)",
+											"horizontalAlignment": 0
 										}
 									],
 									"font": "Arial;13;0",
 									"left": 744,
 									"top": 621,
 									"width": 169.35791015625,
-									"height": 128
+									"height": 143
 								},
 								{
 									"_type": "UMLReceptionCompartmentView",
@@ -15956,6 +15973,25 @@
 									},
 									"type": "int",
 									"direction": "return"
+								}
+							]
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAFuR1pAwNwBcUE=",
+							"_parent": {
+								"$ref": "AAAAAAFtIkuoqYdATnE="
+							},
+							"name": "disparar",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAFuR1tAO9zIRzM=",
+									"_parent": {
+										"$ref": "AAAAAAFuR1pAwNwBcUE="
+									},
+									"name": "velocidad",
+									"type": "int"
 								}
 							]
 						}
