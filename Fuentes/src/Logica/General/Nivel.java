@@ -98,9 +98,14 @@ public class Nivel {
 		int mapa_ancho = mapa.getTablero().getSize().width;
 		//int mapa_alto = mapa.getTablero().getSize().height;
 		
-		int coordenadas_y[] = mapa.getTablero().getPosicionesY();
+		//int coordenadas_y[] = mapa.getTablero().getPosicionesY();
+		int coordenadas_y[] = new int[FILAS];
 		int coordenada_x = mapa.getTablero().getX() + mapa_ancho;
 		
+		coordenadas_y[0] = mapa.getTablero().getY();
+		for(int i=1; i<FILAS; i++) {
+			coordenadas_y[i] = coordenadas_y[i-1] + mapa.getTablero().getAlturaDeDivision();
+		}
 		/*
 		 * Generamos los enemigos totalmente al azar
 		 */

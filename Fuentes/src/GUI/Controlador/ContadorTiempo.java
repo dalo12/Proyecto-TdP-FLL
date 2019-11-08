@@ -25,6 +25,7 @@ public class ContadorTiempo extends Thread {
 			menu.accionar();
 			menu.imprimirObjetos();
 			menu.setearAliado();
+			
 //			if (elJuego.getEnemigo()!=null){ 
 //				elJuego.moverenemigo(); //temporal
 //				elJuego.accionar();

@@ -58,7 +58,8 @@ public class GOGrafico {
 		cord_x = x;
 		cord_y = y;
 		
-		mapa.getTablero().add(label);
+		//mapa.getTablero().add(label);
+		mapa.add(label);
 		label.setBounds(x, y, ANCHO*tamaño_x, ALTO*tamaño_y);
 	}
 	
@@ -96,6 +97,8 @@ public class GOGrafico {
 	 */
 	public void morir() {
 		label.setIcon(texturas[4]);
+		for(int i=0; i<1000; i++); //para esperar
+		label = null;
 	}
 	
 	/**

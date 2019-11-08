@@ -139,8 +139,8 @@ public abstract class GameObject {
 		boolean a_retornar = false;
 		
 		Rectangle rthis = new Rectangle(this.posicionX, this.posicionY, this.grafica.getLabel().getWidth(), this.grafica.getLabel().getHeight());
-		Rectangle ro = new Rectangle(o.posicionX, o.posicionY, o.getGrafica().getLabel().getWidth(), o.getGrafica().getLabel().getHeight());
-		if(rthis.intersects(ro) && (o.getGrafica().getLabel().getX() < this.grafica.getLabel().getX())) {// && (this.grafica.getLabel().getX() + this.grafica.getLabel().getSize().width) == o.getGrafica().getLabel().getSize().height ) {
+		Rectangle ro = new Rectangle(o.getPosicionX(), o.getPosicionY(), o.getGrafica().getLabel().getWidth(), o.getGrafica().getLabel().getHeight());
+		if(rthis.intersects(ro) && (o.getPosicionX() < this.posicionX)) {// && (this.grafica.getLabel().getX() + this.grafica.getLabel().getSize().width) == o.getGrafica().getLabel().getSize().height ) {
 			a_retornar = true;
 		}
 			

@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import Logica.Aliados.AllterrainMachinegun;
+import Logica.General.Aliado;
 import Logica.General.GameObject;
 import Logica.General.Nivel;
 
