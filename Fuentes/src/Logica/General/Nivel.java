@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
-import GUI.Mapa.PanelMapa;
+import GUI.Mapa.MapaGrafico;
 import Logica.Enemigos.*;
 import Logica.PowerUps.*;
 
@@ -19,7 +19,7 @@ public class Nivel {
 	protected List<GameObject> entidades;
 	protected int max_enemigos;
 	protected int enemigos_restantes;
-	protected PanelMapa mapa;
+	protected MapaGrafico mapa;
 	
 	protected int monedas, puntaje;
 	
@@ -28,9 +28,10 @@ public class Nivel {
 	/**
 	 * Constructor
 	 * @param mapa Mapa del nivel
+	 * @param monedas Monedas con las que se empezará el nivel
 	 */
-	public Nivel(PanelMapa mapa) {
-		monedas = 0;
+	public Nivel(MapaGrafico mapa, int monedas) {
+		this.monedas = monedas;
 		puntaje = 0;
 		
 		oleadas_faltantes=3;
@@ -49,7 +50,7 @@ public class Nivel {
 	/**
 	 * @return El mapa del nivel
 	 */
-	public PanelMapa getMapa() {
+	public MapaGrafico getMapa() {
 		return this.mapa;
 	}
 	

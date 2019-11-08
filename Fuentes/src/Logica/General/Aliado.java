@@ -117,4 +117,9 @@ public abstract class Aliado extends Personaje {
 			}
 		}
 	}
+	
+	@Override
+	public void morir() {
+		nivel.getListaEntidades().remove(this);
+	}
 }

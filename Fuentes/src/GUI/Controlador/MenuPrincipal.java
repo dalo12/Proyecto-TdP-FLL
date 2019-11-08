@@ -12,7 +12,7 @@ import javax.swing.border.MatteBorder;
 import GUI.Component_Custom.menubar_custom.MenuBarTienda;
 import GUI.Mapa.Coordenada;
 import GUI.Mapa.LabelTablero;
-import GUI.Mapa.PanelMapa;
+import GUI.Mapa.MapaGrafico;
 import Logica.Aliados.*;
 import Logica.Enemigos.*;
 import Logica.Objetos.*;
@@ -33,9 +33,9 @@ public class MenuPrincipal {
 	//Atributos gráficos
 	protected JFrame frame;
 	protected ButtonPersonaje itemCharacter[]; //Items de Personajes
-	protected List<JLabel> lista;
+	//protected List<JLabel> lista;
 	protected JMenu mnPersonajes; 
-	protected PanelMapa panelMapa;
+	protected MapaGrafico panelMapa;
 	protected JLabel campo[][];
 	//protected JLabel labelLlegada;
 	protected LabelTablero labelTablero;
@@ -68,45 +68,37 @@ public class MenuPrincipal {
 	public MenuPrincipal() {
 		pulsado = false;
 		contador_imprimir = 0;
-		lista = new LinkedList<JLabel>();
+		//lista = new LinkedList<JLabel>();
 		elJuego = new Juego();
 		
-		initialize();
-				
+		initialize(); //Inicia el frame
+		
+		//Crea el tablero donde se insertan los aliados
 		labelTablero = new LabelTablero(CANT_EN_X, CANT_EN_Y);
 		labelTablero.setLocation(360, 85);
 		labelTablero.setSize(600, 330);
 		labelTablero.addMouseListener(new MouseAdapter() {
-				public void mouseClicked(MouseEvent e){
-					if (objeto_insertar!=null) {
-						pulsado = true;
-						int pos_x = e.getX();
-						int pos_y = e.getY();
-						//Recupero la coordenada mas cercana en donde insertar el aux
-						labelTablero.actualizarTablero();
-						Coordenada c = labelTablero.getCoordenadaCercana(pos_x, pos_y);
-						//Se inserta un label
-						objeto_insertar.setPosicionX(labelTablero.getX() + c.getX());
-						objeto_insertar.setPosicionY(labelTablero.getY() + c.getY());
-					}
+			public void mouseClicked(MouseEvent e){
+				if (objeto_insertar!=null) {
+					pulsado = true;
+					int pos_x = e.getX();
+					int pos_y = e.getY();
+					//Recupero la coordenada mas cercana en donde insertar el aux
+					labelTablero.actualizarTablero();
+					Coordenada c = labelTablero.getCoordenadaCercana(pos_x, pos_y);
+					//Se inserta un label
+					objeto_insertar.setPosicionX(labelTablero.getX() + c.getX());
+					objeto_insertar.setPosicionY(labelTablero.getY() + c.getY());
 				}
-			});		
+			}
+		});		
 		
 		crearMapa();
 		
-		elJuego.crearNivel(panelMapa);
+		panelMapa.add(labelTablero);
+		panelMapa.setComponentZOrder(labelTablero, 0);
 		
-		iniciarMenuPersonajes();
-		
-		for (ButtonPersonaje bp: itemCharacter) {
-			bp.addMouseListener(new MouseAdapter() {
-				public void mouseClicked(MouseEvent e){
-					objeto_insertar = bp.crearObjeto();
-				}
-			});
-		}
-		
-		contador = new ContadorTiempo(elJuego, this);
+		elJuego.crearNivel(panelMapa, 200);
 	
 		//crea la torre
 		torre = new JLabel();
@@ -115,22 +107,32 @@ public class MenuPrincipal {
 		torre.setVisible(true);
 		torre.setOpaque(true);
 		torre.setIcon(new ImageIcon("../Texturas/Torres/Torre-1.png"));
-		
 		panelMapa.add(torre);
 		panelMapa.setComponentZOrder(torre, panelMapa.getComponentCount() - 1);
-		
-		panelMapa.add(labelTablero);
-		panelMapa.setComponentZOrder(labelTablero, 0);
-		
-		//Borro el label llegada porque la idea es que no esté
-		/*labelLlegada = new JLabel("");
-		labelLlegada.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0,0,0)));
-		labelLlegada.setBounds(257, 85, 100, 330);
-		panelMapa.add(labelLlegada);*/
+		elJuego.getNivel().getMapa().setTorre(torre);
 		
 		int coord_x_tablero = labelTablero.getX();
 		int coord_y_tablero = labelTablero.getY();
 		crearLabelCampo(labelTablero.getAlturaDeDivision(), labelTablero.getAnchoDeDivision(), CANT_EN_X, CANT_EN_Y, coord_x_tablero, coord_y_tablero);
+		
+		//Agrega la tienda al frame
+		menuBar = new MenuBarTienda(elJuego);
+		frame.setJMenuBar(menuBar);
+		
+		//Agrega los personajes seleccionables a la tienda
+		iniciarMenuPersonajes();
+		
+		//Agrega el listener a cada uno de los botones para seleccionar personajes en la tienda
+		for (ButtonPersonaje bp: itemCharacter) {
+			bp.addMouseListener(new MouseAdapter() {
+				public void mouseClicked(MouseEvent e){
+					objeto_insertar = bp.crearObjeto();
+				}
+			});
+		}
+		
+		//Inicio el hilo una vez que termino de crear todo
+		contador = new ContadorTiempo(elJuego, this);
 	}
 	
 	/**
@@ -141,9 +143,6 @@ public class MenuPrincipal {
 		frame.setResizable(false);
 		frame.setBounds(100, 100, 1000, 527);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
-		menuBar = new MenuBarTienda(elJuego);
-		frame.setJMenuBar(menuBar);
 	}
 
 	/**
@@ -152,7 +151,7 @@ public class MenuPrincipal {
 	private void crearMapa() {
 		frame.getContentPane().setLayout(new GridLayout(0, 1, 0, 0));
 		
-		panelMapa = new PanelMapa("../Texturas/Background/background-lvl-final.png", labelTablero);
+		panelMapa = new MapaGrafico("../Texturas/Background/background-lvl-final.png", labelTablero);
 		frame.getContentPane().add(panelMapa);
 		panelMapa.setLayout(null);
 	}
@@ -185,49 +184,67 @@ public class MenuPrincipal {
 		panelMapa.updateUI();
 		panelMapa.repaint();
 
-		//Si el juego no tiene mas enemigos y no tiene mas oleadas, el juego terminó
-		if ((elJuego.getNivel().getEnemigosRestantes()==0) && (elJuego.getNivel().getOleadasFaltantes()==0)) {
-			//Jugador a ganado
-			JOptionPane.showMessageDialog(null, "HA GANADO EL JUEGO");
-			//Detiene el hilo del contador
-			contador.detener();
-		}
-		else {
-			//Verifica si el jugador fue derrotado
-			Rectangle r_torre = torre.getBounds();
-			LinkedList<GameObject> llegaron = new LinkedList<GameObject>(); //lleva la cuenta de los kangaroo que entraron a la torre
-			for(GameObject o : elJuego.getNivel().getListaEntidades()) {
-				//Si algún enemigo llega a la zona del castillo.
-				
-				Rectangle r_o = o.getGrafica().getLabel().getBounds();
-				
-				if(r_torre.intersects(r_o) && ((torre.getX() + torre.getWidth()) > o.getPosicionX())) {
-					
-					if(!llegaron.contains(o)) {
-						llegaron.add(o);
-						//System.out.println("Entró algo."); //NOTA: Fijate que en realidad, entran como 1500 elementos en la lista, pero de alguna extraña manera, anda bien
-					}
-					
-				}
-			}
-			
-			if(llegaron.size() >= CANT_DERROTA) { //Si entraron al menos CANT_DERROTA kangaroo en la torre, el jugador pierde
-				try {
-					Thread.sleep(1000);
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-				
-				//Jugador ha perdido
-				JOptionPane.showMessageDialog(null, "JUEGO PERDIDO");
-				//Detiene el hilo del contador
-				contador.detener();
-			}
+//		//Si el juego no tiene mas enemigos y no tiene mas oleadas, el juego terminó
+//		if ((elJuego.getNivel().getEnemigosRestantes()==0) && (elJuego.getNivel().getOleadasFaltantes()==0)) {
+//			//Jugador a ganado
+//			JOptionPane.showMessageDialog(null, "HA GANADO EL JUEGO");
+//			//Detiene el hilo del contador
+//			contador.detener();
+//		}
+//		else {
+//			//Verifica si el jugador fue derrotado
+//			Rectangle r_torre = torre.getBounds();
+//			LinkedList<GameObject> llegaron = new LinkedList<GameObject>(); //lleva la cuenta de los kangaroo que entraron a la torre
+//			for(GameObject o : elJuego.getNivel().getListaEntidades()) {
+//				//Si algún enemigo llega a la zona del castillo.
+//				
+//				Rectangle r_o = o.getGrafica().getLabel().getBounds();
+//				
+//				if(r_torre.intersects(r_o) && ((torre.getX() + torre.getWidth()) > o.getPosicionX())) {
+//					
+//					if(!llegaron.contains(o)) {
+//						llegaron.add(o);
+//						//System.out.println("Entró algo."); //NOTA: Fijate que en realidad, entran como 1500 elementos en la lista, pero de alguna extraña manera, anda bien
+//					}
+//					
+//				}
+//			}
+//			
+//			if(llegaron.size() >= CANT_DERROTA) { //Si entraron al menos CANT_DERROTA kangaroo en la torre, el jugador pierde
+//				try {
+//					Thread.sleep(1000);
+//				} catch (InterruptedException e) {
+//					e.printStackTrace();
+//				}
+//				
+//				//Jugador ha perdido
+//				JOptionPane.showMessageDialog(null, "JUEGO PERDIDO");
+//				//Detiene el hilo del contador
+//				contador.detener();
+//			}
 			
 			labelTablero.updateUI();
 			labelTablero.repaint();
-		}
+//		}
 
+	}
+
+
+	/**
+	 * Retorna el límite derecho de la grilla de la GUI. Es de donde se generan las 
+	 * oleadas de enemigos
+	 * @return Un arreglo de ix2 con la primera componente con la coordenada x y la segunda componente
+	 * con la coordenada y de los límites
+	 */
+	public int[][] getLimiteEnemigos(){
+		int[][] arr = new int[campo.length][2];
+		
+		for(int i=0; i<campo.length; i++) {
+			arr[i][0] = campo[i][campo[i].length-1].getX();
+			arr[i][1] = campo[i][campo[i].length-1].getY();
+		}
+		
+		return arr;
 	}
 	
 	/**
@@ -316,7 +333,7 @@ public class MenuPrincipal {
 			//objeto_insertar.getPosicionY() retorna la posición en Y del objeto en el panel, para tener su posición en el tablero, le resto el Y del tablero
 			int posicion_y_en_tablero = objeto_insertar.getPosicionY() - labelTablero.getY();
 			objeto_insertar.getGrafica().getLabel().setBounds(posicion_x_en_tablero, posicion_y_en_tablero, tamaño_x, tamaño_y);
-			lista.add(objeto_insertar.getGrafica().getLabel()); //por qué es necesaria una lista de labels si desde la lista de entidades se puede acceder a los labels?
+			//lista.add(objeto_insertar.getGrafica().getLabel()); //por qué es necesaria una lista de labels si desde la lista de entidades se puede acceder a los labels?
 			labelTablero.insertar(objeto_insertar.getGrafica().getLabel());
 			
 			//Se setea las variables auxiliares
@@ -377,23 +394,6 @@ public class MenuPrincipal {
 	}
 	
 	/**
-	 * Retorna el límite derecho de la grilla de la GUI. Es de donde se generan las 
-	 * oleadas de enemigos
-	 * @return Un arreglo de ix2 con la primera componente con la coordenada x y la segunda componente
-	 * con la coordenada y de los límites
-	 */
-	public int[][] getLimiteEnemigos(){
-		int[][] arr = new int[campo.length][2];
-		
-		for(int i=0; i<campo.length; i++) {
-			arr[i][0] = campo[i][campo[i].length-1].getX();
-			arr[i][1] = campo[i][campo[i].length-1].getY();
-		}
-		
-		return arr;
-	}
-	
-	/**
 	 * Cambia el orden en el eje Z de la grilla que conforma el campo donde colocar los aliados, para que
 	 * esta siempre quede situada detrás de los personajes
 	 */
@@ -404,7 +404,8 @@ public class MenuPrincipal {
 					panelMapa.setComponentZOrder(campo[i][j], panelMapa.getComponentCount() - 1);
 				}
 			}
+			tamano_lista_entidades = elJuego.getNivel().getListaEntidades().size();
 		}
 	}
-	
+
 }

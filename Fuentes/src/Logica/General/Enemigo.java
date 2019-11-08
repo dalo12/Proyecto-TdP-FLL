@@ -120,4 +120,12 @@ public abstract class Enemigo extends Personaje {
 			avanzar();
 	}
 	
+	@Override
+	public void morir() {
+		nivel.setEnemigosRestantes(nivel.getEnemigosRestantes() - 1);
+		nivel.getListaEntidades().remove(this);
+		nivel.agregarMonedas(this.getMonedas());
+		nivel.agregarPuntaje(puntaje);
+		grafica.morir();
+	}
 }

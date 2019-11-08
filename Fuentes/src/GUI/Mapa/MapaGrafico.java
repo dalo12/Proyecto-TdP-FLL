@@ -4,11 +4,13 @@ import java.awt.Graphics;
 import java.awt.Image;
 
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 @SuppressWarnings("serial")
-public class PanelMapa extends JPanel {
+public class MapaGrafico extends JPanel {
 	protected LabelTablero tablero;
+	protected JLabel torre;
 	private String urlFondo;
 	private Image background;
 	
@@ -17,7 +19,7 @@ public class PanelMapa extends JPanel {
 	 * @param urlFondo Dirección lógica de la imagen de fondo del mapa
 	 * @param tablero Tablero que está sobre el mapa
 	 */
-	public PanelMapa(String urlFondo, LabelTablero tablero) {
+	public MapaGrafico(String urlFondo, LabelTablero tablero) {
 		this.urlFondo = urlFondo;
 		this.tablero = tablero;
 	}
@@ -53,5 +55,19 @@ public class PanelMapa extends JPanel {
 	 */
 	public LabelTablero getTablero() {
 		return this.tablero;
+	}
+
+	/**
+	 * @return the torre
+	 */
+	public JLabel getTorre() {
+		return torre;
+	}
+
+	/**
+	 * @param torre the torre to set
+	 */
+	public void setTorre(JLabel torre) {
+		this.torre = torre;
 	}
 }

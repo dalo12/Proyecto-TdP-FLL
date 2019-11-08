@@ -156,4 +156,9 @@ public abstract class GameObject {
 	public void setNivel(Nivel nivel) {
 		this.nivel = nivel;
 	}
+	
+	/**
+	 * Método que se invoca cuando el objeto muere
+	 */
+	public void morir() {}
 }
