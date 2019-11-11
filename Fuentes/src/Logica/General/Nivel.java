@@ -16,7 +16,7 @@ import Logica.PowerUps.*;
 public class Nivel {
 	protected static final int FILAS = 6;
 	
-	protected List<GameObject> entidades;
+	protected List<GameObject> entidades, a_anadir, a_borrar; //a_añadir y a_borrar se utilizan para agregar y borrar elementos de la lista mientras ésta se está recorriendo
 	protected int max_enemigos;
 	protected int enemigos_restantes;
 	protected MapaGrafico mapa;
@@ -36,6 +36,8 @@ public class Nivel {
 		
 		oleadas_faltantes=3;
 		entidades = new LinkedList<GameObject>();
+		a_borrar = new LinkedList<GameObject>();
+		a_anadir = new LinkedList<GameObject>();
 		enemigos_restantes = 0;
 		this.mapa = mapa;
 	}
@@ -206,4 +208,50 @@ public class Nivel {
 	public void agregarPuntaje(int p) {
 		this.puntaje = puntaje + p;
 	}
+
+	/**
+	 * Sirve para eliminar un objeto del nivel
+	 * @param o Objeto a eliminar
+	 */
+	public void eliminarObjeto(GameObject o) {
+		a_borrar.add(o);
+	}
+
+	/**
+	 * Sirve para insertar un objeto en el nivel
+	 * @param o Objeto a insertar
+	 */
+	public void insertarObjeto(GameObject o) {
+		a_anadir.add(o);
+	}
+
+	/**
+	 * @return the a_anadir
+	 */
+	public List<GameObject> getAAnadir() {
+		return a_anadir;
+	}
+
+	/**
+	 * @return the a_borrar
+	 */
+	public List<GameObject> getABorrar() {
+		return a_borrar;
+	}
+	
+	/**
+	 * Vacía la lista de objetos a añadir
+	 */
+	public void vaciarAAnadir() {
+		a_anadir = new LinkedList<GameObject>();
+	}
+	
+	/**
+	 * Vacía la lista de objetos a borrar
+	 */
+	public void vaciarABorrar() {
+		a_borrar = new LinkedList<GameObject>();
+	}
+	
+	
 }

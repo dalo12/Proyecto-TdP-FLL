@@ -42,7 +42,7 @@ public class KnifeKangaroo extends Enemigo {
 		
 		visitor = new ConcreteVisitorEnemigo(this, fuerzaAtaque);
 		
-		n.getListaEntidades().add(this);
+		n.insertarObjeto(this);
 		
 	}
 

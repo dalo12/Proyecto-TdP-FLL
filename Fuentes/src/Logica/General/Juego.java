@@ -48,10 +48,18 @@ public class Juego {
 		for(GameObject g : nivel.getListaEntidades()) {		
 			g.accionar();
 			
+			//Esto es para verificar si algún enemigo llegó a la torre
 			if(invade(g) && !invaden.contains(g)) {
 				invaden.add(g);
 			}
 		}
+		//Cuando termino la iteración sobre la lista, agrego y borro los objetos que debo
+		//(si esto lo permito en medio de la iteración, se rompe todo)
+		nivel.getListaEntidades().addAll(nivel.getAAnadir());
+		nivel.getListaEntidades().removeAll(nivel.getABorrar());
+		//Si no vacío las listas, añade infinitamente los mismos objetos que ya estaban antes
+		nivel.vaciarAAnadir();
+		nivel.vaciarABorrar();
 		
 		//Si me quedo sin enemigos, inserto nueva oleada
 		if ((nivel.getEnemigosRestantes() == 0) && (nivel.getOleadasFaltantes()>0)) {

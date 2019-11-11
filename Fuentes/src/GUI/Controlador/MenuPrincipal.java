@@ -180,53 +180,12 @@ public class MenuPrincipal {
 	 * Acciona los elementos del mapa
 	 */
 	public synchronized void accionar() {
+		imprimirObjetos();
 		reacomodarOrdenGrafica();
 		panelMapa.updateUI();
 		panelMapa.repaint();
-
-//		//Si el juego no tiene mas enemigos y no tiene mas oleadas, el juego terminó
-//		if ((elJuego.getNivel().getEnemigosRestantes()==0) && (elJuego.getNivel().getOleadasFaltantes()==0)) {
-//			//Jugador a ganado
-//			JOptionPane.showMessageDialog(null, "HA GANADO EL JUEGO");
-//			//Detiene el hilo del contador
-//			contador.detener();
-//		}
-//		else {
-//			//Verifica si el jugador fue derrotado
-//			Rectangle r_torre = torre.getBounds();
-//			LinkedList<GameObject> llegaron = new LinkedList<GameObject>(); //lleva la cuenta de los kangaroo que entraron a la torre
-//			for(GameObject o : elJuego.getNivel().getListaEntidades()) {
-//				//Si algún enemigo llega a la zona del castillo.
-//				
-//				Rectangle r_o = o.getGrafica().getLabel().getBounds();
-//				
-//				if(r_torre.intersects(r_o) && ((torre.getX() + torre.getWidth()) > o.getPosicionX())) {
-//					
-//					if(!llegaron.contains(o)) {
-//						llegaron.add(o);
-//						//System.out.println("Entró algo."); //NOTA: Fijate que en realidad, entran como 1500 elementos en la lista, pero de alguna extraña manera, anda bien
-//					}
-//					
-//				}
-//			}
-//			
-//			if(llegaron.size() >= CANT_DERROTA) { //Si entraron al menos CANT_DERROTA kangaroo en la torre, el jugador pierde
-//				try {
-//					Thread.sleep(1000);
-//				} catch (InterruptedException e) {
-//					e.printStackTrace();
-//				}
-//				
-//				//Jugador ha perdido
-//				JOptionPane.showMessageDialog(null, "JUEGO PERDIDO");
-//				//Detiene el hilo del contador
-//				contador.detener();
-//			}
-			
-			labelTablero.updateUI();
-			labelTablero.repaint();
-//		}
-
+		labelTablero.updateUI();
+		labelTablero.repaint();
 	}
 
 
@@ -236,6 +195,7 @@ public class MenuPrincipal {
 	 * @return Un arreglo de ix2 con la primera componente con la coordenada x y la segunda componente
 	 * con la coordenada y de los límites
 	 */
+	//verdaderamente se utiliza este método?
 	public int[][] getLimiteEnemigos(){
 		int[][] arr = new int[campo.length][2];
 		

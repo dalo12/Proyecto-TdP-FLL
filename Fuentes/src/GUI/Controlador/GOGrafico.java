@@ -100,7 +100,6 @@ public class GOGrafico {
 		label.setIcon(texturas[4]);
 		for(int i=0; i<1000; i++); //para esperar
 		mapa.remove(label);
-		label = null;
 	}
 	
 	/**

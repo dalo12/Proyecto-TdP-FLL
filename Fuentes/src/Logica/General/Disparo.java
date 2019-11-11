@@ -7,18 +7,30 @@ import Logica.General.Visitors.Visitor;
  * @author Comisión 25 (FERRANTE, LATOUQUETTE, LÓPEZ)
  * @version 1.0
  */
-public class Disparo extends GameObject {
+public abstract class Disparo extends GameObject {
 
 	protected int dano, velocidad;
+	protected int x_inicial, y_inicial, alcance;
+	protected Nivel nivel;
 	
 	/**
 	 * Constructor
+	 * @param x Posición x desde donde se efectúa el disparo
+	 * @param y Posición y desde donde se efectúa el disparo
+	 * @param alcance Alcance del disparo
+	 * @param dano Daño que ejerce el disparo
+	 * @param velocidad Velocidad a la que viaja el disparo
 	 * @param n Nivel donde se produce el disparo
 	 */
-	public Disparo(int x, int y, Nivel n) {
+	protected Disparo(int x, int y, int alcance, int dano, int velocidad, Nivel n) {
 		super(n);
 		posicionX = x;
 		posicionY = y;
+		x_inicial = x;
+		y_inicial = y;
+		this.alcance = alcance;
+		this.dano = dano;
+		this.velocidad = velocidad;
 	}
 	
 	/**
@@ -40,15 +52,11 @@ public class Disparo extends GameObject {
 	/**
 	 * Hace que el disparo avance
 	 */
-	public void avanzar() {
-		//TODO implementar
-	}
+	public abstract void avanzar();
+	
 
 	@Override
-	public void accionar() {
-		// TODO Auto-generated method stub
-		
-	}
+	public abstract void accionar();
 
 	/**
 	 * Acepta un visitor.
@@ -57,6 +65,12 @@ public class Disparo extends GameObject {
 	@Override
 	public void accept(Visitor v) {
 		v.visitDisparo(this);
+	}
+	
+	@Override
+	public void morir() {
+		nivel.eliminarObjeto(this);
+		grafica.morir();
 	}
 	
 	
