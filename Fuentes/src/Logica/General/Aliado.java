@@ -75,9 +75,9 @@ public abstract class Aliado extends Personaje {
 
 	@Override
 	public void accionar() {
-		grafica.quieto();
-		if(contador_tiempo < 0) {
+		if(contador_tiempo > 0) {
 			contador_tiempo--;
+			grafica.quieto();
 		}
 		for(GameObject g : nivel.getListaEntidades()) {
 			interactuar(g);

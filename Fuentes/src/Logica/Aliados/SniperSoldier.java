@@ -58,7 +58,7 @@ public class SniperSoldier extends Aliado {
 			if(contador_tiempo == 0) {
 				grafica.atacar();
 				new DisparoAliado(posicionX, posicionY, alcanceAtaque * grafica.getLabel().getWidth(), fuerzaAtaque, 25,  nivel);
-				contador_tiempo = velocidadAtaque * 250;
+				contador_tiempo = velocidadAtaque * 10;
 			}else {
 				grafica.quieto();
 			}

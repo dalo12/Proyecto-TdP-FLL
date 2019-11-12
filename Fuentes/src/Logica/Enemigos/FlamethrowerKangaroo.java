@@ -26,9 +26,8 @@ public class FlamethrowerKangaroo extends Enemigo {
 		this.tamanoY = 1;
 		
 		String [] texturas = new String[5];
-		texturas[0] = "../Texturas/Personajes/kangaroo/kangaroo-0.png";
-		texturas[1] = "../Texturas/Personajes/kangaroo/kangaroo-1.gif";
-		texturas[2] = texturas[3] = texturas[4] = texturas[1];
+		texturas[1] = "../Texturas/Personajes/flamethrower-kangaroo/flamethrower-kangaroo-0.png";
+		texturas[1] = texturas[2] = texturas[3] = texturas[4] = texturas[0];
 		this.grafica = new GOGrafico(x, y, tamanoX, tamanoY, texturas, n.getMapa());
 		
 		//atributos lógicos
