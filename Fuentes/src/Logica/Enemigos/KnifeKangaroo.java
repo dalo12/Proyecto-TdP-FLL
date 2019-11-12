@@ -33,7 +33,7 @@ public class KnifeKangaroo extends Enemigo {
 		
 		//atributos lógicos
 		this.maxMonedas = 30;
-		this.velocidad = 25;
+		this.velocidad = 7;
 		this.velocidadAtaque = 4;
 		this.vida = 90;		
 		this.alcanceAtaque = 1;

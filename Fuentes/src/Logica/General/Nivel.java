@@ -109,6 +109,7 @@ public class Nivel {
 		for(int i=1; i<FILAS; i++) {
 			coordenadas_y[i] = coordenadas_y[i-1] + mapa.getTablero().getAlturaDeDivision();
 		}
+		
 		/*
 		 * Generamos los enemigos totalmente al azar
 		 */
@@ -116,6 +117,17 @@ public class Nivel {
 			int j = r.nextInt(coordenadas_y.length); //para saber en qué coordenada "y" poner el enemigo
 			int dif = r.nextInt(dificultad * 10); //dif es la nueva dificultad de los enemigos
 											// se generan enemigos tan difíciles entre 0..dificultad
+			
+		    
+			if(i == 1) {
+				distancia = mapa.getHeight();
+			}else if(i == 3) {
+				distancia = distancia + (distancia / 2);
+			}else if(i == 10) {
+		    	distancia = distancia + (distancia / 4);
+		    }else if(i == 20) {
+				distancia = distancia + (distancia / 8);
+			}
 			
 			if(dif >= 45) {
 				lista.add(new TankGaroo(coordenada_x+distancia, coordenadas_y[j], this));
@@ -134,13 +146,16 @@ public class Nivel {
 			/*
 			 * Cada tanto los enemigos se alejan 
 			 */
+			
+			
+			
 			distancia += 10;
-			if(i % 7 == 0) {
-				distancia += 200; //los números 7 y 200 es totalmente arbitrario.
-				/*
-				 * Cada 7 enemigos, los enemigos se alejan del mapa, para que no aparezcan 30 monos de golpe
-				 */
-			}
+//			if(i % 7 == 0) {
+//				distancia += 200; //los números 7 y 200 es totalmente arbitrario.
+//				/*
+//				 * Cada 7 enemigos, los enemigos se alejan del mapa, para que no aparezcan 30 monos de golpe
+//				 */
+//			}
 			
 			/*
 			 * Cada tanto aparece un enemigo con un powerup implementado sobre si 
@@ -210,7 +225,8 @@ public class Nivel {
 	}
 
 	/**
-	 * Sirve para eliminar un objeto del nivel
+	 * Sirve para eliminar un objeto del nivel. Es la manera correcta de eliminar un objeto en la lista
+	 * de entidades
 	 * @param o Objeto a eliminar
 	 */
 	public void eliminarObjeto(GameObject o) {
@@ -218,7 +234,8 @@ public class Nivel {
 	}
 
 	/**
-	 * Sirve para insertar un objeto en el nivel
+	 * Sirve para insertar un objeto en el nivel. Es la manera correcta de insertar un objeto en la lista
+	 * de entidades
 	 * @param o Objeto a insertar
 	 */
 	public void insertarObjeto(GameObject o) {

@@ -64,6 +64,7 @@ public class Juego {
 		//Si me quedo sin enemigos, inserto nueva oleada
 		if ((nivel.getEnemigosRestantes() == 0) && (nivel.getOleadasFaltantes()>0)) {
 			nivel.insertarOleada(dificultad);
+			dificultad++;
 		}
 		
 		//Si el juego no tiene mas enemigos y no tiene mas oleadas, el juego terminó y el usuario ganó

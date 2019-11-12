@@ -18,14 +18,14 @@ public class ButtonAllterrainMachinegun extends ButtonPersonaje {
 	 */
 	public ButtonAllterrainMachinegun(Nivel n) {
 		super(descripcion, urlImg1, n);
-		personaje = new AllterrainMachinegun(POS_CREACION_X, 0, n);
+		personaje = new AllterrainMachinegun(POS_CREACION_X, POS_CREACION_Y, n);
 		
 		this.addActionListener(new ActionListener(){
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				//Al hacer click en este botón, se crea un nuevo objeto.
-				personaje = new AllterrainMachinegun(POS_CREACION_X, 0, n);
+				personaje = new AllterrainMachinegun(POS_CREACION_X, POS_CREACION_Y, n);
 			}
 			
 		});

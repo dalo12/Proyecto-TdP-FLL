@@ -87,6 +87,9 @@ public abstract class Aliado extends Personaje {
 			}
 			*/
 		}
+		if(vida <= 0) {
+			morir();
+		}
 	}
 	
 	public boolean puedeDisparar(GameObject go) {

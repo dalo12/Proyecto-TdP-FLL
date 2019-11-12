@@ -99,7 +99,7 @@ public abstract class GameObject {
 	 * @param o Objeto con el cual interactuar.
 	 */
 	public void interactuar(GameObject o) {
-		o.accept(visitor);
+		//o.accept(visitor);
 	}
 	
 	/**
@@ -111,9 +111,10 @@ public abstract class GameObject {
 	/**
 	 * Elimina este objeto de la lista de entidades del juego.
 	 */
+	//No es lo mismo que morir()
 	public void finalizar() {
-		nivel.getListaEntidades().remove(this);
-		// TODO debe eliminar su label
+		nivel.eliminarObjeto(this);
+		grafica.morir();
 	}
 
 	/**

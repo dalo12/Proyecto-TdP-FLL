@@ -9,7 +9,7 @@ import GUI.Controlador.GOGrafico;
 import Logica.General.Disparo;
 import Logica.General.GameObject;
 import Logica.General.Nivel;
-import Logica.General.Visitors.ConcreteVisitorDisparo;
+import Logica.General.Visitors.ConcreteVisitorDisparoAliado;
 import Logica.General.Visitors.Visitor;
 
 /**
@@ -35,7 +35,7 @@ public class DisparoAliado extends Disparo {
 		String texturas[] = new String[5];
 		texturas[0] = "../Texturas/Personajes/disparo/standar-shoot.png";
 		texturas[1] = texturas[2] = texturas[3] = texturas[4] = texturas[0];
-		this.grafica = new GOGrafico(x, y, 50, 50, texturas, n.getMapa());
+		this.grafica = new GOGrafico(x, y, 7, 7, texturas, n.getMapa());
 		
 		//Agrego el disparo a la lista de entidades
 		nivel = n;
@@ -73,12 +73,16 @@ public class DisparoAliado extends Disparo {
 	@Override
 	public void accionar() {
 		Rectangle r_yo = grafica.getLabel().getBounds();
+		
 		for(GameObject g : nivel.getListaEntidades()) {
 			Rectangle r_g = g.getGrafica().getLabel().getBounds();
 			
 			if(r_yo.intersects(r_g)) {
-				g.accept(new ConcreteVisitorDisparo(this, dano));
+				System.out.println("r_yo: ( " + r_yo.getX() + " , " + r_yo.getY() + " )");
+				System.out.println("r_g: ( " + r_g.getX() + " , " + r_g.getY() + " )");
+				g.accept(new ConcreteVisitorDisparoAliado(this));
 			}
+			
 		}
 		avanzar();
 	}
@@ -92,4 +96,9 @@ public class DisparoAliado extends Disparo {
 		v.visitDisparo(this);
 	}
 	
+	@Override
+	public void morir() {
+		grafica.morir();
+		nivel.eliminarObjeto(this);
+	}
 }

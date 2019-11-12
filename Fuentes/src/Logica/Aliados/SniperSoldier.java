@@ -54,7 +54,7 @@ public class SniperSoldier extends Aliado {
 	 * @param o Objeto con el cual interactuar.
 	 */
 	public void interactuar(GameObject o) {
-		if((posicionX + (alcanceAtaque * grafica.getLabel().getWidth())) <= o.getPosicionX() && posicionY == o.getPosicionY()) {
+		if(((posicionX + (alcanceAtaque * grafica.getLabel().getWidth())) <= o.getPosicionX()) && posicionY == o.getPosicionY()) {
 			if(contador_tiempo == 0) {
 				grafica.atacar();
 				new DisparoAliado(posicionX, posicionY, alcanceAtaque * grafica.getLabel().getWidth(), fuerzaAtaque, 25,  nivel);

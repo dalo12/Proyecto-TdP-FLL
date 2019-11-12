@@ -33,7 +33,7 @@ public class TankGaroo extends Enemigo {
 		
 		//atributos lógicos
 		this.maxMonedas = 200;
-		this.velocidad = 25;
+		this.velocidad = 2;
 		this.velocidadAtaque = 15;
 		this.vida = 500;		
 		this.alcanceAtaque = 10;

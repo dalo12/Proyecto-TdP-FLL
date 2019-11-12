@@ -32,7 +32,7 @@ public class FlamethrowerKangaroo extends Enemigo {
 		
 		//atributos lógicos
 		this.maxMonedas = 100;
-		this.velocidad = 25;
+		this.velocidad = 7;
 		this.velocidadAtaque = 7;
 		this.vida = 250;		
 		this.alcanceAtaque = 3;

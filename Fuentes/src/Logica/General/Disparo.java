@@ -72,6 +72,11 @@ public abstract class Disparo extends GameObject {
 		nivel.eliminarObjeto(this);
 		grafica.morir();
 	}
-	
-	
+
+	/**
+	 * @return the nivel
+	 */
+	public Nivel getNivel() {
+		return nivel;
+	}	
 }

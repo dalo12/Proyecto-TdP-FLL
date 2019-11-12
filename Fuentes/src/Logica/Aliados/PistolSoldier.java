@@ -57,7 +57,7 @@ public class PistolSoldier extends Aliado {
 		if((posicionX + (alcanceAtaque * grafica.getLabel().getWidth())) <= o.getPosicionX() && posicionY == o.getPosicionY()) {
 			if(contador_tiempo == 0) {
 				grafica.atacar();
-				new DisparoAliado(posicionX, posicionY, alcanceAtaque * grafica.getLabel().getWidth(), fuerzaAtaque, 5,  nivel);
+				new DisparoAliado(posicionX+10, posicionY+5, alcanceAtaque * grafica.getLabel().getWidth(), fuerzaAtaque, 5,  nivel);
 				contador_tiempo = velocidadAtaque * 10;
 			}else {
 				grafica.quieto();

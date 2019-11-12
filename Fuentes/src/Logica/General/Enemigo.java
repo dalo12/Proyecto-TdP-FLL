@@ -118,6 +118,9 @@ public abstract class Enemigo extends Personaje {
 		}
 		if(puedeAvanzar)
 			avanzar();
+		if(vida <= 0) {
+			morir();
+		}
 	}
 	
 	@Override
