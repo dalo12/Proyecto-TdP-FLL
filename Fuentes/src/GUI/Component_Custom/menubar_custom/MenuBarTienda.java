@@ -78,6 +78,6 @@ public class MenuBarTienda extends JMenuBar {
 	 */
 	public void actualizarInformacionTienda() {
 		lblMoneda.setText("Monedas: $" + String.valueOf(elJuego.getNivel().getMonedas()));
-		lblPuntaje.setText("Puntaje: $" + String.valueOf(elJuego.getNivel().getPuntaje()));
+		lblPuntaje.setText("Puntaje: " + String.valueOf(elJuego.getNivel().getPuntaje()) + " PTS." );
 	}
 }

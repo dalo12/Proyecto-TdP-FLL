@@ -42,7 +42,7 @@ public class KnifeSoldier extends Aliado {
 		
 		this.visitor = new ConcreteVisitorAliado(this, fuerzaAtaque);
 		
-		n.getListaEntidades().add(this);
+		n.insertarObjeto(this);
 		
 	}
 	

@@ -17,6 +17,7 @@ public abstract class Aliado extends Personaje {
 	//Atributos de instancia
 	protected int precio;
 	protected int vidaMaxima;
+	protected int contador_tiempo;
 
 	/**
 	 * Constructor protegido
@@ -24,6 +25,7 @@ public abstract class Aliado extends Personaje {
 	 */
 	protected Aliado(Nivel n) {
 		super(n);
+		contador_tiempo = 0;
 	}
 	/**
 	 * Devuelve el precio del aliado
@@ -60,6 +62,7 @@ public abstract class Aliado extends Personaje {
 	 * @param a El enemigo a atacar
 	 */
 	public void atacar(Enemigo o) {
+		grafica.atacar();
 		o.setVida(o.getVida() - fuerzaAtaque);
 	}
 	
@@ -72,10 +75,20 @@ public abstract class Aliado extends Personaje {
 
 	@Override
 	public void accionar() {
+		if(contador_tiempo > 0) {
+			contador_tiempo--;
+			grafica.quieto();
+		}
 		for(GameObject g : nivel.getListaEntidades()) {
-			if(g.getPosicionX() <= posicionX + alcanceAtaque && g.getPosicionX() > posicionX) {
+			interactuar(g);
+			/*if((posicionX + (alcanceAtaque * grafica.getLabel().getWidth()) >= g.getPosicionX())  && g.getPosicionX() > posicionX) {
 				interactuar(g);
+				System.out.println("interactuar");
 			}
+			*/
+		}
+		if(vida <= 0) {
+			morir();
 		}
 	}
 	
@@ -105,7 +118,7 @@ public abstract class Aliado extends Personaje {
 		
 		public void mouseClicked(MouseEvent e){
 			if (aliado.getGrafica()!=null) {
-				int resp = JOptionPane.showConfirmDialog(null, "¿Esta seguro?", "Alerta!", JOptionPane.YES_NO_OPTION);
+				int resp = JOptionPane.showConfirmDialog(null, "¿Esta seguro que desea vender este personaje?", "Confirmación", JOptionPane.YES_NO_OPTION);
 				if (resp==JOptionPane.YES_OPTION) {
 					int monedas_recuperadas = aliado.vender();
 					nivel.agregarMonedas(monedas_recuperadas);
@@ -116,5 +129,11 @@ public abstract class Aliado extends Personaje {
 				}
 			}
 		}
+	}
+	
+	@Override
+	public void morir() {
+		grafica.morir();
+		nivel.eliminarObjeto(this);
 	}
 }

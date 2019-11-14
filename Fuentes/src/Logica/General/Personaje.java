@@ -82,7 +82,7 @@ public abstract class Personaje extends GameObject {
 	}
 	
 	public void disparar(int velocidad) {
-		new Disparo(posicionX, posicionY, nivel);
+		//new Disparo(posicionX, posicionY, nivel);
 	}
 	
 	

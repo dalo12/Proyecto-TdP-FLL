@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
-import GUI.Mapa.PanelMapa;
+import GUI.Mapa.MapaGrafico;
 import Logica.Enemigos.*;
 import Logica.PowerUps.*;
 
@@ -16,10 +16,10 @@ import Logica.PowerUps.*;
 public class Nivel {
 	protected static final int FILAS = 6;
 	
-	protected List<GameObject> entidades;
+	protected List<GameObject> entidades, a_anadir, a_borrar; //a_añadir y a_borrar se utilizan para agregar y borrar elementos de la lista mientras ésta se está recorriendo
 	protected int max_enemigos;
 	protected int enemigos_restantes;
-	protected PanelMapa mapa;
+	protected MapaGrafico mapa;
 	
 	protected int monedas, puntaje;
 	
@@ -28,13 +28,16 @@ public class Nivel {
 	/**
 	 * Constructor
 	 * @param mapa Mapa del nivel
+	 * @param monedas Monedas con las que se empezará el nivel
 	 */
-	public Nivel(PanelMapa mapa) {
-		monedas = 0;
+	public Nivel(MapaGrafico mapa, int monedas) {
+		this.monedas = monedas;
 		puntaje = 0;
 		
 		oleadas_faltantes=3;
 		entidades = new LinkedList<GameObject>();
+		a_borrar = new LinkedList<GameObject>();
+		a_anadir = new LinkedList<GameObject>();
 		enemigos_restantes = 0;
 		this.mapa = mapa;
 	}
@@ -49,7 +52,7 @@ public class Nivel {
 	/**
 	 * @return El mapa del nivel
 	 */
-	public PanelMapa getMapa() {
+	public MapaGrafico getMapa() {
 		return this.mapa;
 	}
 	
@@ -98,8 +101,14 @@ public class Nivel {
 		int mapa_ancho = mapa.getTablero().getSize().width;
 		//int mapa_alto = mapa.getTablero().getSize().height;
 		
-		int coordenadas_y[] = mapa.getTablero().getPosicionesY();
+		//int coordenadas_y[] = mapa.getTablero().getPosicionesY();
+		int coordenadas_y[] = new int[FILAS];
 		int coordenada_x = mapa.getTablero().getX() + mapa_ancho;
+		
+		coordenadas_y[0] = mapa.getTablero().getY();
+		for(int i=1; i<FILAS; i++) {
+			coordenadas_y[i] = coordenadas_y[i-1] + mapa.getTablero().getAlturaDeDivision();
+		}
 		
 		/*
 		 * Generamos los enemigos totalmente al azar
@@ -108,6 +117,17 @@ public class Nivel {
 			int j = r.nextInt(coordenadas_y.length); //para saber en qué coordenada "y" poner el enemigo
 			int dif = r.nextInt(dificultad * 10); //dif es la nueva dificultad de los enemigos
 											// se generan enemigos tan difíciles entre 0..dificultad
+			
+		    
+			if(i == 1) {
+				distancia = mapa.getHeight();
+			}else if(i == 3) {
+				distancia = distancia + (distancia / 2);
+			}else if(i == 10) {
+		    	distancia = distancia + (distancia / 4);
+		    }else if(i == 20) {
+				distancia = distancia + (distancia / 8);
+			}
 			
 			if(dif >= 45) {
 				lista.add(new TankGaroo(coordenada_x+distancia, coordenadas_y[j], this));
@@ -126,13 +146,16 @@ public class Nivel {
 			/*
 			 * Cada tanto los enemigos se alejan 
 			 */
+			
+			
+			
 			distancia += 10;
-			if(i % 7 == 0) {
-				distancia += 200; //los números 7 y 200 es totalmente arbitrario.
-				/*
-				 * Cada 7 enemigos, los enemigos se alejan del mapa, para que no aparezcan 30 monos de golpe
-				 */
-			}
+//			if(i % 7 == 0) {
+//				distancia += 200; //los números 7 y 200 es totalmente arbitrario.
+//				/*
+//				 * Cada 7 enemigos, los enemigos se alejan del mapa, para que no aparezcan 30 monos de golpe
+//				 */
+//			}
 			
 			/*
 			 * Cada tanto aparece un enemigo con un powerup implementado sobre si 
@@ -200,4 +223,52 @@ public class Nivel {
 	public void agregarPuntaje(int p) {
 		this.puntaje = puntaje + p;
 	}
+
+	/**
+	 * Sirve para eliminar un objeto del nivel. Es la manera correcta de eliminar un objeto en la lista
+	 * de entidades
+	 * @param o Objeto a eliminar
+	 */
+	public void eliminarObjeto(GameObject o) {
+		a_borrar.add(o);
+	}
+
+	/**
+	 * Sirve para insertar un objeto en el nivel. Es la manera correcta de insertar un objeto en la lista
+	 * de entidades
+	 * @param o Objeto a insertar
+	 */
+	public void insertarObjeto(GameObject o) {
+		a_anadir.add(o);
+	}
+
+	/**
+	 * @return the a_anadir
+	 */
+	public List<GameObject> getAAnadir() {
+		return a_anadir;
+	}
+
+	/**
+	 * @return the a_borrar
+	 */
+	public List<GameObject> getABorrar() {
+		return a_borrar;
+	}
+	
+	/**
+	 * Vacía la lista de objetos a añadir
+	 */
+	public void vaciarAAnadir() {
+		a_anadir = new LinkedList<GameObject>();
+	}
+	
+	/**
+	 * Vacía la lista de objetos a borrar
+	 */
+	public void vaciarABorrar() {
+		a_borrar = new LinkedList<GameObject>();
+	}
+	
+	
 }

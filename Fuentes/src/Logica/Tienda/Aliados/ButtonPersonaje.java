@@ -16,6 +16,7 @@ public abstract class ButtonPersonaje extends JButton {
 	protected Objeto objeto;
 	protected Nivel nivel;
 	protected static final int POS_CREACION_X = -200;
+	protected static final int POS_CREACION_Y = -400;
 	
 	protected ButtonPersonaje(String texto, String url, Nivel n) {
 		super(texto, new ImageIcon(url));

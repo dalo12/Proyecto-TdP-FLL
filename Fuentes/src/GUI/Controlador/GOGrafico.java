@@ -3,7 +3,7 @@ package GUI.Controlador;
 import javax.swing.JLabel;
 
 //<<<<<<< HEAD
-import GUI.Mapa.PanelMapa;
+import GUI.Mapa.MapaGrafico;
 //=======
 //>>>>>>> d31a5ad05fd86de7e93babbeb83f6421542faed1
 
@@ -30,7 +30,7 @@ public class GOGrafico {
 	protected int cord_x;
 	protected int cord_y;
 	protected JLabel label;
-	
+	protected MapaGrafico mapa;
 	
 	/**
 	 * Constructor
@@ -42,7 +42,7 @@ public class GOGrafico {
 	 * @param mapa Mapa donde se mostrará el label
 	 */
 //<<<<<<< HEAD
-	public GOGrafico(int x, int y, int tamaño_x, int tamaño_y, String[] text, PanelMapa mapa) {
+	public GOGrafico(int x, int y, int tamaño_x, int tamaño_y, String[] text, MapaGrafico mapa) {
 //=======
 	//public GOGrafico(int x, int y, String[] text, LabelTablero mapa) {
 //>>>>>>> d31a5ad05fd86de7e93babbeb83f6421542faed1
@@ -58,7 +58,9 @@ public class GOGrafico {
 		cord_x = x;
 		cord_y = y;
 		
-		mapa.getTablero().add(label);
+		//mapa.getTablero().add(label);
+		this.mapa = mapa;
+		this.mapa.add(label);
 		label.setBounds(x, y, ANCHO*tamaño_x, ALTO*tamaño_y);
 	}
 	
@@ -96,6 +98,8 @@ public class GOGrafico {
 	 */
 	public void morir() {
 		label.setIcon(texturas[4]);
+		for(int i=0; i<1000; i++); //para esperar
+		mapa.remove(label);
 	}
 	
 	/**

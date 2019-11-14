@@ -99,7 +99,7 @@ public abstract class GameObject {
 	 * @param o Objeto con el cual interactuar.
 	 */
 	public void interactuar(GameObject o) {
-		o.accept(visitor);
+		//o.accept(visitor);
 	}
 	
 	/**
@@ -111,9 +111,10 @@ public abstract class GameObject {
 	/**
 	 * Elimina este objeto de la lista de entidades del juego.
 	 */
+	//No es lo mismo que morir()
 	public void finalizar() {
-		nivel.getListaEntidades().remove(this);
-		// TODO debe eliminar su label
+		nivel.eliminarObjeto(this);
+		grafica.morir();
 	}
 
 	/**
@@ -139,8 +140,8 @@ public abstract class GameObject {
 		boolean a_retornar = false;
 		
 		Rectangle rthis = new Rectangle(this.posicionX, this.posicionY, this.grafica.getLabel().getWidth(), this.grafica.getLabel().getHeight());
-		Rectangle ro = new Rectangle(o.posicionX, o.posicionY, o.getGrafica().getLabel().getWidth(), o.getGrafica().getLabel().getHeight());
-		if(rthis.intersects(ro) && (o.getGrafica().getLabel().getX() < this.grafica.getLabel().getX())) {// && (this.grafica.getLabel().getX() + this.grafica.getLabel().getSize().width) == o.getGrafica().getLabel().getSize().height ) {
+		Rectangle ro = new Rectangle(o.getPosicionX(), o.getPosicionY(), o.getGrafica().getLabel().getWidth(), o.getGrafica().getLabel().getHeight());
+		if(rthis.intersects(ro) && (o.getPosicionX() < this.posicionX)) {// && (this.grafica.getLabel().getX() + this.grafica.getLabel().getSize().width) == o.getGrafica().getLabel().getSize().height ) {
 			a_retornar = true;
 		}
 			
@@ -156,4 +157,9 @@ public abstract class GameObject {
 	public void setNivel(Nivel nivel) {
 		this.nivel = nivel;
 	}
+	
+	/**
+	 * Método que se invoca cuando el objeto muere
+	 */
+	public void morir() {}
 }

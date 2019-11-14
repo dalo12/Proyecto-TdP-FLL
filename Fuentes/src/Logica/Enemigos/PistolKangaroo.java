@@ -33,7 +33,7 @@ public class PistolKangaroo extends Enemigo {
 		
 		//atributos lógicos
 		this.maxMonedas = 50;
-		this.velocidad = 25;
+		this.velocidad = 7;
 		this.velocidadAtaque = 5;
 		this.vida = 120;		
 		this.alcanceAtaque = 3;
@@ -42,7 +42,7 @@ public class PistolKangaroo extends Enemigo {
 		
 		visitor = new ConcreteVisitorEnemigo(this, fuerzaAtaque);
 		
-		n.getListaEntidades().add(this);
+		n.insertarObjeto(this);
 		
 	}
 
