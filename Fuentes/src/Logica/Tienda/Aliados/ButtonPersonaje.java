@@ -8,12 +8,12 @@ import Logica.General.Aliado;
 import Logica.General.GameObject;
 import Logica.General.Nivel;
 import Logica.General.Objeto;
+import Logica.Tienda.EntidadComprable;
 
 @SuppressWarnings("serial")
 public abstract class ButtonPersonaje extends JButton {
 	//Atributo de instancia
-	protected Aliado personaje;
-	protected Objeto objeto;
+	protected EntidadComprable entidad;
 	protected Nivel nivel;
 	protected static final int POS_CREACION_X = -200;
 	protected static final int POS_CREACION_Y = -400;

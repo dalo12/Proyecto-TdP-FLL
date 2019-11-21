@@ -17,22 +17,25 @@ public class ButtonPistolSoldier extends ButtonPersonaje {
 	 */
 	public ButtonPistolSoldier(Nivel n) {
 		super(descripcion, urlImg1, n);
-		personaje = new PistolSoldier(POS_CREACION_X, POS_CREACION_Y, n);
+		entidad = new PistolSoldier(POS_CREACION_X, POS_CREACION_Y, n);
+		int precio = entidad.getPrecio();
+		entidad.morir();
+		
 		this.addActionListener(new ActionListener(){
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				//Al hacer click en este botón, se crea un nuevo objeto.
-				personaje = new PistolSoldier(POS_CREACION_X, POS_CREACION_Y, n);
+				entidad = new PistolSoldier(POS_CREACION_X, POS_CREACION_Y, n);
 			}
 			
 		});
 		
-		this.setText("<html><p> Pistol Soldier <br/> $" + personaje.getPrecio() + " </p></html>");
+		this.setText("<html><p> Pistol Soldier <br/> $" + precio + " </p></html>");
 	}
 	
 	@Override
 	public GameObject crearObjeto() {
-		return personaje;
+		return (GameObject) entidad;
 	}
 }

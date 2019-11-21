@@ -7,13 +7,14 @@ import java.awt.event.MouseEvent;
 import javax.swing.JOptionPane;
 
 import Logica.General.Visitors.Visitor;
+import Logica.Tienda.EntidadComprable;
 
 /**
  * Modela todos los aliados (es decir, los personajes elegibles por el jugador) del juego.
  * @author Comisión 25 (FERRANTE, LATOUQUETTE, LÓPEZ)
  * @version 1.0
  */
-public abstract class Aliado extends Personaje {
+public abstract class Aliado extends Personaje implements EntidadComprable{
 	//Atributos de instancia
 	protected int precio;
 	protected int vidaMaxima;

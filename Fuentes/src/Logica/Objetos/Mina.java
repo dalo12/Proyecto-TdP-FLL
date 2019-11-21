@@ -6,14 +6,16 @@ import javax.swing.JLabel;
 import GUI.Controlador.GOGrafico;
 import Logica.General.Nivel;
 import Logica.General.Visitors.ConcreteVisitorObjeto;
+import Logica.Tienda.EntidadComprable;
 
 /**
  * Modela la mina (objeto de mapa).
  * @author Comisión 25 (FERRANTE, LATOUQUETTE, LÓPEZ)
  * @version 1.0
  */
-public class Mina extends ObjetoTemporal {
-
+public class Mina extends ObjetoTemporal implements EntidadComprable{
+	protected int precio;
+	
 	/**
 	 * Constructor
 	 * @param x Coordenada x donde está el objeto
@@ -40,6 +42,11 @@ public class Mina extends ObjetoTemporal {
 		
 		visitor = new ConcreteVisitorObjeto(this, y, "", "", y); // TODO verificar si el visitor es correcto
 		
+	}
+	
+	@Override
+	public int getPrecio() {
+		return this.precio;
 	}
 	
 }

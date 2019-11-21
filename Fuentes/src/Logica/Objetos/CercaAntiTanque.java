@@ -7,13 +7,16 @@ import GUI.Controlador.GOGrafico;
 import Logica.General.Nivel;
 import Logica.General.Objeto;
 import Logica.General.Visitors.ConcreteVisitorObjeto;
+import Logica.Tienda.EntidadComprable;
 
 /**
  * Modela a la cerca antitanque.
  * @author Comisión 25 (FERRANTE, LATOUQUETTE, LÓPEZ)
  * @version 1.0
  */
-public class CercaAntiTanque extends Objeto {
+public class CercaAntiTanque extends Objeto  implements EntidadComprable{
+	protected int precio;
+	
 	/**
 	 * Constructor
 	 * @param x Posición x en el mapa
@@ -40,6 +43,11 @@ public class CercaAntiTanque extends Objeto {
 		
 		visitor = new ConcreteVisitorObjeto(this, y, "", "", y); // TODO verificar si el visitor es correcto
 		
+	}
+	
+	@Override
+	public int getPrecio() {
+		return this.precio;
 	}
 
 }

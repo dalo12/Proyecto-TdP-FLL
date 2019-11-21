@@ -18,23 +18,25 @@ public class ButtonAllterrainMachinegun extends ButtonPersonaje {
 	 */
 	public ButtonAllterrainMachinegun(Nivel n) {
 		super(descripcion, urlImg1, n);
-		personaje = new AllterrainMachinegun(POS_CREACION_X, POS_CREACION_Y, n);
+		entidad = new AllterrainMachinegun(POS_CREACION_X, POS_CREACION_Y, n);
+		int precio = entidad.getPrecio();
+		entidad.morir();
 		
 		this.addActionListener(new ActionListener(){
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				//Al hacer click en este botón, se crea un nuevo objeto.
-				personaje = new AllterrainMachinegun(POS_CREACION_X, POS_CREACION_Y, n);
+				entidad = new AllterrainMachinegun(POS_CREACION_X, POS_CREACION_Y, n);
 			}
 			
 		});
 		
-		this.setText("<html><p> Allterrain Machinegun <br/> $" + personaje.getPrecio() + " </p></html>");
+		this.setText("<html><p> Allterrain Machinegun <br/> $" + precio + " </p></html>");
 	}
 	
 	@Override
 	public GameObject crearObjeto() {
-		return personaje;
+		return (GameObject) entidad;
 	}
 }

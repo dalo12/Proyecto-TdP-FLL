@@ -4,13 +4,15 @@ import GUI.Controlador.GOGrafico;
 import Logica.General.Nivel;
 import Logica.General.Objeto;
 import Logica.General.Visitors.ConcreteVisitorObjeto;
+import Logica.Tienda.EntidadComprable;
 
 /**
  * Modela a la barricada.
  * @author Comisión 25 (FERRANTE, LATOUQUETTE, LÓPEZ)
  * @version 1.0
  */
-public class Barricada extends Objeto {
+public class Barricada extends Objeto implements EntidadComprable {
+	protected int precio;
 	
 	/**
 	 * Constructor
@@ -38,6 +40,11 @@ public class Barricada extends Objeto {
 		
 		visitor = new ConcreteVisitorObjeto(this, y, "", "", y); // TODO verificar si el visitor es correcto
 		
+	}
+	
+	@Override
+	public int getPrecio() {
+		return this.precio;
 	}
 
 }

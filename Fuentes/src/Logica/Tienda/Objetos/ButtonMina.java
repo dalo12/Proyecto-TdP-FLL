@@ -18,22 +18,25 @@ public class ButtonMina extends ButtonPersonaje {
 	 */
 	public ButtonMina(Nivel n) {
 		super(descripcion, urlImg1, n);
-		objeto = new Mina(POS_CREACION_X, 0, n);
+		entidad = new Mina(POS_CREACION_X, 0, n);
+		int precio = entidad.getPrecio();
+		entidad.morir();
+		
 		this.addActionListener(new ActionListener(){
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				//Al hacer click en este botón, se crea un nuevo objeto.
-				objeto = new Mina(POS_CREACION_X, 0, n);
+				entidad = new Mina(POS_CREACION_X, 0, n);
 			}
 			
 		});
 		
-		this.setText("<html><p> Mina <br/> $" + objeto.getPrecio() + " </p></html>");
+		this.setText("<html><p> Mina <br/> $" + precio + " </p></html>");
 	}
 	
 	@Override
 	public GameObject crearObjeto() {
-		return objeto;
+		return (GameObject) entidad;
 	}
 }
