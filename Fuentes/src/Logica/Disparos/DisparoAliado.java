@@ -81,6 +81,7 @@ public class DisparoAliado extends Disparo {
 				System.out.println("r_yo: ( " + r_yo.getX() + " , " + r_yo.getY() + " )");
 				System.out.println("r_g: ( " + r_g.getX() + " , " + r_g.getY() + " )");
 				g.accept(new ConcreteVisitorDisparoAliado(this));
+				break;
 			}
 			
 		}

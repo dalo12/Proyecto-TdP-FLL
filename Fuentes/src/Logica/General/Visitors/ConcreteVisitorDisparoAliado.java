@@ -21,6 +21,7 @@ public class ConcreteVisitorDisparoAliado extends Visitor {
 	@Override
 	public void visitEnemigo(Enemigo enemigo) {
 		enemigo.setVida(enemigo.getVida() - gameObject.getDano());
+		enemigo.morir();
 		gameObject.morir();
 		System.out.println("Visito un enemigo");
 	}
