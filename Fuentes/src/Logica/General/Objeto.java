@@ -43,8 +43,14 @@ public abstract class Objeto extends GameObject {
 
 	@Override
 	public void accionar() {
-		// TODO Auto-generated method stub
-		
+		if(this.vida <= 0) {
+			this.morir();
+		}
+	}
+	
+	@Override
+	public void morir() {
+		this.nivel.getABorrar().add(this);
 	}
 	
 }

@@ -27,9 +27,8 @@ public class Piedra extends Objeto {
 		this.tamanoY = 1;
 		
 		String [] texturas = new String[5];
-		texturas[0] = "../Texturas/Personajes/kangaroo/kangaroo-0.png";
-		texturas[2] = "../Texturas/Personajes/pistol-soldier/pistol-soldier-1.gif";
-		texturas[1] = texturas[3] = texturas[4] = texturas[2];
+		texturas[0] = "../Texturas/Objetos/rock/rock.png";
+		texturas[1] = texturas[2] = texturas[3] = texturas[4] = texturas[0];
 		this.grafica = new GOGrafico(x, y,tamanoX, tamanoY, texturas, n.getMapa());
 		
 		//atributos lógicos

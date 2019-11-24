@@ -38,8 +38,10 @@ public abstract class ObjetoTemporal extends Objeto {
 	
 	@Override
 	public void accionar() {
-		// TODO Auto-generated method stub
-		
+		duracion--;
+		if(duracion <= 0) {
+			this.morir();
+		}
 	}
 
 }

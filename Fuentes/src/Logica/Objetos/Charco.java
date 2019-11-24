@@ -29,14 +29,12 @@ public class Charco extends ObjetoTemporal {
 		this.tamanoY = 1;		
 		
 		String [] texturas = new String[5];
-		texturas[0] = "../Texturas/Personajes/kangaroo/kangaroo-0.png";
-		texturas[2] = "../Texturas/Personajes/pistol-soldier/pistol-soldier-1.gif";
-		texturas[1] = texturas[3] = texturas[4] = texturas[2];
+		texturas[0] = "../Texturas/Objetos/puddle/puddle.png";
+		texturas[1] = texturas[2] = texturas[3] = texturas[4] = texturas[0];
 		this.grafica = new GOGrafico(x, y, tamanoX, tamanoY, texturas, n.getMapa());
 		
 		//atributos lógicos
 		this.duracion = 30;
-		this.precio = 0;
 		
 		visitor = new ConcreteVisitorObjeto(this, y, "", "", y); // TODO verificar si el visitor es correcto
 		
