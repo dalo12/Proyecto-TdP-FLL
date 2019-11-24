@@ -1,5 +1,6 @@
 package Logica.Aliados;
 
+import GUI.Component_Custom.ImageIcon.Aliados.TexturaSniperSoldier;
 import GUI.Controlador.GOGrafico;
 import Logica.Disparos.DisparoAliado;
 import Logica.General.Aliado;
@@ -27,12 +28,8 @@ public class SniperSoldier extends Aliado {
 		this.posicionX = x;
 		this.posicionY = y;
 		
-		String [] texturas = new String[5];
-		texturas[0] = "../Texturas/Personajes/sniper-soldier/sniper-soldier-0.png";
-		texturas[1] = "../Texturas/Personajes/sniper-soldier/sniper-soldier-1.gif";
-		texturas[2] = texturas[3] = texturas[1];
-		texturas[4] = "../Texturas/Personajes/sniper-soldier/sniper-soldier-4.gif";
-		this.grafica = new GOGrafico(x, y, tamanoX, tamanoY, texturas, n.getMapa());
+		//Grafico de GOGrafico
+		this.grafica = new GOGrafico(x, y, tamanoX, tamanoY, new TexturaSniperSoldier(), n.getMapa());
 		this.grafica.getLabel().addMouseListener(new AliadoVenta(this));
 		
 		//atributos lógicos
@@ -60,7 +57,7 @@ public class SniperSoldier extends Aliado {
 		if(dentro_de_alcance && no_esta_detras) {
 			if(contador_tiempo == 0) {
 				grafica.atacar();
-				new DisparoAliado(posicionX, posicionY, alcanceAtaque * grafica.getLabel().getWidth(), fuerzaAtaque, 25,  nivel);
+				new DisparoAliado(posicionX+10, posicionY+5, alcanceAtaque * grafica.getLabel().getWidth(), fuerzaAtaque, 25,  nivel);
 				contador_tiempo = velocidadAtaque * 10;
 			}else {
 				grafica.quieto();

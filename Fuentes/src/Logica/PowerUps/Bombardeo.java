@@ -1,10 +1,10 @@
 package Logica.PowerUps;
 
+import GUI.Component_Custom.ImageIcon.PowerUps.TexturaBombardeo;
 import GUI.Controlador.GOGrafico;
 import Logica.General.Enemigo;
 import Logica.General.Nivel;
 import Logica.General.Premio;
-import Logica.General.Visitors.ConcreteVisitorEnemigo;
 import Logica.General.Visitors.ConcreteVisitorPremio;
 
 /**
@@ -21,12 +21,9 @@ public class Bombardeo extends Premio {
 		this.posicionY = y;
 		this.tamanoX = 1;
 		this.tamanoY = 1;
-		
-		String [] texturas = new String[5];
-		texturas[0] = "../Texturas/Personajes/kangaroo/kangaroo-0.png";
-		texturas[1] = "../Texturas/Personajes/kangaroo/kangaroo-1.gif";
-		texturas[2] = texturas[3] = texturas[4] = texturas[1];
-		this.grafica = new GOGrafico(x, y, tamanoX, tamanoY, texturas, n.getMapa());
+
+		//Grafico de GOGrafico
+		this.grafica = new GOGrafico(x, y, tamanoX, tamanoY, new TexturaBombardeo(), n.getMapa());
 		
 		//atributos lógicos
 		duracionEnMapa = 10;

@@ -1,5 +1,6 @@
 package Logica.Aliados;
 
+import GUI.Component_Custom.ImageIcon.Aliados.TexturaAllterrainMachinegun;
 import GUI.Controlador.GOGrafico;
 import Logica.General.Aliado;
 import Logica.General.Nivel;
@@ -10,8 +11,7 @@ import Logica.General.Visitors.ConcreteVisitorAliado;
  * @author Comisión 25 (FERRANTE, LATOUQUETTE, LÓPEZ)
  * @version 1.0
  */
-public class AllterrainMachinegun extends Aliado {
-	
+public class AllterrainMachinegun extends Aliado {	
 	/**
 	 * Constructor
 	 * @param x Posición en el eje x del aliado
@@ -24,12 +24,8 @@ public class AllterrainMachinegun extends Aliado {
 		this.tamanoY = 2;
 		this.posicionX = x;
 		this.posicionY = y;
-		
-		String [] texturas = new String[5];
-		texturas[0] = "../Texturas/Personajes/allterrain-machinegun/allterrain-machinegun-0.png";
-		texturas[2] = texturas[3] = texturas[1] = texturas[0];
-		texturas[4] = "../Texturas/Personajes/allterrain-machinegun/allterrain-machinegun-4.gif";
-		this.grafica = new GOGrafico(x, y, tamanoX, tamanoY, texturas, n.getMapa());
+		//Grafico de GOGrafico
+		this.grafica = new GOGrafico(x, y, tamanoX, tamanoY, new TexturaAllterrainMachinegun(), n.getMapa());
 		this.grafica.getLabel().addMouseListener(new AliadoVenta(this));
 		
 		//atributos lógicos

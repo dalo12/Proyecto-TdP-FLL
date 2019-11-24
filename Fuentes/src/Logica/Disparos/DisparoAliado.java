@@ -5,6 +5,7 @@ package Logica.Disparos;
 
 import java.awt.Rectangle;
 
+import GUI.Component_Custom.ImageIcon.Disparos.TexturaDisparoAliado;
 import GUI.Controlador.GOGrafico;
 import Logica.General.Disparo;
 import Logica.General.GameObject;
@@ -30,12 +31,9 @@ public class DisparoAliado extends Disparo {
 	 */
 	public DisparoAliado(int x, int y, int alcance, int dano, int velocidad, Nivel n) {
 		super(x, y, alcance, dano, velocidad, n);
-				
-		//Creación de la gráfica
-		String texturas[] = new String[5];
-		texturas[0] = "../Texturas/Personajes/disparo/standar-shoot.png";
-		texturas[1] = texturas[2] = texturas[3] = texturas[4] = texturas[0];
-		this.grafica = new GOGrafico(x, y, 7, 7, texturas, n.getMapa());
+		
+		//Grafico de GOGrafico
+		this.grafica = new GOGrafico(x, y, 7, 7, new TexturaDisparoAliado(), n.getMapa());
 		
 		//Agrego el disparo a la lista de entidades
 		nivel = n;

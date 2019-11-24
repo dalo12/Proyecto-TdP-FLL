@@ -1,5 +1,6 @@
 package Logica.Aliados;
 
+import GUI.Component_Custom.ImageIcon.Aliados.TexturaBazookaSoldier;
 import GUI.Controlador.GOGrafico;
 import Logica.General.Aliado;
 import Logica.General.Nivel;
@@ -24,13 +25,8 @@ public class BazookaSoldier extends Aliado {
 		this.tamanoY = 1;
 		this.posicionX = x;
 		this.posicionY = y;
-		
-		String [] texturas = new String[5];
-		texturas[0] = "../Texturas/Personajes/bazooka-soldier/bazooka-soldier-0.png";
-		texturas[1] = "../Texturas/Personajes/bazooka-soldier/bazooka-soldier-1.gif";
-		texturas[2] = texturas[3] = texturas[1];
-		texturas[4] = "../Texturas/Personajes/bazooka-soldier/bazooka-soldier-4.gif";
-		this.grafica = new GOGrafico(x, y, tamanoX, tamanoY, texturas, n.getMapa());
+		//Grafico de GOGrafico
+		this.grafica = new GOGrafico(x, y, tamanoX, tamanoY, new TexturaBazookaSoldier(), n.getMapa());
 		this.grafica.getLabel().addMouseListener(new AliadoVenta(this));
 		
 		//atributos lógicos

@@ -1,8 +1,6 @@
 package Logica.Objetos;
 
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-
+import GUI.Component_Custom.ImageIcon.Objetos.TexturaBomba;
 import GUI.Controlador.GOGrafico;
 import Logica.General.Nivel;
 import Logica.General.Visitors.ConcreteVisitorObjeto;
@@ -29,12 +27,9 @@ public class Bomba extends ObjetoTemporal implements EntidadComprable{
 		this.posicionY = y;
 		this.tamanoX = 1;
 		this.tamanoY = 1;
-		
-		String [] texturas = new String[5];
-		texturas[0] = "../Texturas/Personajes/kangaroo/kangaroo-0.png";
-		texturas[2] = "../Texturas/Personajes/pistol-soldier/pistol-soldier-1.gif";
-		texturas[1] = texturas[3] = texturas[4] = texturas[2];
-		this.grafica = new GOGrafico(x, y, tamanoX, tamanoY, texturas, n.getMapa());
+
+		//Grafico de GOGrafico
+		this.grafica = new GOGrafico(x, y, tamanoX, tamanoY, new TexturaBomba(), n.getMapa());
 		
 		//atributos lógicos
 		this.duracion = 30;
