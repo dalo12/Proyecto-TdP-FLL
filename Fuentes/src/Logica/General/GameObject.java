@@ -139,12 +139,13 @@ public abstract class GameObject {
 	public boolean chocan(GameObject o) {
 		boolean a_retornar = false;
 		
-		Rectangle rthis = new Rectangle(this.posicionX, this.posicionY, this.grafica.getLabel().getWidth(), this.grafica.getLabel().getHeight());
-		Rectangle ro = new Rectangle(o.getPosicionX(), o.getPosicionY(), o.getGrafica().getLabel().getWidth(), o.getGrafica().getLabel().getHeight());
-		if(rthis.intersects(ro) && (o.getPosicionX() < this.posicionX)) {// && (this.grafica.getLabel().getX() + this.grafica.getLabel().getSize().width) == o.getGrafica().getLabel().getSize().height ) {
-			a_retornar = true;
-		}
-			
+		if (o!=null) {
+			Rectangle rthis = new Rectangle(this.posicionX, this.posicionY, this.grafica.getLabel().getWidth(), this.grafica.getLabel().getHeight());
+			Rectangle ro = new Rectangle(o.getPosicionX(), o.getPosicionY(), o.getGrafica().getLabel().getWidth(), o.getGrafica().getLabel().getHeight());
+			if(rthis.intersects(ro) && (o.getPosicionX() < this.posicionX)) {
+				a_retornar = true;
+			}
+		}	
 			
 		return a_retornar;
 	} //Este metodo no es necesario, se resuelve con visitor.

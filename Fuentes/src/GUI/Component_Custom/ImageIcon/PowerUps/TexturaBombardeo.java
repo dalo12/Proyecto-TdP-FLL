@@ -9,11 +9,11 @@ public class TexturaBombardeo extends TexturaGameObject {
 	 * Constructor de TexturaBombardeo
 	 */
 	public TexturaBombardeo(){
-		this.objeto_quieto = new ImageIcon("../Texturas/Personajes/allterrain-machinegun/allterrain-machinegun-0.png");
-		this.objeto_atacando = new ImageIcon("../Texturas/Personajes/allterrain-machinegun/allterrain-machinegun-0.png");
-		this.objeto_avanzando = new ImageIcon("../Texturas/Personajes/allterrain-machinegun/allterrain-machinegun-0.png");
-		this.objeto_atacado = new ImageIcon("../Texturas/Personajes/allterrain-machinegun/allterrain-machinegun-0.png");
-		this.objeto_muriendo = new ImageIcon("../Texturas/Personajes/allterrain-machinegun/allterrain-machinegun-4.png");
+		this.objeto_quieto = new ImageIcon(TexturaBombardeo.class.getResource("/Recursos/Personajes/kangaroo/kangaroo-0.png"));
+		this.objeto_atacando = new ImageIcon(TexturaBombardeo.class.getResource("/Recursos/Personajes/kangaroo/kangaroo-0.png"));
+		this.objeto_atacado = new ImageIcon(TexturaBombardeo.class.getResource("/Recursos/Personajes/kangaroo/kangaroo-0.png"));
+		this.objeto_avanzando = new ImageIcon(TexturaBombardeo.class.getResource("/Recursos/Personajes/kangaroo/kangaroo-0.png"));
+		this.objeto_muriendo = new ImageIcon(TexturaBombardeo.class.getResource("/Recursos/Personajes/kangaroo/kangaroo-0.png"));
 	}
 	
 }

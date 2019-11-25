@@ -28,13 +28,13 @@ public class GOGrafico {
 	 * @param text Arreglo de con las direcciones de las texturas
 	 * @param mapa Mapa donde se mostrará el label
 	 */
-	public GOGrafico(int x, int y, int tamaño_x, int tamaño_y, TexturaGameObject textura, MapaGrafico mapa) {
+	public GOGrafico(int x, int y, int tamaño_x, int tamaño_y, TexturaGameObject textura, MapaGrafico mapa) {		
 		label = new JLabel();
-		label.setIcon(textura.getTexturaQuieto());		
+		label.setIcon(textura.getTexturaQuieto());
 		
 		cord_x = x;
 		cord_y = y;
-		
+		this.textura = textura;
 		//mapa.getTablero().add(label);
 		this.mapa = mapa;
 		this.mapa.add(label);

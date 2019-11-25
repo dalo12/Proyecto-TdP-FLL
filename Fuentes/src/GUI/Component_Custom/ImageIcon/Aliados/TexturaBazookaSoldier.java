@@ -9,11 +9,11 @@ public class TexturaBazookaSoldier extends TexturaGameObject {
 	 * Constructor de TexturaAllterrainMachinegun
 	 */
 	public TexturaBazookaSoldier(){
-		this.objeto_quieto = new ImageIcon("../Texturas/Personajes/bazooka-soldier/bazooka-soldier-0.png");
-		this.objeto_atacando = new ImageIcon("../Texturas/Personajes/bazooka-soldier/bazooka-soldier-1.png");
-		this.objeto_atacado = new ImageIcon("../Texturas/Personajes/bazooka-soldier/bazooka-soldier-2.png");
-		this.objeto_avanzando = new ImageIcon("../Texturas/Personajes/bazooka-soldier/bazooka-soldier-3.png");
-		this.objeto_muriendo = new ImageIcon("../Texturas/Personajes/bazooka-soldier/bazooka-soldier-4.png");
+		this.objeto_quieto = new ImageIcon(TexturaBazookaSoldier.class.getResource("/Recursos/Personajes/bazooka-soldier/bazooka-soldier-0.png"));
+		this.objeto_atacando = new ImageIcon(TexturaBazookaSoldier.class.getResource("/Recursos/Personajes/bazooka-soldier/bazooka-soldier-0.png"));
+		this.objeto_atacado = new ImageIcon(TexturaBazookaSoldier.class.getResource("/Recursos/Personajes/bazooka-soldier/bazooka-soldier-0.png"));
+		this.objeto_avanzando = new ImageIcon(TexturaBazookaSoldier.class.getResource("/Recursos/Personajes/bazooka-soldier/bazooka-soldier-0.png"));
+		this.objeto_muriendo = new ImageIcon(TexturaBazookaSoldier.class.getResource("/Recursos/Personajes/bazooka-soldier/bazooka-soldier-4.gif"));
 	}
 	
 }

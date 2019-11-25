@@ -9,11 +9,11 @@ public class TexturaCharco extends TexturaGameObject {
 	 * Constructor de TexturaCharco
 	 */
 	public TexturaCharco(){
-		this.objeto_quieto = new ImageIcon("../Texturas/Personajes/bazooka-soldier/bazooka-soldier-0.png");
-		this.objeto_atacando = new ImageIcon("../Texturas/Personajes/bazooka-soldier/bazooka-soldier-1.png");
-		this.objeto_atacado = new ImageIcon("../Texturas/Personajes/bazooka-soldier/bazooka-soldier-2.png");
-		this.objeto_avanzando = new ImageIcon("../Texturas/Personajes/bazooka-soldier/bazooka-soldier-3.png");
-		this.objeto_muriendo = new ImageIcon("../Texturas/Personajes/bazooka-soldier/bazooka-soldier-4.png");
+		this.objeto_quieto = new ImageIcon(TexturaCharco.class.getResource("/Recursos/Personajes/kangaroo/kangaroo-0.png"));
+		this.objeto_atacando = new ImageIcon(TexturaCharco.class.getResource("/Recursos/Personajes/kangaroo/kangaroo-0.png"));
+		this.objeto_atacado = new ImageIcon(TexturaCharco.class.getResource("/Recursos/Personajes/kangaroo/kangaroo-0.png"));
+		this.objeto_avanzando = new ImageIcon(TexturaCharco.class.getResource("/Recursos/Personajes/kangaroo/kangaroo-0.png"));
+		this.objeto_muriendo = new ImageIcon(TexturaCharco.class.getResource("/Recursos/Personajes/kangaroo/kangaroo-0.png"));
 	}
 	
 }

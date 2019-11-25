@@ -9,7 +9,7 @@ public class TexturaDisparoEnemigo extends TexturaGameObject {
 	 * Constructor de TexturaDisparoEnemigo
 	 */
 	public TexturaDisparoEnemigo(){
-		this.objeto_quieto = new ImageIcon("../Texturas/Personajes/disparo/standar-shoot.png");
+		this.objeto_quieto = new ImageIcon(TexturaDisparoEnemigo.class.getResource("/Recursos/Personajes/disparo/standar-shoot.png"));
 		this.objeto_atacando = objeto_quieto;
 		this.objeto_avanzando = objeto_quieto;
 		this.objeto_atacado = objeto_quieto;

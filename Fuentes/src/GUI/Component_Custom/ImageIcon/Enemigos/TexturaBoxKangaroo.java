@@ -9,11 +9,11 @@ public class TexturaBoxKangaroo extends TexturaGameObject {
 	 * Constructor de TexturaBoxKangaroo
 	 */
 	public TexturaBoxKangaroo(){
-		this.objeto_quieto = new ImageIcon("../Texturas/Personajes/box-kangaroo/box-kangaroo-0.png");
-		this.objeto_atacando = new ImageIcon("../Texturas/Personajes/box-kangaroo/box-kangaroo-3.png");
-		this.objeto_avanzando = new ImageIcon("../Texturas/Personajes/box-kangaroo/box-kangaroo-3.png");
-		this.objeto_atacado = new ImageIcon("../Texturas/Personajes/box-kangaroo/box-kangaroo-3.png");
-		this.objeto_muriendo = new ImageIcon("../Texturas/Personajes/box-kangaroo/box-kangaroo-4.png");
+		this.objeto_quieto = new ImageIcon(TexturaBoxKangaroo.class.getResource("/Recursos/Personajes/box-kangaroo/box-kangaroo-1.png"));
+		this.objeto_atacando = new ImageIcon(TexturaBoxKangaroo.class.getResource("/Recursos/Personajes/box-kangaroo/box-kangaroo-1.png"));
+		this.objeto_avanzando = new ImageIcon(TexturaBoxKangaroo.class.getResource("/Recursos/Personajes/box-kangaroo/box-kangaroo-1.png"));
+		this.objeto_atacado = new ImageIcon(TexturaBoxKangaroo.class.getResource("/Recursos/Personajes/box-kangaroo/box-kangaroo-1.png"));
+		this.objeto_muriendo = new ImageIcon(TexturaBoxKangaroo.class.getResource("/Recursos/Personajes/box-kangaroo/box-kangaroo4.png"));
 	}
 	
 }
