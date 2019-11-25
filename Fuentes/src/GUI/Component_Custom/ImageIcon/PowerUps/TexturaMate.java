@@ -10,10 +10,10 @@ public class TexturaMate extends TexturaGameObject {
 	 * Constructor de TexturaMate
 	 */
 	public TexturaMate(){
-		this.objeto_quieto = new ImageIcon(TexturaMate.class.getResource("/Recursos/Personajes/kangaroo/kangaroo-0.png"));
-		this.objeto_atacando = new ImageIcon(TexturaMate.class.getResource("/Recursos/Personajes/kangaroo/kangaroo-0.png"));
-		this.objeto_atacado = new ImageIcon(TexturaMate.class.getResource("/Recursos/Personajes/kangaroo/kangaroo-0.png"));
-		this.objeto_avanzando = new ImageIcon(TexturaMate.class.getResource("/Recursos/Personajes/kangaroo/kangaroo-0.png"));
-		this.objeto_muriendo = new ImageIcon(TexturaMate.class.getResource("/Recursos/Personajes/kangaroo/kangaroo-0.png"));
+		this.objeto_quieto = new ImageIcon(TexturaMate.class.getResource("/Recursos/PowerUps/mate.gif"));
+		this.objeto_atacando = new ImageIcon(TexturaMate.class.getResource("/Recursos/PowerUps/mate.gif"));
+		this.objeto_atacado = new ImageIcon(TexturaMate.class.getResource("/Recursos/PowerUps/mate.gif"));
+		this.objeto_avanzando = new ImageIcon(TexturaMate.class.getResource("/Recursos/PowerUps/mate.gif"));
+		this.objeto_muriendo = new ImageIcon(TexturaMate.class.getResource("/Recursos/PowerUps/mate.gif"));
 	}
 }

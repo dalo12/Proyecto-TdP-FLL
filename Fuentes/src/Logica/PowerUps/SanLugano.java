@@ -1,11 +1,16 @@
 package Logica.PowerUps;
 
+import java.awt.Color;
+import java.util.LinkedList;
+
 import GUI.Component_Custom.ImageIcon.PowerUps.TexturaSanLugano;
 import GUI.Controlador.GOGrafico.GOGrafico;
 import Logica.General.Enemigo;
+import Logica.General.GameObject;
 import Logica.General.Nivel;
 import Logica.General.Premio;
-import Logica.General.Visitors.ConcreteVisitorPremio;
+import Logica.General.Visitors.VisitorsPremios.VisitorSanLugano;
+import Logica.General.Visitors.VisitorsPremios.VisitorSanLuganoRetirar;
 
 /**
  * Modela el powerup 'SanLugano'
@@ -28,17 +33,39 @@ public class SanLugano extends Premio {
 		//atributos lógicos
 		duracionEnMapa = 10;
 		duracionActivo = 240;
-		activo = false;
 		
-		visitor = new ConcreteVisitorPremio(null, null, null, y);
+		visitor = new VisitorSanLugano();
+		visitor_retirar_efecto = new VisitorSanLuganoRetirar();
 		
-		n.insertarObjeto(this);
 	}
 
 	@Override
+	public void accionar() {
+		super.accionar();
+		if(activo) {
+			grafica.morir(); //para que desaparezca del mapa, pero no de la lista de entidades
+			if(!ejecutado) {
+				ejecutado = true;
+				empoderados = new LinkedList<>(nivel.getListaEntidades());
+				for(GameObject o : empoderados) {
+					o.accept(visitor);
+				}
+			}else {
+				duracionActivo--;
+			}
+		}
+		if(duracionActivo <= 0) {
+			for(GameObject o : empoderados) {
+				o.accept(visitor_retirar_efecto);
+			}
+			this.morir();
+		}
+	}
+	
+	@Override
 	protected void aplicarEfecto(Enemigo enemigo) {
-		// TODO Auto-generated method stub
-		
+		// TODO Falta inventar el efecto
+		enemigo.getGrafica().getLabel().setBackground(new Color(0, 0, 255, 50));
 	}
 
 }

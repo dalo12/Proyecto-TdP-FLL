@@ -1,11 +1,16 @@
 package Logica.PowerUps;
 
+import java.awt.Color;
+import java.util.LinkedList;
+
 import GUI.Component_Custom.ImageIcon.PowerUps.TexturaMate;
 import GUI.Controlador.GOGrafico.GOGrafico;
 import Logica.General.Enemigo;
+import Logica.General.GameObject;
 import Logica.General.Nivel;
 import Logica.General.Premio;
-import Logica.General.Visitors.ConcreteVisitorPremio;
+import Logica.General.Visitors.VisitorsPremios.VisitorMate;
+import Logica.General.Visitors.VisitorsPremios.VisitorMateRetirar;
 
 /**
  * Modela el powerup 'Mate'
@@ -28,17 +33,40 @@ public class Mate extends Premio {
 		//atributos lógicos
 		duracionEnMapa = 10;
 		duracionActivo = 120;
-		activo = false;
 		
-		visitor = new ConcreteVisitorPremio(null, null, null, y);
+		visitor = new VisitorMate();
+		visitor_retirar_efecto = new VisitorMateRetirar();
 		
-		n.insertarObjeto(this);
 	}
 
 	@Override
+	public void accionar() {
+		super.accionar();
+		if(activo) {
+			grafica.morir(); //para que desaparezca del mapa, pero no de la lista de entidades
+			if(!ejecutado) {
+				ejecutado = true;
+				empoderados = new LinkedList<>(nivel.getListaEntidades());
+				for(GameObject o : empoderados) {
+					o.accept(visitor);
+				}
+			}else {
+				duracionActivo--;
+			}
+		}
+		if(duracionActivo <= 0) {
+			for(GameObject o : empoderados) {
+				o.accept(visitor_retirar_efecto);
+			}
+			this.morir();
+		}
+	}
+	
+	@Override
 	protected void aplicarEfecto(Enemigo enemigo) {
-		// TODO Auto-generated method stub
-		
+		enemigo.setAlcance(enemigo.getAlcance() * 2);
+		enemigo.getGrafica().getLabel().setBackground(new Color(0, 255, 0, 50));
+		enemigo.getGrafica().getLabel().setOpaque(true);
 	}
 	
 }

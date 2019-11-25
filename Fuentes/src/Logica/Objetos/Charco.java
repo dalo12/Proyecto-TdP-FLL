@@ -1,11 +1,7 @@
 package Logica.Objetos;
 
 import GUI.Component_Custom.ImageIcon.Objetos.TexturaCharco;
-<<<<<<< HEAD
-import GUI.Controlador.GOGrafico;
-=======
 import GUI.Controlador.GOGrafico.GOGrafico;
->>>>>>> 7c5aa846ff90347e88a05ed548e71ac55c669a57
 import Logica.General.Nivel;
 import Logica.General.Visitors.ConcreteVisitorObjeto;
 

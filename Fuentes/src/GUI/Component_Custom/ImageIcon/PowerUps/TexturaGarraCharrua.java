@@ -10,11 +10,11 @@ public class TexturaGarraCharrua extends TexturaGameObject {
 	 * Constructor de TexturaGarraCharrua
 	 */
 	public TexturaGarraCharrua(){
-		this.objeto_quieto = new ImageIcon(TexturaGarraCharrua.class.getResource("/Recursos/Personajes/kangaroo/kangaroo-0.png"));
-		this.objeto_atacando = new ImageIcon(TexturaGarraCharrua.class.getResource("/Recursos/Personajes/kangaroo/kangaroo-0.png"));
-		this.objeto_atacado = new ImageIcon(TexturaGarraCharrua.class.getResource("/Recursos/Personajes/kangaroo/kangaroo-0.png"));
-		this.objeto_avanzando = new ImageIcon(TexturaGarraCharrua.class.getResource("/Recursos/Personajes/kangaroo/kangaroo-0.png"));
-		this.objeto_muriendo = new ImageIcon(TexturaGarraCharrua.class.getResource("/Recursos/Personajes/kangaroo/kangaroo-0.png"));
+		this.objeto_quieto = new ImageIcon(TexturaGarraCharrua.class.getResource("/Recursos/PowerUps/garra-charrua.gif"));
+		this.objeto_atacando = new ImageIcon(TexturaGarraCharrua.class.getResource("/Recursos/PowerUps/garra-charrua.gif"));
+		this.objeto_atacado = new ImageIcon(TexturaGarraCharrua.class.getResource("/Recursos/PowerUps/garra-charrua.gif"));
+		this.objeto_avanzando = new ImageIcon(TexturaGarraCharrua.class.getResource("/Recursos/PowerUps/garra-charrua.gif"));
+		this.objeto_muriendo = new ImageIcon(TexturaGarraCharrua.class.getResource("/Recursos/PowerUps/garra-charrua.gif"));
 	}
 	
 }

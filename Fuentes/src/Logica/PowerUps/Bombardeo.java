@@ -1,11 +1,7 @@
 package Logica.PowerUps;
 
 import GUI.Component_Custom.ImageIcon.PowerUps.TexturaBombardeo;
-<<<<<<< HEAD
-import GUI.Controlador.GOGrafico;
-=======
 import GUI.Controlador.GOGrafico.GOGrafico;
->>>>>>> 7c5aa846ff90347e88a05ed548e71ac55c669a57
 import Logica.General.Enemigo;
 import Logica.General.Nivel;
 import Logica.General.Premio;
@@ -46,13 +42,9 @@ public class Bombardeo extends Premio {
 		
 		visitor = new ConcreteVisitorPremio(null, null, null, y);
 		
-		n.insertarObjeto(this);
 	}
 
 	@Override
-	protected void aplicarEfecto(Enemigo enemigo) {
-		// TODO Auto-generated method stub
-		
-	}
+	protected void aplicarEfecto(Enemigo enemigo) {}	
 
 }

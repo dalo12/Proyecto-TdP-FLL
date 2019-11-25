@@ -32,13 +32,9 @@ public class Francotirador extends Premio {
 		
 		visitor = new ConcreteVisitorPremio(null, null, null, y);
 		
-		n.insertarObjeto(this);
 	}
 
 	@Override
-	protected void aplicarEfecto(Enemigo enemigo) {
-		// TODO Auto-generated method stub
-		
-	}
+	protected void aplicarEfecto(Enemigo enemigo) {}
 	
 }

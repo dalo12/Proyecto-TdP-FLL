@@ -9,11 +9,11 @@ public class TexturaFrancotirador extends TexturaGameObject {
 	 * Constructor de TexturaFrancotirador
 	 */
 	public TexturaFrancotirador(){
-		this.objeto_quieto = new ImageIcon(TexturaFrancotirador.class.getResource("/Recursos/Personajes/kangaroo/kangaroo-0.png"));
-		this.objeto_atacando = new ImageIcon(TexturaFrancotirador.class.getResource("/Recursos/Personajes/kangaroo/kangaroo-0.png"));
-		this.objeto_atacado = new ImageIcon(TexturaFrancotirador.class.getResource("/Recursos/Personajes/kangaroo/kangaroo-0.png"));
-		this.objeto_avanzando = new ImageIcon(TexturaFrancotirador.class.getResource("/Recursos/Personajes/kangaroo/kangaroo-0.png"));
-		this.objeto_muriendo = new ImageIcon(TexturaFrancotirador.class.getResource("/Recursos/Personajes/kangaroo/kangaroo-0.png"));
+		this.objeto_quieto = new ImageIcon(TexturaFrancotirador.class.getResource("/Recursos/PowerUps/francotirador.gif"));
+		this.objeto_atacando = new ImageIcon(TexturaFrancotirador.class.getResource("/Recursos/PowerUps/francotirador.gif"));
+		this.objeto_atacado = new ImageIcon(TexturaFrancotirador.class.getResource("/Recursos/PowerUps/francotirador.gif"));
+		this.objeto_avanzando = new ImageIcon(TexturaFrancotirador.class.getResource("/Recursos/PowerUps/francotirador.gif"));
+		this.objeto_muriendo = new ImageIcon(TexturaFrancotirador.class.getResource("/Recursos/PowerUps/francotirador.gif"));
 	}
 	
 }

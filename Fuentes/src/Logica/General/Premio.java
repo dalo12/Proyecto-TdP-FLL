@@ -1,5 +1,8 @@
 package Logica.General;
 
+import java.util.LinkedList;
+import java.util.List;
+
 import Logica.General.Visitors.Visitor;
 
 /**
@@ -12,6 +15,10 @@ public abstract class Premio extends GameObject {
 	protected int duracionEnMapa;
 	protected int duracionActivo;
 	protected boolean activo;
+	protected boolean ejecutado;
+	protected List<GameObject> empoderados;
+	protected Nivel nivel;
+	protected Visitor visitor_retirar_efecto;
 	
 	/**
 	 * Constructor protegido
@@ -19,6 +26,12 @@ public abstract class Premio extends GameObject {
 	 */
 	protected Premio(Nivel n) {
 		super(n);
+		empoderados = new LinkedList<GameObject>();
+		activo = false;
+		ejecutado = false;
+		nivel = n;
+		
+		n.insertarObjeto(this);
 	}
 	
 	public void activar() {
@@ -27,8 +40,12 @@ public abstract class Premio extends GameObject {
 
 	@Override
 	public void accionar() {
-		// TODO Auto-generated method stub
-		
+		if(!activo) {
+			duracionEnMapa--;
+			if(duracionEnMapa == 0) {
+				this.morir();
+			}
+		}
 	}
 
 	/**
