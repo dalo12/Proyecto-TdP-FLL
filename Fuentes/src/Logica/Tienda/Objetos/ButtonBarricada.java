@@ -5,7 +5,6 @@ import java.awt.event.ActionListener;
 
 import Logica.General.GameObject;
 import Logica.General.Nivel;
-import Logica.General.Objeto;
 import Logica.Objetos.Barricada;
 import Logica.Tienda.Aliados.ButtonPersonaje;
 

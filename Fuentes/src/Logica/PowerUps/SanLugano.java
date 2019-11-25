@@ -1,6 +1,7 @@
 package Logica.PowerUps;
 
-import GUI.Controlador.GOGrafico;
+import GUI.Component_Custom.ImageIcon.PowerUps.TexturaSanLugano;
+import GUI.Controlador.GOGrafico.GOGrafico;
 import Logica.General.Enemigo;
 import Logica.General.Nivel;
 import Logica.General.Premio;
@@ -21,10 +22,8 @@ public class SanLugano extends Premio {
 		this.tamanoX = 1;
 		this.tamanoY = 1;
 		
-		String [] texturas = new String[5];
-		texturas[0] = "../Texturas/Powerups/san-lugano/san-lugano.gif";
-		texturas[2] = texturas[3] = texturas[4] = texturas[1] = texturas[0];
-		this.grafica = new GOGrafico(x, y, tamanoX, tamanoY, texturas, n.getMapa());
+		//Grafico de GOGrafico
+		this.grafica = new GOGrafico(x, y, tamanoX, tamanoY, new TexturaSanLugano(), n.getMapa());
 		
 		//atributos lógicos
 		duracionEnMapa = 10;

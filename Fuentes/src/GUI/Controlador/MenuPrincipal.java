@@ -6,8 +6,6 @@ import javax.swing.JFrame;
 import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
-import javax.swing.JOptionPane;
-import javax.swing.border.MatteBorder;
 
 import GUI.Component_Custom.menubar_custom.MenuBarTienda;
 import GUI.Mapa.Coordenada;
@@ -16,7 +14,6 @@ import GUI.Mapa.MapaGrafico;
 import Logica.Aliados.*;
 import Logica.Enemigos.*;
 import Logica.Objetos.*;
-import Logica.General.Aliado;
 import Logica.General.GameObject;
 import Logica.General.Juego;
 import Logica.Tienda.Aliados.*;
@@ -24,10 +21,7 @@ import Logica.Tienda.Objetos.*;
 
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.LinkedList;
-import java.util.List;
 import java.awt.GridLayout;
-import java.awt.Rectangle;
 
 public class MenuPrincipal {
 	//Atributos gráficos
@@ -68,7 +62,6 @@ public class MenuPrincipal {
 	public MenuPrincipal() {
 		pulsado = false;
 		contador_imprimir = 0;
-		//lista = new LinkedList<JLabel>();
 		elJuego = new Juego();
 		
 		initialize(); //Inicia el frame

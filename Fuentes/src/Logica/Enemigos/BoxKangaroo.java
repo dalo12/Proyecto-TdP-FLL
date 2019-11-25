@@ -1,6 +1,7 @@
 package Logica.Enemigos;
 
-import GUI.Controlador.GOGrafico;
+import GUI.Component_Custom.ImageIcon.Enemigos.TexturaBoxKangaroo;
+import GUI.Controlador.GOGrafico.GOGrafico;
 import Logica.General.Enemigo;
 import Logica.General.Nivel;
 import Logica.General.Visitors.ConcreteVisitorEnemigo;
@@ -25,11 +26,8 @@ public class BoxKangaroo extends Enemigo {
 		this.tamanoX = 1;
 		this.tamanoY = 1;
 		
-		String [] texturas = new String[5];
-		texturas[1] = "../Texturas/Personajes/box-kangaroo/box-kangaroo-1.gif";
-		texturas[3] = "../Texturas/Personajes/box-kangaroo/box-kangaroo-3.gif";
-		texturas[2] = texturas[0] = texturas[4] = texturas[1];
-		this.grafica = new GOGrafico(x, y, tamanoX, tamanoY, texturas, n.getMapa());
+		//Grafico de GOGrafico
+		this.grafica = new GOGrafico(x, y, tamanoX, tamanoY, new TexturaBoxKangaroo(), n.getMapa());
 		
 		//atributos lógicos
 		this.maxMonedas = 25;

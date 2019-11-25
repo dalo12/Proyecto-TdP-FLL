@@ -24,6 +24,7 @@ public class ConcreteVisitorEnemigo extends Visitor {
 	@Override
 	public void visitAliado(Aliado aliado) {
 		gameObject.atacar(aliado);
+		
 	}
 
 	@Override

@@ -1,6 +1,7 @@
 package Logica.Aliados;
 
-import GUI.Controlador.GOGrafico;
+import GUI.Component_Custom.ImageIcon.Aliados.TexturaAllterrainMachinegun;
+import GUI.Controlador.GOGrafico.GOGrafico;
 import Logica.General.Aliado;
 import Logica.General.Nivel;
 import Logica.General.Visitors.ConcreteVisitorAliado;
@@ -10,33 +11,28 @@ import Logica.General.Visitors.ConcreteVisitorAliado;
  * @author Comisión 25 (FERRANTE, LATOUQUETTE, LÓPEZ)
  * @version 1.0
  */
-public class AllterrainMachinegun extends Aliado {
-	
+public class AllterrainMachinegun extends Aliado {	
 	/**
 	 * Constructor
 	 * @param x Posición en el eje x del aliado
 	 * @param y Posición en el eje y del aliado
 	 */
 	public AllterrainMachinegun(int x, int y, Nivel n) {
-		super(n);
+		super(n, 1);
 		// atributos físicos
 		this.tamanoX = 2;
 		this.tamanoY = 2;
 		this.posicionX = x;
 		this.posicionY = y;
-		
-		String [] texturas = new String[5];
-		texturas[0] = "../Texturas/Personajes/allterrain-machinegun/allterrain-machinegun-0.png";
-		texturas[2] = texturas[3] = texturas[1] = texturas[0];
-		texturas[4] = "../Texturas/Personajes/allterrain-machinegun/allterrain-machinegun-4.gif";
-		this.grafica = new GOGrafico(x, y, tamanoX, tamanoY, texturas, n.getMapa());
+		//Grafico de GOGrafico
+		this.grafica = new GOGrafico(x, y, tamanoX, tamanoY, new TexturaAllterrainMachinegun(), n.getMapa());
 		this.grafica.getLabel().addMouseListener(new AliadoVenta(this));
 		
 		//atributos lógicos
 		this.alcanceAtaque = 5;
 		this.fuerzaAtaque = 30;
 		this.precio = 225;
-		this.velocidadAtaque = 1;
+		//this.velocidadAtaque = 1;
 		this.vidaMaxima = 250;
 		this.vida = vidaMaxima;	
 		

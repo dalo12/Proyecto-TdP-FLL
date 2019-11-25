@@ -1,6 +1,7 @@
 package Logica.Enemigos;
 
-import GUI.Controlador.GOGrafico;
+import GUI.Component_Custom.ImageIcon.Enemigos.TexturaTankGaroo;
+import GUI.Controlador.GOGrafico.GOGrafico;
 import Logica.General.Enemigo;
 import Logica.General.Nivel;
 import Logica.General.Visitors.ConcreteVisitorEnemigo;
@@ -25,11 +26,8 @@ public class TankGaroo extends Enemigo {
 		this.tamanoX = 1;
 		this.tamanoY = 1;
 		
-		String [] texturas = new String[5];
-		texturas[0] = "../Texturas/Personajes/tank-garoo/tank-garoo-0.png";
-		texturas[4] = "../Texturas/Personajes/tank-garoo/tank-garoo-4.gif";
-		texturas[2] = texturas[3] = texturas[1] = texturas[0];
-		this.grafica = new GOGrafico(x, y, tamanoX, tamanoY, texturas, n.getMapa());
+		//Grafico de GOGrafico
+		this.grafica = new GOGrafico(x, y, tamanoX, tamanoY, new TexturaTankGaroo(), n.getMapa());
 		
 		//atributos lógicos
 		this.maxMonedas = 200;

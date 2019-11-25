@@ -1,13 +1,14 @@
-package GUI.Controlador;
+package GUI.Controlador.GOGrafico;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JLabel;
+import javax.swing.Timer;
 
-//<<<<<<< HEAD
+import GUI.Component_Custom.ImageIcon.TexturaGameObject;
 import GUI.Mapa.MapaGrafico;
-//=======
-//>>>>>>> d31a5ad05fd86de7e93babbeb83f6421542faed1
 
-import javax.swing.ImageIcon;
 /**
  * Clase padre de todos los gráficos que representan objetos de tipo GameObject. Vendrían
  * a ser como los labels que estos usan, pero mejorados.
@@ -16,24 +17,14 @@ import javax.swing.ImageIcon;
 public class GOGrafico {	
 	protected static final int ANCHO = 50;
 	protected static final int ALTO = 50;
-	
-	protected ImageIcon[] texturas;
-	/*
-	 * Matriz con las imágenes de los diferentes comportamientos del objeto, 
-	 * con el índice de la siguiente manera:
-	 * 		texturas[0] : objeto quieto (en espera de acción)
-	 * 		texturas[1] : objeto atacando
-	 * 		texturas[2] : objeto siendo atacado
-	 * 		texturas[3] : objeto avanzando por el mapa
-	 * 		texturas[4] : objeto muriendo
-	 */
+	protected TexturaGameObject textura;
 	protected int cord_x;
 	protected int cord_y;
 	protected JLabel label;
 	protected MapaGrafico mapa;
 	
 	/**
-	 * Constructor
+	 * Constructor de GOGrafico
 	 * @param x Coordenada x del objeto lógico
 	 * @param y Coordenada y del objeto lógico
 	 * @param tamaño_x Ancho del objeto label.
@@ -41,23 +32,13 @@ public class GOGrafico {
 	 * @param text Arreglo de con las direcciones de las texturas
 	 * @param mapa Mapa donde se mostrará el label
 	 */
-//<<<<<<< HEAD
-	public GOGrafico(int x, int y, int tamaño_x, int tamaño_y, String[] text, MapaGrafico mapa) {
-//=======
-	//public GOGrafico(int x, int y, String[] text, LabelTablero mapa) {
-//>>>>>>> d31a5ad05fd86de7e93babbeb83f6421542faed1
-		texturas = new ImageIcon[5];
-		
-		for(int i=0; i<=4; i++) {
-			texturas[i] = new ImageIcon(text[i]);
-		}
-		
+	public GOGrafico(int x, int y, int tamaño_x, int tamaño_y, TexturaGameObject textura, MapaGrafico mapa) {		
 		label = new JLabel();
-		label.setIcon(texturas[0]);		
+		label.setIcon(textura.getTexturaQuieto());
 		
 		cord_x = x;
 		cord_y = y;
-		
+		this.textura = textura;
 		//mapa.getTablero().add(label);
 		this.mapa = mapa;
 		this.mapa.add(label);
@@ -68,38 +49,52 @@ public class GOGrafico {
 	 * Representa el comportamiento gráfico del objeto cuando está quieto
 	 */
 	public void quieto() {
-		label.setIcon(texturas[0]);
+		label.setIcon(textura.getTexturaQuieto());
 	}
 	
 	/**
 	 * Representa el comportamiento gráfico del objeto cuando ataca
 	 */	
 	public void atacar() {
-		label.setIcon(texturas[1]);
+		label.setIcon(textura.getTexturaAtaque());
 	}
 
 	/**
 	 * Representa el comportamiento gráfico del objeto cuando es atacado
 	 */
 	public void serAtacado() {
-		label.setIcon(texturas[2]);
+		label.setIcon(textura.getTexturaRecibeAtaque());
 	}
 	
 	/**
 	 * Representa el comportamiento gráfico del objeto cuando se mueve en el mapa
 	 */
 	public void avanzar(int x, int y) {
-		label.setIcon(texturas[3]);
+		label.setIcon(textura.getTexturaAvance());
 		label.setBounds(x, y, ANCHO, ALTO);
 	}
 	
 	/**
 	 * Representa el comportamiento gráfico del objeto cuando muere
 	 */
-	public void morir() {
-		label.setIcon(texturas[4]);
-		for(int i=0; i<1000; i++); //para esperar
-		mapa.remove(label);
+	public void morir() {	
+		Timer timer_remove, timer_repaint;
+		
+		timer_remove = new Timer (100, new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				label.setIcon(textura.getTexturaMuerte());
+				
+			}
+		});
+		timer_repaint = new Timer (3000, new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				mapa.getTablero().remove(label);
+				mapa.remove(label);
+			}
+		});
+		
+		timer_remove.start();
+		timer_repaint.start();
 	}
 	
 	/**

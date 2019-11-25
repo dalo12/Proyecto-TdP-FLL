@@ -77,6 +77,7 @@ public abstract class Enemigo extends Personaje {
 	 * @param a El aliado a atacar
 	 */
 	public void atacar(Aliado o) {
+		grafica.atacar();
 		o.setVida(o.getVida() - fuerzaAtaque);
 	}
 	
@@ -85,6 +86,7 @@ public abstract class Enemigo extends Personaje {
 	 * @param o El objeto a atacar
 	 */
 	public void atacar(Objeto o) {
+		grafica.atacar();
 		o.setVida(o.getVida() - fuerzaAtaque);
 	}
 	
@@ -110,11 +112,11 @@ public abstract class Enemigo extends Personaje {
 	public void accionar() {
 		boolean puedeAvanzar = true;
 		for(GameObject g : nivel.getListaEntidades()) {
-			if(this.chocan(g)) {
-			//if(g.getGrafica().getLabel().getX() + g.getGrafica().getLabel().getWidth() == this.grafica.getLabel().getX()) {	
-//			if(g != this && (g.getPosicionX() < (posicionX - alcanceAtaque)) && g.getPosicionX() < posicionX) {
-				interactuar(g);
-				puedeAvanzar = false;
+			if (g!=null) {
+				if(this.chocan(g)) {
+					interactuar(g);
+					puedeAvanzar = false;
+				}
 			}
 		}
 		if(puedeAvanzar)
@@ -138,19 +140,18 @@ public abstract class Enemigo extends Personaje {
 	
 	protected void soltarPowerUp() {
 		Random r = new Random();
-		Premio p;
 		int indice = r.nextInt(5000);
 		
 		if(indice < 25) {
-			p = new Bombardeo(this.posicionX, this.posicionY, this.nivel); 
+			new Bombardeo(this.posicionX, this.posicionY, this.nivel); 
 		}else if(indice < 75) {
-			p = new Francotirador(this.posicionX, this.posicionY, this.nivel);
+			new Francotirador(this.posicionX, this.posicionY, this.nivel);
 		}else if(indice < 200) {
-			p = new SanLugano(this.posicionX, this.posicionY, this.nivel);
+			new SanLugano(this.posicionX, this.posicionY, this.nivel);
 		}else if(indice < 350) {
-			p = new Mate(this.posicionX, this.posicionY, this.nivel);
+			new Mate(this.posicionX, this.posicionY, this.nivel);
 		}else if(indice < 600) {
-			p = new GarraCharrua(this.posicionX, this.posicionY, this.nivel);
+			new GarraCharrua(this.posicionX, this.posicionY, this.nivel);
 		}
 	}
 }

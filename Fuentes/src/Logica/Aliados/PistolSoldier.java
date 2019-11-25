@@ -1,6 +1,7 @@
 package Logica.Aliados;
 
-import GUI.Controlador.GOGrafico;
+import GUI.Component_Custom.ImageIcon.Aliados.TexturaPistolSoldier;
+import GUI.Controlador.GOGrafico.GOGrafico;
 import Logica.Disparos.DisparoAliado;
 import Logica.General.Aliado;
 import Logica.General.GameObject;
@@ -20,26 +21,22 @@ public class PistolSoldier extends Aliado {
 	 * @param y Posición en el eje y del aliado
 	 */
 	public PistolSoldier(int x, int y, Nivel n) {
-		super(n);
+		super(n, 3);
 		// atributos físicos
 		this.tamanoX = 1;
 		this.tamanoY = 1;
 		this.posicionX = x;
 		this.posicionY = y;
 		
-		String [] texturas = new String[5];
-		texturas[0] = "../Texturas/Personajes/pistol-soldier/pistol-soldier-0.png";
-		texturas[1] = "../Texturas/Personajes/pistol-soldier/pistol-soldier-1.gif";
-		texturas[2] = texturas[3] = texturas[1]; 
-		texturas[4] = "../Texturas/Personajes/pistol-soldier/pistol-soldier-4.gif";
-		this.grafica = new GOGrafico(x, y, tamanoX, tamanoY, texturas, n.getMapa());
+		//Grafico de GOGrafico
+		this.grafica = new GOGrafico(x, y, tamanoX, tamanoY, new TexturaPistolSoldier(), n.getMapa());
 		this.grafica.getLabel().addMouseListener(new AliadoVenta(this));
 		
 		//atributos lógicos
 		this.alcanceAtaque = 4;
 		this.fuerzaAtaque = 30;
 		this.precio = 75;
-		this.velocidadAtaque = 3;
+		//this.velocidadAtaque = 3;
 		this.vidaMaxima = 90;
 		this.vida = vidaMaxima;	
 		

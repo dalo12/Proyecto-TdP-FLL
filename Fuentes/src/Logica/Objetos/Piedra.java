@@ -1,6 +1,7 @@
 package Logica.Objetos;
 
-import GUI.Controlador.GOGrafico;
+import GUI.Component_Custom.ImageIcon.Objetos.TexturaPiedra;
+import GUI.Controlador.GOGrafico.GOGrafico;
 import Logica.General.Nivel;
 import Logica.General.Objeto;
 import Logica.General.Visitors.ConcreteVisitorObjeto;
@@ -26,16 +27,14 @@ public class Piedra extends Objeto {
 		this.tamanoX = 1;
 		this.tamanoY = 1;
 		
-		String [] texturas = new String[5];
-		texturas[0] = "../Texturas/Objetos/rock/rock.png";
-		texturas[1] = texturas[2] = texturas[3] = texturas[4] = texturas[0];
-		this.grafica = new GOGrafico(x, y,tamanoX, tamanoY, texturas, n.getMapa());
+		//Grafico de GOGrafico
+		this.grafica = new GOGrafico(x, y, tamanoX, tamanoY, new TexturaPiedra(), n.getMapa());
 		
 		//atributos lógicos
 		this.vida = 30;
 		
 		visitor = new ConcreteVisitorObjeto(this, y, "", "", y); // TODO verificar si el visitor es correcto
-		
+		n.insertarObjeto(this);
 	}
 	
 }

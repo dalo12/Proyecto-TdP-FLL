@@ -1,6 +1,7 @@
 package Logica.Aliados;
 
-import GUI.Controlador.GOGrafico;
+import GUI.Component_Custom.ImageIcon.Aliados.TexturaBazookaSoldier;
+import GUI.Controlador.GOGrafico.GOGrafico;
 import Logica.General.Aliado;
 import Logica.General.Nivel;
 import Logica.General.Visitors.ConcreteVisitorAliado;
@@ -18,26 +19,21 @@ public class BazookaSoldier extends Aliado {
 	 * @param y Posición en el eje y del aliado
 	 */
 	public BazookaSoldier(int x, int y, Nivel n) {
-		super(n);
+		super(n, 10);
 		// atributos físicos
 		this.tamanoX = 1;
 		this.tamanoY = 1;
 		this.posicionX = x;
 		this.posicionY = y;
-		
-		String [] texturas = new String[5];
-		texturas[0] = "../Texturas/Personajes/bazooka-soldier/bazooka-soldier-0.png";
-		texturas[1] = "../Texturas/Personajes/bazooka-soldier/bazooka-soldier-1.gif";
-		texturas[2] = texturas[3] = texturas[1];
-		texturas[4] = "../Texturas/Personajes/bazooka-soldier/bazooka-soldier-4.gif";
-		this.grafica = new GOGrafico(x, y, tamanoX, tamanoY, texturas, n.getMapa());
+		//Grafico de GOGrafico
+		this.grafica = new GOGrafico(x, y, tamanoX, tamanoY, new TexturaBazookaSoldier(), n.getMapa());
 		this.grafica.getLabel().addMouseListener(new AliadoVenta(this));
 		
 		//atributos lógicos
 		this.alcanceAtaque = 7;
 		this.fuerzaAtaque = 125;
 		this.precio = 175;
-		this.velocidadAtaque = 10;
+		//this.velocidadAtaque = 10;
 		this.vidaMaxima = 100;
 		this.vida = vidaMaxima;		
 		
@@ -46,5 +42,4 @@ public class BazookaSoldier extends Aliado {
 		n.insertarObjeto(this);
 		
 	}
-
 }

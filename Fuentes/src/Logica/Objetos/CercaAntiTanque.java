@@ -1,9 +1,7 @@
 package Logica.Objetos;
 
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-
-import GUI.Controlador.GOGrafico;
+import GUI.Component_Custom.ImageIcon.Objetos.TexturaCercaAntiTanque;
+import GUI.Controlador.GOGrafico.GOGrafico;
 import Logica.General.Nivel;
 import Logica.General.Objeto;
 import Logica.General.Visitors.ConcreteVisitorObjeto;
@@ -30,19 +28,16 @@ public class CercaAntiTanque extends Objeto  implements EntidadComprable{
 		this.posicionY = y;
 		this.tamanoX = 1;
 		this.tamanoY = 2;		
-		
-		String [] texturas = new String[5];
-		texturas[0] = "../Texturas/Personajes/kangaroo/kangaroo-0.png";
-		texturas[2] = "../Texturas/Personajes/pistol-soldier/pistol-soldier-1.gif";
-		texturas[1] = texturas[3] = texturas[4] = texturas[2];
-		this.grafica = new GOGrafico(x, y, tamanoX, tamanoY, texturas, n.getMapa());
+
+		//Grafico de GOGrafico
+		this.grafica = new GOGrafico(x, y, tamanoX, tamanoY, new TexturaCercaAntiTanque(), n.getMapa());
 		
 		//atributos lógicos
 		this.vida = 100;
 		this.precio = 120;
 		
 		visitor = new ConcreteVisitorObjeto(this, y, "", "", y); // TODO verificar si el visitor es correcto
-		
+		n.insertarObjeto(this);
 	}
 	
 	@Override

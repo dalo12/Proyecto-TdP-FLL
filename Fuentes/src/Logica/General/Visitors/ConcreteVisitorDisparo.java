@@ -24,8 +24,11 @@ public class ConcreteVisitorDisparo extends Visitor {
 
 	@Override
 	public void visitAliado(Aliado aliado) {
-		// TODO Auto-generated method stub
-
+		aliado.setVida(aliado.getVida() - 1);
+		if (aliado.getVida()<=0) {
+			aliado.morir();
+		}
+		gameObject.morir();
 	}
 
 	@Override

@@ -1,6 +1,7 @@
 package Logica.PowerUps;
 
-import GUI.Controlador.GOGrafico;
+import GUI.Component_Custom.ImageIcon.PowerUps.TexturaFrancotirador;
+import GUI.Controlador.GOGrafico.GOGrafico;
 import Logica.General.Enemigo;
 import Logica.General.Nivel;
 import Logica.General.Premio;
@@ -20,11 +21,9 @@ public class Francotirador extends Premio {
 		this.posicionY = y;
 		this.tamanoX = 1;
 		this.tamanoY = 1;
-		
-		String [] texturas = new String[5];
-		texturas[0] = "../Texturas/Powerups/francotirador/francotirador.gif";
-		texturas[2] = texturas[3] = texturas[4] = texturas[1] = texturas[0];
-		this.grafica = new GOGrafico(x, y, tamanoX, tamanoY, texturas, n.getMapa());
+
+		//Grafico de GOGrafico
+		this.grafica = new GOGrafico(x, y, tamanoX, tamanoY, new TexturaFrancotirador(), n.getMapa());
 		
 		//atributos lógicos
 		duracionEnMapa = 10;
