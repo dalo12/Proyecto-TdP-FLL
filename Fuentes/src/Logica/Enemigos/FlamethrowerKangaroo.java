@@ -1,5 +1,6 @@
 package Logica.Enemigos;
 
+import GUI.Component_Custom.ImageIcon.Enemigos.TexturaFlamethrowerKangaroo;
 import GUI.Controlador.GOGrafico;
 import Logica.General.Enemigo;
 import Logica.General.Nivel;
@@ -25,10 +26,8 @@ public class FlamethrowerKangaroo extends Enemigo {
 		this.tamanoX = 1;
 		this.tamanoY = 1;
 		
-		String [] texturas = new String[5];
-		texturas[1] = "../Texturas/Personajes/flamethrower-kangaroo/flamethrower-kangaroo-0.png";
-		texturas[1] = texturas[2] = texturas[3] = texturas[4] = texturas[0];
-		this.grafica = new GOGrafico(x, y, tamanoX, tamanoY, texturas, n.getMapa());
+		//Grafico de GOGrafico
+		this.grafica = new GOGrafico(x, y, tamanoX, tamanoY, new TexturaFlamethrowerKangaroo(), n.getMapa());
 		
 		//atributos lógicos
 		this.maxMonedas = 100;
