@@ -4,6 +4,7 @@ import java.awt.Rectangle;
 import java.util.Random;
 
 import Logica.General.Visitors.Visitor;
+import Logica.PowerUps.*;
 
 /**
  * Modela todos los enemigos del juego.
@@ -130,5 +131,26 @@ public abstract class Enemigo extends Personaje {
 		nivel.agregarMonedas(this.getMonedas());
 		nivel.agregarPuntaje(puntaje);
 		grafica.morir();
+		soltarPowerUp();
+	}
+	
+	// ----- MÉTODOS AUXILIARES ----- //
+	
+	protected void soltarPowerUp() {
+		Random r = new Random();
+		Premio p;
+		int indice = r.nextInt(5000);
+		
+		if(indice < 25) {
+			p = new Bombardeo(this.posicionX, this.posicionY, this.nivel); 
+		}else if(indice < 75) {
+			p = new Francotirador(this.posicionX, this.posicionY, this.nivel);
+		}else if(indice < 200) {
+			p = new SanLugano(this.posicionX, this.posicionY, this.nivel);
+		}else if(indice < 350) {
+			p = new Mate(this.posicionX, this.posicionY, this.nivel);
+		}else if(indice < 600) {
+			p = new GarraCharrua(this.posicionX, this.posicionY, this.nivel);
+		}
 	}
 }

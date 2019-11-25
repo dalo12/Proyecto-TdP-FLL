@@ -6,6 +6,8 @@ import javax.swing.JLabel;
 import javax.swing.border.Border;
 import javax.swing.border.MatteBorder;
 
+import Logica.General.GameObject;
+
 
 @SuppressWarnings("serial")
 public class LabelTablero extends JLabel {
@@ -122,4 +124,21 @@ public class LabelTablero extends JLabel {
 		
 		return toReturn;
 	}
+	
+	/**
+	 * Inserta un objeto sobre el tablero, en las coordenadas correspondientes
+	 */
+	public void insertarObjeto(GameObject objeto_insertar) {
+		//Seteo el aliado
+		int tamaño_x = objeto_insertar.getGrafica().getLabel().getWidth();
+		int tamaño_y = objeto_insertar.getGrafica().getLabel().getHeight();
+		//objeto_insertar.getPosicionX() retorna la posición en X del objeto en el panel, para tener su posición en el tablero, le resto el X del tablero
+		int posicion_x_en_tablero = objeto_insertar.getPosicionX() - this.getX();
+		//objeto_insertar.getPosicionY() retorna la posición en Y del objeto en el panel, para tener su posición en el tablero, le resto el Y del tablero
+		int posicion_y_en_tablero = objeto_insertar.getPosicionY() - this.getY();
+		objeto_insertar.getGrafica().getLabel().setBounds(posicion_x_en_tablero, posicion_y_en_tablero, tamaño_x, tamaño_y);
+		//lista.add(objeto_insertar.getGrafica().getLabel()); //por qué es necesaria una lista de labels si desde la lista de entidades se puede acceder a los labels?
+		this.insertar(objeto_insertar.getGrafica().getLabel());
+	}
+	
 }

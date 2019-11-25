@@ -86,9 +86,23 @@ public class MenuPrincipal {
 					//Recupero la coordenada mas cercana en donde insertar el aux
 					labelTablero.actualizarTablero();
 					Coordenada c = labelTablero.getCoordenadaCercana(pos_x, pos_y);
-					//Se inserta un label
-					objeto_insertar.setPosicionX(labelTablero.getX() + c.getX());
-					objeto_insertar.setPosicionY(labelTablero.getY() + c.getY());
+					
+					int x_real = labelTablero.getX() + c.getX();
+					int y_real = labelTablero.getY() + c.getY();
+					boolean disponible = true;
+					
+					//Me fijo si no hay ya un objeto en esas coordenadas
+					for(GameObject o : elJuego.getNivel().getListaEntidades()) {
+						if(o.getPosicionX() == x_real && o.getPosicionY() == y_real) {
+							disponible = false;
+							break;
+						}
+					}
+					//Si ese lugar no está ocupado, se inserta un label
+					if(disponible) {
+						objeto_insertar.setPosicionX(x_real);
+						objeto_insertar.setPosicionY(y_real);
+					}
 				}
 			}
 		});		
@@ -285,16 +299,18 @@ public class MenuPrincipal {
 	 */
 	public synchronized void setearAliado() {
 		if (objeto_insertar!=null && pulsado) {
-			//Seteo el aliado
-			int tamaño_x = objeto_insertar.getGrafica().getLabel().getWidth();
-			int tamaño_y = objeto_insertar.getGrafica().getLabel().getHeight();
-			//objeto_insertar.getPosicionX() retorna la posición en X del objeto en el panel, para tener su posición en el tablero, le resto el X del tablero
-			int posicion_x_en_tablero = objeto_insertar.getPosicionX() - labelTablero.getX();
-			//objeto_insertar.getPosicionY() retorna la posición en Y del objeto en el panel, para tener su posición en el tablero, le resto el Y del tablero
-			int posicion_y_en_tablero = objeto_insertar.getPosicionY() - labelTablero.getY();
-			objeto_insertar.getGrafica().getLabel().setBounds(posicion_x_en_tablero, posicion_y_en_tablero, tamaño_x, tamaño_y);
-			//lista.add(objeto_insertar.getGrafica().getLabel()); //por qué es necesaria una lista de labels si desde la lista de entidades se puede acceder a los labels?
-			labelTablero.insertar(objeto_insertar.getGrafica().getLabel());
+			
+			labelTablero.insertarObjeto(objeto_insertar);
+//			//Seteo el aliado
+//			int tamaño_x = objeto_insertar.getGrafica().getLabel().getWidth();
+//			int tamaño_y = objeto_insertar.getGrafica().getLabel().getHeight();
+//			//objeto_insertar.getPosicionX() retorna la posición en X del objeto en el panel, para tener su posición en el tablero, le resto el X del tablero
+//			int posicion_x_en_tablero = objeto_insertar.getPosicionX() - labelTablero.getX();
+//			//objeto_insertar.getPosicionY() retorna la posición en Y del objeto en el panel, para tener su posición en el tablero, le resto el Y del tablero
+//			int posicion_y_en_tablero = objeto_insertar.getPosicionY() - labelTablero.getY();
+//			objeto_insertar.getGrafica().getLabel().setBounds(posicion_x_en_tablero, posicion_y_en_tablero, tamaño_x, tamaño_y);
+//			//lista.add(objeto_insertar.getGrafica().getLabel()); //por qué es necesaria una lista de labels si desde la lista de entidades se puede acceder a los labels?
+//			labelTablero.insertar(objeto_insertar.getGrafica().getLabel());
 			
 			//Se setea las variables auxiliares
 			objeto_insertar = null;

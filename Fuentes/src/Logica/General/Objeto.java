@@ -50,6 +50,7 @@ public abstract class Objeto extends GameObject {
 	
 	@Override
 	public void morir() {
+		this.grafica.morir();
 		this.nivel.getABorrar().add(this);
 	}
 	
