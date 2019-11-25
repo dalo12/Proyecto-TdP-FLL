@@ -1,8 +1,6 @@
 package Logica.Objetos;
 
-import javax.swing.ImageIcon;
-import javax.swing.JLabel;
-
+import GUI.Component_Custom.ImageIcon.Objetos.TexturaCharco;
 import GUI.Controlador.GOGrafico;
 import Logica.General.Nivel;
 import Logica.General.Visitors.ConcreteVisitorObjeto;
@@ -27,11 +25,17 @@ public class Charco extends ObjetoTemporal {
 		this.posicionY = y;
 		this.tamanoX = 1;
 		this.tamanoY = 1;		
-		
-		String [] texturas = new String[5];
-		texturas[0] = "../Texturas/Objetos/puddle/puddle.png";
-		texturas[1] = texturas[2] = texturas[3] = texturas[4] = texturas[0];
-		this.grafica = new GOGrafico(x, y, tamanoX, tamanoY, texturas, n.getMapa());
+//<<<<<<< HEAD
+//		
+//		String [] texturas = new String[5];
+//		texturas[0] = "../Texturas/Objetos/puddle/puddle.png";
+//		texturas[1] = texturas[2] = texturas[3] = texturas[4] = texturas[0];
+//		this.grafica = new GOGrafico(x, y, tamanoX, tamanoY, texturas, n.getMapa());
+//=======
+//
+//		//Grafico de GOGrafico
+//		this.grafica = new GOGrafico(x, y, tamanoX, tamanoY, new TexturaCharco(), n.getMapa());
+//>>>>>>> 179aea955a0b2b5a5c1d1651d5b68b054de77910
 		
 		//atributos lógicos
 		this.duracion = 30;
