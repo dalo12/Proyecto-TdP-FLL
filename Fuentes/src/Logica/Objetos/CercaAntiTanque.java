@@ -37,6 +37,7 @@ public class CercaAntiTanque extends Objeto  implements EntidadComprable{
 		this.precio = 120;
 		
 		visitor = new ConcreteVisitorObjeto(this, y, "", "", y); // TODO verificar si el visitor es correcto
+		n.insertarObjeto(this);
 	}
 	
 	@Override

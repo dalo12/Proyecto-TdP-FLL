@@ -34,6 +34,7 @@ public class Piedra extends Objeto {
 		this.vida = 30;
 		
 		visitor = new ConcreteVisitorObjeto(this, y, "", "", y); // TODO verificar si el visitor es correcto
+		n.insertarObjeto(this);
 	}
 	
 }

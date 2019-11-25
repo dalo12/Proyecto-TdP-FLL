@@ -36,6 +36,7 @@ public class Mina extends ObjetoTemporal implements EntidadComprable{
 		this.precio = 75;
 		
 		visitor = new ConcreteVisitorObjeto(this, y, "", "", y); // TODO verificar si el visitor es correcto
+		n.insertarObjeto(this);
 	}
 	
 	@Override

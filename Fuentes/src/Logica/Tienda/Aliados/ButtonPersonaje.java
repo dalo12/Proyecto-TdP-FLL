@@ -4,10 +4,8 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
 
-import Logica.General.Aliado;
 import Logica.General.GameObject;
 import Logica.General.Nivel;
-import Logica.General.Objeto;
 import Logica.Tienda.EntidadComprable;
 
 @SuppressWarnings("serial")

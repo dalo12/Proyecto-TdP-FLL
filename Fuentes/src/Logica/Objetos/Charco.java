@@ -33,6 +33,7 @@ public class Charco extends ObjetoTemporal {
 		this.duracion = 30;
 		
 		visitor = new ConcreteVisitorObjeto(this, y, "", "", y); // TODO verificar si el visitor es correcto
+		n.insertarObjeto(this);
 	}
 
 }

@@ -37,6 +37,7 @@ public class Barricada extends Objeto implements EntidadComprable {
 		this.precio = 100;
 		
 		visitor = new ConcreteVisitorObjeto(this, y, "", "", y); // TODO verificar si el visitor es correcto
+		n.insertarObjeto(this);
 	}
 	
 	@Override
