@@ -1,7 +1,7 @@
 package Logica.Objetos;
 
 import GUI.Component_Custom.ImageIcon.Objetos.TexturaBomba;
-import GUI.Controlador.GOGrafico;
+import GUI.Controlador.GOGrafico.GOGrafico;
 import Logica.General.Nivel;
 import Logica.General.Visitors.ConcreteVisitorObjeto;
 import Logica.Tienda.EntidadComprable;
@@ -36,7 +36,6 @@ public class Bomba extends ObjetoTemporal implements EntidadComprable{
 		this.precio = 50;
 		
 		visitor = new ConcreteVisitorObjeto(this, y, "", "", y); // TODO verificar si el visitor es correcto
-		
 	}
 	
 	@Override

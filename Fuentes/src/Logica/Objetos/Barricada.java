@@ -1,7 +1,7 @@
 package Logica.Objetos;
 
 import GUI.Component_Custom.ImageIcon.Objetos.TexturaBarricada;
-import GUI.Controlador.GOGrafico;
+import GUI.Controlador.GOGrafico.GOGrafico;
 import Logica.General.Nivel;
 import Logica.General.Objeto;
 import Logica.General.Visitors.ConcreteVisitorObjeto;
@@ -37,7 +37,6 @@ public class Barricada extends Objeto implements EntidadComprable {
 		this.precio = 100;
 		
 		visitor = new ConcreteVisitorObjeto(this, y, "", "", y); // TODO verificar si el visitor es correcto
-		
 	}
 	
 	@Override

@@ -1,7 +1,7 @@
 package Logica.Aliados;
 
 import GUI.Component_Custom.ImageIcon.Aliados.TexturaPistolSoldier;
-import GUI.Controlador.GOGrafico;
+import GUI.Controlador.GOGrafico.GOGrafico;
 import Logica.Disparos.DisparoAliado;
 import Logica.General.Aliado;
 import Logica.General.GameObject;
@@ -21,7 +21,7 @@ public class PistolSoldier extends Aliado {
 	 * @param y Posición en el eje y del aliado
 	 */
 	public PistolSoldier(int x, int y, Nivel n) {
-		super(n);
+		super(n, 3);
 		// atributos físicos
 		this.tamanoX = 1;
 		this.tamanoY = 1;
@@ -36,7 +36,7 @@ public class PistolSoldier extends Aliado {
 		this.alcanceAtaque = 4;
 		this.fuerzaAtaque = 30;
 		this.precio = 75;
-		this.velocidadAtaque = 3;
+		//this.velocidadAtaque = 3;
 		this.vidaMaxima = 90;
 		this.vida = vidaMaxima;	
 		

@@ -1,7 +1,7 @@
 package Logica.PowerUps;
 
 import GUI.Component_Custom.ImageIcon.PowerUps.TexturaSanLugano;
-import GUI.Controlador.GOGrafico;
+import GUI.Controlador.GOGrafico.GOGrafico;
 import Logica.General.Enemigo;
 import Logica.General.Nivel;
 import Logica.General.Premio;

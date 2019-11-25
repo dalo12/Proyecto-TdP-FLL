@@ -1,7 +1,7 @@
 package Logica.Enemigos;
 
 import GUI.Component_Custom.ImageIcon.Enemigos.TexturaTankGaroo;
-import GUI.Controlador.GOGrafico;
+import GUI.Controlador.GOGrafico.GOGrafico;
 import Logica.General.Enemigo;
 import Logica.General.Nivel;
 import Logica.General.Visitors.ConcreteVisitorEnemigo;

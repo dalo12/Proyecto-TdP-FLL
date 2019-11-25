@@ -1,6 +1,10 @@
-package GUI.Controlador;
+package GUI.Controlador.GOGrafico;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JLabel;
+import javax.swing.Timer;
 
 import GUI.Component_Custom.ImageIcon.TexturaGameObject;
 import GUI.Mapa.MapaGrafico;
@@ -20,7 +24,7 @@ public class GOGrafico {
 	protected MapaGrafico mapa;
 	
 	/**
-	 * Constructor
+	 * Constructor de GOGrafico
 	 * @param x Coordenada x del objeto lógico
 	 * @param y Coordenada y del objeto lógico
 	 * @param tamaño_x Ancho del objeto label.
@@ -73,10 +77,24 @@ public class GOGrafico {
 	/**
 	 * Representa el comportamiento gráfico del objeto cuando muere
 	 */
-	public void morir() {
-		label.setIcon(textura.getTexturaMuerte());
-		for(int i=0; i<1000; i++); //para esperar
-		mapa.remove(label);
+	public void morir() {	
+		Timer timer_remove, timer_repaint;
+		
+		timer_remove = new Timer (100, new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				label.setIcon(textura.getTexturaMuerte());
+				
+			}
+		});
+		timer_repaint = new Timer (3000, new ActionListener(){
+			public void actionPerformed(ActionEvent e){
+				mapa.getTablero().remove(label);
+				mapa.remove(label);
+			}
+		});
+		
+		timer_remove.start();
+		timer_repaint.start();
 	}
 	
 	/**

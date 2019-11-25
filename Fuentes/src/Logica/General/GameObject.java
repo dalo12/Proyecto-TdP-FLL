@@ -2,7 +2,7 @@ package Logica.General;
 
 import java.awt.Rectangle;
 
-import GUI.Controlador.GOGrafico;
+import GUI.Controlador.GOGrafico.GOGrafico;
 import Logica.General.Visitors.Visitor;
 
 /**
@@ -99,7 +99,7 @@ public abstract class GameObject {
 	 * @param o Objeto con el cual interactuar.
 	 */
 	public void interactuar(GameObject o) {
-		//o.accept(visitor);
+		o.accept(visitor);
 	}
 	
 	/**

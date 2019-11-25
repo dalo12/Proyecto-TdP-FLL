@@ -1,7 +1,7 @@
 package Logica.Aliados;
 
 import GUI.Component_Custom.ImageIcon.Aliados.TexturaAllterrainMachinegun;
-import GUI.Controlador.GOGrafico;
+import GUI.Controlador.GOGrafico.GOGrafico;
 import Logica.General.Aliado;
 import Logica.General.Nivel;
 import Logica.General.Visitors.ConcreteVisitorAliado;
@@ -18,7 +18,7 @@ public class AllterrainMachinegun extends Aliado {
 	 * @param y Posición en el eje y del aliado
 	 */
 	public AllterrainMachinegun(int x, int y, Nivel n) {
-		super(n);
+		super(n, 1);
 		// atributos físicos
 		this.tamanoX = 2;
 		this.tamanoY = 2;
@@ -32,7 +32,7 @@ public class AllterrainMachinegun extends Aliado {
 		this.alcanceAtaque = 5;
 		this.fuerzaAtaque = 30;
 		this.precio = 225;
-		this.velocidadAtaque = 1;
+		//this.velocidadAtaque = 1;
 		this.vidaMaxima = 250;
 		this.vida = vidaMaxima;	
 		

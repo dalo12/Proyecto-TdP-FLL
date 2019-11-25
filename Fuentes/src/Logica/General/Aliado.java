@@ -6,6 +6,7 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.JOptionPane;
 
+import Logica.Disparos.DisparoAliado;
 import Logica.General.Visitors.Visitor;
 import Logica.Tienda.EntidadComprable;
 
@@ -24,10 +25,34 @@ public abstract class Aliado extends Personaje implements EntidadComprable{
 	 * Constructor protegido
 	 * @param n Nivel al que pertenece el aliado
 	 */
-	protected Aliado(Nivel n) {
+	protected Aliado(Nivel n, int velocidad_ataque) {
 		super(n);
+		this.velocidadAtaque = velocidad_ataque;
 		contador_tiempo = 0;
 	}
+	
+	/**
+	 * Interactua con otro objeto del juego por medio de un visitor.
+	 * @param o Objeto con el cual interactuar.
+	 */
+	public void interactuar(GameObject o) {
+		if (o!=null) {
+			boolean dentro_de_alcance = ((posicionX + (alcanceAtaque * grafica.getLabel().getWidth())) >= o.getPosicionX());
+			boolean no_esta_detras = posicionX > o.getPosicionX();
+			
+			if(dentro_de_alcance && no_esta_detras) {
+				if(contador_tiempo == 0) {
+					grafica.atacar();
+					new DisparoAliado(posicionX+10, posicionY+5, alcanceAtaque * grafica.getLabel().getWidth(), fuerzaAtaque, 25,  nivel);
+					contador_tiempo = velocidadAtaque * 10;
+				}else {
+					grafica.quieto();
+				}
+				//el contador_tiempo se decrementa en el accionar() de Aliado
+			}
+		}
+	}
+	
 	/**
 	 * Devuelve el precio del aliado
 	 * @return El precio del aliado
@@ -82,11 +107,6 @@ public abstract class Aliado extends Personaje implements EntidadComprable{
 		}
 		for(GameObject g : nivel.getListaEntidades()) {
 			interactuar(g);
-			/*if((posicionX + (alcanceAtaque * grafica.getLabel().getWidth()) >= g.getPosicionX())  && g.getPosicionX() > posicionX) {
-				interactuar(g);
-				System.out.println("interactuar");
-			}
-			*/
 		}
 		if(vida <= 0) {
 			morir();
@@ -107,6 +127,11 @@ public abstract class Aliado extends Personaje implements EntidadComprable{
 		return a_retornar;
 	}
 	
+	@Override
+	public void morir() {
+		grafica.morir();
+		nivel.eliminarObjeto(this);
+	}
 	/**
 	 * Clase AliadoVenta: Clase que redefine el evento clicked para eliminar un aliado
 	 */
@@ -119,7 +144,7 @@ public abstract class Aliado extends Personaje implements EntidadComprable{
 		
 		public void mouseClicked(MouseEvent e){
 			if (aliado.getGrafica()!=null) {
-				int resp = JOptionPane.showConfirmDialog(null, "¿Esta seguro que desea vender este personaje?", "Confirmación", JOptionPane.YES_NO_OPTION);
+				int resp = JOptionPane.showConfirmDialog(null, "¿Desea vender este personaje?", "Confirmación", JOptionPane.YES_NO_OPTION);
 				if (resp==JOptionPane.YES_OPTION) {
 					int monedas_recuperadas = aliado.vender();
 					nivel.agregarMonedas(monedas_recuperadas);
@@ -128,13 +153,7 @@ public abstract class Aliado extends Personaje implements EntidadComprable{
 					nivel.getMapa().getTablero().updateUI();
 					nivel.getMapa().getTablero().repaint();
 				}
-			}
+				}
 		}
-	}
-	
-	@Override
-	public void morir() {
-		grafica.morir();
-		nivel.eliminarObjeto(this);
 	}
 }

@@ -1,7 +1,7 @@
 package Logica.Objetos;
 
 import GUI.Component_Custom.ImageIcon.Objetos.TexturaCercaAntiTanque;
-import GUI.Controlador.GOGrafico;
+import GUI.Controlador.GOGrafico.GOGrafico;
 import Logica.General.Nivel;
 import Logica.General.Objeto;
 import Logica.General.Visitors.ConcreteVisitorObjeto;
@@ -37,7 +37,6 @@ public class CercaAntiTanque extends Objeto  implements EntidadComprable{
 		this.precio = 120;
 		
 		visitor = new ConcreteVisitorObjeto(this, y, "", "", y); // TODO verificar si el visitor es correcto
-		
 	}
 	
 	@Override

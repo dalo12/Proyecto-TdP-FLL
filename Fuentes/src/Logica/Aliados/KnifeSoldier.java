@@ -1,7 +1,7 @@
 package Logica.Aliados;
 
 import GUI.Component_Custom.ImageIcon.Aliados.TexturaKnifeSoldier;
-import GUI.Controlador.GOGrafico;
+import GUI.Controlador.GOGrafico.GOGrafico;
 import Logica.General.Aliado;
 import Logica.General.Nivel;
 import Logica.General.Visitors.ConcreteVisitorAliado;
@@ -18,7 +18,7 @@ public class KnifeSoldier extends Aliado {
 	 * @param y Posición en el eje y del aliado
 	 */
 	public KnifeSoldier(int x, int y, Nivel n) {
-		super(n);
+		super(n, 2);
 		// atributos físicos
 		this.tamanoX = 1;
 		this.tamanoY = 1;
@@ -33,7 +33,7 @@ public class KnifeSoldier extends Aliado {
 		this.alcanceAtaque = 1;
 		this.fuerzaAtaque = 20;
 		this.precio = 50;
-		this.velocidadAtaque = 2;
+		//this.velocidadAtaque = 2;
 		this.vidaMaxima = 100;
 		this.vida = vidaMaxima;		
 		

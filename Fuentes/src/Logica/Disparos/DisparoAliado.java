@@ -6,7 +6,7 @@ package Logica.Disparos;
 import java.awt.Rectangle;
 
 import GUI.Component_Custom.ImageIcon.Disparos.TexturaDisparoAliado;
-import GUI.Controlador.GOGrafico;
+import GUI.Controlador.GOGrafico.GOGraficoDisparo;
 import Logica.General.Disparo;
 import Logica.General.GameObject;
 import Logica.General.Nivel;
@@ -21,7 +21,7 @@ import Logica.General.Visitors.Visitor;
 public class DisparoAliado extends Disparo {
 	
 	/**
-	 * Constructor
+	 * Constructor de DisporoAliado
 	 * @param x Posición x desde donde se efectúa el disparo
 	 * @param y Posición y desde donde se efectúa el disparo
 	 * @param alcance Alcance del disparo
@@ -33,7 +33,7 @@ public class DisparoAliado extends Disparo {
 		super(x, y, alcance, dano, velocidad, n);
 		
 		//Grafico de GOGrafico
-		this.grafica = new GOGrafico(x, y, 7, 7, new TexturaDisparoAliado(), n.getMapa());
+		this.grafica = new GOGraficoDisparo(x, y, 7, 7, new TexturaDisparoAliado(), n.getMapa());
 		
 		//Agrego el disparo a la lista de entidades
 		nivel = n;

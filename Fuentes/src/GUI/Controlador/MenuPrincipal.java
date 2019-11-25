@@ -62,7 +62,6 @@ public class MenuPrincipal {
 	public MenuPrincipal() {
 		pulsado = false;
 		contador_imprimir = 0;
-		//lista = new LinkedList<JLabel>();
 		elJuego = new Juego();
 		
 		initialize(); //Inicia el frame

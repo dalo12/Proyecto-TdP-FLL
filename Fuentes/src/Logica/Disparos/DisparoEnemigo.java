@@ -6,7 +6,7 @@ package Logica.Disparos;
 import java.awt.Rectangle;
 
 import GUI.Component_Custom.ImageIcon.Disparos.TexturaDisparoEnemigo;
-import GUI.Controlador.GOGrafico;
+import GUI.Controlador.GOGrafico.GOGraficoDisparo;
 import Logica.General.Disparo;
 import Logica.General.GameObject;
 import Logica.General.Nivel;
@@ -31,7 +31,7 @@ public class DisparoEnemigo extends Disparo {
 	public DisparoEnemigo(int x, int y, int alcance, int dano, int velocidad, Nivel n) {
 		super(x, y, alcance, dano, velocidad, n);
 		//Grafico de GOGrafico
-		this.grafica = new GOGrafico(x, y, 50, 50, new TexturaDisparoEnemigo(), n.getMapa());
+		this.grafica = new GOGraficoDisparo(x, y, 50, 50, new TexturaDisparoEnemigo(), n.getMapa());
 		
 		//Agrego el disparo a la lista de entidades
 		nivel = n;
