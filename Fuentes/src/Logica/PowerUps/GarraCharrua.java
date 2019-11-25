@@ -21,17 +21,8 @@ public class GarraCharrua extends Premio {
 		this.posicionY = y;
 		this.tamanoX = 1;
 		this.tamanoY = 1;
-//<<<<<<< HEAD
-//		
-//		String [] texturas = new String[5];
-//		texturas[0] = "../Texturas/Powerups/garra-charrua/garra-charrua.gif";
-//		texturas[2] = texturas[3] = texturas[4] = texturas[1] = texturas[0];
-//		this.grafica = new GOGrafico(x, y, tamanoX, tamanoY, texturas, n.getMapa());
-//=======
-//
-//		//Grafico de GOGrafico
-//		this.grafica = new GOGrafico(x, y, tamanoX, tamanoY, new TexturaGarraCharrua(), n.getMapa());
-//>>>>>>> 179aea955a0b2b5a5c1d1651d5b68b054de77910
+
+		this.grafica = new GOGrafico(x, y, tamanoX, tamanoY, new TexturaGarraCharrua(), n.getMapa());
 		
 		//atributos lógicos
 		duracionEnMapa = 10;

@@ -138,7 +138,7 @@ public abstract class Enemigo extends Personaje {
 	
 	protected void soltarPowerUp() {
 		Random r = new Random();
-		Premio p = null;
+		Premio p;
 		int indice = r.nextInt(5000);
 		
 		if(indice < 25) {

@@ -22,9 +22,6 @@ public class Bombardeo extends Premio {
 		this.tamanoX = 1;
 		this.tamanoY = 1;
 		
-		String [] texturas = new String[5];
-		texturas[0] = "../Texturas/Powerups/bombardeo/bombardeo.gif";
-		texturas[2] = texturas[3] = texturas[4] = texturas[1] = texturas[0];
 		//Grafico de GOGrafico
 		this.grafica = new GOGrafico(x, y, tamanoX, tamanoY, new TexturaBombardeo(), n.getMapa());
 		//atributos lógicos
