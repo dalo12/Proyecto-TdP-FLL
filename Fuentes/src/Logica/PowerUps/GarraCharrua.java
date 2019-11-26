@@ -36,6 +36,7 @@ public class GarraCharrua extends Premio {
 		visitor = new VisitorGarraCharrua();
 		visitor_retirar_efecto = new VisitorGarraCharruaRetirar();
 		
+		this.grafica.getLabel().addMouseListener(new PremioActivado(this));
 	}
 	
 	@Override

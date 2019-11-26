@@ -9,10 +9,10 @@ public class TexturaTankGaroo extends TexturaGameObject {
 	 * Constructor de TexturaTankGaroo
 	 */
 	public TexturaTankGaroo(){
-		this.objeto_quieto = new ImageIcon(TexturaTankGaroo.class.getResource("/Recursos/Personajes/tank-garoo/tankgaroo-0.png"));
-		this.objeto_atacando = new ImageIcon(TexturaTankGaroo.class.getResource("/Recursos/Personajes/tank-garoo/tankgaroo-0.png"));
-		this.objeto_atacado = new ImageIcon(TexturaTankGaroo.class.getResource("/Recursos/Personajes/tank-garoo/tankgaroo-0.png"));
-		this.objeto_avanzando = new ImageIcon(TexturaTankGaroo.class.getResource("/Recursos/Personajes/tank-garoo/tankgaroo-0.png"));
-		this.objeto_muriendo = new ImageIcon(TexturaTankGaroo.class.getResource("/Recursos/Personajes/tank-garoo/tankgaroo-4.gif"));
+		this.objeto_quieto = new ImageIcon(TexturaTankGaroo.class.getResource("/Recursos/Personajes/tank-garoo/tankgaroo-0.pn"));
+		this.objeto_atacando = new ImageIcon(TexturaTankGaroo.class.getResource("/Recursos/Personajes/tank-garoo/tankgaroo-0.pn"));
+		this.objeto_atacado = new ImageIcon(TexturaTankGaroo.class.getResource("/Recursos/Personajes/tank-garoo/tankgaroo-0.pn"));
+		this.objeto_avanzando = new ImageIcon(TexturaTankGaroo.class.getResource("/Recursos/Personajes/tank-garoo/tankgaroo-0.pn"));
+		this.objeto_muriendo = new ImageIcon(TexturaTankGaroo.class.getResource("/Recursos/Personajes/tank-garoo/tankgaroo-4.gi"));
 	}
 }

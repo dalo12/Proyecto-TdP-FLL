@@ -37,6 +37,7 @@ public class Mate extends Premio {
 		visitor = new VisitorMate();
 		visitor_retirar_efecto = new VisitorMateRetirar();
 		
+		this.grafica.getLabel().addMouseListener(new PremioActivado(this));		
 	}
 
 	@Override

@@ -37,6 +37,7 @@ public class SanLugano extends Premio {
 		visitor = new VisitorSanLugano();
 		visitor_retirar_efecto = new VisitorSanLuganoRetirar();
 		
+		this.grafica.getLabel().addMouseListener(new PremioActivado(this));
 	}
 
 	@Override

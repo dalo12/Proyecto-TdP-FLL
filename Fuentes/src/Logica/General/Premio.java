@@ -80,6 +80,7 @@ public abstract class Premio extends GameObject {
 		
 		public void mouseClicked(MouseEvent e){
 			premio.activar();
+			JOptionPane.showMessageDialog(null, "Mensaje");
 		}
 	}
 	
