@@ -10,11 +10,11 @@ public class TexturaGarraCharrua extends TexturaGameObject {
 	 * Constructor de TexturaGarraCharrua
 	 */
 	public TexturaGarraCharrua(){
-		this.objeto_quieto = new ImageIcon(TexturaGarraCharrua.class.getResource("/Recursos/PowerUps/garra-charrua.gi"));
-		this.objeto_atacando = new ImageIcon(TexturaGarraCharrua.class.getResource("/Recursos/PowerUps/garra-charrua.gi"));
-		this.objeto_atacado = new ImageIcon(TexturaGarraCharrua.class.getResource("/Recursos/PowerUps/garra-charrua.gi"));
-		this.objeto_avanzando = new ImageIcon(TexturaGarraCharrua.class.getResource("/Recursos/PowerUps/garra-charrua.gi"));
-		this.objeto_muriendo = new ImageIcon(TexturaGarraCharrua.class.getResource("/Recursos/PowerUps/garra-charrua.gi"));
+		this.objeto_quieto = new ImageIcon(TexturaGarraCharrua.class.getResource("/Recursos/PowerUps/garra-charrua.gif"));
+		this.objeto_atacando = new ImageIcon(TexturaGarraCharrua.class.getResource("/Recursos/PowerUps/garra-charrua.gif"));
+		this.objeto_atacado = new ImageIcon(TexturaGarraCharrua.class.getResource("/Recursos/PowerUps/garra-charrua.gif"));
+		this.objeto_avanzando = new ImageIcon(TexturaGarraCharrua.class.getResource("/Recursos/PowerUps/garra-charrua.gif"));
+		this.objeto_muriendo = new ImageIcon(TexturaGarraCharrua.class.getResource("/Recursos/PowerUps/garra-charrua.gif"));
 	}
 	
 }

@@ -9,11 +9,11 @@ public class TexturaCercaAntiTanque extends TexturaGameObject {
 	 * Constructor de TexturaCercaAntiTanque
 	 */
 	public TexturaCercaAntiTanque(){
-		this.objeto_quieto = new ImageIcon(TexturaCercaAntiTanque.class.getResource("/Recursos/Personajes/kangaroo/kangaroo-0.pn"));
-		this.objeto_atacando = new ImageIcon(TexturaCercaAntiTanque.class.getResource("/Recursos/Personajes/kangaroo/kangaroo-0.pn"));
-		this.objeto_atacado = new ImageIcon(TexturaCercaAntiTanque.class.getResource("/Recursos/Personajes/kangaroo/kangaroo-0.pn"));
-		this.objeto_avanzando = new ImageIcon(TexturaCercaAntiTanque.class.getResource("/Recursos/Personajes/kangaroo/kangaroo-0.pn"));
-		this.objeto_muriendo = new ImageIcon(TexturaCercaAntiTanque.class.getResource("/Recursos/Personajes/kangaroo/kangaroo-0.pn"));
+		this.objeto_quieto = new ImageIcon(TexturaCercaAntiTanque.class.getResource("/Recursos/Personajes/kangaroo/kangaroo-0.png"));
+		this.objeto_atacando = new ImageIcon(TexturaCercaAntiTanque.class.getResource("/Recursos/Personajes/kangaroo/kangaroo-0.png"));
+		this.objeto_atacado = new ImageIcon(TexturaCercaAntiTanque.class.getResource("/Recursos/Personajes/kangaroo/kangaroo-0.png"));
+		this.objeto_avanzando = new ImageIcon(TexturaCercaAntiTanque.class.getResource("/Recursos/Personajes/kangaroo/kangaroo-0.png"));
+		this.objeto_muriendo = new ImageIcon(TexturaCercaAntiTanque.class.getResource("/Recursos/Personajes/kangaroo/kangaroo-0.png"));
 	}
 	
 }

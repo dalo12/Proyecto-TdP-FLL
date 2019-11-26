@@ -9,11 +9,11 @@ public class TexturaBomba extends TexturaGameObject {
 	 * Constructor de TexturaBomba
 	 */
 	public TexturaBomba(){
-		this.objeto_quieto = new ImageIcon(TexturaBomba.class.getResource("/Recursos/Personajes/kangaroo/kangaroo-0.pn"));
-		this.objeto_atacando = new ImageIcon(TexturaBomba.class.getResource("/Recursos/Personajes/kangaroo/kangaroo-0.pn"));
-		this.objeto_atacado = new ImageIcon(TexturaBomba.class.getResource("/Recursos/Personajes/kangaroo/kangaroo-0.pn"));
-		this.objeto_avanzando = new ImageIcon(TexturaBomba.class.getResource("/Recursos/Personajes/kangaroo/kangaroo-0.pn"));
-		this.objeto_muriendo = new ImageIcon(TexturaBomba.class.getResource("/Recursos/Personajes/kangaroo/kangaroo-0.pn"));
+		this.objeto_quieto = new ImageIcon(TexturaBomba.class.getResource("/Recursos/Personajes/kangaroo/kangaroo-0.png"));
+		this.objeto_atacando = new ImageIcon(TexturaBomba.class.getResource("/Recursos/Personajes/kangaroo/kangaroo-0.png"));
+		this.objeto_atacado = new ImageIcon(TexturaBomba.class.getResource("/Recursos/Personajes/kangaroo/kangaroo-0.png"));
+		this.objeto_avanzando = new ImageIcon(TexturaBomba.class.getResource("/Recursos/Personajes/kangaroo/kangaroo-0.png"));
+		this.objeto_muriendo = new ImageIcon(TexturaBomba.class.getResource("/Recursos/Personajes/kangaroo/kangaroo-0.png"));
 	}
 	
 }

@@ -9,11 +9,11 @@ public class TexturaAllterrainMachinegun extends TexturaGameObject {
 	 * Constructor de TexturaAllterrainMachinegun
 	 */
 	public TexturaAllterrainMachinegun(){
-		this.objeto_quieto = new ImageIcon(TexturaAllterrainMachinegun.class.getResource("/Recursos/Personajes/allterrain-machinegun/allterrain-machinegun-0.pn"));
-		this.objeto_atacando = new ImageIcon(TexturaAllterrainMachinegun.class.getResource("/Recursos/Personajes/allterrain-machinegun/allterrain-machinegun-0.pn"));
-		this.objeto_avanzando = new ImageIcon(TexturaAllterrainMachinegun.class.getResource("/Recursos/Personajes/allterrain-machinegun/allterrain-machinegun-0.pn"));
-		this.objeto_atacado = new ImageIcon(TexturaAllterrainMachinegun.class.getResource("/Recursos/Personajes/allterrain-machinegun/allterrain-machinegun-0.pn"));
-		this.objeto_muriendo = new ImageIcon(TexturaAllterrainMachinegun.class.getResource("/Recursos/Personajes/allterrain-machinegun/allterrain-machinegun-4.gi"));
+		this.objeto_quieto = new ImageIcon(TexturaAllterrainMachinegun.class.getResource("/Recursos/Personajes/allterrain-machinegun/allterrain-machinegun-0.png"));
+		this.objeto_atacando = new ImageIcon(TexturaAllterrainMachinegun.class.getResource("/Recursos/Personajes/allterrain-machinegun/allterrain-machinegun-0.png"));
+		this.objeto_avanzando = new ImageIcon(TexturaAllterrainMachinegun.class.getResource("/Recursos/Personajes/allterrain-machinegun/allterrain-machinegun-0.png"));
+		this.objeto_atacado = new ImageIcon(TexturaAllterrainMachinegun.class.getResource("/Recursos/Personajes/allterrain-machinegun/allterrain-machinegun-0.png"));
+		this.objeto_muriendo = new ImageIcon(TexturaAllterrainMachinegun.class.getResource("/Recursos/Personajes/allterrain-machinegun/allterrain-machinegun-4.gif"));
 	}
 	
 }
