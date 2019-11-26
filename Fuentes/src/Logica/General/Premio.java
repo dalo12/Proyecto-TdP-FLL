@@ -1,7 +1,11 @@
 package Logica.General;
 
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.LinkedList;
 import java.util.List;
+
+import javax.swing.JOptionPane;
 
 import Logica.General.Visitors.Visitor;
 
@@ -35,7 +39,9 @@ public abstract class Premio extends GameObject {
 	}
 	
 	public void activar() {
-		//TODO debe recorrer todos los objetos del juego enviando su visitor.
+		activo = true;
+		grafica.getLabel().setVisible(false);
+		grafica.getLabel().setOpaque(false);
 	}
 
 	@Override
@@ -61,5 +67,20 @@ public abstract class Premio extends GameObject {
 	 * @param enemigo Enemigo
 	 */
 	protected abstract void aplicarEfecto(Enemigo enemigo);
+	
+	/**
+	 * Clase PremioActivado: Clase que redefine el evento clicked activar y ejecutar un premio
+	 */
+	protected class PremioActivado extends MouseAdapter {
+		private Premio premio;
+		
+		public PremioActivado(Premio premio) {
+			this.premio = premio;
+		}
+		
+		public void mouseClicked(MouseEvent e){
+			premio.activar();
+		}
+	}
 	
 }

@@ -19,7 +19,6 @@ public abstract class Aliado extends Personaje implements EntidadComprable{
 	//Atributos de instancia
 	protected int precio;
 	protected int vidaMaxima;
-	protected int contador_tiempo;
 
 	/**
 	 * Constructor protegido

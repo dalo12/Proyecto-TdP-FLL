@@ -8,6 +8,7 @@ package Logica.General;
 
 public abstract class Personaje extends GameObject {
 	protected int vida, fuerzaAtaque, alcanceAtaque, velocidadAtaque;
+	protected int contador_tiempo;
 	
 	/**
 	 * Constructor protegido
@@ -15,6 +16,7 @@ public abstract class Personaje extends GameObject {
 	 */
 	protected Personaje(Nivel n) {
 		super(n);
+		contador_tiempo = 0;
 	}
 	
 	/**

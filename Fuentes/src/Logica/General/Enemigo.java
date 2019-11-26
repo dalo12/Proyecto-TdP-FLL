@@ -77,8 +77,11 @@ public abstract class Enemigo extends Personaje {
 	 * @param a El aliado a atacar
 	 */
 	public void atacar(Aliado o) {
-		grafica.atacar();
-		o.setVida(o.getVida() - fuerzaAtaque);
+		if(contador_tiempo <= 0) {
+			grafica.atacar();
+			o.setVida(o.getVida() - fuerzaAtaque);
+			contador_tiempo = velocidadAtaque * 25;
+		}
 	}
 	
 	/**
@@ -86,8 +89,11 @@ public abstract class Enemigo extends Personaje {
 	 * @param o El objeto a atacar
 	 */
 	public void atacar(Objeto o) {
-		grafica.atacar();
-		o.setVida(o.getVida() - fuerzaAtaque);
+		if(contador_tiempo <= 0) {
+			grafica.atacar();
+			o.setVida(o.getVida() - fuerzaAtaque);
+			contador_tiempo = velocidadAtaque * 25;
+		}
 	}
 	
 	public void accept(Visitor v) {
@@ -110,6 +116,7 @@ public abstract class Enemigo extends Personaje {
 	
 	@Override
 	public void accionar() {
+		contador_tiempo--;
 		boolean puedeAvanzar = true;
 		for(GameObject g : nivel.getListaEntidades()) {
 			if (g!=null) {

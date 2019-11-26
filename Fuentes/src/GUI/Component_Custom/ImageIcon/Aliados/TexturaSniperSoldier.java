@@ -10,7 +10,7 @@ public class TexturaSniperSoldier extends TexturaGameObject {
 	 */
 	public TexturaSniperSoldier(){
 		this.objeto_quieto = new ImageIcon(TexturaSniperSoldier.class.getResource("/Recursos/Personajes/sniper-soldier/sniper-soldier-0.png"));
-		this.objeto_atacando =  new ImageIcon(TexturaSniperSoldier.class.getResource("/Recursos/Personajes/sniper-soldier/sniper-soldier-0.png"));
+		this.objeto_atacando =  new ImageIcon(TexturaSniperSoldier.class.getResource("/Recursos/Personajes/sniper-soldier/sniper-soldier-1.gif"));
 		this.objeto_atacado =  new ImageIcon(TexturaSniperSoldier.class.getResource("/Recursos/Personajes/sniper-soldier/sniper-soldier-0.png"));
 		this.objeto_avanzando = new ImageIcon(TexturaSniperSoldier.class.getResource("/Recursos/Personajes/sniper-soldier/sniper-soldier-0.png"));
 		this.objeto_muriendo = new ImageIcon(TexturaSniperSoldier.class.getResource("/Recursos/Personajes/sniper-soldier/sniper-soldier-4.gif"));
