@@ -28,6 +28,7 @@ public class GarraCharrua extends Premio {
 		this.tamanoY = 1;
 
 		this.grafica = new GOGrafico(x, y, tamanoX, tamanoY, new TexturaGarraCharrua(), n.getMapa());
+		this.grafica.getLabel().addMouseListener(new PremioActivado(this));
 		
 		//atributos lógicos
 		duracionEnMapa = 10;
@@ -36,7 +37,7 @@ public class GarraCharrua extends Premio {
 		visitor = new VisitorGarraCharrua();
 		visitor_retirar_efecto = new VisitorGarraCharruaRetirar();
 		
-		this.grafica.getLabel().addMouseListener(new PremioActivado(this));
+		
 	}
 	
 	@Override

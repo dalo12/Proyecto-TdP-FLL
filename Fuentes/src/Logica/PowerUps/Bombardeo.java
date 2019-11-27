@@ -24,6 +24,8 @@ public class Bombardeo extends Premio {
 		
 		//Grafico de GOGrafico
 		this.grafica = new GOGrafico(x, y, tamanoX, tamanoY, new TexturaBombardeo(), n.getMapa());
+		this.grafica.getLabel().addMouseListener(new PremioActivado(this));
+		
 		//atributos lógicos
 		duracionEnMapa = 10;
 		duracionActivo = 0;
@@ -31,7 +33,7 @@ public class Bombardeo extends Premio {
 		
 		visitor = new ConcreteVisitorPremio(null, null, null, y);
 		
-		this.grafica.getLabel().addMouseListener(new PremioActivado(this));
+		
 	}
 
 	@Override

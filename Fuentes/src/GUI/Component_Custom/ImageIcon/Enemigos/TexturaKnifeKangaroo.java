@@ -12,7 +12,7 @@ public class TexturaKnifeKangaroo extends TexturaGameObject {
 		this.objeto_quieto = new ImageIcon(TexturaKnifeKangaroo.class.getResource("/Recursos/Personajes/kangaroo/kangaroo-0.png"));
 		this.objeto_atacando = new ImageIcon(TexturaKnifeKangaroo.class.getResource("/Recursos/Personajes/kangaroo/kangaroo-0.png"));
 		this.objeto_atacado = new ImageIcon(TexturaKnifeKangaroo.class.getResource("/Recursos/Personajes/kangaroo/kangaroo-0.png"));
-		this.objeto_avanzando = new ImageIcon(TexturaKnifeKangaroo.class.getResource("/Recursos/Personajes/kangaroo/kangaroo-0.png"));
+		this.objeto_avanzando = new ImageIcon(TexturaKnifeKangaroo.class.getResource("/Recursos/Personajes/kangaroo/kangaroo-3.gif"));
 		this.objeto_muriendo = new ImageIcon(TexturaKnifeKangaroo.class.getResource("/Recursos/Personajes/kangaroo/kangaroo-0.png"));
 	}
 	

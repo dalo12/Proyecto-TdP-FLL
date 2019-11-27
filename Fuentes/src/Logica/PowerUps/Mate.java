@@ -29,6 +29,7 @@ public class Mate extends Premio {
 		
 		//Grafico de GOGrafico
 		this.grafica = new GOGrafico(x, y, tamanoX, tamanoY, new TexturaMate(), n.getMapa());
+		this.grafica.getLabel().addMouseListener(new PremioActivado(this));	
 		
 		//atributos lógicos
 		duracionEnMapa = 10;
@@ -37,7 +38,7 @@ public class Mate extends Premio {
 		visitor = new VisitorMate();
 		visitor_retirar_efecto = new VisitorMateRetirar();
 		
-		this.grafica.getLabel().addMouseListener(new PremioActivado(this));		
+			
 	}
 
 	@Override
