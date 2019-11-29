@@ -4,7 +4,6 @@ import GUI.Component_Custom.ImageIcon.Objetos.TexturaMina;
 import GUI.Controlador.GOGrafico.GOGrafico;
 import Logica.General.GameObject;
 import Logica.General.Nivel;
-import Logica.General.Visitors.ConcreteVisitorObjeto;
 import Logica.General.Visitors.VisitorMina;
 import Logica.Tienda.EntidadComprable;
 

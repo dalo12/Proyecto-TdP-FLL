@@ -12,12 +12,8 @@ import GUI.Component_Custom.menubar_custom.MenuBarTienda;
 import GUI.Mapa.Coordenada;
 import GUI.Mapa.LabelTablero;
 import GUI.Mapa.MapaGrafico;
-import Logica.Aliados.*;
-import Logica.Enemigos.*;
-import Logica.Objetos.*;
 import Logica.General.GameObject;
 import Logica.General.Juego;
-import Logica.General.Premio;
 import Logica.Tienda.EntidadComprable;
 import Logica.Tienda.Aliados.*;
 import Logica.Tienda.Objetos.*;
@@ -25,6 +21,7 @@ import Logica.Tienda.Objetos.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.GridLayout;
+import java.awt.Rectangle;
 
 public class MenuPrincipal {
 	//Atributos gráficos
@@ -81,9 +78,9 @@ public class MenuPrincipal {
 		labelTablero.setLocation(360, 85);
 		labelTablero.setSize(600, 330);
 		labelTablero.addMouseListener(new MouseAdapter() {
-			public void mouseClicked(MouseEvent e){
+			public synchronized void mouseClicked(MouseEvent e){
 				if (objeto_insertar!=null) {
-					pulsado = true;
+					pulsado = false;
 					int pos_x = e.getX();
 					int pos_y = e.getY();
 					//Recupero la coordenada mas cercana en donde insertar el aux
@@ -96,7 +93,12 @@ public class MenuPrincipal {
 					
 					//Me fijo si no hay ya un objeto en esas coordenadas
 					for(GameObject o : elJuego.getNivel().getListaEntidades()) {
-						if(o.getPosicionX() == x_real && o.getPosicionY() == y_real) {
+						Rectangle r_o, r_go;
+						r_o = new Rectangle(o.getPosicionX(), o.getPosicionY(), o.getGrafica().getLabel().getWidth()* o.getTamanoX(), o.getGrafica().getLabel().getHeight());
+						r_go = new Rectangle(x_real, y_real, objeto_insertar.getGrafica().getLabel().getWidth()* objeto_insertar.getTamanoX(), objeto_insertar.getGrafica().getLabel().getHeight());
+						
+						if(r_o.intersects(r_go)) {
+							JOptionPane.showMessageDialog(null, "Lugar ocupado por otro objeto");
 							disponible = false;
 							break;
 						}
@@ -105,6 +107,7 @@ public class MenuPrincipal {
 					if(disponible) {
 						objeto_insertar.setPosicionX(x_real);
 						objeto_insertar.setPosicionY(y_real);
+						pulsado = true;
 					}
 				}
 			}
@@ -229,90 +232,11 @@ public class MenuPrincipal {
 		
 		return arr;
 	}
-	
-	
-	/**
-	 * Imprime el estado actual de la lista de entidades
-	 * TODO: Borrar cuando ya no sirva más
-	 */
-	/*
-	public synchronized void imprimirObjetos() {
-		String cadena = "";
-		if(tamano_lista_entidades_2 != elJuego.getNivel().getListaEntidades().size()) {
-			tamano_lista_entidades_2 = elJuego.getNivel().getListaEntidades().size();
-		
-			for(GameObject o : elJuego.getNivel().getListaEntidades()) {
-				cadena += contador_imprimir + ": ";
-				//Enemigos
-				if(o instanceof BoxKangaroo) {
-					cadena += "BoxKangaroo";
-				}
-				if(o instanceof FlamethrowerKangaroo) {
-					cadena += "FlamethrowerKangaroo";
-				}
-				if(o instanceof Kangaroo) {
-					cadena += "Kangaroo";
-				}
-				if(o instanceof KnifeKangaroo) {
-					cadena += "KnifeKangaroo";
-				}
-				if(o instanceof PistolKangaroo) {
-					cadena += "PistolKangaroo";
-				}
-				if(o instanceof TankGaroo) {
-					cadena += "TankGaroo";
-				}
-				//Aliados
-				if(o instanceof AllterrainMachinegun) {
-					cadena += "AllterrainMachinegun";
-				}
-				if(o instanceof BazookaSoldier) {
-					cadena += "BazookaSoldier";
-				}
-				if(o instanceof KnifeSoldier) {
-					cadena += "KnifeSoldier";
-				}
-				if(o instanceof PistolSoldier) {
-					cadena += "PistolSoldier";
-				}
-				if(o instanceof SniperSoldier) {
-					cadena += "SniperSoldier";
-				}
-				//Objetos
-				if(o instanceof Barricada) {
-					cadena += "Barricada";
-				}
-				if(o instanceof Bomba) {
-					cadena += "Bomba";
-				}
-				if(o instanceof CercaAntiTanque) {
-					cadena += "CercaAntiTanque";
-				}
-				if(o instanceof Charco) {
-					cadena += "Charco";
-				}
-				if(o instanceof Mina) {
-					cadena += "Mina";
-				}
-				if(o instanceof Piedra) {
-					cadena += "BoxKangaroo";
-				}	
-				if(o instanceof Premio) {
-					cadena += "Premio";
-				}
-				cadena += " ";
-				contador_imprimir++;
-			}
-			System.out.println(cadena);
-			contador_imprimir = 0;
-		}
-	}
-	*/
 
 	/**
 	 * Setea el aliado seleccionado de la tienda
 	 */
-	public synchronized void setearAliado() {
+	public synchronized void setearAliado() {		
 		if (objeto_insertar!=null && pulsado) {
 			int costo = ((EntidadComprable) objeto_insertar).getPrecio();
 			elJuego.getNivel().agregarMonedas(-1 * costo);

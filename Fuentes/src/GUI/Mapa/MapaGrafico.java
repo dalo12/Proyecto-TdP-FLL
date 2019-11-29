@@ -51,6 +51,13 @@ public class MapaGrafico extends JPanel {
 	}
 	
 	/**
+	 * @param torre the torre to set
+	 */
+	public void setTorre(JLabel torre) {
+		this.torre = torre;
+	}
+	
+	/**
 	 * @return Tablero que está sobre el mapa
 	 */
 	public LabelTablero getTablero() {
@@ -64,10 +71,4 @@ public class MapaGrafico extends JPanel {
 		return torre;
 	}
 
-	/**
-	 * @param torre the torre to set
-	 */
-	public void setTorre(JLabel torre) {
-		this.torre = torre;
-	}
 }

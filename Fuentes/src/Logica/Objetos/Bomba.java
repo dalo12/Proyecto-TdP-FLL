@@ -1,13 +1,9 @@
 package Logica.Objetos;
 
-import java.util.LinkedList;
-import java.util.List;
-
 import GUI.Component_Custom.ImageIcon.Objetos.TexturaBomba;
 import GUI.Controlador.GOGrafico.GOGrafico;
 import Logica.General.GameObject;
 import Logica.General.Nivel;
-import Logica.General.Visitors.ConcreteVisitorObjeto;
 import Logica.General.Visitors.VisitorBomba;
 import Logica.Tienda.EntidadComprable;
 
