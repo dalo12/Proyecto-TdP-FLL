@@ -1,5 +1,8 @@
 Consideraciones a tener en cuenta:
 
+Enemigos:
+- Los enemigos tienen una animación no animada a la hora de morir, por lo que parece que se quedan quietos estáticos, cuando en realidad se está llevando a cabo la animación de su muerte (aunque esta en realidad no se llegó a implementar gráficamente).
+
 PowerUps:
 Los personajes se tiñen de distintos colores a corde al premio obtenido:
 - Verde: Aplicado el premio 'Mate'

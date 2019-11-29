@@ -54,6 +54,7 @@ public class Bombardeo extends Premio {
 						o.getGrafica().getLabel().setBackground(new Color(255, 127, 0, 50));
 						o.getGrafica().getLabel().setOpaque(true);
 						o.getGrafica().getLabel().setVisible(true);
+						for(int i=0;i<50;i++); //para esperar?
 						o.morir();
 					}
 				}

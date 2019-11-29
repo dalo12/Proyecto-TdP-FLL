@@ -2,8 +2,10 @@ package Logica.Objetos;
 
 import GUI.Component_Custom.ImageIcon.Objetos.TexturaMina;
 import GUI.Controlador.GOGrafico.GOGrafico;
+import Logica.General.GameObject;
 import Logica.General.Nivel;
 import Logica.General.Visitors.ConcreteVisitorObjeto;
+import Logica.General.Visitors.VisitorMina;
 import Logica.Tienda.EntidadComprable;
 
 /**
@@ -35,13 +37,29 @@ public class Mina extends ObjetoTemporal implements EntidadComprable{
 		this.duracion = 30;
 		this.precio = 75;
 		
-		visitor = new ConcreteVisitorObjeto(this, y, "", "", y); // TODO verificar si el visitor es correcto
+		visitor = new VisitorMina(this);
 		n.insertarObjeto(this);
 	}
 	
 	@Override
 	public int getPrecio() {
 		return this.precio;
+	}
+	
+	@Override
+	public void accionar() {
+		this.duracion--;
+		if(this.duracion == 0) {
+			this.morir();
+		}else {
+			for(GameObject o : nivel.getListaEntidades()) {
+				boolean coincide_x = this.posicionX <= o.getPosicionX() && this.posicionX+this.grafica.getLabel().getWidth() >= o.getPosicionX();
+				boolean coincide_y = this.posicionY == o.getPosicionY();
+				if(coincide_x && coincide_y) {
+					o.accept(visitor);
+				}
+			}
+		}
 	}
 	
 }

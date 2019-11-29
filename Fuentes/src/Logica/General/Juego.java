@@ -48,9 +48,9 @@ public class Juego {
 	 * @param mapa Mapa que contendrán los niveles
 	 */
 	public void crearNiveles(MapaGrafico mapa) {
-		niveles[0] = new Nivel(mapa, 200);
-		niveles[1] = new Nivel(mapa, 500);
-		niveles[2] = new Nivel(mapa, 1000);
+		niveles[0] = new Nivel(mapa, 1000);
+		niveles[1] = new Nivel(mapa, 1700);
+		niveles[2] = new Nivel(mapa, 3000);
 	}
 	
 	/**
@@ -81,15 +81,25 @@ public class Juego {
 		niveles[nro_nivel].vaciarABorrar();
 		
 		//Si me quedo sin enemigos, inserto nueva oleada
-		if ((niveles[nro_nivel].getEnemigosRestantes() == 0) && (niveles[nro_nivel].getOleadasFaltantes()>0)) {
+		if ((niveles[nro_nivel].getEnemigosRestantes() <= 0) && (niveles[nro_nivel].getOleadasFaltantes()>0)) {
+			JOptionPane.showMessageDialog(null, "Una nueva oleada se acerca!");
 			niveles[nro_nivel].insertarOleada(dificultad);
 			dificultad++;
 		}
 		
 		//Si el nivel no tiene más enemigos y no tiene mas oleadas, el nivel terminó y el usuario ganó el nivel
-		if ((niveles[nro_nivel].getEnemigosRestantes()==0) && (niveles[nro_nivel].getOleadasFaltantes()==0)) {
+		if ((niveles[nro_nivel].getEnemigosRestantes()<=0) && (niveles[nro_nivel].getOleadasFaltantes()<=0)) {
 			JOptionPane.showMessageDialog(null, "HA GANADO EL NIVEL! Haz click en 'Aceptar' para pasar al próximo nivel");
 			nro_nivel++;
+			
+			//Borro todo lo que haya quedado en el mapa
+			for(GameObject o : niveles[nro_nivel-1].getListaEntidades()) {
+				niveles[nro_nivel-1].getMapa().getTablero().remove(o.getGrafica().getLabel());
+				niveles[nro_nivel-1].getMapa().remove(o.getGrafica().getLabel());
+				niveles[nro_nivel-1].getMapa().getTablero().repaint();
+				niveles[nro_nivel-1].getMapa().repaint();
+			}
+			
 			invaden = new LinkedList<GameObject>();
 			//Si no hay más niveles, el usuario ganó el juego
 			if(nro_nivel == niveles.length) {

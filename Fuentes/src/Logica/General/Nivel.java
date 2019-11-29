@@ -99,15 +99,11 @@ public class Nivel {
 			hay_alguien = false;
 			int pos_random_x = r.nextInt(mapa.getTablero().getWidth());
 			int pos_random_y = r.nextInt(mapa.getTablero().getHeight());
-			System.out.println("( " + pos_random_x + " , " + pos_random_y + " )");
 			Coordenada coord = mapa.getTablero().getCoordenadaCercana(pos_random_x, pos_random_y);
-			
-			System.out.println("( " + coord.getX() + " , " + coord.getY() + " )");
 			
 			coord_x = mapa.getTablero().getX() + coord.getX();
 			coord_y = mapa.getTablero().getY() + coord.getY();
 			
-			System.out.println("( " + coord_x + " , " + coord_y + " )");
 			//me fijo si no hay otro objeto en esas mismas coordenadas
 			for(GameObject e : entidades) {
 				if(e.getPosicionX() == coord_x && e.getPosicionY() == coord_y) {

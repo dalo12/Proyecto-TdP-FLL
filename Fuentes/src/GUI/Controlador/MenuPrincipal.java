@@ -49,8 +49,10 @@ public class MenuPrincipal {
 	protected static final int CANT_EN_Y = 6; //Cantidad de filas que contendrá LabelTablero
 	//protected static final int CANT_DERROTA = 3; //Cantidad de kangaroo que deben entrar a la torre para perder
 	protected int tamano_lista_entidades;
+	protected int id_nivel;
 	//TODO Borrar
 	protected int tamano_lista_entidades_2;
+	
 	
 	/**
 	 * Launch the application.
@@ -70,6 +72,7 @@ public class MenuPrincipal {
 		tamano_lista_entidades = 0;
 		tamano_lista_entidades_2 = 0;
 		elJuego = new Juego();
+		id_nivel = 0;
 		
 		initialize(); //Inicia el frame
 		
@@ -124,26 +127,8 @@ public class MenuPrincipal {
 		int coord_y_tablero = labelTablero.getY();
 		crearLabelCampo(labelTablero.getAlturaDeDivision(), labelTablero.getAnchoDeDivision(), CANT_EN_X, CANT_EN_Y, coord_x_tablero, coord_y_tablero);
 		
-		//Agrega la tienda al frame
-		menuBar = new MenuBarTienda(elJuego);
-		frame.setJMenuBar(menuBar);
-		
-		//Agrega los personajes seleccionables a la tienda
+		//Crear la tienda y agrega los personajes seleccionables a la tienda
 		iniciarMenuPersonajes();
-		
-		//Agrega el listener a cada uno de los botones para seleccionar personajes en la tienda
-		for (ButtonPersonaje bp: itemCharacter) {
-			bp.addMouseListener(new MouseAdapter() {
-				public void mouseClicked(MouseEvent e){
-					if (bp.getCostoPersonaje()<=elJuego.getNivel().getMonedas()) {
-						objeto_insertar = bp.crearObjeto();
-					}
-					else {
-						JOptionPane.showMessageDialog(null, "Monedas insuficiente", "Error...", JOptionPane.ERROR_MESSAGE);
-					}
-				}
-			});
-		}
 		
 		//Inicio el hilo una vez que termino de crear todo
 		contador = new ContadorTiempo(elJuego, this);
@@ -174,6 +159,10 @@ public class MenuPrincipal {
 	 * Inicializa el menú de personajes seleccionables
 	 */
 	protected void iniciarMenuPersonajes() {
+		//Agrega la tienda al frame
+		menuBar = new MenuBarTienda(elJuego);
+		frame.setJMenuBar(menuBar);
+		
 		itemCharacter = new ButtonPersonaje[9]; //9 es el máximo de personajes (aliados y objetos) seleccionables por el usuario
 		itemCharacter[0] = new ButtonAllterrainMachinegun(elJuego.getNivel());
 		itemCharacter[1] = new ButtonBazookaSoldier(elJuego.getNivel());
@@ -188,13 +177,32 @@ public class MenuPrincipal {
 		for(int i=0; i<9; i++) {
 			menuBar.getMenuPersonajes().add(itemCharacter[i]);
 		}
+		
+		//Agrega el listener a cada uno de los botones para seleccionar personajes en la tienda
+		for (ButtonPersonaje bp: itemCharacter) {
+			bp.addMouseListener(new MouseAdapter() {
+				public void mouseClicked(MouseEvent e){
+					if (bp.getCostoPersonaje()<=elJuego.getNivel().getMonedas()) {
+						objeto_insertar = bp.crearObjeto();
+					}
+					else {
+						JOptionPane.showMessageDialog(null, "Monedas insuficiente", "Error...", JOptionPane.ERROR_MESSAGE);
+					}
+				}
+			});
+		}
 	}
 	
 	/**
 	 * Acciona los elementos del mapa
 	 */
 	public synchronized void accionar() {
-		imprimirObjetos();
+		//cada vez que avanzo de nivel, tengo que actualizar la tienda
+		if(elJuego.getNivel().hashCode() != id_nivel) {
+			iniciarMenuPersonajes();
+			id_nivel = elJuego.getNivel().hashCode();
+		}
+		//imprimirObjetos();
 		panelMapa.updateUI();
 		panelMapa.repaint();
 		labelTablero.updateUI();
@@ -222,10 +230,12 @@ public class MenuPrincipal {
 		return arr;
 	}
 	
+	
 	/**
 	 * Imprime el estado actual de la lista de entidades
 	 * TODO: Borrar cuando ya no sirva más
 	 */
+	/*
 	public synchronized void imprimirObjetos() {
 		String cadena = "";
 		if(tamano_lista_entidades_2 != elJuego.getNivel().getListaEntidades().size()) {
@@ -297,6 +307,7 @@ public class MenuPrincipal {
 			contador_imprimir = 0;
 		}
 	}
+	*/
 
 	/**
 	 * Setea el aliado seleccionado de la tienda
@@ -372,7 +383,7 @@ public class MenuPrincipal {
 		if(tamano_lista_entidades != elJuego.getNivel().getListaEntidades().size()) {
 			for(int i=0; i<CANT_EN_X; i++) {
 				for(int j=0; j<CANT_EN_Y; j++) {
-					panelMapa.setComponentZOrder(campo[i][j], panelMapa.getComponentCount() - 1);
+					panelMapa.setComponentZOrder(campo[i][j], panelMapa.getComponentCount() - 2);
 				}
 			}
 			tamano_lista_entidades = elJuego.getNivel().getListaEntidades().size();
