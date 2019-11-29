@@ -88,7 +88,6 @@ public abstract class Premio extends GameObject {
 			premio.setPosicionX(-1000);
 			premio.setPosicionY(-1000);
 			premio.activar();
-			System.out.println("SE ENTRÓ EN EL MOUSE CLICKED. CAPTURADO CLICK DEL MOUSE!");
 		}
 	}
 
