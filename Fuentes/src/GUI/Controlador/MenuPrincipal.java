@@ -45,7 +45,7 @@ public class MenuPrincipal {
 	//Constantes
 	protected static final int CANT_EN_X = 10; //Cantidad de columnas que contendrá LabelTablero
 	protected static final int CANT_EN_Y = 6; //Cantidad de filas que contendrá LabelTablero
-	protected static final int CANT_DERROTA = 3; //Cantidad de kangaroo que deben entrar a la torre para perder
+	//protected static final int CANT_DERROTA = 3; //Cantidad de kangaroo que deben entrar a la torre para perder
 	protected int tamano_lista_entidades;
 	//TODO Borrar
 	protected int tamano_lista_entidades_2;
@@ -107,11 +107,11 @@ public class MenuPrincipal {
 		
 		crearMapa();
 		
+		elJuego.crearNiveles(this.panelMapa);
+		
 		panelMapa.add(labelTablero);
 		panelMapa.setComponentZOrder(labelTablero, 0);
 		
-		elJuego.crearNivel(panelMapa, 200);
-	
 		//crea la torre
 		torre = new JLabel();
 		torre.setBounds(panelMapa.getX(), panelMapa.getY()+(Math.floorDiv(frame.getHeight(), 25)), Math.floorDiv(frame.getWidth(), 4), (frame.getHeight() - Math.floorDiv(frame.getHeight(), 4)) );
@@ -383,6 +383,13 @@ public class MenuPrincipal {
 			}
 			tamano_lista_entidades = elJuego.getNivel().getListaEntidades().size();
 		}
+	}
+	
+	/**
+	 * @return El mapa de la gui
+	 */
+	public MapaGrafico getMapa() {
+		return this.panelMapa;
 	}
 
 }

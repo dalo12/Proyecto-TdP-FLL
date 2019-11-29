@@ -60,7 +60,8 @@ public class DisparoAliado extends Disparo {
 	 * Hace que el disparo avance
 	 */
 	public void avanzar() {
-		if(posicionX > x_inicial + alcance) {
+		int ancho_maximo = nivel.getMapa().getX() + nivel.getMapa().getHeight() + 10;
+		if(posicionX > x_inicial + alcance || posicionX > ancho_maximo) {
 			morir();
 		}else {
 			posicionX += velocidad;

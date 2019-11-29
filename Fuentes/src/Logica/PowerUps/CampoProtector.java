@@ -4,6 +4,7 @@ import GUI.Component_Custom.ImageIcon.PowerUps.TexturaCampoProtector;
 import GUI.Controlador.GOGrafico.GOGrafico;
 import Logica.General.GameObject;
 import Logica.General.Nivel;
+import Logica.General.Personaje;
 import Logica.General.Visitors.Visitor;
 
 /**
@@ -12,11 +13,11 @@ import Logica.General.Visitors.Visitor;
  * @version 1.0
  */
 public class CampoProtector extends GameObject {
-	protected GameObject entidad;
+	protected Personaje entidad;
 	protected Nivel nivel;
 	protected int tiempo;
 	
-	public CampoProtector(GameObject o) {
+	public CampoProtector(Personaje o) {
 		super(o.getNivel());
 		nivel = o.getNivel();
 		entidad = o;
@@ -35,6 +36,9 @@ public class CampoProtector extends GameObject {
 	public void accionar() {
 		this.posicionX = entidad.getPosicionX();
 		this.posicionY = entidad.getPosicionY();
+		if(entidad.getVida() <= 0) {
+			this.morir();
+		}
 	}
 
 	@Override

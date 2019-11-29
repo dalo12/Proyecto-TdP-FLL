@@ -58,7 +58,7 @@ public class Nivel {
 	 */
 	public MapaGrafico getMapa() {
 		return this.mapa;
-	}
+	}	
 	
 	/**
 	 * @return La lista de entidades
