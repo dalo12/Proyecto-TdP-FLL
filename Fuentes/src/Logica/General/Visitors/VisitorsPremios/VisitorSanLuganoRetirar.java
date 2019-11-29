@@ -1,7 +1,5 @@
 package Logica.General.Visitors.VisitorsPremios;
 
-import java.awt.Color;
-
 import Logica.General.Aliado;
 import Logica.General.Disparo;
 import Logica.General.Enemigo;
