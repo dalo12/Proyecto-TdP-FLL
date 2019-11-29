@@ -1,12 +1,13 @@
 package GUI.Controlador;
 
-import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 
 import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JMenu;
+import javax.swing.JOptionPane;
 
+import GUI.Component_Custom.JLabel.LabelTorre;
 import GUI.Component_Custom.menubar_custom.MenuBarTienda;
 import GUI.Mapa.Coordenada;
 import GUI.Mapa.LabelTablero;
@@ -17,6 +18,7 @@ import Logica.Objetos.*;
 import Logica.General.GameObject;
 import Logica.General.Juego;
 import Logica.General.Premio;
+import Logica.Tienda.EntidadComprable;
 import Logica.Tienda.Aliados.*;
 import Logica.Tienda.Objetos.*;
 
@@ -38,7 +40,7 @@ public class MenuPrincipal {
 	protected JLabel torre; //zona de victoria de los enemigos
 	//Atributos de instancia
 	protected static ContadorTiempo contador;
-	protected static Juego elJuego;
+	protected Juego elJuego;
 	protected GameObject objeto_insertar = null;
 	protected int contador_imprimir;
 	protected boolean pulsado; //Permite detectar si se ha pulsado o no el labelTablero para insertar un objeto.
@@ -113,12 +115,7 @@ public class MenuPrincipal {
 		panelMapa.setComponentZOrder(labelTablero, 0);
 		
 		//crea la torre
-		torre = new JLabel();
-		torre.setBounds(panelMapa.getX(), panelMapa.getY()+(Math.floorDiv(frame.getHeight(), 25)), Math.floorDiv(frame.getWidth(), 4), (frame.getHeight() - Math.floorDiv(frame.getHeight(), 4)) );
-		torre.setBackground(new Color(0,0,0,50));
-		torre.setVisible(true);
-		torre.setOpaque(true);
-		torre.setIcon(new ImageIcon("../Texturas/Torres/Torre-1.png"));
+		torre = new LabelTorre(panelMapa, frame.getHeight(), frame.getWidth());
 		panelMapa.add(torre);
 		panelMapa.setComponentZOrder(torre, panelMapa.getComponentCount() - 1);
 		elJuego.getNivel().getMapa().setTorre(torre);
@@ -138,7 +135,12 @@ public class MenuPrincipal {
 		for (ButtonPersonaje bp: itemCharacter) {
 			bp.addMouseListener(new MouseAdapter() {
 				public void mouseClicked(MouseEvent e){
-					objeto_insertar = bp.crearObjeto();
+					if (bp.getCostoPersonaje()<=elJuego.getNivel().getMonedas()) {
+						objeto_insertar = bp.crearObjeto();
+					}
+					else {
+						JOptionPane.showMessageDialog(null, "Monedas insuficiente", "Error...", JOptionPane.ERROR_MESSAGE);
+					}
 				}
 			});
 		}
@@ -198,6 +200,7 @@ public class MenuPrincipal {
 		labelTablero.updateUI();
 		labelTablero.repaint();
 		reacomodarOrdenGrafica();
+		actualizarInformacionTienda();
 	}
 
 
@@ -300,19 +303,10 @@ public class MenuPrincipal {
 	 */
 	public synchronized void setearAliado() {
 		if (objeto_insertar!=null && pulsado) {
+			int costo = ((EntidadComprable) objeto_insertar).getPrecio();
+			elJuego.getNivel().agregarMonedas(-1 * costo);
 			
 			labelTablero.insertarObjeto(objeto_insertar);
-//			//Seteo el aliado
-//			int tamaño_x = objeto_insertar.getGrafica().getLabel().getWidth();
-//			int tamaño_y = objeto_insertar.getGrafica().getLabel().getHeight();
-//			//objeto_insertar.getPosicionX() retorna la posición en X del objeto en el panel, para tener su posición en el tablero, le resto el X del tablero
-//			int posicion_x_en_tablero = objeto_insertar.getPosicionX() - labelTablero.getX();
-//			//objeto_insertar.getPosicionY() retorna la posición en Y del objeto en el panel, para tener su posición en el tablero, le resto el Y del tablero
-//			int posicion_y_en_tablero = objeto_insertar.getPosicionY() - labelTablero.getY();
-//			objeto_insertar.getGrafica().getLabel().setBounds(posicion_x_en_tablero, posicion_y_en_tablero, tamaño_x, tamaño_y);
-//			//lista.add(objeto_insertar.getGrafica().getLabel()); //por qué es necesaria una lista de labels si desde la lista de entidades se puede acceder a los labels?
-//			labelTablero.insertar(objeto_insertar.getGrafica().getLabel());
-			
 			//Se setea las variables auxiliares
 			objeto_insertar = null;
 			pulsado = false;
