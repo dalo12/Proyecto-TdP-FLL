@@ -2,6 +2,7 @@ package GUI.Component_Custom.JLabel;
 
 import java.awt.Color;
 
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 import GUI.Mapa.MapaGrafico;
@@ -21,5 +22,6 @@ public class LabelTorre extends JLabel {
 		setBackground(new Color(0,0,0,50));
 		setVisible(true);
 		setOpaque(true);
+		setIcon(new ImageIcon("../Texturas/Torres/Torre-1.png"));
 	}
 }

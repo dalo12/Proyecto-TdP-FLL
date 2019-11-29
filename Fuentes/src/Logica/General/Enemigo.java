@@ -45,7 +45,8 @@ public abstract class Enemigo extends Personaje {
 	 */
 	public int getMonedas() {
 		Random r = new Random();
-		return r.nextInt(maxMonedas) + 10;
+		int to_return = r.nextInt(maxMonedas) + 20;
+		return to_return;
 	}
 
 	/**

@@ -3,22 +3,21 @@ package Logica.Tienda.Aliados;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import GUI.Component_Custom.ImageIcon.Aliados.TexturaSniperSoldier;
 import Logica.Aliados.SniperSoldier;
 import Logica.General.GameObject;
 import Logica.General.Nivel;
 
 @SuppressWarnings("serial")
 public class ButtonSniperSoldier extends ButtonPersonaje {
-	private static final String urlImg1 = "../Texturas/Personajes/sniper-soldier/sniper-soldier-preview.png";
-	private static final String descripcion = "<html><p> Sniper Soldier <br/> $5500 </p></html>";
-	
 	/**
 	 * Constructor de ButtonAllterrainMachinegun
 	 */
 	public ButtonSniperSoldier(Nivel n) {
-		super(descripcion, urlImg1, n);
+		super(new TexturaSniperSoldier(), n);
+		//Entidad
 		entidad = new SniperSoldier(POS_CREACION_X, POS_CREACION_Y, n);
-		int precio = entidad.getPrecio();
+		precio = entidad.getPrecio();
 		entidad.morir();
 		
 		this.addActionListener(new ActionListener(){

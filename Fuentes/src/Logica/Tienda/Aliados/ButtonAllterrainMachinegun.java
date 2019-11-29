@@ -3,22 +3,21 @@ package Logica.Tienda.Aliados;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import GUI.Component_Custom.ImageIcon.Aliados.TexturaAllterrainMachinegun;
 import Logica.Aliados.AllterrainMachinegun;
 import Logica.General.GameObject;
 import Logica.General.Nivel;
 
 @SuppressWarnings("serial")
 public class ButtonAllterrainMachinegun extends ButtonPersonaje {
-	private static final String urlImg1 = "../Texturas/Personajes/allterrain-machinegun/allterrain-machinegun-preview.png";
-	private static final String descripcion = "<html><p> Allterrain Machinegun <br/> $5500 </p></html>";
 	
 	/**
 	 * Constructor de ButtonAllterrainMachinegun
 	 */
 	public ButtonAllterrainMachinegun(Nivel n) {
-		super(descripcion, urlImg1, n);
+		super(new TexturaAllterrainMachinegun(), n);		
 		entidad = new AllterrainMachinegun(POS_CREACION_X, POS_CREACION_Y, n);
-		int precio = entidad.getPrecio();
+		precio = entidad.getPrecio();
 		entidad.morir();
 		
 		this.addActionListener(new ActionListener(){
