@@ -67,8 +67,8 @@ public class Bomba extends ObjetoTemporal implements EntidadComprable{
 		if(movido_x && movido_y) {
 			//Daña objetos que están en sus caudrantes al rededor
 			for(GameObject o : nivel.getListaEntidades()) {
-				boolean rango_x = this.posicionX-50 < o.getPosicionX() && this.posicionX+50 > o.getPosicionX();
-				boolean rango_y = this.posicionY-50 < o.getPosicionY() && this.posicionY+50 > o.getPosicionY();
+				boolean rango_x = this.posicionX-100 < o.getPosicionX() && this.posicionX+100 > o.getPosicionX();
+				boolean rango_y = this.posicionY-100 < o.getPosicionY() && this.posicionY+100 > o.getPosicionY();
 				
 				if(rango_x && rango_y) {
 					o.accept(this.visitor);

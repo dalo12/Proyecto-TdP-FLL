@@ -15,7 +15,7 @@ import GUI.Mapa.MapaGrafico;
 public class Juego {	
 	protected Nivel niveles[];
 	protected int dificultad; //dificultad de la oleada
-	protected static final int CANT_DERROTA = 5; //Cantidad de kangaroo que deben entrar a la torre para perder
+	protected static final int CANT_DERROTA = 1; //Cantidad de kangaroo que deben entrar a la torre para perder
 	protected List<GameObject> invaden;
 	protected int cant_objetos;
 	protected boolean en_juego;
