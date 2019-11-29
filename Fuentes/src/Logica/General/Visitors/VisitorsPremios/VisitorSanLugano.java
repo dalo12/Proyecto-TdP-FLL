@@ -8,6 +8,7 @@ import Logica.General.Enemigo;
 import Logica.General.Objeto;
 import Logica.General.Premio;
 import Logica.General.Visitors.Visitor;
+import Logica.PowerUps.CampoProtector;
 
 public class VisitorSanLugano extends Visitor {
 
@@ -21,6 +22,7 @@ public class VisitorSanLugano extends Visitor {
 	public void visitAliado(Aliado aliado) {
 		aliado.getGrafica().getLabel().setBackground(new Color(0, 0, 255, 50));
 		aliado.getGrafica().getLabel().setOpaque(true);
+		new CampoProtector(aliado);
 	}
 
 	@Override
@@ -39,6 +41,11 @@ public class VisitorSanLugano extends Visitor {
 	public void visitPremio(Premio premio) {
 		// TODO Auto-generated method stub
 
+	}
+	
+	@Override
+	public void visitCampoProtector(CampoProtector campo) {
+		// TODO Auto-generated method stub
 	}
 
 }

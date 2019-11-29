@@ -1,6 +1,8 @@
 package Logica.PowerUps;
 
 import java.awt.Color;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.LinkedList;
 
 import GUI.Component_Custom.ImageIcon.PowerUps.TexturaGarraCharrua;

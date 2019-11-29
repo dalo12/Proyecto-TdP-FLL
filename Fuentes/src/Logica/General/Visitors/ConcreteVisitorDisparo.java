@@ -5,6 +5,7 @@ import Logica.General.Disparo;
 import Logica.General.Enemigo;
 import Logica.General.Objeto;
 import Logica.General.Premio;
+import Logica.PowerUps.CampoProtector;
 
 public class ConcreteVisitorDisparo extends Visitor {
 
@@ -46,5 +47,9 @@ public class ConcreteVisitorDisparo extends Visitor {
 	public void visitPremio(Premio premio) {
 		// Disparo no interactua con premio.
 	}
-
+	
+	@Override
+	public void visitCampoProtector(CampoProtector campo) {
+		// TODO Auto-generated method stub
+	}
 }

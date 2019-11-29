@@ -16,8 +16,6 @@ public class GOGraficoPremio extends GOGrafico {
 	 */
 	public GOGraficoPremio(int x, int y, int tamaño_x, int tamaño_y, TexturaGameObject textura, MapaGrafico mapa) {
 		super(x, y, tamaño_x, tamaño_y, textura, mapa);
-	}
-
-	
+	}	
 
 }

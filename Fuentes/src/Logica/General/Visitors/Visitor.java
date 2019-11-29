@@ -5,6 +5,7 @@ import Logica.General.Disparo;
 import Logica.General.Enemigo;
 import Logica.General.Objeto;
 import Logica.General.Premio;
+import Logica.PowerUps.CampoProtector;
 
 public abstract class Visitor {
 
@@ -17,5 +18,7 @@ public abstract class Visitor {
 	public abstract void visitDisparo(Disparo disparo);
 	
 	public abstract void visitPremio(Premio premio);
+	
+	public abstract void visitCampoProtector(CampoProtector campo);
 	
 }

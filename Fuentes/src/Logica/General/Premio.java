@@ -49,6 +49,7 @@ public abstract class Premio extends GameObject {
 		if(!activo) {
 			duracionEnMapa--;
 			if(duracionEnMapa == 0) {
+				//this.activar();
 				this.morir();
 			}
 		}
@@ -69,6 +70,13 @@ public abstract class Premio extends GameObject {
 	protected abstract void aplicarEfecto(Enemigo enemigo);
 	
 	/**
+	 * @return El nivel actual del premio
+	 */
+	public Nivel getNivel() {
+		return this.nivel;
+	}
+	
+	/**
 	 * Clase PremioActivado: Clase que redefine el evento clicked activar y ejecutar un premio
 	 */
 	protected class PremioActivado extends MouseAdapter {
@@ -79,11 +87,25 @@ public abstract class Premio extends GameObject {
 		}
 		
 		public void mouseClicked(MouseEvent e){
-			premio.activar();
 			premio.setPosicionX(-1000);
 			premio.setPosicionY(-1000);
-			JOptionPane.showMessageDialog(null, "Mensaje");
+			premio.activar();
+			System.out.println("SE ENTRÓ EN EL MOUSE CLICKED. CAPTURADO CLICK DEL MOUSE!");
 		}
+	}
+
+	/**
+	 * @return the empoderados
+	 */
+	public List<GameObject> getEmpoderados() {
+		return empoderados;
+	}
+
+	/**
+	 * @param empoderados the empoderados to set
+	 */
+	public void setEmpoderados(List<GameObject> empoderados) {
+		this.empoderados = empoderados;
 	}
 	
 }

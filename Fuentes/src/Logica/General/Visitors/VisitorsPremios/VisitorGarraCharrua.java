@@ -8,6 +8,7 @@ import Logica.General.Enemigo;
 import Logica.General.Objeto;
 import Logica.General.Premio;
 import Logica.General.Visitors.Visitor;
+import Logica.PowerUps.CampoProtector;
 
 public class VisitorGarraCharrua extends Visitor {
 
@@ -41,5 +42,9 @@ public class VisitorGarraCharrua extends Visitor {
 		// TODO Auto-generated method stub
 
 	}
-
+	
+	@Override
+	public void visitCampoProtector(CampoProtector campo) {
+		// TODO Auto-generated method stub
+	}
 }

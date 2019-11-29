@@ -51,5 +51,5 @@ PREMIOS:
 	- San Lugano: crea un campo de protección alrededor de los personajes aliados. Todo enemigo que toque algún personaje con el campo de protección es instantáneamente destruido. Su efecto es temporal.
 	- Garra charrúa: duplica el valor de ataque de los personajes aliados. Su efecto es temporal.
 	- Bombardeo: lleva a cabo un ataque de bombardeo con aviones de apoyo. ¡CUIDADO! Daña tanto unidades enemigas como aliadas.
-	- Francotirador: permite seleccionar a qué personaje disparar, logrando su muerte inmediata.
+	- Francotirador: le dispara al enemigo más cercano a la base, logrando su muerte inmediata.
 

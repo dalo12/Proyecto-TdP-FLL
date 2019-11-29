@@ -160,7 +160,17 @@ public abstract class GameObject {
 	}
 	
 	/**
+	 * @return El nivel actual en el que se encuentra el objeto
+	 */
+	public Nivel getNivel() {
+		return this.nivel;
+	}
+	
+	/**
 	 * Método que se invoca cuando el objeto muere
 	 */
-	public void morir() {}
+	public void morir() {
+		nivel.eliminarObjeto(this);
+		grafica.morir();
+	}
 }

@@ -1,6 +1,8 @@
 package Logica.PowerUps;
 
 import java.awt.Color;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.LinkedList;
 
 import GUI.Component_Custom.ImageIcon.PowerUps.TexturaSanLugano;
@@ -28,12 +30,12 @@ public class SanLugano extends Premio {
 		this.tamanoY = 1;
 		
 		//Grafico de GOGrafico
-		this.grafica = new GOGrafico(x, y, tamanoX, tamanoY, new TexturaSanLugano(), n.getMapa());
+		this.grafica = new GOGrafico(x, y, tamanoX, tamanoY, new TexturaSanLugano(), n.getMapa());		
 		this.grafica.getLabel().addMouseListener(new PremioActivado(this));
 		
 		//atributos lógicos
 		duracionEnMapa = 10;
-		duracionActivo = 240;
+		duracionActivo = 60;
 		
 		visitor = new VisitorSanLugano();
 		visitor_retirar_efecto = new VisitorSanLuganoRetirar();
@@ -66,8 +68,9 @@ public class SanLugano extends Premio {
 	
 	@Override
 	protected void aplicarEfecto(Enemigo enemigo) {
-		// TODO Falta inventar el efecto
 		enemigo.getGrafica().getLabel().setBackground(new Color(0, 0, 255, 50));
+		enemigo.getGrafica().getLabel().setOpaque(true);
+		new CampoProtector(enemigo);
 	}
 
 }

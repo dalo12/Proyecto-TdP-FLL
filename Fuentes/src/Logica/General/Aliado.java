@@ -148,11 +148,11 @@ public abstract class Aliado extends Personaje implements EntidadComprable{
 					int monedas_recuperadas = aliado.vender();
 					nivel.agregarMonedas(monedas_recuperadas);
 					nivel.getMapa().getTablero().remove(aliado.getGrafica().getLabel());
-					nivel.getListaEntidades().remove(aliado);
+					nivel.eliminarObjeto(aliado);
 					nivel.getMapa().getTablero().updateUI();
 					nivel.getMapa().getTablero().repaint();
 				}
-				}
+			}
 		}
 	}
 }

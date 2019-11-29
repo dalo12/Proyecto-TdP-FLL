@@ -8,6 +8,7 @@ import Logica.General.Enemigo;
 import Logica.General.Objeto;
 import Logica.General.Premio;
 import Logica.General.Visitors.Visitor;
+import Logica.PowerUps.CampoProtector;
 
 public class VisitorSanLuganoRetirar extends Visitor {
 	
@@ -41,6 +42,11 @@ public class VisitorSanLuganoRetirar extends Visitor {
 	public void visitPremio(Premio premio) {
 		// TODO Auto-generated method stub
 
+	}
+	
+	@Override
+	public void visitCampoProtector(CampoProtector campo) {
+		campo.morir();
 	}
 
 }

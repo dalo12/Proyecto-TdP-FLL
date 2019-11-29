@@ -16,6 +16,7 @@ import Logica.Enemigos.*;
 import Logica.Objetos.*;
 import Logica.General.GameObject;
 import Logica.General.Juego;
+import Logica.General.Premio;
 import Logica.Tienda.Aliados.*;
 import Logica.Tienda.Objetos.*;
 
@@ -46,6 +47,8 @@ public class MenuPrincipal {
 	protected static final int CANT_EN_Y = 6; //Cantidad de filas que contendrá LabelTablero
 	protected static final int CANT_DERROTA = 3; //Cantidad de kangaroo que deben entrar a la torre para perder
 	protected int tamano_lista_entidades;
+	//TODO Borrar
+	protected int tamano_lista_entidades_2;
 	
 	/**
 	 * Launch the application.
@@ -62,6 +65,8 @@ public class MenuPrincipal {
 	public MenuPrincipal() {
 		pulsado = false;
 		contador_imprimir = 0;
+		tamano_lista_entidades = 0;
+		tamano_lista_entidades_2 = 0;
 		elJuego = new Juego();
 		
 		initialize(); //Inicia el frame
@@ -153,7 +158,7 @@ public class MenuPrincipal {
 	}
 
 	/**
-	 * Crea el mapa con dos gameobject (sin acción)
+	 * Crea el mapa
 	 */
 	private void crearMapa() {
 		frame.getContentPane().setLayout(new GridLayout(0, 1, 0, 0));
@@ -188,11 +193,11 @@ public class MenuPrincipal {
 	 */
 	public synchronized void accionar() {
 		imprimirObjetos();
-		reacomodarOrdenGrafica();
 		panelMapa.updateUI();
 		panelMapa.repaint();
 		labelTablero.updateUI();
 		labelTablero.repaint();
+		reacomodarOrdenGrafica();
 	}
 
 
@@ -220,8 +225,8 @@ public class MenuPrincipal {
 	 */
 	public synchronized void imprimirObjetos() {
 		String cadena = "";
-		if(tamano_lista_entidades != elJuego.getNivel().getListaEntidades().size()) {
-			tamano_lista_entidades = elJuego.getNivel().getListaEntidades().size();
+		if(tamano_lista_entidades_2 != elJuego.getNivel().getListaEntidades().size()) {
+			tamano_lista_entidades_2 = elJuego.getNivel().getListaEntidades().size();
 		
 			for(GameObject o : elJuego.getNivel().getListaEntidades()) {
 				cadena += contador_imprimir + ": ";
@@ -279,6 +284,9 @@ public class MenuPrincipal {
 				if(o instanceof Piedra) {
 					cadena += "BoxKangaroo";
 				}	
+				if(o instanceof Premio) {
+					cadena += "Premio";
+				}
 				cadena += " ";
 				contador_imprimir++;
 			}

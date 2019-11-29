@@ -5,6 +5,7 @@ import Logica.General.Disparo;
 import Logica.General.Enemigo;
 import Logica.General.Objeto;
 import Logica.General.Premio;
+import Logica.PowerUps.CampoProtector;
 
 public class ConcreteVisitorEnemigo extends Visitor {
 
@@ -40,6 +41,16 @@ public class ConcreteVisitorEnemigo extends Visitor {
 	@Override
 	public void visitPremio(Premio premio) {
 		// Enemigo no interactua con premio.
+	}
+	
+	@Override
+	public void visitCampoProtector(CampoProtector campo) {
+		boolean coinciden_x = gameObject.getPosicionX() == campo.getPosicionX();
+		boolean coinciden_y = gameObject.getPosicionY() == campo.getPosicionY();
+		
+		if(!coinciden_x || !coinciden_y) {
+			gameObject.morir();
+		}
 	}
 
 }
