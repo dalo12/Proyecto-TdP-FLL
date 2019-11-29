@@ -1,7 +1,7 @@
 package Logica.PowerUps;
 
 import GUI.Component_Custom.ImageIcon.PowerUps.TexturaCampoProtector;
-import GUI.Controlador.GOGrafico.GOGrafico;
+import GUI.Controlador.GOGrafico.GOGraficoPremio;
 import Logica.General.GameObject;
 import Logica.General.Nivel;
 import Logica.General.Visitors.Visitor;
@@ -25,7 +25,7 @@ public class CampoProtector extends GameObject {
 		this.posicionY = o.getPosicionY();
 		this.tamanoX = o.getTamanoX();
 		this.tamanoY = o.getTamanoY();
-		this.grafica = new GOGrafico(this.posicionX, this.posicionY, this.tamanoX, this.tamanoY, new TexturaCampoProtector(), nivel.getMapa());
+		this.grafica = new GOGraficoPremio(this.posicionX, this.posicionY, this.tamanoX, this.tamanoY, new TexturaCampoProtector(), nivel.getMapa());
 		nivel.insertarObjeto(this);
 		
 	}

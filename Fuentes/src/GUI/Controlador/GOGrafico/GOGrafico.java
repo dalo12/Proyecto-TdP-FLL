@@ -7,6 +7,7 @@ import javax.swing.JLabel;
 import javax.swing.Timer;
 
 import GUI.Component_Custom.ImageIcon.TexturaGameObject;
+import GUI.Mapa.LabelTablero;
 import GUI.Mapa.MapaGrafico;
 
 /**
@@ -42,6 +43,25 @@ public class GOGrafico {
 		//mapa.getTablero().add(label);
 		this.mapa = mapa;
 		this.mapa.add(label);
+		label.setBounds(x, y, ANCHO*tamaño_x, ALTO*tamaño_y);
+	}
+	
+	/**
+	 * Constructor de GOGrafico
+	 * @param x Coordenada x del objeto lógico
+	 * @param y Coordenada y del objeto lógico
+	 * @param tamaño_x Ancho del objeto label.
+	 * @param tamaño_y Alto del objeto label.
+	 * @param text Arreglo de con las direcciones de las texturas
+	 * @param labelTablero Tablero del juego
+	 */
+	public GOGrafico(int x, int y, int tamaño_x, int tamaño_y, TexturaGameObject textura, LabelTablero labelTablero) {
+		this.textura = textura;
+		label = new JLabel();
+		label.setIcon(textura.getTexturaQuieto());
+		cord_x = x;
+		cord_y = y;
+		labelTablero.add(label);
 		label.setBounds(x, y, ANCHO*tamaño_x, ALTO*tamaño_y);
 	}
 	

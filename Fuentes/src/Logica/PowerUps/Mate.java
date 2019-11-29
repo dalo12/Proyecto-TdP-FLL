@@ -1,12 +1,10 @@
 package Logica.PowerUps;
 
 import java.awt.Color;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.util.LinkedList;
 
 import GUI.Component_Custom.ImageIcon.PowerUps.TexturaMate;
-import GUI.Controlador.GOGrafico.GOGrafico;
+import GUI.Controlador.GOGrafico.GOGraficoPremio;
 import Logica.General.Enemigo;
 import Logica.General.GameObject;
 import Logica.General.Nivel;
@@ -30,7 +28,7 @@ public class Mate extends Premio {
 		this.tamanoY = 1;
 		
 		//Grafico de GOGrafico
-		this.grafica = new GOGrafico(x, y, tamanoX, tamanoY, new TexturaMate(), n.getMapa());
+		this.grafica = new GOGraficoPremio(x, y, tamanoX, tamanoY, new TexturaMate(), n.getMapa());
 		this.grafica.getLabel().addMouseListener(new PremioActivado(this));	
 		
 		//atributos lógicos
