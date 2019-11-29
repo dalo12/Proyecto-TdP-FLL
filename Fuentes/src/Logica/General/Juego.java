@@ -134,17 +134,4 @@ public class Juego {
 		boolean esta_dentro_abajo = (o.getPosicionY() + o.getGrafica().getLabel().getHeight()) <= (niveles[nro_nivel].getMapa().getTorre().getY() + niveles[nro_nivel].getMapa().getTorre().getHeight()); 
 		return esta_dentro_x && esta_dentro_arriba && esta_dentro_abajo;
 	}
-	
-	/**
-	 * Devuelve las vidas que posee el castillo.
-	 * @return Entero que representa las vidas
-	 */
-	public int getVidas() {
-		if ((CANT_DERROTA - invaden.size())>0) {
-			return (CANT_DERROTA - invaden.size());
-		}
-		else {
-			return 0;
-		}
-	}
 }
