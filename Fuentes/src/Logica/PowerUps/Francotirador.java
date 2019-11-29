@@ -31,7 +31,7 @@ public class Francotirador extends Premio {
 		activo = false;
 		
 		visitor = new ConcreteVisitorPremio(null, null, null, y);
-		
+		this.grafica.getLabel().addMouseListener(new PremioActivado(this));
 	}
 
 	@Override

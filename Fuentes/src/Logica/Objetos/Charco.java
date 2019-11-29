@@ -23,18 +23,7 @@ public class Charco extends ObjetoTemporal {
 		//atributos físicos
 		this.posicionX = x;
 		this.posicionY = y;
-		this.tamanoX = 1;		
-//<<<<<<< HEAD
-//		
-//		String [] texturas = new String[5];
-//		texturas[0] = "../Texturas/Objetos/puddle/puddle.png";
-//		texturas[1] = texturas[2] = texturas[3] = texturas[4] = texturas[0];
-//		this.grafica = new GOGrafico(x, y, tamanoX, tamanoY, texturas, n.getMapa());
-//=======
-//
-//		//Grafico de GOGrafico
-//		this.grafica = new GOGrafico(x, y, tamanoX, tamanoY, new TexturaCharco(), n.getMapa());
-//>>>>>>> 179aea955a0b2b5a5c1d1651d5b68b054de77910
+		this.tamanoX = 1;
 		this.tamanoY = 1;
 		
 		//Grafico de GOGrafico

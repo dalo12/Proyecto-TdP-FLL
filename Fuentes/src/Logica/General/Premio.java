@@ -82,6 +82,7 @@ public abstract class Premio extends GameObject {
 			premio.activar();
 			premio.setPosicionX(-1000);
 			premio.setPosicionY(-1000);
+			JOptionPane.showMessageDialog(null, "Mensaje");
 		}
 	}
 	

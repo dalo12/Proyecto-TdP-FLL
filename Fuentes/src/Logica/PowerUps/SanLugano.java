@@ -29,6 +29,7 @@ public class SanLugano extends Premio {
 		
 		//Grafico de GOGrafico
 		this.grafica = new GOGrafico(x, y, tamanoX, tamanoY, new TexturaSanLugano(), n.getMapa());
+		this.grafica.getLabel().addMouseListener(new PremioActivado(this));
 		
 		//atributos lógicos
 		duracionEnMapa = 10;
@@ -36,6 +37,7 @@ public class SanLugano extends Premio {
 		
 		visitor = new VisitorSanLugano();
 		visitor_retirar_efecto = new VisitorSanLuganoRetirar();
+		
 		
 	}
 

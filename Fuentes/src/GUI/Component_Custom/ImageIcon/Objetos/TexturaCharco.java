@@ -9,17 +9,11 @@ public class TexturaCharco extends TexturaGameObject {
 	 * Constructor de TexturaCharco
 	 */
 	public TexturaCharco() {		
-		this.objeto_quieto = new ImageIcon(TexturaCharco.class.getResource("/Recursos/Personajes/kangaroo/kangaroo-0.png"));
-		this.objeto_atacando = new ImageIcon(TexturaCharco.class.getResource("/Recursos/Personajes/kangaroo/kangaroo-0.png"));
-		this.objeto_atacado = new ImageIcon(TexturaCharco.class.getResource("/Recursos/Personajes/kangaroo/kangaroo-0.png"));
-		this.objeto_avanzando = new ImageIcon(TexturaCharco.class.getResource("/Recursos/Personajes/kangaroo/kangaroo-0.png"));
-		this.objeto_muriendo = new ImageIcon(TexturaCharco.class.getResource("/Recursos/Personajes/kangaroo/kangaroo-0.png"));
-		
-//		this.objeto_quieto = new ImageIcon(TexturaCharco.class.getResource("/Recursos/Objetos/puddle/puddle.png"));
-//		this.objeto_atacando = new ImageIcon(TexturaCharco.class.getResource("/Recursos/Objetos/puddle/puddle.png"));
-//		this.objeto_atacado = new ImageIcon(TexturaCharco.class.getResource("/Recursos/Objetos/puddle/puddle.png"));
-//		this.objeto_avanzando = new ImageIcon(TexturaCharco.class.getResource("/Recursos/Objetos/puddle/puddle.png"));
-//		this.objeto_muriendo = new ImageIcon(TexturaCharco.class.getResource("/Recursos/Objetos/puddle/puddle.png"));
+		this.objeto_quieto = new ImageIcon(TexturaCharco.class.getResource("/Recursos/Objetos/puddle/puddle.png"));
+		this.objeto_atacando = new ImageIcon(TexturaCharco.class.getResource("/Recursos/Objetos/puddle/puddle.png"));
+		this.objeto_atacado = new ImageIcon(TexturaCharco.class.getResource("/Recursos/Objetos/puddle/puddle.png"));
+		this.objeto_avanzando = new ImageIcon(TexturaCharco.class.getResource("/Recursos/Objetos/puddle/puddle.png"));
+		this.objeto_muriendo = new ImageIcon(TexturaCharco.class.getResource("/Recursos/Objetos/puddle/puddle.png"));
 	}
 	
 }
