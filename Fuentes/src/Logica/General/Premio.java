@@ -80,6 +80,8 @@ public abstract class Premio extends GameObject {
 		
 		public void mouseClicked(MouseEvent e){
 			premio.activar();
+			premio.setPosicionX(-1000);
+			premio.setPosicionY(-1000);
 		}
 	}
 	
