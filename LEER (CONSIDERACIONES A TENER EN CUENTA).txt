@@ -15,3 +15,7 @@ Los personajes se tiñen de distintos colores a corde al premio obtenido:
 - Naranja: Aplicado el premio 'Bombardeo'
 - Blanco: Aplicado el premio 'Francotirador'
 NOTA: El cambio es tan rápido (se invoca en el accionar() y dura hasta que el objeto muere) que en 'Bombardeo' y 'Francotirador' no se alcanza a apreciar al ojo humano (aunque esté implementado en el código) 
+
+Objetos:
+- Las bombas matan afectan la vida de todo objeto (enemigo o aliado) en los 8 casilleros que la rodean).
+- Las minas matan al primer enemigo que la pisa.
