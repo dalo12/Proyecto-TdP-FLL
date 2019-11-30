@@ -22,6 +22,6 @@ public class LabelTorre extends JLabel {
 		setBackground(new Color(0,0,0,50));
 		setVisible(true);
 		setOpaque(true);
-		setIcon(new ImageIcon("../Texturas/Torres/Torre-1.png"));
+		setIcon(new ImageIcon(LabelTorre.class.getResource("/Recursos/Torres/Torre-1.png")));
 	}
 }

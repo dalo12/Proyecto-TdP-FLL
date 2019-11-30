@@ -1,5 +1,8 @@
 Consideraciones a tener en cuenta:
 
+Proyecto:
+La carpeta del proyecto es la carpeta denominada Fuente, en dicha carpeta están incluidos todos los archivos del proyecto.
+
 Disparos:
 Los disparos funcionan lógicamente, pero gráficamente tienen un comportamiento extraño que no pudimos solucionar (revisamos el código varias veces sin dar con el error en cuentión)
 
