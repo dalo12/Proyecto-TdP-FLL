@@ -3,6 +3,8 @@ package Logica.General;
 import java.awt.Rectangle;
 import java.util.Random;
 
+import javax.swing.JLabel;
+
 import Logica.General.Visitors.Visitor;
 import Logica.PowerUps.*;
 
@@ -142,6 +144,21 @@ public abstract class Enemigo extends Personaje {
 		nivel.agregarPuntaje(puntaje);
 		grafica.morir();
 		soltarPowerUp();
+	}
+	
+	@Override
+	public boolean invade(){
+		boolean es_invadido = false;
+		JLabel torre = nivel.getMapa().getTorre();
+		JLabel label_objeto = this.getGrafica().getLabel();
+		
+		Rectangle r_go, r_torre;
+		r_torre = new Rectangle(torre.getX(), torre.getY(), torre.getWidth(), torre.getHeight());
+		r_go = new Rectangle(label_objeto.getX(), label_objeto.getY(), label_objeto.getWidth(), label_objeto.getHeight());
+
+		es_invadido = r_torre.intersects(r_go);
+		
+		return es_invadido;
 	}
 	
 	// ----- MÉTODOS AUXILIARES ----- //

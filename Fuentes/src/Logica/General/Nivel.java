@@ -12,21 +12,19 @@ import Logica.Objetos.Piedra;
 import Logica.PowerUps.*;
 
 /**
- * Modela los niveles
+ * Clase Nivel: Modela los niveles
  * @author Comisión 25 (FERRANTE, LATOUQUETTE, LÓPEZ)
  * @version 2.0
  */
 public class Nivel {
 	protected static final int FILAS = 6;
 	protected static final int COLUMNAS = 10;
-	
-	protected List<GameObject> entidades, a_anadir, a_borrar; //a_añadir y a_borrar se utilizan para agregar y borrar elementos de la lista mientras ésta se está recorriendo
+	//a_añadir y a_borrar se utilizan para agregar y borrar elementos de la lista mientras ésta se está recorriendo
+	protected List<GameObject> entidades, a_anadir, a_borrar; 
 	protected int max_enemigos;
 	protected int enemigos_restantes;
 	protected MapaGrafico mapa;
-	
 	protected int monedas, puntaje;
-	
 	protected int oleadas_faltantes;
 	
 	/**
@@ -84,10 +82,7 @@ public class Nivel {
 			entidades.add(e);
 		}
 		
-		/*
-		 * Aparece una piedra o un charco en el mapa
-		 */
-		
+		//Aparece una piedra o un charco en el mapa		
 		//primero, reconstruyo el tablero para saber dónde meter el objeto		
 		boolean hay_alguien = false;
 		Random r = new Random();
@@ -241,15 +236,12 @@ public class Nivel {
 			coordenadas_y[i] = coordenadas_y[i-1] + mapa.getTablero().getAlturaDeDivision();
 		}
 		
-		/*
-		 * Generamos los enemigos totalmente al azar
-		 */
+		//Generamos los enemigos totalmente al azar
 		for(int i=0; i<=cantidad; i++) {
 			int j = r.nextInt(coordenadas_y.length); //para saber en qué coordenada "y" poner el enemigo
-			int dif = r.nextInt(dificultad * 10); //dif es la nueva dificultad de los enemigos
-											// se generan enemigos tan difíciles entre 0..dificultad
+			//dif es la nueva dificultad de los enemigos
+			int dif = r.nextInt(dificultad * 10); // se generan enemigos tan difíciles entre 0..dificultad
 			
-		    
 			if(i == 1) {
 				distancia = mapa.getHeight();
 			}else if(i == 3) {
@@ -274,24 +266,13 @@ public class Nivel {
 				lista.add(new Kangaroo(coordenada_x+distancia, coordenadas_y[j], this));
 			}
 			
-			/*
-			 * Cada tanto los enemigos se alejan 
-			 */
-			
+			//Cada tanto los enemigos se alejan 
 			distancia += 10;
-//			if(i % 7 == 0) {
-//				distancia += 200; //los números 7 y 200 es totalmente arbitrario.
-//				/*
-//				 * Cada 7 enemigos, los enemigos se alejan del mapa, para que no aparezcan 30 monos de golpe
-//				 */
-//			}
-			
-			/*
-			 * Cada tanto aparece un enemigo con un powerup implementado sobre si 
-			 */
-
-			if(poder == 5) { //el número 5 es totalmente arbitrario
-				switch(i % 3) { //porque 3 son los powerups
+			//Cada tanto aparece un enemigo con un powerup implementado sobre si
+			//el número 5 es totalmente arbitrario
+			if(poder == 5) {
+				//porque 3 son los powerups
+				switch(i % 3) {
 					case 0:{
 						Premio p = new Mate(0,0,this);
 						p.aplicarEfecto(lista.get(lista.size() - 1));

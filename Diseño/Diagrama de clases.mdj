@@ -544,13 +544,30 @@
 											"height": 13,
 											"text": "+morir()",
 											"horizontalAlignment": 0
+										},
+										{
+											"_type": "UMLOperationView",
+											"_id": "AAAAAAFuufOM6A5I0s4=",
+											"_parent": {
+												"$ref": "AAAAAAFtIj8GRYZzS0U="
+											},
+											"model": {
+												"$ref": "AAAAAAFuufOMSg5FOpo="
+											},
+											"font": "Arial;13;0",
+											"left": 1229,
+											"top": 406,
+											"width": 239.087890625,
+											"height": 13,
+											"text": "+invade(): boolean",
+											"horizontalAlignment": 0
 										}
 									],
 									"font": "Arial;13;0",
 									"left": 1224,
 									"top": 116,
 									"width": 249.087890625,
-									"height": 293
+									"height": 308
 								},
 								{
 									"_type": "UMLReceptionCompartmentView",
@@ -23804,6 +23821,25 @@
 								"$ref": "AAAAAAFtIj8GRYZqih8="
 							},
 							"name": "morir"
+						},
+						{
+							"_type": "UMLOperation",
+							"_id": "AAAAAAFuufOMSg5FOpo=",
+							"_parent": {
+								"$ref": "AAAAAAFtIj8GRYZqih8="
+							},
+							"name": "invade",
+							"parameters": [
+								{
+									"_type": "UMLParameter",
+									"_id": "AAAAAAFuufOxpQ+EnJo=",
+									"_parent": {
+										"$ref": "AAAAAAFuufOMSg5FOpo="
+									},
+									"type": "boolean",
+									"direction": "return"
+								}
+							]
 						}
 					],
 					"isAbstract": true
@@ -28740,7 +28776,8 @@
 								"$ref": "AAAAAAFtbxZpXpAQyQo="
 							},
 							"name": "gameObject_Enemigo",
-							"visibility": "protected"
+							"visibility": "protected",
+							"type": ""
 						}
 					],
 					"operations": [

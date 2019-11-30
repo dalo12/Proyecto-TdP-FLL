@@ -46,4 +46,8 @@ public class CampoProtector extends GameObject {
 		v.visitCampoProtector(this);
 	}
 
+	@Override
+	public boolean invade(){
+		return false;
+	}
 }

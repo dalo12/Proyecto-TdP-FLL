@@ -54,4 +54,8 @@ public abstract class Objeto extends GameObject {
 		this.nivel.getABorrar().add(this);
 	}
 	
+	@Override
+	public boolean invade(){
+		return false;
+	}
 }

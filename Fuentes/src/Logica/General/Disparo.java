@@ -79,4 +79,9 @@ public abstract class Disparo extends GameObject {
 	public Nivel getNivel() {
 		return nivel;
 	}	
+	
+	@Override
+	public boolean invade(){
+		return false;
+	}
 }

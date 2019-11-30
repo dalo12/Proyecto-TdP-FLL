@@ -6,11 +6,10 @@ import GUI.Controlador.GOGrafico.GOGrafico;
 import Logica.General.Visitors.Visitor;
 
 /**
- * Modela todos los objetos del juego: premios, personajes y objetos.
+ * Clase Abstracta GameObject: Modela todos los objetos del juego: premios, personajes y objetos.
  * @author Comisión 25 (FERRANTE, LATOUQUETTE, LÓPEZ)
  * @version 1.0
  */
-
 public abstract class GameObject {
 	protected int posicionX, posicionY, tamanoX, tamanoY;
 	protected Visitor visitor;
@@ -148,7 +147,7 @@ public abstract class GameObject {
 		}	
 			
 		return a_retornar;
-	} //Este metodo no es necesario, se resuelve con visitor.
+	}
 
 	
 	/**
@@ -173,4 +172,10 @@ public abstract class GameObject {
 		nivel.eliminarObjeto(this);
 		grafica.morir();
 	}
+	
+	/**
+	 * Devuelve true si invade la torre y falso en caso contrario.
+	 * @return Booleano que indica la condicion invadir
+	 */
+	public abstract boolean invade();
 }

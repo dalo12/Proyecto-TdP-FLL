@@ -105,4 +105,9 @@ public abstract class Premio extends GameObject {
 		this.empoderados = empoderados;
 	}
 	
+	
+	@Override
+	public boolean invade(){
+		return false;
+	}
 }

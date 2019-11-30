@@ -8,7 +8,7 @@ import javax.swing.JOptionPane;
 import GUI.Mapa.MapaGrafico;
 
 /**
- * Modela el juego
+ * Clase Juego: Modela el juego
  * @author Comisión 25 (FERRANTE, LATOUQUETTE, LÓPEZ)
  * @version 1.0
  */
@@ -21,6 +21,9 @@ public class Juego {
 	protected boolean en_juego;
 	protected int nro_nivel;
 	
+	/**
+	 * Constructor de Juego
+	 */
 	public Juego() {
 		dificultad = 1;	
 		nro_nivel = 0;
@@ -139,9 +142,7 @@ public class Juego {
 	 * @return Verdadero si el objeto entró a la torre, falso en caso contrario
 	 */
 	protected boolean invade(GameObject o) {
-		boolean esta_dentro_x = o.getPosicionX() < (niveles[nro_nivel].getMapa().getTorre().getX()+niveles[nro_nivel].getMapa().getTorre().getWidth());
-		boolean esta_dentro_arriba = o.getPosicionX() >= niveles[nro_nivel].getMapa().getTorre().getY();
-		boolean esta_dentro_abajo = (o.getPosicionY() + o.getGrafica().getLabel().getHeight()) <= (niveles[nro_nivel].getMapa().getTorre().getY() + niveles[nro_nivel].getMapa().getTorre().getHeight()); 
-		return esta_dentro_x && esta_dentro_arriba && esta_dentro_abajo;
+		boolean es_invadido = o.invade();	
+		return es_invadido;
 	}
 }

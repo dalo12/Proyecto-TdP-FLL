@@ -44,10 +44,9 @@ public class MenuPrincipal {
 	//Constantes
 	protected static final int CANT_EN_X = 10; //Cantidad de columnas que contendrá LabelTablero
 	protected static final int CANT_EN_Y = 6; //Cantidad de filas que contendrá LabelTablero
-	//protected static final int CANT_DERROTA = 3; //Cantidad de kangaroo que deben entrar a la torre para perder
 	protected int tamano_lista_entidades;
 	protected int id_nivel;
-	//TODO Borrar
+
 	protected int tamano_lista_entidades_2;
 	
 	
@@ -94,8 +93,8 @@ public class MenuPrincipal {
 					//Me fijo si no hay ya un objeto en esas coordenadas
 					for(GameObject o : elJuego.getNivel().getListaEntidades()) {
 						Rectangle r_o, r_go;
-						r_o = new Rectangle(o.getPosicionX(), o.getPosicionY(), o.getGrafica().getLabel().getWidth()* o.getTamanoX(), o.getGrafica().getLabel().getHeight());
-						r_go = new Rectangle(x_real, y_real, objeto_insertar.getGrafica().getLabel().getWidth()* objeto_insertar.getTamanoX(), objeto_insertar.getGrafica().getLabel().getHeight());
+						r_o = new Rectangle(o.getPosicionX(), o.getPosicionY(), o.getGrafica().getLabel().getWidth(), o.getGrafica().getLabel().getHeight());
+						r_go = new Rectangle(x_real, y_real, objeto_insertar.getGrafica().getLabel().getWidth(), objeto_insertar.getGrafica().getLabel().getHeight());
 						
 						if(r_o.intersects(r_go)) {
 							JOptionPane.showMessageDialog(null, "Lugar ocupado por otro objeto");

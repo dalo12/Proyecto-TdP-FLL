@@ -47,7 +47,6 @@ public abstract class Aliado extends Personaje implements EntidadComprable{
 				}else {
 					grafica.quieto();
 				}
-				//el contador_tiempo se decrementa en el accionar() de Aliado
 			}
 		}
 	}
@@ -131,6 +130,13 @@ public abstract class Aliado extends Personaje implements EntidadComprable{
 		grafica.morir();
 		nivel.eliminarObjeto(this);
 	}
+	
+	@Override
+	public boolean invade(){
+		return false;
+	}
+	
+	
 	/**
 	 * Clase AliadoVenta: Clase que redefine el evento clicked para eliminar un aliado
 	 */
