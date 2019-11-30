@@ -31,9 +31,9 @@ public class Juego {
 		niveles = new Nivel[3];
 		
 		//pseudo creación de niveles (luego se sobreescriben)
-		niveles[0] = new Nivel(new MapaGrafico("", null), 200);
-		niveles[1] = new Nivel(new MapaGrafico("", null), 500);
-		niveles[2] = new Nivel(new MapaGrafico("", null), 1000);
+		niveles[0] = new Nivel(new MapaGrafico(null), 200);
+		niveles[1] = new Nivel(new MapaGrafico(null), 500);
+		niveles[2] = new Nivel(new MapaGrafico(null), 1000);
 		
 		en_juego = true;
 	}

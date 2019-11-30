@@ -11,16 +11,13 @@ import javax.swing.JPanel;
 public class MapaGrafico extends JPanel {
 	protected LabelTablero tablero;
 	protected JLabel torre;
-	private String urlFondo;
 	private Image background;
 	
 	/**
 	 * Constructor de PanelMapa
-	 * @param urlFondo Dirección lógica de la imagen de fondo del mapa
 	 * @param tablero Tablero que está sobre el mapa
 	 */
-	public MapaGrafico(String urlFondo, LabelTablero tablero) {
-		this.urlFondo = urlFondo;
+	public MapaGrafico(LabelTablero tablero) {
 		this.tablero = tablero;
 	}
 
@@ -46,7 +43,7 @@ public class MapaGrafico extends JPanel {
 	public void setBackground() {
 		// Construimos la imagen y se la asignamos al atributo background.
 		this.setOpaque(false);
-		this.background = new ImageIcon(urlFondo).getImage();
+		this.background = new ImageIcon(MapaGrafico.class.getResource("/Recursos/Background/background-lvl-final.png")).getImage();
 		repaint();
 	}
 	

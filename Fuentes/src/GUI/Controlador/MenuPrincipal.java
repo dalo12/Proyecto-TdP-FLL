@@ -152,7 +152,7 @@ public class MenuPrincipal {
 	private void crearMapa() {
 		frame.getContentPane().setLayout(new GridLayout(0, 1, 0, 0));
 		
-		panelMapa = new MapaGrafico("../Texturas/Background/background-lvl-final.png", labelTablero);
+		panelMapa = new MapaGrafico(labelTablero);
 		frame.getContentPane().add(panelMapa);
 		panelMapa.setLayout(null);
 	}
