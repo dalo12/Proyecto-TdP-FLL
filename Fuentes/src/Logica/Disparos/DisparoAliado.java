@@ -1,6 +1,3 @@
-/**
- * 
- */
 package Logica.Disparos;
 
 import java.awt.Rectangle;
@@ -77,8 +74,6 @@ public class DisparoAliado extends Disparo {
 			Rectangle r_g = g.getGrafica().getLabel().getBounds();
 			
 			if(r_yo.intersects(r_g)) {
-//				System.out.println("r_yo: ( " + r_yo.getX() + " , " + r_yo.getY() + " )");
-//				System.out.println("r_g: ( " + r_g.getX() + " , " + r_g.getY() + " )");
 				g.accept(new ConcreteVisitorDisparoAliado(this));
 				break;
 			}
